@@ -5,6 +5,7 @@ public class CustoNivel2 {
     private String descricao;
     private String observacao;
     private String status;
+    private CustoNivel1 custoNivel1;
 
     public CustoNivel2() {
     }
@@ -14,6 +15,14 @@ public class CustoNivel2 {
         this.descricao = descricao;
         this.observacao = observacao;
         this.status = status;
+    }
+
+    public CustoNivel2(int id, String descricao, String observacao, String status, CustoNivel1 custoNivel1) {
+        this.id = id;
+        this.descricao = descricao;
+        this.observacao = observacao;
+        this.status = status;
+        this.custoNivel1 = custoNivel1;
     }
 
     public int getId() {
@@ -46,6 +55,14 @@ public class CustoNivel2 {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public CustoNivel1 getCustoNivel1() {
+        return custoNivel1;
+    }
+
+    public void setCustoNivel1(CustoNivel1 custoNivel1) {
+        this.custoNivel1 = custoNivel1;
     }
     
     

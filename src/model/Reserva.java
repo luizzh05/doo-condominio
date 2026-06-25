@@ -1,23 +1,23 @@
 package model;
 
+import java.time.LocalDate;
+
 public class Reserva {
 
     private int id;
-    private String dataHoraInicio;
-    private String dataHoraFim;
+    private LocalDate dataHoraInicio;
+    private LocalDate dataHoraFim;
     private String observacao;
     private String status;
 
-    AreaCompartilhadaEdificio areaCompartilhadaEdificio;
-    
-    //Ainda temos atributos/objetos para serem inseridos aqui
+    private AreaCompartilhadaEdificio areaCompartilhadaEdificio;
     
     
 
     public Reserva() {
     }
 
-    public Reserva(int id, String dataHoraInicio, String dataHoraFim, String observacao, String status, AreaCompartilhadaEdificio areaCompartilhadaEdificio) {
+    public Reserva(int id, LocalDate dataHoraInicio, LocalDate dataHoraFim, String observacao, String status, AreaCompartilhadaEdificio areaCompartilhadaEdificio) {
         this.id = id;
         this.dataHoraInicio = dataHoraInicio;
         this.dataHoraFim = dataHoraFim;
@@ -34,19 +34,19 @@ public class Reserva {
         this.id = id;
     }
 
-    public String getDataHoraInicio() {
+    public LocalDate getDataHoraInicio() {
         return dataHoraInicio;
     }
 
-    public void setDataHoraInicio(String dataHoraInicio) {
+    public void setDataHoraInicio(LocalDate dataHoraInicio) {
         this.dataHoraInicio = dataHoraInicio;
     }
 
-    public String getDataHoraFim() {
+    public LocalDate getDataHoraFim() {
         return dataHoraFim;
     }
 
-    public void setDataHoraFim(String dataHoraFim) {
+    public void setDataHoraFim(LocalDate dataHoraFim) {
         this.dataHoraFim = dataHoraFim;
     }
 

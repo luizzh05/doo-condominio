@@ -7,8 +7,8 @@ public class AreaCompartilhadaEdificio {
     private String observacao;
     private String status;
     
-    AreaCompartilhada areaCompartilhada;
-    Edificio edificio;
+    private AreaCompartilhada areaCompartilhada;
+    private Edificio edificio;
     
     
 

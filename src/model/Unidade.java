@@ -9,6 +9,7 @@ public class Unidade {
     private int tipoUnidade;
     private String observacao;
     private String status;
+    private Edificio edificio;
 
     public Unidade(int id, String descricao, float metragemTotal, float metragemIndividual, int tipoUnidade, String observacao, String status) {
         this.id = id;
@@ -18,6 +19,17 @@ public class Unidade {
         this.tipoUnidade = tipoUnidade;
         this.observacao = observacao;
         this.status = status;
+    }
+
+    public Unidade(int id, String descricao, float metragemTotal, float metragemIndividual, int tipoUnidade, String observacao, String status, Edificio edificio) {
+        this.id = id;
+        this.descricao = descricao;
+        this.metragemTotal = metragemTotal;
+        this.metragemIndividual = metragemIndividual;
+        this.tipoUnidade = tipoUnidade;
+        this.observacao = observacao;
+        this.status = status;
+        this.edificio = edificio;
     }
     
     public Unidade() {
@@ -78,6 +90,14 @@ public class Unidade {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Edificio getEdificio() {
+        return edificio;
+    }
+
+    public void setEdificio(Edificio edificio) {
+        this.edificio = edificio;
     }
     
 }
