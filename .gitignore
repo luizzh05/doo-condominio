@@ -1,0 +1,32 @@
+# Compilacao e distribuicao
+/build/
+/dist/
+/out/
+*.class
+*.jar
+*.war
+*.ear
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+# IntelliJ IDEA
+/.idea/
+*.iml
+
+# Eclipse
+/.classpath
+/.project
+/.settings/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs e temporarios
+*.log
+*.tmp
+*.temp
