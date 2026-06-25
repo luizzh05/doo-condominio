@@ -38,11 +38,8 @@ public class TelaCadastroAreaCompartilhadaEdificio extends javax.swing.JDialog {
         jComboBoxAreaCompartilhada = new javax.swing.JComboBox<>();
         jLabelEdificio = new javax.swing.JLabel();
         jComboBoxEdificio = new javax.swing.JComboBox<>();
-        jLabelObservacao = new javax.swing.JLabel();
         jScrollPaneObservacao = new javax.swing.JScrollPane();
         jTextAreaObservacao = new javax.swing.JTextArea();
-        jLabelStatus = new javax.swing.JLabel();
-        jComboBoxStatus = new javax.swing.JComboBox<>();
         jPanelbotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
@@ -58,9 +55,9 @@ public class TelaCadastroAreaCompartilhadaEdificio extends javax.swing.JDialog {
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabeltitulo.setText("Cadastro de Area Compartilhada Edificio");
+        jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -75,17 +72,19 @@ public class TelaCadastroAreaCompartilhadaEdificio extends javax.swing.JDialog {
 
         jPanelDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabelSecaoVinculo.setFont(new java.awt.Font("Segoe UI", 1, 13));
+        jLabelSecaoVinculo.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoVinculo.setForeground(new java.awt.Color(83, 0, 30));
         jLabelSecaoVinculo.setText("Vinculo");
 
-        jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13));
+        jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
         jLabelSecaoObservacoes.setText("Observacoes");
 
         jLabelId.setText("ID");
         jLabelId.setToolTipText("Codigo interno do cadastro");
 
+        jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextFieldId.setPreferredSize(new java.awt.Dimension(70, 28));
         jTextFieldId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldIdActionPerformed(evt);
@@ -94,58 +93,22 @@ public class TelaCadastroAreaCompartilhadaEdificio extends javax.swing.JDialog {
 
         jLabelAreaCompartilhada.setText("Area Compartilhada");
 
+        jComboBoxAreaCompartilhada.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxAreaCompartilhada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+        jComboBoxAreaCompartilhada.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelEdificio.setText("Edificio");
 
+        jComboBoxEdificio.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxEdificio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
-
-        jLabelObservacao.setText("Observacao");
+        jComboBoxEdificio.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jTextAreaObservacao.setColumns(20);
-        jTextAreaObservacao.setRows(5);
-        jScrollPaneObservacao.setViewportView(jTextAreaObservacao);
-
-        jLabelStatus.setText("Status");
-
-        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
-
-        java.awt.Dimension tamanhoCampoCadastro = new java.awt.Dimension(170, 28);
-        javax.swing.border.Border bordaCampoCadastro = javax.swing.BorderFactory.createCompoundBorder(
-                javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 196, 205)),
-                javax.swing.BorderFactory.createEmptyBorder(4, 6, 4, 6));
-        jTextFieldId.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
-        jTextFieldId.setBorder(bordaCampoCadastro);
-        jTextFieldId.setPreferredSize(new java.awt.Dimension(70, 28));
-        jComboBoxAreaCompartilhada.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
-        jComboBoxAreaCompartilhada.setPreferredSize(tamanhoCampoCadastro);
-        jComboBoxEdificio.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
-        jComboBoxEdificio.setPreferredSize(tamanhoCampoCadastro);
-        jComboBoxStatus.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
-        jComboBoxStatus.setPreferredSize(tamanhoCampoCadastro);
-        jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextAreaObservacao.setLineWrap(true);
+        jTextAreaObservacao.setRows(5);
         jTextAreaObservacao.setWrapStyleWord(true);
-        jButtonBuscar.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
-        jButtonBuscar.setPreferredSize(new java.awt.Dimension(112, 30));
-        jButtonBuscar.setMinimumSize(new java.awt.Dimension(112, 30));
-        jButtonBuscar.setFocusPainted(false);
-        jButtonCancelar.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
-        jButtonCancelar.setPreferredSize(new java.awt.Dimension(112, 30));
-        jButtonCancelar.setMinimumSize(new java.awt.Dimension(112, 30));
-        jButtonCancelar.setFocusPainted(false);
-        jButtonGravar.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
-        jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
-        jButtonGravar.setMinimumSize(new java.awt.Dimension(112, 30));
-        jButtonGravar.setFocusPainted(false);
-        jButtonNovo.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
-        jButtonNovo.setPreferredSize(new java.awt.Dimension(112, 30));
-        jButtonNovo.setMinimumSize(new java.awt.Dimension(112, 30));
-        jButtonNovo.setFocusPainted(false);
-        jButtonSair.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
-        jButtonSair.setPreferredSize(new java.awt.Dimension(112, 30));
-        jButtonSair.setMinimumSize(new java.awt.Dimension(112, 30));
-        jButtonSair.setFocusPainted(false);
+        jScrollPaneObservacao.setViewportView(jTextAreaObservacao);
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
@@ -153,38 +116,23 @@ public class TelaCadastroAreaCompartilhadaEdificio extends javax.swing.JDialog {
             jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelSecaoVinculo, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanelDadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanelDadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelAreaCompartilhada, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxAreaCompartilhada, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanelDadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanelDadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelSecaoVinculo, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, 70))
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addComponent(jLabelAreaCompartilhada, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxAreaCompartilhada, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
+                    .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
+                            .addComponent(jLabelEdificio))
+                        .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelDadosLayout.setVerticalGroup(
             jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,26 +140,24 @@ public class TelaCadastroAreaCompartilhadaEdificio extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabelSecaoVinculo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelId)
+                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelEdificio, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAreaCompartilhada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAreaCompartilhada)
                     .addComponent(jComboBoxAreaCompartilhada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoObservacoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelObservacao)
-                    .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
+
+        jPanelbotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
         jButtonNovo.setText("Novo");
@@ -318,14 +264,11 @@ public class TelaCadastroAreaCompartilhadaEdificio extends javax.swing.JDialog {
     private javax.swing.JButton jButtonSair;
     private javax.swing.JComboBox<String> jComboBoxAreaCompartilhada;
     private javax.swing.JComboBox<String> jComboBoxEdificio;
-    private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JLabel jLabelAreaCompartilhada;
     private javax.swing.JLabel jLabelEdificio;
-    private javax.swing.JLabel jLabelSecaoVinculo;
-    private javax.swing.JLabel jLabelSecaoObservacoes;
     private javax.swing.JLabel jLabelId;
-    private javax.swing.JLabel jLabelObservacao;
-    private javax.swing.JLabel jLabelStatus;
+    private javax.swing.JLabel jLabelSecaoObservacoes;
+    private javax.swing.JLabel jLabelSecaoVinculo;
     private javax.swing.JLabel jLabeltitulo;
     private javax.swing.JPanel jPanelDados;
     private javax.swing.JPanel jPanelTitulo;

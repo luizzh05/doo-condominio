@@ -99,161 +99,108 @@
         </Property>
       </Properties>
 
-      
-      
-      
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabelSecaoIdentificacao" min="-2" pref="520" max="520" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelId" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldId" min="-2" pref="70" max="70" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabelTipoPessoa" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBoxTipoPessoa" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelNomeFantasia" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldNomeFantasia" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabelRazaoSocial" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldRazaoSocial" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabelId" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldId" min="-2" pref="70" max="70" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabelNomeFantasia" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldNomeFantasia" min="-2" pref="170" max="170" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jLabelRazaoSocial" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldRazaoSocial" min="-2" pref="170" max="170" attributes="0"/>
+                      </Group>
                       <Component id="jLabelSecaoDocumentos" min="-2" pref="520" max="520" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelCpf" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldCpf" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabelRg" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldRg" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelCnpj" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldCnpj" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabelInscricaoEstadual" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldInscricaoEstadual" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabelCpf" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldCpf" min="-2" pref="170" max="170" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jLabelRg" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldRg" min="-2" pref="170" max="170" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabelCnpj" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldCnpj" min="-2" pref="170" max="170" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jLabelInscricaoEstadual" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldInscricaoEstadual" min="-2" pref="170" max="170" attributes="0"/>
+                      </Group>
                       <Component id="jLabelSecaoContato" min="-2" pref="520" max="520" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelFone1" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldFone1" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabelFone2" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldFone2" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelEmail" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldEmail" min="-2" pref="520" max="520" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelSecaoDadosComplementares" min="-2" pref="520" max="520" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelDataNascimento" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldDataNascimento" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabelDataCadastro" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldDataCadastro" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelEstadoCivil" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBoxEstadoCivil" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabelStatus" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBoxStatus" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabelDataNascimento" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldDataNascimento" min="-2" pref="170" max="170" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jLabelDataCadastro" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldDataCadastro" min="-2" pref="170" max="170" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabelEstadoCivil" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jComboBoxEstadoCivil" min="-2" pref="170" max="170" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jLabelStatus" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jComboBoxStatus" min="-2" pref="170" max="170" attributes="0"/>
+                      </Group>
                       <Component id="jLabelSecaoEndereco" min="-2" pref="520" max="520" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelCep" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldCep" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabelCidade" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldCidade" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelBairro" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldBairro" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabelComplemento" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldComplemento" min="-2" pref="170" max="170" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelLogradouro" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldLogradouro" min="-2" pref="520" max="520" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabelCep" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldCep" min="-2" pref="170" max="170" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jLabelCidade" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldCidade" min="-2" pref="170" max="170" attributes="0"/>
+                      </Group>
                       <Component id="jLabelSecaoObservacoes" min="-2" pref="520" max="520" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelObservacao" min="-2" pref="150" max="150" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPaneObservacao" min="-2" pref="520" max="520" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelEmail" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldEmail" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelFone1" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldFone1" min="-2" pref="170" max="170" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jLabelFone2" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldFone2" min="-2" pref="170" max="170" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelLogradouro" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldLogradouro" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelBairro" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldBairro" min="-2" pref="170" max="170" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jLabelComplemento" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldComplemento" min="-2" pref="170" max="170" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPaneObservacao" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -261,13 +208,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelSecaoIdentificacao" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelSecaoIdentificacao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelId" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldId" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelTipoPessoa" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBoxTipoPessoa" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -277,7 +222,7 @@
                       <Component id="jTextFieldRazaoSocial" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelSecaoDocumentos" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelSecaoDocumentos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelCpf" min="-2" max="-2" attributes="0"/>
@@ -293,7 +238,7 @@
                       <Component id="jTextFieldInscricaoEstadual" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelSecaoContato" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelSecaoContato" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelFone1" min="-2" max="-2" attributes="0"/>
@@ -307,7 +252,7 @@
                       <Component id="jTextFieldEmail" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelSecaoDadosComplementares" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelSecaoDadosComplementares" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelDataNascimento" min="-2" max="-2" attributes="0"/>
@@ -323,7 +268,7 @@
                       <Component id="jComboBoxStatus" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelSecaoEndereco" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelSecaoEndereco" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelCep" min="-2" max="-2" attributes="0"/>
@@ -344,13 +289,9 @@
                       <Component id="jTextFieldLogradouro" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelSecaoObservacoes" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelSecaoObservacoes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelObservacao" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPaneObservacao" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPaneObservacao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -437,7 +378,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[70, 28]"/>
             </Property>
-          </Properties><Events>
+          </Properties>
+          <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIdActionPerformed"/>
           </Events>
         </Component>
@@ -454,7 +396,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelRazaoSocial">
           <Properties>
             <Property name="text" type="java.lang.String" value="Razao Social"/>
@@ -468,7 +411,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelCpf">
           <Properties>
             <Property name="text" type="java.lang.String" value="CPF"/>
@@ -482,7 +426,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelRg">
           <Properties>
             <Property name="text" type="java.lang.String" value="RG"/>
@@ -496,7 +441,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelCnpj">
           <Properties>
             <Property name="text" type="java.lang.String" value="CNPJ"/>
@@ -510,7 +456,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelInscricaoEstadual">
           <Properties>
             <Property name="text" type="java.lang.String" value="Inscricao Estadual"/>
@@ -524,7 +471,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelFone1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fone 1"/>
@@ -538,7 +486,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelFone2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fone 2"/>
@@ -552,7 +501,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelEmail">
           <Properties>
             <Property name="text" type="java.lang.String" value="Email"/>
@@ -566,7 +516,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelDataNascimento">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data Nascimento"/>
@@ -580,7 +531,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelDataCadastro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data Cadastro"/>
@@ -594,7 +546,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelEstadoCivil">
           <Properties>
             <Property name="text" type="java.lang.String" value="Estado Civil"/>
@@ -605,10 +558,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[170, 28]"/>
-            </Property>
-<Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="6">
                 <StringItem index="0" value="Selecione"/>
                 <StringItem index="1" value="Solteiro"/>
@@ -617,6 +567,9 @@
                 <StringItem index="4" value="Viuvo"/>
                 <StringItem index="5" value="Uniao Estavel"/>
               </StringArray>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[170, 28]"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -636,7 +589,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelLogradouro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Logradouro"/>
@@ -650,7 +604,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelCidade">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cidade"/>
@@ -664,7 +619,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelBairro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bairro"/>
@@ -678,7 +634,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabelComplemento">
           <Properties>
             <Property name="text" type="java.lang.String" value="Complemento"/>
@@ -692,10 +649,6 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[170, 28]"/>
             </Property>
-          </Properties></Component>
-        <Component class="javax.swing.JLabel" name="jLabelObservacao">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Observacao"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPaneObservacao">
@@ -706,42 +659,18 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="jTextAreaObservacao">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="12" style="0"/>
-            </Property>
-            <Property name="lineWrap" type="boolean" value="true"/>
-            <Property name="rows" type="int" value="5"/>
-            <Property name="wrapStyleWord" type="boolean" value="true"/>
-          </Properties>
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="0"/>
+                </Property>
+                <Property name="lineWrap" type="boolean" value="true"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="wrapStyleWord" type="boolean" value="true"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabelTipoPessoa">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo Pessoa"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxTipoPessoa">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="12" style="0"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[170, 28]"/>
-            </Property>
-<Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Fisica"/>
-                <StringItem index="1" value="Juridica"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabelStatus">
           <Properties>
             <Property name="text" type="java.lang.String" value="Status"/>
@@ -752,14 +681,14 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[170, 28]"/>
-            </Property>
-<Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
                 <StringItem index="0" value="Ativo"/>
                 <StringItem index="1" value="Inativo"/>
               </StringArray>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[170, 28]"/>
             </Property>
           </Properties>
           <AuxValues>
