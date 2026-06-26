@@ -6,12 +6,9 @@ public class AreaCompartilhadaEdificio {
     private int id;
     private String observacao;
     private String status;
-    
     private AreaCompartilhada areaCompartilhada;
     private Edificio edificio;
     
-    
-
     public AreaCompartilhadaEdificio() {
     }
 
