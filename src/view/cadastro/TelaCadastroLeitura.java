@@ -49,8 +49,6 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
         jTextFieldMedicaoAnterior = new javax.swing.JFormattedTextField();
         jLabelMedicaoAtual = new javax.swing.JLabel();
         jTextFieldMedicaoAtual = new javax.swing.JFormattedTextField();
-        jLabelStatus = new javax.swing.JLabel();
-        jComboBoxStatus = new javax.swing.JComboBox<>();
         jLabelSecaoObservacoes = new javax.swing.JLabel();
         jScrollPaneObservacao = new javax.swing.JScrollPane();
         jTextAreaObservacao = new javax.swing.JTextArea();
@@ -90,18 +88,6 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
         jLabelSecaoIdentificacao.setForeground(new java.awt.Color(83, 0, 30));
         jLabelSecaoIdentificacao.setText("Identificacao");
 
-        jLabelSecaoReferencia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabelSecaoReferencia.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoReferencia.setText("Referencia");
-
-        jLabelSecaoMedicao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabelSecaoMedicao.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoMedicao.setText("Medicao");
-
-        jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoObservacoes.setText("Observacoes");
-
         jLabelId.setText("ID");
 
         jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -112,6 +98,10 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
         jComboBoxUnidade.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxUnidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         jComboBoxUnidade.setPreferredSize(new java.awt.Dimension(170, 28));
+
+        jLabelSecaoReferencia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabelSecaoReferencia.setForeground(new java.awt.Color(83, 0, 30));
+        jLabelSecaoReferencia.setText("Referencia");
 
         jLabelDataLeitura.setText("Data Leitura");
 
@@ -134,6 +124,10 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
         jTextFieldAnoReferencia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldAnoReferencia.setPreferredSize(new java.awt.Dimension(170, 28));
 
+        jLabelSecaoMedicao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabelSecaoMedicao.setForeground(new java.awt.Color(83, 0, 30));
+        jLabelSecaoMedicao.setText("Medicao");
+
         jLabelMedicaoAnterior.setText("Medicao Anterior");
 
         jTextFieldMedicaoAnterior.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -144,11 +138,9 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
         jTextFieldMedicaoAtual.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldMedicaoAtual.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelStatus.setText("Status");
-
-        jComboBoxStatus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
-        jComboBoxStatus.setPreferredSize(new java.awt.Dimension(170, 28));
+        jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
+        jLabelSecaoObservacoes.setText("Observacoes");
 
         jTextAreaObservacao.setColumns(20);
         jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -199,10 +191,6 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
                         .addComponent(jLabelMedicaoAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldMedicaoAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
-                    .addGroup(jPanelDadosLayout.createSequentialGroup()
-                        .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
                     .addComponent(jScrollPaneObservacao))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -211,7 +199,6 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
             jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoIdentificacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -243,11 +230,7 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
                     .addComponent(jTextFieldMedicaoAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelMedicaoAtual)
                     .addComponent(jTextFieldMedicaoAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelStatus)
-                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelSecaoObservacoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,7 +267,6 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
 
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         jButtonSair.setText("Sair");
-        jButtonSair.setMaximumSize(new java.awt.Dimension(112, 30));
         jButtonSair.setMinimumSize(new java.awt.Dimension(112, 30));
         jButtonSair.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonSair);
@@ -307,7 +289,7 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jPanelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelbotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -362,33 +344,31 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox<String> jComboBoxUnidade;
     private javax.swing.JComboBox<String> jComboBoxTipo;
-    private javax.swing.JComboBox<String> jComboBoxStatus;
-    private javax.swing.JLabel jLabelSecaoIdentificacao;
-    private javax.swing.JLabel jLabelId;
-    private javax.swing.JLabel jLabelUnidade;
-    private javax.swing.JLabel jLabelSecaoReferencia;
-    private javax.swing.JLabel jLabelDataLeitura;
-    private javax.swing.JLabel jLabelTipo;
-    private javax.swing.JLabel jLabelMesReferencia;
+    private javax.swing.JComboBox<String> jComboBoxUnidade;
     private javax.swing.JLabel jLabelAnoReferencia;
-    private javax.swing.JLabel jLabelSecaoMedicao;
+    private javax.swing.JLabel jLabelDataLeitura;
+    private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelMedicaoAnterior;
     private javax.swing.JLabel jLabelMedicaoAtual;
-    private javax.swing.JLabel jLabelStatus;
+    private javax.swing.JLabel jLabelMesReferencia;
+    private javax.swing.JLabel jLabelSecaoIdentificacao;
+    private javax.swing.JLabel jLabelSecaoMedicao;
     private javax.swing.JLabel jLabelSecaoObservacoes;
+    private javax.swing.JLabel jLabelSecaoReferencia;
+    private javax.swing.JLabel jLabelTipo;
+    private javax.swing.JLabel jLabelUnidade;
     private javax.swing.JLabel jLabeltitulo;
     private javax.swing.JPanel jPanelDados;
     private javax.swing.JPanel jPanelTitulo;
     private javax.swing.JPanel jPanelbotoes;
     private javax.swing.JScrollPane jScrollPaneObservacao;
     private javax.swing.JTextArea jTextAreaObservacao;
-    private javax.swing.JTextField jTextFieldId;
-    private javax.swing.JFormattedTextField jTextFieldDataLeitura;
-    private javax.swing.JFormattedTextField jTextFieldMesReferencia;
     private javax.swing.JFormattedTextField jTextFieldAnoReferencia;
+    private javax.swing.JFormattedTextField jTextFieldDataLeitura;
+    private javax.swing.JTextField jTextFieldId;
     private javax.swing.JFormattedTextField jTextFieldMedicaoAnterior;
     private javax.swing.JFormattedTextField jTextFieldMedicaoAtual;
+    private javax.swing.JFormattedTextField jTextFieldMesReferencia;
     // End of variables declaration//GEN-END:variables
 }

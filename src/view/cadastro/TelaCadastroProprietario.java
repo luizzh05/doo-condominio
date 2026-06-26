@@ -76,8 +76,6 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jTextAreaObservacao = new javax.swing.JTextArea();
         jLabelTipoPessoa = new javax.swing.JLabel();
         jComboBoxTipoPessoa = new javax.swing.JComboBox<>();
-        jLabelStatus = new javax.swing.JLabel();
-        jComboBoxStatus = new javax.swing.JComboBox<>();
         jPanelbotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
@@ -93,9 +91,9 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabeltitulo.setText("Cadastro de Proprietario");
-        jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -203,8 +201,8 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jLabelEstadoCivil.setText("Estado Civil");
 
         jComboBoxEstadoCivil.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxEstadoCivil.setPreferredSize(new java.awt.Dimension(170, 28));
         jComboBoxEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Solteiro", "Casado", "Divorciado", "Viuvo", "Uniao Estavel" }));
+        jComboBoxEstadoCivil.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelCep.setText("CEP");
 
@@ -243,12 +241,6 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jComboBoxTipoPessoa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxTipoPessoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fisica", "Juridica" }));
         jComboBoxTipoPessoa.setPreferredSize(new java.awt.Dimension(170, 28));
-
-        jLabelStatus.setText("Status");
-
-        jComboBoxStatus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxStatus.setPreferredSize(new java.awt.Dimension(170, 28));
-        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
@@ -290,11 +282,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
                         .addGroup(jPanelDadosLayout.createSequentialGroup()
                             .addComponent(jLabelEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jComboBoxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
+                            .addComponent(jComboBoxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                         .addComponent(jLabelSecaoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
                         .addGroup(jPanelDadosLayout.createSequentialGroup()
                             .addComponent(jLabelCep, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
@@ -401,9 +389,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelEstadoCivil)
-                    .addComponent(jComboBoxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelStatus)
-                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoEndereco)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -535,7 +521,6 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JComboBox<String> jComboBoxEstadoCivil;
-    private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JComboBox<String> jComboBoxTipoPessoa;
     private javax.swing.JLabel jLabelBairro;
     private javax.swing.JLabel jLabelCep;
@@ -561,7 +546,6 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelSecaoEndereco;
     private javax.swing.JLabel jLabelSecaoIdentificacao;
     private javax.swing.JLabel jLabelSecaoObservacoes;
-    private javax.swing.JLabel jLabelStatus;
     private javax.swing.JLabel jLabelTipoPessoa;
     private javax.swing.JLabel jLabeltitulo;
     private javax.swing.JPanel jPanelDados;

@@ -74,8 +74,6 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
         jTextFieldComplemento = new javax.swing.JTextField();
         jScrollPaneObservacao = new javax.swing.JScrollPane();
         jTextAreaObservacao = new javax.swing.JTextArea();
-        jLabelStatus = new javax.swing.JLabel();
-        jComboBoxStatus = new javax.swing.JComboBox<>();
         jPanelbotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
@@ -236,12 +234,6 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
         jTextAreaObservacao.setWrapStyleWord(true);
         jScrollPaneObservacao.setViewportView(jTextAreaObservacao);
 
-        jLabelStatus.setText("Status");
-
-        jComboBoxStatus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
-        jComboBoxStatus.setPreferredSize(new java.awt.Dimension(170, 28));
-
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
         jPanelDadosLayout.setHorizontalGroup(
@@ -292,11 +284,7 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
+                        .addComponent(jComboBoxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addComponent(jLabelSecaoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelCep, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
@@ -386,9 +374,7 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelEstadoCivil)
-                    .addComponent(jComboBoxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelStatus)
-                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoEndereco)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -520,7 +506,6 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JComboBox<String> jComboBoxEstadoCivil;
-    private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JLabel jLabelBairro;
     private javax.swing.JLabel jLabelCep;
     private javax.swing.JLabel jLabelCidade;
@@ -545,7 +530,6 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelSecaoEndereco;
     private javax.swing.JLabel jLabelSecaoIdentificacao;
     private javax.swing.JLabel jLabelSecaoObservacoes;
-    private javax.swing.JLabel jLabelStatus;
     private javax.swing.JLabel jLabeltitulo;
     private javax.swing.JPanel jPanelDados;
     private javax.swing.JPanel jPanelTitulo;

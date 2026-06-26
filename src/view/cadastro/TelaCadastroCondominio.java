@@ -48,8 +48,6 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jTextFieldMultas = new javax.swing.JFormattedTextField();
         jLabelCorrecao = new javax.swing.JLabel();
         jTextFieldCorrecao = new javax.swing.JFormattedTextField();
-        jLabelStatus = new javax.swing.JLabel();
-        jComboBoxStatus = new javax.swing.JComboBox<>();
         jLabelSecaoObservacoes = new javax.swing.JLabel();
         jScrollPaneObservacao = new javax.swing.JScrollPane();
         jTextAreaObservacao = new javax.swing.JTextArea();
@@ -74,26 +72,20 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
-        jPanelTituloLayout.setHorizontalGroup(jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jLabeltitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-        jPanelTituloLayout.setVerticalGroup(jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jLabeltitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE));
+        jPanelTituloLayout.setHorizontalGroup(
+            jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabeltitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanelTituloLayout.setVerticalGroup(
+            jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabeltitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+        );
 
         jPanelDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabelSecaoIdentificacao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoIdentificacao.setForeground(new java.awt.Color(83, 0, 30));
         jLabelSecaoIdentificacao.setText("Identificacao");
-
-        jLabelSecaoReferencia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabelSecaoReferencia.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoReferencia.setText("Referencia");
-
-        jLabelSecaoValores.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabelSecaoValores.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoValores.setText("Valores");
-
-        jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoObservacoes.setText("Observacoes");
 
         jLabelId.setText("ID");
 
@@ -105,6 +97,10 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jComboBoxUnidadeCondomino.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxUnidadeCondomino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         jComboBoxUnidadeCondomino.setPreferredSize(new java.awt.Dimension(520, 28));
+
+        jLabelSecaoReferencia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabelSecaoReferencia.setForeground(new java.awt.Color(83, 0, 30));
+        jLabelSecaoReferencia.setText("Referencia");
 
         jLabelMesReferencia.setText("Mes Referencia");
 
@@ -125,6 +121,10 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
 
         jTextFieldDataVencimento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataVencimento.setPreferredSize(new java.awt.Dimension(170, 28));
+
+        jLabelSecaoValores.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabelSecaoValores.setForeground(new java.awt.Color(83, 0, 30));
+        jLabelSecaoValores.setText("Valores");
 
         jLabelValorEmitido.setText("Valor Emitido");
 
@@ -151,11 +151,9 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jTextFieldCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldCorrecao.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelStatus.setText("Status");
-
-        jComboBoxStatus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
-        jComboBoxStatus.setPreferredSize(new java.awt.Dimension(170, 28));
+        jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
+        jLabelSecaoObservacoes.setText("Observacoes");
 
         jTextAreaObservacao.setColumns(20);
         jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -166,7 +164,11 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
-        jPanelDadosLayout.setHorizontalGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanelDadosLayout.createSequentialGroup().addContainerGap().addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        jPanelDadosLayout.setHorizontalGroup(
+            jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelSecaoIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
@@ -213,15 +215,15 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
+                        .addComponent(jTextFieldCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
-                    .addComponent(jScrollPaneObservacao)).addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-        jPanelDadosLayout.setVerticalGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanelDadosLayout.createSequentialGroup().addContainerGap()
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jScrollPaneObservacao))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelDadosLayout.setVerticalGroup(
+            jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabelSecaoIdentificacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -262,14 +264,13 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCorrecao)
-                    .addComponent(jTextFieldCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelStatus)
-                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoObservacoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         jPanelbotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -278,34 +279,57 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jButtonNovo.setMinimumSize(new java.awt.Dimension(112, 30));
         jButtonNovo.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonNovo);
+
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setEnabled(false);
         jButtonCancelar.setMinimumSize(new java.awt.Dimension(112, 30));
         jButtonCancelar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonCancelar);
+
         jButtonGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/OK.png"))); // NOI18N
         jButtonGravar.setText("Gravar");
         jButtonGravar.setEnabled(false);
         jButtonGravar.setMinimumSize(new java.awt.Dimension(112, 30));
         jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonGravar);
+
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jButtonBuscar.setText("Buscar");
         jButtonBuscar.setMinimumSize(new java.awt.Dimension(112, 30));
         jButtonBuscar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonBuscar);
+
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         jButtonSair.setText("Sair");
-        jButtonSair.setMaximumSize(new java.awt.Dimension(112, 30));
         jButtonSair.setMinimumSize(new java.awt.Dimension(112, 30));
         jButtonSair.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonSair);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(jPanelDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(jPanelbotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addContainerGap()));
-        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jPanelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(jPanelbotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelbotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelbotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -321,38 +345,36 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JComboBox<String> jComboBoxUnidadeCondomino;
-    private javax.swing.JComboBox<String> jComboBoxStatus;
-    private javax.swing.JLabel jLabelSecaoIdentificacao;
-    private javax.swing.JLabel jLabelId;
-    private javax.swing.JLabel jLabelUnidadeCondomino;
-    private javax.swing.JLabel jLabelSecaoReferencia;
-    private javax.swing.JLabel jLabelMesReferencia;
     private javax.swing.JLabel jLabelAnoReferencia;
+    private javax.swing.JLabel jLabelCorrecao;
     private javax.swing.JLabel jLabelDataEmissao;
     private javax.swing.JLabel jLabelDataVencimento;
+    private javax.swing.JLabel jLabelId;
+    private javax.swing.JLabel jLabelJuros;
+    private javax.swing.JLabel jLabelMesReferencia;
+    private javax.swing.JLabel jLabelMultas;
+    private javax.swing.JLabel jLabelSecaoIdentificacao;
+    private javax.swing.JLabel jLabelSecaoObservacoes;
+    private javax.swing.JLabel jLabelSecaoReferencia;
     private javax.swing.JLabel jLabelSecaoValores;
+    private javax.swing.JLabel jLabelUnidadeCondomino;
     private javax.swing.JLabel jLabelValorEmitido;
     private javax.swing.JLabel jLabelValorPago;
-    private javax.swing.JLabel jLabelJuros;
-    private javax.swing.JLabel jLabelMultas;
-    private javax.swing.JLabel jLabelCorrecao;
-    private javax.swing.JLabel jLabelStatus;
-    private javax.swing.JLabel jLabelSecaoObservacoes;
     private javax.swing.JLabel jLabeltitulo;
     private javax.swing.JPanel jPanelDados;
     private javax.swing.JPanel jPanelTitulo;
     private javax.swing.JPanel jPanelbotoes;
     private javax.swing.JScrollPane jScrollPaneObservacao;
     private javax.swing.JTextArea jTextAreaObservacao;
-    private javax.swing.JTextField jTextFieldId;
-    private javax.swing.JFormattedTextField jTextFieldMesReferencia;
     private javax.swing.JFormattedTextField jTextFieldAnoReferencia;
+    private javax.swing.JFormattedTextField jTextFieldCorrecao;
     private javax.swing.JFormattedTextField jTextFieldDataEmissao;
     private javax.swing.JFormattedTextField jTextFieldDataVencimento;
+    private javax.swing.JTextField jTextFieldId;
+    private javax.swing.JFormattedTextField jTextFieldJuros;
+    private javax.swing.JFormattedTextField jTextFieldMesReferencia;
+    private javax.swing.JFormattedTextField jTextFieldMultas;
     private javax.swing.JFormattedTextField jTextFieldValorEmitido;
     private javax.swing.JFormattedTextField jTextFieldValorPago;
-    private javax.swing.JFormattedTextField jTextFieldJuros;
-    private javax.swing.JFormattedTextField jTextFieldMultas;
-    private javax.swing.JFormattedTextField jTextFieldCorrecao;
     // End of variables declaration//GEN-END:variables
 }
