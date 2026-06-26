@@ -4,11 +4,16 @@
  */
 package view.consulta;
 
+import controller.AreaCompartilhadaController;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author aluno
  */
 public class TelaConsultaAreaCompartilhada extends javax.swing.JDialog {
+
+    private AreaCompartilhadaController controller;
 
     /**
      * Creates new form TelaConsultaAreaCompartilhada
@@ -16,6 +21,39 @@ public class TelaConsultaAreaCompartilhada extends javax.swing.JDialog {
     public TelaConsultaAreaCompartilhada(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        configurarEventos();
+    }
+
+    public TelaConsultaAreaCompartilhada(java.awt.Frame parent, boolean modal, AreaCompartilhadaController controller) {
+        this(parent, modal);
+        this.controller = controller;
+    }
+
+    private void configurarEventos() {
+        jButtonPesquisar.addActionListener(evt -> {
+            if (controller != null) {
+                controller.pesquisar(this);
+            }
+        });
+        jButtonLimpar.addActionListener(evt -> {
+            if (controller != null) {
+                controller.limparConsulta(this);
+            }
+        });
+        jButtonSelecionar.addActionListener(evt -> dispose());
+        jButtonFechar.addActionListener(evt -> dispose());
+    }
+
+    public String getFiltro() {
+        return jTextFieldFiltro.getText();
+    }
+
+    public void limparFiltro() {
+        jTextFieldFiltro.setText("");
+    }
+
+    public DefaultTableModel getModeloTabela() {
+        return (DefaultTableModel) jTableResultado.getModel();
     }
 
     /**
