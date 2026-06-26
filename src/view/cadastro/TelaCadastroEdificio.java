@@ -4,6 +4,10 @@
  */
 package view.cadastro;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 /**
  *
  * @author aluno
@@ -18,6 +22,40 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         initComponents();
     }
 
+    public JButton getjButtonBuscar() {
+        return jButtonBuscar;
+    }
+
+    public JButton getjButtonCancelar() {
+        return jButtonCancelar;
+    }
+
+    public JButton getjButtonGravar() {
+        return jButtonGravar;
+    }
+
+    public JButton getjButtonNovo() {
+        return jButtonNovo;
+    }
+
+    public JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+    public JPanel getjPanelDados() {
+        return jPanelDados;
+    }
+
+    public JPanel getjPanelbotoes() {
+        return jPanelbotoes;
+    }
+
+    public ButtonGroup getBtnGroupCalculo() {
+        return btnGroupCalculo;
+    }
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,6 +65,7 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGroupCalculo = new javax.swing.ButtonGroup();
         jPanelTitulo = new javax.swing.JPanel();
         jLabeltitulo = new javax.swing.JLabel();
         jPanelDados = new javax.swing.JPanel();
@@ -63,10 +102,10 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         jTextFieldNumeroUnidadeAgua = new javax.swing.JTextField();
         jLabelNumeroUnidadeGas = new javax.swing.JLabel();
         jTextFieldNumeroUnidadeGas = new javax.swing.JTextField();
-        jLabelFormulaCalculo = new javax.swing.JLabel();
-        jTextFieldFormulaCalculo = new javax.swing.JTextField();
-        jScrollPaneObservacao = new javax.swing.JScrollPane();
         jTextAreaObservacao = new javax.swing.JTextArea();
+        jLabel9 = new javax.swing.JLabel();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
         jPanelbotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
@@ -123,6 +162,7 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         jLabelId.setToolTipText("Codigo interno do cadastro");
 
         jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextFieldId.setEnabled(false);
         jTextFieldId.setPreferredSize(new java.awt.Dimension(70, 28));
         jTextFieldId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,79 +173,123 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         jLabelNome.setText("Nome");
 
         jTextFieldNome.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextFieldNome.setEnabled(false);
         jTextFieldNome.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelQuantidadeAndares.setText("Quantidade Andares");
 
+        jTextFieldQuantidadeAndares.setEnabled(false);
         jTextFieldQuantidadeAndares.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldQuantidadeAndares.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelQuantidadeUnidades.setText("Quantidade Unidades");
 
+        jTextFieldQuantidadeUnidades.setEnabled(false);
         jTextFieldQuantidadeUnidades.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldQuantidadeUnidades.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelCnpj.setText("CNPJ");
 
+        try {
+            jTextFieldCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-## ")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldCnpj.setEnabled(false);
         jTextFieldCnpj.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldCnpj.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelAnoLancamento.setText("Ano Lancamento");
 
+        try {
+            jTextFieldAnoLancamento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldAnoLancamento.setEnabled(false);
         jTextFieldAnoLancamento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldAnoLancamento.setPreferredSize(new java.awt.Dimension(170, 28));
+        jTextFieldAnoLancamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAnoLancamentoActionPerformed(evt);
+            }
+        });
 
         jLabelAreaTotal.setText("Area Total");
 
+        jTextFieldAreaTotal.setEnabled(false);
         jTextFieldAreaTotal.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldAreaTotal.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelCep.setText("CEP");
 
+        try {
+            jTextFieldCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldCep.setEnabled(false);
         jTextFieldCep.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldCep.setPreferredSize(new java.awt.Dimension(170, 28));
+        jTextFieldCep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCepActionPerformed(evt);
+            }
+        });
 
         jLabelLogradouro.setText("Logradouro");
 
         jTextFieldLogradouro.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextFieldLogradouro.setEnabled(false);
         jTextFieldLogradouro.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelCidade.setText("Cidade");
 
         jTextFieldCidade.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextFieldCidade.setEnabled(false);
         jTextFieldCidade.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelBairro.setText("Bairro");
 
         jTextFieldBairro.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextFieldBairro.setEnabled(false);
         jTextFieldBairro.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelComplemento.setText("Complemento");
 
         jTextFieldComplemento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextFieldComplemento.setEnabled(false);
         jTextFieldComplemento.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelNumeroUnidadeAgua.setText("Numero Unidade Agua");
+        jLabelNumeroUnidadeAgua.setText("Numero Unidade Água");
 
         jTextFieldNumeroUnidadeAgua.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextFieldNumeroUnidadeAgua.setEnabled(false);
         jTextFieldNumeroUnidadeAgua.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelNumeroUnidadeGas.setText("Numero Unidade Gas");
+        jLabelNumeroUnidadeGas.setText("Numero Unidade Gás");
 
         jTextFieldNumeroUnidadeGas.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextFieldNumeroUnidadeGas.setEnabled(false);
         jTextFieldNumeroUnidadeGas.setPreferredSize(new java.awt.Dimension(170, 28));
-
-        jLabelFormulaCalculo.setText("Formula Calculo");
-
-        jTextFieldFormulaCalculo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextFieldFormulaCalculo.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jTextAreaObservacao.setColumns(20);
         jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextAreaObservacao.setLineWrap(true);
         jTextAreaObservacao.setRows(5);
         jTextAreaObservacao.setWrapStyleWord(true);
-        jScrollPaneObservacao.setViewportView(jTextAreaObservacao);
+        jTextAreaObservacao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextAreaObservacao.setEnabled(false);
+
+        jLabel9.setText("Método de Cálculo(Rateio)");
+
+        btnGroupCalculo.add(jRadioButton2);
+        jRadioButton2.setText("Por m²");
+        jRadioButton2.setEnabled(false);
+
+        btnGroupCalculo.add(jRadioButton1);
+        jRadioButton1.setText("Por Und.");
+        jRadioButton1.setEnabled(false);
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
@@ -264,10 +348,6 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldAnoLancamento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
-                        .addComponent(jLabelFormulaCalculo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldFormulaCalculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -279,7 +359,13 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
                         .addComponent(jLabelNumeroUnidadeAgua, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldNumeroUnidadeAgua, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
-                    .addComponent(jScrollPaneObservacao))
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButton2))
+                    .addComponent(jTextAreaObservacao))
                 .addGap(12, 12, 12))
         );
         jPanelDadosLayout.setVerticalGroup(
@@ -337,17 +423,18 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelLogradouro)
                     .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelSecaoMedidores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelFormulaCalculo)
-                    .addComponent(jTextFieldFormulaCalculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelSecaoObservacoes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextAreaObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanelbotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -360,6 +447,7 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
 
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setActionCommand("0");
         jButtonCancelar.setEnabled(false);
         jButtonCancelar.setMinimumSize(new java.awt.Dimension(112, 30));
         jButtonCancelar.setPreferredSize(new java.awt.Dimension(112, 30));
@@ -367,6 +455,7 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
 
         jButtonGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/OK.png"))); // NOI18N
         jButtonGravar.setText("Gravar");
+        jButtonGravar.setActionCommand("0");
         jButtonGravar.setEnabled(false);
         jButtonGravar.setMinimumSize(new java.awt.Dimension(112, 30));
         jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
@@ -403,10 +492,10 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jPanelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelbotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -416,6 +505,14 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldIdActionPerformed
+
+    private void jTextFieldCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCepActionPerformed
+
+    private void jTextFieldAnoLancamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAnoLancamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAnoLancamentoActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -450,11 +547,13 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btnGroupCalculo;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAnoLancamento;
     private javax.swing.JLabel jLabelAreaTotal;
     private javax.swing.JLabel jLabelBairro;
@@ -462,7 +561,6 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelCidade;
     private javax.swing.JLabel jLabelCnpj;
     private javax.swing.JLabel jLabelComplemento;
-    private javax.swing.JLabel jLabelFormulaCalculo;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelLogradouro;
     private javax.swing.JLabel jLabelNome;
@@ -479,7 +577,8 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     private javax.swing.JPanel jPanelDados;
     private javax.swing.JPanel jPanelTitulo;
     private javax.swing.JPanel jPanelbotoes;
-    private javax.swing.JScrollPane jScrollPaneObservacao;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextArea jTextAreaObservacao;
     private javax.swing.JFormattedTextField jTextFieldAnoLancamento;
     private javax.swing.JFormattedTextField jTextFieldAreaTotal;
@@ -488,7 +587,6 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldCidade;
     private javax.swing.JFormattedTextField jTextFieldCnpj;
     private javax.swing.JTextField jTextFieldComplemento;
-    private javax.swing.JTextField jTextFieldFormulaCalculo;
     private javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldLogradouro;
     private javax.swing.JTextField jTextFieldNome;
