@@ -30,7 +30,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanelTitulo" max="32767" attributes="0"/>
                   <Component id="jPanelDados" max="32767" attributes="0"/>
-                  <Component id="jPanelbotoes" alignment="0" pref="722" max="32767" attributes="0"/>
+                  <Component id="jPanelbotoes" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -104,26 +104,12 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabelSecaoIdentificacao" min="-2" pref="520" max="520" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jLabelId" min="-2" pref="150" max="150" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTextFieldId" min="-2" pref="70" max="70" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabelNome" min="-2" pref="150" max="150" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldNome" min="-2" pref="520" max="520" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabelCnpj" min="-2" pref="150" max="150" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldCnpj" min="-2" pref="170" max="170" attributes="0"/>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="jLabelAnoLancamento" min="-2" pref="150" max="150" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldAnoLancamento" min="-2" pref="170" max="170" attributes="0"/>
                       </Group>
                       <Component id="jLabelSecaoEstrutura" min="-2" pref="520" max="520" attributes="0"/>
                       <Group type="102" attributes="0">
@@ -155,6 +141,37 @@
                           <Component id="jTextFieldBairro" min="-2" pref="170" max="170" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
+                          <Component id="jLabelNumeroUnidadeGas" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldNumeroUnidadeGas" min="-2" pref="170" max="170" attributes="0"/>
+                      </Group>
+                      <Component id="jLabelSecaoMedidores" min="-2" pref="520" max="520" attributes="0"/>
+                      <Component id="jLabelSecaoObservacoes" min="-2" pref="520" max="520" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelNome" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldNome" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelCnpj" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldCnpj" min="-2" pref="170" max="170" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jLabelAnoLancamento" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldAnoLancamento" min="-2" pref="170" max="170" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelFormulaCalculo" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldFormulaCalculo" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelLogradouro" min="-2" pref="150" max="150" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldLogradouro" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabelComplemento" min="-2" pref="150" max="150" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTextFieldComplemento" min="-2" pref="170" max="170" attributes="0"/>
@@ -163,26 +180,9 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTextFieldNumeroUnidadeAgua" min="-2" pref="170" max="170" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabelNumeroUnidadeGas" min="-2" pref="150" max="150" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldNumeroUnidadeGas" min="-2" pref="170" max="170" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabelLogradouro" min="-2" pref="150" max="150" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldLogradouro" min="-2" pref="520" max="520" attributes="0"/>
-                      </Group>
-                      <Component id="jLabelSecaoMedidores" min="-2" pref="520" max="520" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabelFormulaCalculo" min="-2" pref="150" max="150" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldFormulaCalculo" min="-2" pref="520" max="520" attributes="0"/>
-                      </Group>
-                      <Component id="jLabelSecaoObservacoes" min="-2" pref="520" max="520" attributes="0"/>
-                      <Component id="jScrollPaneObservacao" alignment="0" min="-2" pref="676" max="-2" attributes="0"/>
+                      <Component id="jScrollPaneObservacao" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
