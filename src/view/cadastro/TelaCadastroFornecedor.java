@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package view;
+package view.cadastro;
 
 /**
  *
  * @author aluno
  */
-public class TemplateCadastro2026 extends javax.swing.JDialog {
+public class TelaCadastroFornecedor extends javax.swing.JDialog {
 
     /**
-     * Creates new form TemplateCadastro2026
+     * Creates new form TelaCadastroFornecedor
      */
-    public TemplateCadastro2026(java.awt.Frame parent, boolean modal) {
+    public TelaCadastroFornecedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -30,6 +30,7 @@ public class TemplateCadastro2026 extends javax.swing.JDialog {
         jPanelTitulo = new javax.swing.JPanel();
         jLabeltitulo = new javax.swing.JLabel();
         jPanelDados = new javax.swing.JPanel();
+        jLabelSecaoIdentificacao = new javax.swing.JLabel();
         jLabelId = new javax.swing.JLabel();
         jTextFieldId = new javax.swing.JTextField();
         jPanelbotoes = new javax.swing.JPanel();
@@ -40,15 +41,16 @@ public class TemplateCadastro2026 extends javax.swing.JDialog {
         jButtonSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de ........");
+        setTitle("Cadastro de Fornecedor");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabeltitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltitulo.setText("Título.........");
+        jLabeltitulo.setText("Cadastro de Fornecedor");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -63,8 +65,12 @@ public class TemplateCadastro2026 extends javax.swing.JDialog {
 
         jPanelDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jLabelSecaoIdentificacao.setFont(new java.awt.Font("Segoe UI", 1, 13));
+        jLabelSecaoIdentificacao.setForeground(new java.awt.Color(83, 0, 30));
+        jLabelSecaoIdentificacao.setText("Identificacao");
+
         jLabelId.setText("ID");
-        jLabelId.setToolTipText("Rám glu glu");
+        jLabelId.setToolTipText("Codigo interno do cadastro");
 
         jTextFieldId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,60 +78,93 @@ public class TemplateCadastro2026 extends javax.swing.JDialog {
             }
         });
 
+        java.awt.Dimension tamanhoCampoCadastro = new java.awt.Dimension(170, 28);
+        javax.swing.border.Border bordaCampoCadastro = javax.swing.BorderFactory.createCompoundBorder(
+                javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 196, 205)),
+                javax.swing.BorderFactory.createEmptyBorder(4, 6, 4, 6));
+        jTextFieldId.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        jTextFieldId.setBorder(bordaCampoCadastro);
+        jTextFieldId.setPreferredSize(new java.awt.Dimension(70, 28));
+        jButtonBuscar.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        jButtonBuscar.setPreferredSize(new java.awt.Dimension(112, 30));
+        jButtonBuscar.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonBuscar.setFocusPainted(false);
+        jButtonCancelar.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        jButtonCancelar.setPreferredSize(new java.awt.Dimension(112, 30));
+        jButtonCancelar.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonCancelar.setFocusPainted(false);
+        jButtonGravar.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
+        jButtonGravar.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonGravar.setFocusPainted(false);
+        jButtonNovo.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        jButtonNovo.setPreferredSize(new java.awt.Dimension(112, 30));
+        jButtonNovo.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonNovo.setFocusPainted(false);
+        jButtonSair.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        jButtonSair.setPreferredSize(new java.awt.Dimension(112, 30));
+        jButtonSair.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonSair.setFocusPainted(false);
+
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
         jPanelDadosLayout.setHorizontalGroup(
             jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabelSecaoIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanelDadosLayout.setVerticalGroup(
             jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelId)
+                .addComponent(jLabelSecaoIdentificacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jPanelbotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
         jButtonNovo.setText("Novo");
-        jButtonNovo.setMinimumSize(new java.awt.Dimension(85, 23));
-        jButtonNovo.setPreferredSize(new java.awt.Dimension(100, 23));
+        jButtonNovo.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonNovo.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonNovo);
 
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setEnabled(false);
-        jButtonCancelar.setMinimumSize(new java.awt.Dimension(85, 23));
-        jButtonCancelar.setPreferredSize(new java.awt.Dimension(100, 23));
+        jButtonCancelar.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonCancelar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonCancelar);
 
         jButtonGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/OK.png"))); // NOI18N
         jButtonGravar.setText("Gravar");
         jButtonGravar.setEnabled(false);
-        jButtonGravar.setMinimumSize(new java.awt.Dimension(85, 23));
-        jButtonGravar.setPreferredSize(new java.awt.Dimension(100, 23));
+        jButtonGravar.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonGravar);
 
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jButtonBuscar.setText("Buscar");
-        jButtonBuscar.setMinimumSize(new java.awt.Dimension(85, 23));
-        jButtonBuscar.setPreferredSize(new java.awt.Dimension(100, 23));
+        jButtonBuscar.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonBuscar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonBuscar);
 
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         jButtonSair.setText("Sair");
-        jButtonSair.setMaximumSize(new java.awt.Dimension(80, 23));
-        jButtonSair.setMinimumSize(new java.awt.Dimension(85, 23));
-        jButtonSair.setPreferredSize(new java.awt.Dimension(100, 23));
+        jButtonSair.setMaximumSize(new java.awt.Dimension(112, 30));
+        jButtonSair.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonSair.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonSair);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,15 +199,7 @@ public class TemplateCadastro2026 extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldIdActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -177,20 +208,18 @@ public class TemplateCadastro2026 extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TemplateCadastro2026.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TemplateCadastro2026.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TemplateCadastro2026.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TemplateCadastro2026.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TemplateCadastro2026 dialog = new TemplateCadastro2026(new javax.swing.JFrame(), true);
+                TelaCadastroFornecedor dialog = new TelaCadastroFornecedor(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -208,6 +237,7 @@ public class TemplateCadastro2026 extends javax.swing.JDialog {
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JLabel jLabelSecaoIdentificacao;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabeltitulo;
     private javax.swing.JPanel jPanelDados;

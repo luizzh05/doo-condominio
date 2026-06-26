@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package view;
+package view.cadastro;
 
 /**
  *
  * @author aluno
  */
-public class TelaCadastroUnidade extends javax.swing.JDialog {
+public class TelaCadastroCustoNivel2 extends javax.swing.JDialog {
 
     /**
-     * Creates new form TelaCadastroUnidade
+     * Creates new form TelaCadastroCustoNivel2
      */
-    public TelaCadastroUnidade(java.awt.Frame parent, boolean modal) {
+    public TelaCadastroCustoNivel2(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -31,18 +31,11 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
         jLabeltitulo = new javax.swing.JLabel();
         jPanelDados = new javax.swing.JPanel();
         jLabelSecaoIdentificacao = new javax.swing.JLabel();
-        jLabelSecaoMedidas = new javax.swing.JLabel();
         jLabelSecaoObservacoes = new javax.swing.JLabel();
         jLabelId = new javax.swing.JLabel();
         jTextFieldId = new javax.swing.JTextField();
         jLabelDescricao = new javax.swing.JLabel();
         jTextFieldDescricao = new javax.swing.JTextField();
-        jLabelMetragemTotal = new javax.swing.JLabel();
-        jTextFieldMetragemTotal = new javax.swing.JFormattedTextField();
-        jLabelMetragemIndividual = new javax.swing.JLabel();
-        jTextFieldMetragemIndividual = new javax.swing.JFormattedTextField();
-        jLabelTipoUnidade = new javax.swing.JLabel();
-        jComboBoxTipoUnidade = new javax.swing.JComboBox<>();
         jScrollPaneObservacao = new javax.swing.JScrollPane();
         jTextAreaObservacao = new javax.swing.JTextArea();
         jPanelbotoes = new javax.swing.JPanel();
@@ -53,7 +46,7 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
         jButtonSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Unidade");
+        setTitle("Cadastro de Custo Nivel 2");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
@@ -62,7 +55,7 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltitulo.setText("Cadastro de Unidade");
+        jLabeltitulo.setText("Cadastro de Custo Nivel 2");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -80,10 +73,6 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
         jLabelSecaoIdentificacao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoIdentificacao.setForeground(new java.awt.Color(83, 0, 30));
         jLabelSecaoIdentificacao.setText("Identificacao");
-
-        jLabelSecaoMedidas.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabelSecaoMedidas.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoMedidas.setText("Medidas");
 
         jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
@@ -105,22 +94,6 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
         jTextFieldDescricao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDescricao.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelMetragemTotal.setText("Metragem Total");
-
-        jTextFieldMetragemTotal.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextFieldMetragemTotal.setPreferredSize(new java.awt.Dimension(170, 28));
-
-        jLabelMetragemIndividual.setText("Metragem Individual");
-
-        jTextFieldMetragemIndividual.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextFieldMetragemIndividual.setPreferredSize(new java.awt.Dimension(170, 28));
-
-        jLabelTipoUnidade.setText("Tipo Unidade");
-
-        jComboBoxTipoUnidade.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxTipoUnidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Apartamento", "Sala", "Garagem", "Loja" }));
-        jComboBoxTipoUnidade.setPreferredSize(new java.awt.Dimension(170, 28));
-
         jTextAreaObservacao.setColumns(20);
         jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextAreaObservacao.setLineWrap(true);
@@ -134,33 +107,19 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
             jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabelSecaoIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
-                        .addGroup(jPanelDadosLayout.createSequentialGroup()
-                            .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, 70))
-                        .addComponent(jLabelSecaoMedidas, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
-                        .addGroup(jPanelDadosLayout.createSequentialGroup()
-                            .addComponent(jLabelTipoUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jComboBoxTipoUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
-                        .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
-                            .addComponent(jLabelDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
-                            .addComponent(jLabelMetragemTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldMetragemTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabelMetragemIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldMetragemIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))))
-                .addGap(12, 12, 12))
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelSecaoIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, 70))
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addComponent(jLabelDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520))
+                    .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
+                    .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanelDadosLayout.setVerticalGroup(
             jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,18 +134,6 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelDescricao)
                     .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelSecaoMedidas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelMetragemTotal)
-                    .addComponent(jTextFieldMetragemTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelMetragemIndividual)
-                    .addComponent(jTextFieldMetragemIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTipoUnidade)
-                    .addComponent(jComboBoxTipoUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoObservacoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -270,18 +217,18 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUnidade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCustoNivel2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUnidade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCustoNivel2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUnidade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCustoNivel2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUnidade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCustoNivel2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TelaCadastroUnidade dialog = new TelaCadastroUnidade(new javax.swing.JFrame(), true);
+                TelaCadastroCustoNivel2 dialog = new TelaCadastroCustoNivel2(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -299,15 +246,10 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox<String> jComboBoxTipoUnidade;
     private javax.swing.JLabel jLabelDescricao;
     private javax.swing.JLabel jLabelId;
-    private javax.swing.JLabel jLabelMetragemIndividual;
-    private javax.swing.JLabel jLabelMetragemTotal;
     private javax.swing.JLabel jLabelSecaoIdentificacao;
-    private javax.swing.JLabel jLabelSecaoMedidas;
     private javax.swing.JLabel jLabelSecaoObservacoes;
-    private javax.swing.JLabel jLabelTipoUnidade;
     private javax.swing.JLabel jLabeltitulo;
     private javax.swing.JPanel jPanelDados;
     private javax.swing.JPanel jPanelTitulo;
@@ -316,7 +258,5 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
     private javax.swing.JTextArea jTextAreaObservacao;
     private javax.swing.JTextField jTextFieldDescricao;
     private javax.swing.JTextField jTextFieldId;
-    private javax.swing.JFormattedTextField jTextFieldMetragemIndividual;
-    private javax.swing.JFormattedTextField jTextFieldMetragemTotal;
     // End of variables declaration//GEN-END:variables
 }
