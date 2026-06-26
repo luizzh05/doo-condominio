@@ -4,15 +4,11 @@
  */
 package view.cadastro;
 
-import controller.AreaCompartilhadaController;
-
 /**
  *
  * @author aluno
  */
 public class TelaCadastroAreaCompartilhada extends javax.swing.JDialog {
-
-    private final AreaCompartilhadaController controller;
 
     /**
      * Creates new form TelaCadastroAreaCompartilhada
@@ -20,17 +16,6 @@ public class TelaCadastroAreaCompartilhada extends javax.swing.JDialog {
     public TelaCadastroAreaCompartilhada(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        controller = new AreaCompartilhadaController();
-        configurarEventos();
-        habilitarEdicao(false);
-    }
-
-    private void configurarEventos() {
-        jButtonNovo.addActionListener(evt -> controller.novo(this));
-        jButtonCancelar.addActionListener(evt -> controller.cancelar(this));
-        jButtonGravar.addActionListener(evt -> controller.gravar(this));
-        jButtonBuscar.addActionListener(evt -> controller.abrirConsulta(this));
-        jButtonSair.addActionListener(evt -> dispose());
     }
 
     public String getDescricao() {
@@ -39,28 +24,6 @@ public class TelaCadastroAreaCompartilhada extends javax.swing.JDialog {
 
     public String getObservacao() {
         return jTextAreaObservacao.getText();
-    }
-
-    public void setId(String id) {
-        jTextFieldId.setText(id);
-    }
-
-    public void limparCampos() {
-        jTextFieldId.setText("");
-        jTextFieldDescricao.setText("");
-        jTextAreaObservacao.setText("");
-    }
-
-    public void habilitarEdicao(boolean editando) {
-        jTextFieldDescricao.setEnabled(editando);
-        jTextAreaObservacao.setEnabled(editando);
-        jButtonNovo.setEnabled(!editando);
-        jButtonCancelar.setEnabled(editando);
-        jButtonGravar.setEnabled(editando);
-    }
-
-    public void mostrarMensagem(String mensagem) {
-        javax.swing.JOptionPane.showMessageDialog(this, mensagem);
     }
 
     /**
