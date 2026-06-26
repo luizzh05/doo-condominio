@@ -89,7 +89,7 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
 
         jLabelSecaoIdentificacao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoIdentificacao.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoIdentificacao.setText("Identificacao");
+        jLabelSecaoIdentificacao.setText("Lancamento");
 
         jLabelSecaoDatas.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoDatas.setForeground(new java.awt.Color(83, 0, 30));
@@ -120,29 +120,29 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
         jComboBoxFornecedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         jComboBoxFornecedor.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelCustoNivel1.setText("Custo Nivel 1");
+        jLabelCustoNivel1.setText("Custo nivel 1");
 
         jComboBoxCustoNivel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxCustoNivel1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         jComboBoxCustoNivel1.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelCustoNivel2.setText("Custo Nivel 2");
+        jLabelCustoNivel2.setText("Custo nivel 2");
 
         jComboBoxCustoNivel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxCustoNivel2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         jComboBoxCustoNivel2.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelDataEmissao.setText("Data Emissao");
+        jLabelDataEmissao.setText("Data de emissao");
 
         jTextFieldDataEmissao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataEmissao.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelDataVencimento.setText("Data Vencimento");
+        jLabelDataVencimento.setText("Data de vencimento");
 
         jTextFieldDataVencimento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataVencimento.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelDataPagamento.setText("Data Pagamento");
+        jLabelDataPagamento.setText("Data de pagamento");
 
         jTextFieldDataPagamento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataPagamento.setPreferredSize(new java.awt.Dimension(170, 28));
@@ -153,12 +153,12 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
         jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Receita", "Despesa" }));
         jComboBoxTipo.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelValorEmitido.setText("Valor Emitido");
+        jLabelValorEmitido.setText("Valor emitido");
 
         jTextFieldValorEmitido.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldValorEmitido.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelValorPagoRec.setText("Valor Pago/Rec");
+        jLabelValorPagoRec.setText("Valor pago/recebido");
 
         jTextFieldValorPagoRec.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldValorPagoRec.setPreferredSize(new java.awt.Dimension(170, 28));
@@ -168,7 +168,7 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
         jTextFieldMultas.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldMultas.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelCorrecaoMonetaria.setText("Correcao Monetaria");
+        jLabelCorrecaoMonetaria.setText("Correcao monetaria");
 
         jTextFieldCorrecaoMonetaria.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldCorrecaoMonetaria.setPreferredSize(new java.awt.Dimension(170, 28));
@@ -178,12 +178,12 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
         jTextFieldJuros.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldJuros.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelFlagFormula.setText("Flag Formula");
+        jLabelFlagFormula.setText("Formula");
 
         jTextFieldFlagFormula.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldFlagFormula.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelFlagRateio.setText("Rateio");
+        jLabelFlagRateio.setText("Rateio por unidade");
 
         jCheckBoxFlagRateio.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jCheckBoxFlagRateio.setText("Sim");

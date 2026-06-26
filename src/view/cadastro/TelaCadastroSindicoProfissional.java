@@ -84,7 +84,7 @@ public class TelaCadastroSindicoProfissional extends javax.swing.JDialog {
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabeltitulo.setText("Cadastro de Sindico Profissional");

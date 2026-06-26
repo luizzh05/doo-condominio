@@ -97,35 +97,35 @@ public class TemplateCadastro2026 extends javax.swing.JDialog {
 
         jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
         jButtonNovo.setText("Novo");
-        jButtonNovo.setMinimumSize(new java.awt.Dimension(85, 23));
-        jButtonNovo.setPreferredSize(new java.awt.Dimension(100, 23));
+        jButtonNovo.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonNovo.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonNovo);
 
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setEnabled(false);
-        jButtonCancelar.setMinimumSize(new java.awt.Dimension(85, 23));
-        jButtonCancelar.setPreferredSize(new java.awt.Dimension(100, 23));
+        jButtonCancelar.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonCancelar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonCancelar);
 
         jButtonGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/OK.png"))); // NOI18N
         jButtonGravar.setText("Gravar");
         jButtonGravar.setEnabled(false);
-        jButtonGravar.setMinimumSize(new java.awt.Dimension(85, 23));
-        jButtonGravar.setPreferredSize(new java.awt.Dimension(100, 23));
+        jButtonGravar.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonGravar);
 
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jButtonBuscar.setText("Buscar");
-        jButtonBuscar.setMinimumSize(new java.awt.Dimension(85, 23));
-        jButtonBuscar.setPreferredSize(new java.awt.Dimension(100, 23));
+        jButtonBuscar.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonBuscar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonBuscar);
 
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         jButtonSair.setText("Sair");
-        jButtonSair.setMaximumSize(new java.awt.Dimension(80, 23));
-        jButtonSair.setMinimumSize(new java.awt.Dimension(85, 23));
-        jButtonSair.setPreferredSize(new java.awt.Dimension(100, 23));
+        jButtonSair.setMaximumSize(new java.awt.Dimension(112, 30));
+        jButtonSair.setMinimumSize(new java.awt.Dimension(112, 30));
+        jButtonSair.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonSair);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

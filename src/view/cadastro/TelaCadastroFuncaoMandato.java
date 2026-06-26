@@ -67,7 +67,7 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
 
         jLabelSecaoMandato.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoMandato.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoMandato.setText("Mandato");
+        jLabelSecaoMandato.setText("Dados do mandato");
 
         jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
@@ -78,7 +78,7 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
         jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldId.setPreferredSize(new java.awt.Dimension(70, 28));
 
-        jLabelFuncao.setText("Funcao");
+        jLabelFuncao.setText("Funcao no mandato");
 
         jComboBoxFuncao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxFuncao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Sindico", "Subsindico", "Conselheiro fiscal" }));
@@ -90,7 +90,7 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
         jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
         jComboBoxStatus.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelSindicoProfissional.setText("Sindico Profissional");
+        jLabelSindicoProfissional.setText("Sindico profissional");
 
         jComboBoxSindicoProfissional.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxSindicoProfissional.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
@@ -102,12 +102,12 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
         jComboBoxEdificio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         jComboBoxEdificio.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelDataInicio.setText("Data Inicio");
+        jLabelDataInicio.setText("Data de inicio");
 
         jTextFieldDataInicio.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataInicio.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelDataFim.setText("Data Fim");
+        jLabelDataFim.setText("Data de fim");
 
         jTextFieldDataFim.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataFim.setPreferredSize(new java.awt.Dimension(170, 28));
