@@ -605,6 +605,11 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
     public javax.swing.JTextField getjTextFieldBairro() { return jTextFieldBairro; }
     public javax.swing.JTextField getjTextFieldComplemento() { return jTextFieldComplemento; }
     public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
+    public javax.swing.JButton getjButtonBuscar() { return jButtonBuscar; }
+    public javax.swing.JButton getjButtonCancelar() { return jButtonCancelar; }
+    public javax.swing.JButton getjButtonGravar() { return jButtonGravar; }
+    public javax.swing.JButton getjButtonNovo() { return jButtonNovo; }
+    public javax.swing.JButton getjButtonSair() { return jButtonSair; }
     public javax.swing.JPanel getjPanelDados() { return jPanelDados; }
     public javax.swing.JPanel getjPanelbotoes() { return jPanelbotoes; }
 

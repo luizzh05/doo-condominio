@@ -439,6 +439,14 @@ public class TelaCadastroSindicoProfissional extends javax.swing.JDialog {
 
     public static void main(String args[]) { java.awt.EventQueue.invokeLater(new Runnable() { public void run() { new TelaCadastroSindicoProfissional(new javax.swing.JFrame(), true).setVisible(true); } }); }
 
+    public javax.swing.JButton getjButtonBuscar() { return jButtonBuscar; }
+    public javax.swing.JButton getjButtonCancelar() { return jButtonCancelar; }
+    public javax.swing.JButton getjButtonGravar() { return jButtonGravar; }
+    public javax.swing.JButton getjButtonNovo() { return jButtonNovo; }
+    public javax.swing.JButton getjButtonSair() { return jButtonSair; }
+    public javax.swing.JPanel getjPanelDados() { return jPanelDados; }
+    public javax.swing.JPanel getjPanelbotoes() { return jPanelbotoes; }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
