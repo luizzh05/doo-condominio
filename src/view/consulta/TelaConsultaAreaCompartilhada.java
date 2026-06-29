@@ -254,6 +254,14 @@ public class TelaConsultaAreaCompartilhada extends javax.swing.JDialog {
         });
     }
 
+    public javax.swing.JButton getjButtonFechar() { return jButtonFechar; }
+    public javax.swing.JButton getjButtonLimpar() { return jButtonLimpar; }
+    public javax.swing.JButton getjButtonPesquisar() { return jButtonPesquisar; }
+    public javax.swing.JButton getjButtonSelecionar() { return jButtonSelecionar; }
+    public javax.swing.JComboBox<String> getjComboBoxCampoFiltro() { return jComboBoxCampoFiltro; }
+    public javax.swing.JTable getjTableResultado() { return jTableResultado; }
+    public javax.swing.JTextField getjTextFieldFiltro() { return jTextFieldFiltro; }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFechar;
     private javax.swing.JButton jButtonLimpar;
