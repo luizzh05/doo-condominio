@@ -16,6 +16,7 @@ public class TelaConsultaFornecedor extends javax.swing.JDialog {
     public TelaConsultaFornecedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        configurarTela();
     }
 
     /**
@@ -272,4 +273,95 @@ public class TelaConsultaFornecedor extends javax.swing.JDialog {
     private javax.swing.JTable jTableResultado;
     private javax.swing.JTextField jTextFieldFiltro;
     // End of variables declaration//GEN-END:variables
+
+    private java.util.List<model.Fornecedor> todosFornecedores = new java.util.ArrayList<>();
+    private model.Fornecedor fornecedorSelecionado = null;
+
+    public model.Fornecedor getFornecedorSelecionado() {
+        return fornecedorSelecionado;
+    }
+
+    private void configurarTela() {
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(
+            new Object[][]{},
+            new String[]{"ID", "Nome Fantasia", "Razao Social", "Status"}
+        ) {
+            @Override
+            public boolean isCellEditable(int row, int col) { return false; }
+        };
+        jTableResultado.setModel(model);
+        jTableResultado.getColumnModel().getColumn(0).setPreferredWidth(50);
+        jTableResultado.getColumnModel().getColumn(1).setPreferredWidth(200);
+        jTableResultado.getColumnModel().getColumn(2).setPreferredWidth(220);
+        jTableResultado.getColumnModel().getColumn(3).setPreferredWidth(80);
+
+        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(
+            new String[]{"Todos", "ID", "Nome Fantasia", "Razao Social"}));
+
+        todosFornecedores = new java.util.ArrayList<>(utils.DataStore.getInstance().getFornecedores());
+        carregarTabela(todosFornecedores);
+
+        jButtonPesquisar.addActionListener(e -> pesquisar());
+        jButtonLimpar.addActionListener(e -> limpar());
+        jButtonSelecionar.addActionListener(e -> selecionar());
+        jButtonFechar.addActionListener(e -> dispose());
+        jTableResultado.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                if (e.getClickCount() == 2) selecionar();
+            }
+        });
+    }
+
+    private void carregarTabela(java.util.List<model.Fornecedor> lista) {
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTableResultado.getModel();
+        model.setRowCount(0);
+        for (model.Fornecedor f : lista) {
+            model.addRow(new Object[]{f.getId(), f.getNomeFantasia(), f.getRazaoSocial(), f.getStatus()});
+        }
+    }
+
+    private void pesquisar() {
+        String campo = (String) jComboBoxCampoFiltro.getSelectedItem();
+        String filtro = jTextFieldFiltro.getText().trim().toLowerCase();
+        if (filtro.isEmpty() || "Todos".equals(campo)) {
+            carregarTabela(todosFornecedores);
+            return;
+        }
+        java.util.List<model.Fornecedor> resultado = new java.util.ArrayList<>();
+        for (model.Fornecedor f : todosFornecedores) {
+            switch (campo) {
+                case "ID":
+                    if (String.valueOf(f.getId()).contains(filtro)) resultado.add(f);
+                    break;
+                case "Nome Fantasia":
+                    if (f.getNomeFantasia() != null && f.getNomeFantasia().toLowerCase().contains(filtro)) resultado.add(f);
+                    break;
+                case "Razao Social":
+                    if (f.getRazaoSocial() != null && f.getRazaoSocial().toLowerCase().contains(filtro)) resultado.add(f);
+                    break;
+                default:
+                    resultado.add(f);
+            }
+        }
+        carregarTabela(resultado);
+    }
+
+    private void limpar() {
+        jTextFieldFiltro.setText("");
+        jComboBoxCampoFiltro.setSelectedIndex(0);
+        carregarTabela(todosFornecedores);
+    }
+
+    private void selecionar() {
+        int linha = jTableResultado.getSelectedRow();
+        if (linha < 0) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Selecione um fornecedor na tabela.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        int id = (int) jTableResultado.getValueAt(linha, 0);
+        fornecedorSelecionado = utils.DataStore.getInstance().buscarFornecedorPorId(id);
+        dispose();
+    }
 }

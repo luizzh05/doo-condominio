@@ -16,6 +16,7 @@ public class TelaConsultaEdificio extends javax.swing.JDialog {
     public TelaConsultaEdificio(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        configurarTela();
     }
 
     /**
@@ -272,4 +273,95 @@ public class TelaConsultaEdificio extends javax.swing.JDialog {
     private javax.swing.JTable jTableResultado;
     private javax.swing.JTextField jTextFieldFiltro;
     // End of variables declaration//GEN-END:variables
+
+    private java.util.List<model.Edificio> todosEdificios = new java.util.ArrayList<>();
+    private model.Edificio edificioSelecionado = null;
+
+    public model.Edificio getEdificioSelecionado() {
+        return edificioSelecionado;
+    }
+
+    private void configurarTela() {
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(
+            new Object[][]{},
+            new String[]{"ID", "Nome", "Cidade", "Status"}
+        ) {
+            @Override
+            public boolean isCellEditable(int row, int col) { return false; }
+        };
+        jTableResultado.setModel(model);
+        jTableResultado.getColumnModel().getColumn(0).setPreferredWidth(50);
+        jTableResultado.getColumnModel().getColumn(1).setPreferredWidth(250);
+        jTableResultado.getColumnModel().getColumn(2).setPreferredWidth(200);
+        jTableResultado.getColumnModel().getColumn(3).setPreferredWidth(80);
+
+        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(
+            new String[]{"Todos", "ID", "Nome", "Cidade"}));
+
+        todosEdificios = new java.util.ArrayList<>(utils.DataStore.getInstance().getEdificios());
+        carregarTabela(todosEdificios);
+
+        jButtonPesquisar.addActionListener(e -> pesquisar());
+        jButtonLimpar.addActionListener(e -> limpar());
+        jButtonSelecionar.addActionListener(e -> selecionar());
+        jButtonFechar.addActionListener(e -> dispose());
+        jTableResultado.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                if (e.getClickCount() == 2) selecionar();
+            }
+        });
+    }
+
+    private void carregarTabela(java.util.List<model.Edificio> lista) {
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTableResultado.getModel();
+        model.setRowCount(0);
+        for (model.Edificio e : lista) {
+            model.addRow(new Object[]{e.getId(), e.getNome(), e.getCidade(), e.getStatus()});
+        }
+    }
+
+    private void pesquisar() {
+        String campo = (String) jComboBoxCampoFiltro.getSelectedItem();
+        String filtro = jTextFieldFiltro.getText().trim().toLowerCase();
+        if (filtro.isEmpty() || "Todos".equals(campo)) {
+            carregarTabela(todosEdificios);
+            return;
+        }
+        java.util.List<model.Edificio> resultado = new java.util.ArrayList<>();
+        for (model.Edificio e : todosEdificios) {
+            switch (campo) {
+                case "ID":
+                    if (String.valueOf(e.getId()).contains(filtro)) resultado.add(e);
+                    break;
+                case "Nome":
+                    if (e.getNome() != null && e.getNome().toLowerCase().contains(filtro)) resultado.add(e);
+                    break;
+                case "Cidade":
+                    if (e.getCidade() != null && e.getCidade().toLowerCase().contains(filtro)) resultado.add(e);
+                    break;
+                default:
+                    resultado.add(e);
+            }
+        }
+        carregarTabela(resultado);
+    }
+
+    private void limpar() {
+        jTextFieldFiltro.setText("");
+        jComboBoxCampoFiltro.setSelectedIndex(0);
+        carregarTabela(todosEdificios);
+    }
+
+    private void selecionar() {
+        int linha = jTableResultado.getSelectedRow();
+        if (linha < 0) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Selecione um edificio na tabela.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        int id = (int) jTableResultado.getValueAt(linha, 0);
+        edificioSelecionado = utils.DataStore.getInstance().buscarEdificioPorId(id);
+        dispose();
+    }
 }

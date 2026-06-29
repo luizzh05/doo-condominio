@@ -16,6 +16,7 @@ public class TelaConsultaProprietario extends javax.swing.JDialog {
     public TelaConsultaProprietario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        configurarTela();
     }
 
     /**
@@ -272,4 +273,95 @@ public class TelaConsultaProprietario extends javax.swing.JDialog {
     private javax.swing.JTable jTableResultado;
     private javax.swing.JTextField jTextFieldFiltro;
     // End of variables declaration//GEN-END:variables
+
+    private java.util.List<model.Proprietario> todosProprietarios = new java.util.ArrayList<>();
+    private model.Proprietario proprietarioSelecionado = null;
+
+    public model.Proprietario getProprietarioSelecionado() {
+        return proprietarioSelecionado;
+    }
+
+    private void configurarTela() {
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(
+            new Object[][]{},
+            new String[]{"ID", "Nome", "CPF", "Status"}
+        ) {
+            @Override
+            public boolean isCellEditable(int row, int col) { return false; }
+        };
+        jTableResultado.setModel(model);
+        jTableResultado.getColumnModel().getColumn(0).setPreferredWidth(50);
+        jTableResultado.getColumnModel().getColumn(1).setPreferredWidth(250);
+        jTableResultado.getColumnModel().getColumn(2).setPreferredWidth(150);
+        jTableResultado.getColumnModel().getColumn(3).setPreferredWidth(80);
+
+        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(
+            new String[]{"Todos", "ID", "Nome", "CPF"}));
+
+        todosProprietarios = new java.util.ArrayList<>(utils.DataStore.getInstance().getProprietarios());
+        carregarTabela(todosProprietarios);
+
+        jButtonPesquisar.addActionListener(e -> pesquisar());
+        jButtonLimpar.addActionListener(e -> limpar());
+        jButtonSelecionar.addActionListener(e -> selecionar());
+        jButtonFechar.addActionListener(e -> dispose());
+        jTableResultado.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                if (e.getClickCount() == 2) selecionar();
+            }
+        });
+    }
+
+    private void carregarTabela(java.util.List<model.Proprietario> lista) {
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTableResultado.getModel();
+        model.setRowCount(0);
+        for (model.Proprietario p : lista) {
+            model.addRow(new Object[]{p.getId(), p.getNomeFantasia(), p.getCpf(), p.getStatus()});
+        }
+    }
+
+    private void pesquisar() {
+        String campo = (String) jComboBoxCampoFiltro.getSelectedItem();
+        String filtro = jTextFieldFiltro.getText().trim().toLowerCase();
+        if (filtro.isEmpty() || "Todos".equals(campo)) {
+            carregarTabela(todosProprietarios);
+            return;
+        }
+        java.util.List<model.Proprietario> resultado = new java.util.ArrayList<>();
+        for (model.Proprietario p : todosProprietarios) {
+            switch (campo) {
+                case "ID":
+                    if (String.valueOf(p.getId()).contains(filtro)) resultado.add(p);
+                    break;
+                case "Nome":
+                    if (p.getNomeFantasia() != null && p.getNomeFantasia().toLowerCase().contains(filtro)) resultado.add(p);
+                    break;
+                case "CPF":
+                    if (p.getCpf() != null && p.getCpf().toLowerCase().contains(filtro)) resultado.add(p);
+                    break;
+                default:
+                    resultado.add(p);
+            }
+        }
+        carregarTabela(resultado);
+    }
+
+    private void limpar() {
+        jTextFieldFiltro.setText("");
+        jComboBoxCampoFiltro.setSelectedIndex(0);
+        carregarTabela(todosProprietarios);
+    }
+
+    private void selecionar() {
+        int linha = jTableResultado.getSelectedRow();
+        if (linha < 0) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Selecione um proprietario na tabela.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        int id = (int) jTableResultado.getValueAt(linha, 0);
+        proprietarioSelecionado = utils.DataStore.getInstance().buscarProprietarioPorId(id);
+        dispose();
+    }
 }

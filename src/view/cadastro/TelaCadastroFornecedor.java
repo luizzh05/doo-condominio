@@ -16,6 +16,19 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
     public TelaCadastroFornecedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        configurarMascaras();
+        ajustarLayout();
+    }
+
+    private void configurarMascaras() {
+        utils.Utils.aplicarMascara(jTextFieldCpf,             "###.###.###-##");
+        utils.Utils.aplicarMascara(jTextFieldCnpj,            "##.###.###/####-##");
+        utils.Utils.aplicarMascara(jTextFieldCep,             "#####-###");
+        utils.Utils.aplicarMascara(jTextFieldFone1,           "(##) #####-####");
+        utils.Utils.aplicarMascara(jTextFieldFone2,           "(##) #####-####");
+        utils.Utils.aplicarMascara(jTextFieldDataNascimento,  "##/##/####");
+        utils.Utils.aplicarMascara(jTextFieldDataCadastro,    "##/##/####");
+        utils.Utils.aplicarMascaraRg(jTextFieldRg);
     }
 
     /**
@@ -554,4 +567,82 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldRazaoSocial;
     private javax.swing.JTextField jTextFieldRg;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JTextField getjTextFieldId() { return jTextFieldId; }
+    public javax.swing.JTextField getjTextFieldNomeFantasia() { return jTextFieldNomeFantasia; }
+    public javax.swing.JTextField getjTextFieldRazaoSocial() { return jTextFieldRazaoSocial; }
+    public javax.swing.JFormattedTextField getjTextFieldCpf() { return jTextFieldCpf; }
+    public javax.swing.JTextField getjTextFieldRg() { return jTextFieldRg; }
+    public javax.swing.JFormattedTextField getjTextFieldCnpj() { return jTextFieldCnpj; }
+    public javax.swing.JTextField getjTextFieldInscricaoEstadual() { return jTextFieldInscricaoEstadual; }
+    public javax.swing.JFormattedTextField getjTextFieldFone1() { return jTextFieldFone1; }
+    public javax.swing.JFormattedTextField getjTextFieldFone2() { return jTextFieldFone2; }
+    public javax.swing.JTextField getjTextFieldEmail() { return jTextFieldEmail; }
+    public javax.swing.JFormattedTextField getjTextFieldDataNascimento() { return jTextFieldDataNascimento; }
+    public javax.swing.JFormattedTextField getjTextFieldDataCadastro() { return jTextFieldDataCadastro; }
+    public javax.swing.JComboBox<String> getjComboBoxEstadoCivil() { return jComboBoxEstadoCivil; }
+    public javax.swing.JFormattedTextField getjTextFieldCep() { return jTextFieldCep; }
+    public javax.swing.JTextField getjTextFieldLogradouro() { return jTextFieldLogradouro; }
+    public javax.swing.JTextField getjTextFieldCidade() { return jTextFieldCidade; }
+    public javax.swing.JTextField getjTextFieldBairro() { return jTextFieldBairro; }
+    public javax.swing.JTextField getjTextFieldComplemento() { return jTextFieldComplemento; }
+    public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
+    public javax.swing.JPanel getjPanelDados() { return jPanelDados; }
+    public javax.swing.JPanel getjPanelbotoes() { return jPanelbotoes; }
+
+    private void ajustarLayout() {
+        java.awt.Rectangle bounds = java.awt.GraphicsEnvironment
+                .getLocalGraphicsEnvironment().getMaximumWindowBounds();
+        int alturaMaxima = (int) (bounds.height * 0.93);
+
+        if (getHeight() <= alturaMaxima) {
+            return;
+        }
+
+        int alturaTitulo = jPanelTitulo.getPreferredSize().height;
+        int alturaBotoes = jPanelbotoes.getPreferredSize().height;
+        int larguraDados = jPanelDados.getPreferredSize().width;
+        int alturaScroll = alturaMaxima - alturaTitulo - alturaBotoes - 60;
+        if (alturaScroll < 150) alturaScroll = 150;
+
+        javax.swing.JScrollPane scrollDados = new javax.swing.JScrollPane(jPanelDados);
+        scrollDados.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        scrollDados.setPreferredSize(new java.awt.Dimension(larguraDados + 18, alturaScroll));
+        scrollDados.getVerticalScrollBar().setUnitIncrement(16);
+        scrollDados.setHorizontalScrollBarPolicy(javax.swing.JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        getContentPane().removeAll();
+        javax.swing.GroupLayout novoLayout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(novoLayout);
+        novoLayout.setHorizontalGroup(
+            novoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(novoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(novoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scrollDados, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelbotoes, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        novoLayout.setVerticalGroup(
+            novoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(novoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollDados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelbotoes, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        setResizable(true);
+        pack();
+        setLocationRelativeTo(null);
+    }
 }

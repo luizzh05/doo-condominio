@@ -4,8 +4,8 @@
  */
 package view.menu;
 
-import controller.CadastroEdificioController;
-import view.cadastro.TelaCadastroEdificio;
+import controller.*;
+import view.cadastro.*;
 
 /**
  *
@@ -20,6 +20,8 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
      */
     public TelaMenuPrincipal() {
         initComponents();
+        configurarMenusAdicionais();
+        configurarTelaPrincipal();
     }
 
     /**
@@ -70,11 +72,302 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        
-        TelaCadastroEdificio telaCadastroEdificio = new TelaCadastroEdificio(null, true);
-        CadastroEdificioController controller = new CadastroEdificioController(telaCadastroEdificio);
-        telaCadastroEdificio.setVisible(true);
+        abrirEdificio();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void configurarMenusAdicionais() {
+        // ---- jMenu1: Cadastros ----
+        jMenuItem1.setText("Edificio");
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+
+        jMenu1.addSeparator();
+        adicionarItemMenu(jMenu1, "Condominio",           "Home.png",    javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0), this::abrirCondominio);
+        adicionarItemMenu(jMenu1, "Unidade",              "Diagram.png", javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0), this::abrirUnidade);
+        jMenu1.addSeparator();
+        adicionarItemMenu(jMenu1, "Proprietario",         "Person.png",  javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0), this::abrirProprietario);
+        adicionarItemMenu(jMenu1, "Fornecedor",           "Briefcase.png", javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0), this::abrirFornecedor);
+        adicionarItemMenu(jMenu1, "Sindico Profissional", "Boss_1.png",  null, this::abrirSindico);
+        adicionarItemMenu(jMenu1, "Funcao de Mandato",    "Clipboard.png", null, this::abrirFuncaoMandato);
+        adicionarItemMenu(jMenu1, "Unidade Condomino",    "People.png",  null, this::abrirUnidadeCondomino);
+        jMenu1.addSeparator();
+        adicionarItemMenu(jMenu1, "Area Compartilhada",   "Globe.png",   null, this::abrirAreaCompartilhada);
+
+        // ---- jMenu2: Operações ----
+        jMenu2.setText("Operacoes");
+        adicionarItemMenu(jMenu2, "Leitura de Medidores", "Equipment.png", null, this::abrirLeitura);
+        adicionarItemMenu(jMenu2, "Movimento de Caixa",   "Dollar.png",  null, this::abrirMovimentoCaixa);
+        adicionarItemMenu(jMenu2, "Reservas",             "Calendar.png", null, this::abrirReserva);
+        jMenu2.addSeparator();
+        adicionarItemMenu(jMenu2, "Custo Nivel 1",        "Database.png", null, this::abrirCustoNivel1);
+        adicionarItemMenu(jMenu2, "Custo Nivel 2",        "Database.png", null, this::abrirCustoNivel2);
+
+        // ---- jMenu3: Sobre ----
+        javax.swing.JMenu jMenu3 = new javax.swing.JMenu("Sobre");
+        jMenuBar1.add(jMenu3);
+        javax.swing.JMenuItem itemSobre = new javax.swing.JMenuItem("Sistema de Gestao de Condominio v1.0");
+        itemSobre.setEnabled(false);
+        jMenu3.add(itemSobre);
+    }
+
+    private void adicionarItemMenu(javax.swing.JMenu menu, String texto, String icone,
+                                   javax.swing.KeyStroke atalho, Runnable acao) {
+        javax.swing.JMenuItem item = new javax.swing.JMenuItem(texto);
+        if (atalho != null) item.setAccelerator(atalho);
+        java.net.URL url = getClass().getResource("/imagens/" + icone);
+        if (url != null) item.setIcon(new javax.swing.ImageIcon(url));
+        item.addActionListener(e -> acao.run());
+        menu.add(item);
+    }
+
+    // ── abrir forms ─────────────────────────────────────────────────────────
+
+    private void abrirEdificio() {
+        TelaCadastroEdificio tela = new TelaCadastroEdificio(null, true);
+        new CadastroEdificioController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirCondominio() {
+        TelaCadastroCondominio tela = new TelaCadastroCondominio(null, true);
+        new CadastroCondominioController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirUnidade() {
+        TelaCadastroUnidade tela = new TelaCadastroUnidade(null, true);
+        new CadastroUnidadeController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirProprietario() {
+        TelaCadastroProprietario tela = new TelaCadastroProprietario(null, true);
+        new CadastroProprietarioController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirFornecedor() {
+        TelaCadastroFornecedor tela = new TelaCadastroFornecedor(null, true);
+        new CadastroFornecedorController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirSindico() {
+        TelaCadastroSindicoProfissional tela = new TelaCadastroSindicoProfissional(null, true);
+        new CadastroSindicoProfissionalController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirFuncaoMandato() {
+        TelaCadastroFuncaoMandato tela = new TelaCadastroFuncaoMandato(null, true);
+        new CadastroFuncaoMandatoController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirUnidadeCondomino() {
+        TelaCadastroUnidadeCondomino tela = new TelaCadastroUnidadeCondomino(null, true);
+        new CadastroUnidadeCondominoController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirAreaCompartilhada() {
+        TelaCadastroAreaCompartilhada tela = new TelaCadastroAreaCompartilhada(null, true);
+        new CadastroAreaCompartilhadaController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirLeitura() {
+        TelaCadastroLeitura tela = new TelaCadastroLeitura(null, true);
+        new CadastroLeituraController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirMovimentoCaixa() {
+        TelaCadastroMovimentoCaixa tela = new TelaCadastroMovimentoCaixa(null, true);
+        new CadastroMovimentoCaixaController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirReserva() {
+        TelaCadastroReserva tela = new TelaCadastroReserva(null, true);
+        new CadastroReservaController(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirCustoNivel1() {
+        TelaCadastroCustoNivel1 tela = new TelaCadastroCustoNivel1(null, true);
+        new CadastroCustoNivel1Controller(tela);
+        tela.setVisible(true);
+    }
+
+    private void abrirCustoNivel2() {
+        TelaCadastroCustoNivel2 tela = new TelaCadastroCustoNivel2(null, true);
+        new CadastroCustoNivel2Controller(tela);
+        tela.setVisible(true);
+    }
+
+    // ── tela principal ───────────────────────────────────────────────────────
+
+    private void configurarTelaPrincipal() {
+        setTitle("Sistema de Gestao de Condominio");
+        setResizable(true);
+        setMinimumSize(new java.awt.Dimension(680, 460));
+
+        // ── header ──────────────────────────────────────────────────────────
+        javax.swing.JPanel header = new javax.swing.JPanel(new java.awt.BorderLayout(0, 0)) {
+            @Override protected void paintComponent(java.awt.Graphics g) {
+                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                g2.setPaint(new java.awt.GradientPaint(0, 0, new java.awt.Color(21, 67, 96),
+                        getWidth(), 0, new java.awt.Color(40, 116, 166)));
+                g2.fillRect(0, 0, getWidth(), getHeight());
+                g2.dispose();
+            }
+        };
+        header.setPreferredSize(new java.awt.Dimension(0, 88));
+        header.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 20, 12, 20));
+
+        java.net.URL logoUrl = getClass().getResource("/imagens/Company.png");
+        if (logoUrl != null) {
+            java.awt.Image img = new javax.swing.ImageIcon(logoUrl).getImage()
+                    .getScaledInstance(58, 58, java.awt.Image.SCALE_SMOOTH);
+            javax.swing.JLabel logoLabel = new javax.swing.JLabel(new javax.swing.ImageIcon(img));
+            header.add(logoLabel, java.awt.BorderLayout.WEST);
+        }
+
+        javax.swing.JPanel headerTexto = new javax.swing.JPanel(new java.awt.GridLayout(2, 1, 0, 2));
+        headerTexto.setOpaque(false);
+        headerTexto.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 16, 0, 0));
+
+        javax.swing.JLabel lblTitulo = new javax.swing.JLabel("Sistema de Gestao de Condominio");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 22));
+        lblTitulo.setForeground(java.awt.Color.WHITE);
+
+        javax.swing.JLabel lblSub = new javax.swing.JLabel("Selecione um modulo para comecar");
+        lblSub.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        lblSub.setForeground(new java.awt.Color(174, 214, 241));
+
+        headerTexto.add(lblTitulo);
+        headerTexto.add(lblSub);
+        header.add(headerTexto, java.awt.BorderLayout.CENTER);
+
+        // ── modulos ──────────────────────────────────────────────────────────
+        javax.swing.JPanel painelModulos = new javax.swing.JPanel(
+                new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 18, 22));
+        painelModulos.setBackground(new java.awt.Color(240, 244, 248));
+        painelModulos.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 20, 10, 20));
+
+        painelModulos.add(criarCartao("Edificio",   "Cadastro de edificios",      "Company.png",   this::abrirEdificio,  "F1"));
+        painelModulos.add(criarCartao("Condominio", "Dados do condominio",         "Home.png",      this::abrirCondominio,"F2"));
+        painelModulos.add(criarCartao("Unidade",    "Unidades do condominio",      "Diagram.png",   this::abrirUnidade,   "F3"));
+        painelModulos.add(criarCartao("Proprietario","Moradores e proprietarios",  "Person.png",    this::abrirProprietario,"F4"));
+        painelModulos.add(criarCartao("Fornecedor", "Prestadores de servico",      "Briefcase.png", this::abrirFornecedor,"F5"));
+        painelModulos.add(criarCartao("Reservas",   "Reserva de areas comuns",     "Calendar.png",  this::abrirReserva,   ""));
+
+        // ── footer ───────────────────────────────────────────────────────────
+        javax.swing.JPanel footer = new javax.swing.JPanel(
+                new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 12, 6));
+        footer.setBackground(new java.awt.Color(213, 219, 227));
+        javax.swing.JLabel lblFooter = new javax.swing.JLabel(
+                "Sistema de Gestao de Condominio  v1.0  |  2024");
+        lblFooter.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 11));
+        lblFooter.setForeground(new java.awt.Color(90, 100, 115));
+        footer.add(lblFooter);
+
+        // ── monta conteudo ───────────────────────────────────────────────────
+        getContentPane().removeAll();
+        getContentPane().setLayout(new java.awt.BorderLayout());
+        getContentPane().add(header, java.awt.BorderLayout.NORTH);
+        getContentPane().add(painelModulos, java.awt.BorderLayout.CENTER);
+        getContentPane().add(footer, java.awt.BorderLayout.SOUTH);
+
+        setSize(780, 510);
+        setLocationRelativeTo(null);
+        revalidate();
+        repaint();
+    }
+
+    private javax.swing.JPanel criarCartao(String titulo, String descricao,
+            String icone, Runnable acao, String atalho) {
+
+        final java.awt.Color COR_NORMAL = java.awt.Color.WHITE;
+        final java.awt.Color COR_HOVER  = new java.awt.Color(232, 244, 255);
+        final java.awt.Color COR_BORDA  = new java.awt.Color(200, 210, 220);
+        final java.awt.Color COR_BORDA_H = new java.awt.Color(40, 116, 166);
+        final int PAD = 18;
+
+        javax.swing.JPanel card = new javax.swing.JPanel(new java.awt.BorderLayout(0, 10));
+        card.setOpaque(true);
+        card.setBackground(COR_NORMAL);
+        card.setBorder(javax.swing.BorderFactory.createCompoundBorder(
+                javax.swing.BorderFactory.createLineBorder(COR_BORDA, 1, true),
+                javax.swing.BorderFactory.createEmptyBorder(PAD, PAD, PAD, PAD)));
+        card.setPreferredSize(new java.awt.Dimension(188, 158));
+        card.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
+
+        // icone
+        java.net.URL iconUrl = getClass().getResource("/imagens/" + icone);
+        if (iconUrl != null) {
+            java.awt.Image img = new javax.swing.ImageIcon(iconUrl).getImage()
+                    .getScaledInstance(54, 54, java.awt.Image.SCALE_SMOOTH);
+            javax.swing.JLabel iconLabel = new javax.swing.JLabel(new javax.swing.ImageIcon(img));
+            iconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            card.add(iconLabel, java.awt.BorderLayout.CENTER);
+        }
+
+        // texto
+        javax.swing.JPanel textoPanel = new javax.swing.JPanel(new java.awt.GridLayout(2, 1, 0, 3));
+        textoPanel.setOpaque(false);
+
+        javax.swing.JLabel lblTit = new javax.swing.JLabel(
+                atalho.isEmpty() ? titulo : titulo + "  <small>[" + atalho + "]</small>");
+        if (!atalho.isEmpty())
+            lblTit.setText("<html><center>" + titulo + "&nbsp;&nbsp;<small><font color='#888'>[" + atalho + "]</font></small></center></html>");
+        else
+            lblTit.setText(titulo);
+        lblTit.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 13));
+        lblTit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTit.setForeground(new java.awt.Color(30, 50, 70));
+
+        javax.swing.JLabel lblDesc = new javax.swing.JLabel(
+                "<html><center>" + descricao + "</center></html>");
+        lblDesc.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 10));
+        lblDesc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDesc.setForeground(new java.awt.Color(120, 140, 160));
+
+        textoPanel.add(lblTit);
+        textoPanel.add(lblDesc);
+        card.add(textoPanel, java.awt.BorderLayout.SOUTH);
+
+        // hover + click
+        java.awt.event.MouseAdapter ma = new java.awt.event.MouseAdapter() {
+            @Override public void mouseEntered(java.awt.event.MouseEvent e) {
+                card.setBackground(COR_HOVER);
+                card.setBorder(javax.swing.BorderFactory.createCompoundBorder(
+                        javax.swing.BorderFactory.createLineBorder(COR_BORDA_H, 2, true),
+                        javax.swing.BorderFactory.createEmptyBorder(PAD - 1, PAD - 1, PAD - 1, PAD - 1)));
+            }
+            @Override public void mouseExited(java.awt.event.MouseEvent e) {
+                java.awt.Point p = javax.swing.SwingUtilities.convertPoint(
+                        e.getComponent(), e.getPoint(), card);
+                if (!card.contains(p)) {
+                    card.setBackground(COR_NORMAL);
+                    card.setBorder(javax.swing.BorderFactory.createCompoundBorder(
+                            javax.swing.BorderFactory.createLineBorder(COR_BORDA, 1, true),
+                            javax.swing.BorderFactory.createEmptyBorder(PAD, PAD, PAD, PAD)));
+                }
+            }
+            @Override public void mouseClicked(java.awt.event.MouseEvent e) { acao.run(); }
+        };
+        aplicarMouseListenerRecursivo(card, ma);
+        return card;
+    }
+
+    private void aplicarMouseListenerRecursivo(java.awt.Component comp,
+            java.awt.event.MouseListener ml) {
+        comp.addMouseListener(ml);
+        if (comp instanceof java.awt.Container)
+            for (java.awt.Component c : ((java.awt.Container) comp).getComponents())
+                aplicarMouseListenerRecursivo(c, ml);
+    }
 
     /**
      * @param args the command line arguments
