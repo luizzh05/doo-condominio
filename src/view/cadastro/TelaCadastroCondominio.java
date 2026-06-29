@@ -63,6 +63,7 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonGravar = new javax.swing.JButton();
+        jButtonSelecionarUnidadeCondomino = new javax.swing.JButton();
         jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
 
@@ -322,6 +323,12 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonGravar);
 
+        jButtonSelecionarUnidadeCondomino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jButtonSelecionarUnidadeCondomino.setText("Selecionar Unidade");
+        jButtonSelecionarUnidadeCondomino.setMinimumSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarUnidadeCondomino.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanelbotoes.add(jButtonSelecionarUnidadeCondomino);
+
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jButtonBuscar.setText("Buscar");
         jButtonBuscar.setMinimumSize(new java.awt.Dimension(112, 30));
@@ -370,11 +377,13 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
     public JButton getjButtonCancelar() { return jButtonCancelar; }
     public JButton getjButtonGravar() { return jButtonGravar; }
     public JButton getjButtonNovo() { return jButtonNovo; }
+    public JButton getjButtonSelecionarUnidadeCondomino() { return jButtonSelecionarUnidadeCondomino; }
     public JButton getjButtonSair() { return jButtonSair; }
     public JPanel getjPanelDados() { return jPanelDados; }
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonSelecionarUnidadeCondomino;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGravar;

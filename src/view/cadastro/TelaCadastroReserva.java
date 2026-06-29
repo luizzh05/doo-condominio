@@ -55,6 +55,7 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonGravar = new javax.swing.JButton();
+        jButtonSelecionarAreaCompartilhadaEdificio = new javax.swing.JButton();
         jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
 
@@ -219,6 +220,12 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
         jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonGravar);
 
+        jButtonSelecionarAreaCompartilhadaEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jButtonSelecionarAreaCompartilhadaEdificio.setText("Selecionar Area/Edificio");
+        jButtonSelecionarAreaCompartilhadaEdificio.setMinimumSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarAreaCompartilhadaEdificio.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanelbotoes.add(jButtonSelecionarAreaCompartilhadaEdificio);
+
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jButtonBuscar.setText("Buscar");
         jButtonBuscar.setMinimumSize(new java.awt.Dimension(112, 30));
@@ -300,11 +307,13 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
     public JButton getjButtonCancelar() { return jButtonCancelar; }
     public JButton getjButtonGravar() { return jButtonGravar; }
     public JButton getjButtonNovo() { return jButtonNovo; }
+    public JButton getjButtonSelecionarAreaCompartilhadaEdificio() { return jButtonSelecionarAreaCompartilhadaEdificio; }
     public JButton getjButtonSair() { return jButtonSair; }
     public JPanel getjPanelDados() { return jPanelDados; }
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonSelecionarAreaCompartilhadaEdificio;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGravar;

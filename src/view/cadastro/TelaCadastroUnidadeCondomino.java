@@ -57,6 +57,8 @@ public class TelaCadastroUnidadeCondomino extends javax.swing.JDialog {
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonGravar = new javax.swing.JButton();
+        jButtonSelecionarUnidade = new javax.swing.JButton();
+        jButtonSelecionarProprietario = new javax.swing.JButton();
         jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
 
@@ -227,6 +229,18 @@ public class TelaCadastroUnidadeCondomino extends javax.swing.JDialog {
         jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonGravar);
 
+        jButtonSelecionarUnidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jButtonSelecionarUnidade.setText("Selecionar Unidade");
+        jButtonSelecionarUnidade.setMinimumSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarUnidade.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanelbotoes.add(jButtonSelecionarUnidade);
+
+        jButtonSelecionarProprietario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jButtonSelecionarProprietario.setText("Selecionar Proprietario");
+        jButtonSelecionarProprietario.setMinimumSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarProprietario.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanelbotoes.add(jButtonSelecionarProprietario);
+
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jButtonBuscar.setText("Buscar");
         jButtonBuscar.setMinimumSize(new java.awt.Dimension(112, 30));
@@ -311,11 +325,15 @@ public class TelaCadastroUnidadeCondomino extends javax.swing.JDialog {
     public JButton getjButtonCancelar() { return jButtonCancelar; }
     public JButton getjButtonGravar() { return jButtonGravar; }
     public JButton getjButtonNovo() { return jButtonNovo; }
+    public JButton getjButtonSelecionarUnidade() { return jButtonSelecionarUnidade; }
+    public JButton getjButtonSelecionarProprietario() { return jButtonSelecionarProprietario; }
     public JButton getjButtonSair() { return jButtonSair; }
     public JPanel getjPanelDados() { return jPanelDados; }
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonSelecionarUnidade;
+    private javax.swing.JButton jButtonSelecionarProprietario;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGravar;

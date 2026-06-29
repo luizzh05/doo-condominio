@@ -75,6 +75,10 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonGravar = new javax.swing.JButton();
+        jButtonSelecionarEdificio = new javax.swing.JButton();
+        jButtonSelecionarFornecedor = new javax.swing.JButton();
+        jButtonSelecionarCustoNivel1 = new javax.swing.JButton();
+        jButtonSelecionarCustoNivel2 = new javax.swing.JButton();
         jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
 
@@ -383,6 +387,30 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
         jButtonGravar.setMinimumSize(new java.awt.Dimension(112, 30));
         jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonGravar);
+        jButtonSelecionarEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jButtonSelecionarEdificio.setText("Selecionar Edificio");
+        jButtonSelecionarEdificio.setMinimumSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarEdificio.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanelbotoes.add(jButtonSelecionarEdificio);
+
+        jButtonSelecionarFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jButtonSelecionarFornecedor.setText("Selecionar Fornecedor");
+        jButtonSelecionarFornecedor.setMinimumSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarFornecedor.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanelbotoes.add(jButtonSelecionarFornecedor);
+
+        jButtonSelecionarCustoNivel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jButtonSelecionarCustoNivel1.setText("Selecionar Nivel 1");
+        jButtonSelecionarCustoNivel1.setMinimumSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarCustoNivel1.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanelbotoes.add(jButtonSelecionarCustoNivel1);
+
+        jButtonSelecionarCustoNivel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jButtonSelecionarCustoNivel2.setText("Selecionar Nivel 2");
+        jButtonSelecionarCustoNivel2.setMinimumSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarCustoNivel2.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanelbotoes.add(jButtonSelecionarCustoNivel2);
+
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jButtonBuscar.setText("Buscar");
         jButtonBuscar.setMinimumSize(new java.awt.Dimension(112, 30));
@@ -409,11 +437,19 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
     public JButton getjButtonCancelar() { return jButtonCancelar; }
     public JButton getjButtonGravar() { return jButtonGravar; }
     public JButton getjButtonNovo() { return jButtonNovo; }
+    public JButton getjButtonSelecionarEdificio() { return jButtonSelecionarEdificio; }
+    public JButton getjButtonSelecionarFornecedor() { return jButtonSelecionarFornecedor; }
+    public JButton getjButtonSelecionarCustoNivel1() { return jButtonSelecionarCustoNivel1; }
+    public JButton getjButtonSelecionarCustoNivel2() { return jButtonSelecionarCustoNivel2; }
     public JButton getjButtonSair() { return jButtonSair; }
     public JPanel getjPanelDados() { return jPanelDados; }
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonSelecionarEdificio;
+    private javax.swing.JButton jButtonSelecionarFornecedor;
+    private javax.swing.JButton jButtonSelecionarCustoNivel1;
+    private javax.swing.JButton jButtonSelecionarCustoNivel2;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGravar;
