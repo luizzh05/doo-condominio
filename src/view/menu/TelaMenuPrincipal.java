@@ -4,7 +4,20 @@
  */
 package view.menu;
 
-import controller.*;
+import controller.cadastro.CadastroCustoNivel1Controller;
+import controller.cadastro.CadastroMovimentoCaixaController;
+import controller.cadastro.CadastroUnidadeController;
+import controller.cadastro.CadastroCondominioController;
+import controller.cadastro.CadastroCustoNivel2Controller;
+import controller.cadastro.CadastroProprietarioController;
+import controller.cadastro.CadastroSindicoProfissionalController;
+import controller.cadastro.CadastroAreaCompartilhadaController;
+import controller.cadastro.CadastroUnidadeCondominoController;
+import controller.cadastro.CadastroFuncaoMandatoController;
+import controller.cadastro.CadastroFornecedorController;
+import controller.cadastro.CadastroLeituraController;
+import controller.cadastro.CadastroEdificioController;
+import controller.cadastro.CadastroReservaController;
 import view.cadastro.*;
 
 /**
@@ -20,8 +33,6 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
      */
     public TelaMenuPrincipal() {
         initComponents();
-        configurarMenusAdicionais();
-        configurarTelaPrincipal();
     }
 
     /**
@@ -33,26 +44,286 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelTitulo = new javax.swing.JPanel();
+        jLabelLogo = new javax.swing.JLabel();
+        jPanelTextoTitulo = new javax.swing.JPanel();
+        jLabelTitulo = new javax.swing.JLabel();
+        jLabelSubtitulo = new javax.swing.JLabel();
+        jPanelModulos = new javax.swing.JPanel();
+        jButtonEdificio = new javax.swing.JButton();
+        jButtonCondominio = new javax.swing.JButton();
+        jButtonUnidade = new javax.swing.JButton();
+        jButtonProprietario = new javax.swing.JButton();
+        jButtonFornecedor = new javax.swing.JButton();
+        jButtonReserva = new javax.swing.JButton();
+        jPanelRodape = new javax.swing.JPanel();
+        jLabelRodape = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuCadastro = new javax.swing.JMenu();
+        jMenuItemEdificio = new javax.swing.JMenuItem();
+        jSeparatorCadastro1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItemCondominio = new javax.swing.JMenuItem();
+        jMenuItemUnidade = new javax.swing.JMenuItem();
+        jSeparatorCadastro2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItemProprietario = new javax.swing.JMenuItem();
+        jMenuItemFornecedor = new javax.swing.JMenuItem();
+        jMenuItemSindico = new javax.swing.JMenuItem();
+        jMenuItemFuncaoMandato = new javax.swing.JMenuItem();
+        jMenuItemUnidadeCondomino = new javax.swing.JMenuItem();
+        jSeparatorCadastro3 = new javax.swing.JPopupMenu.Separator();
+        jMenuItemAreaCompartilhada = new javax.swing.JMenuItem();
+        jMenuOperacoes = new javax.swing.JMenu();
+        jMenuItemLeitura = new javax.swing.JMenuItem();
+        jMenuItemMovimentoCaixa = new javax.swing.JMenuItem();
+        jMenuItemReserva = new javax.swing.JMenuItem();
+        jSeparatorOperacoes1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItemCustoNivel1 = new javax.swing.JMenuItem();
+        jMenuItemCustoNivel2 = new javax.swing.JMenuItem();
+        jMenuSobre = new javax.swing.JMenu();
+        jMenuItemSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de Gestao de Condominio");
+        setMinimumSize(new java.awt.Dimension(680, 460));
         setResizable(false);
 
-        jMenu1.setText("Cadastro");
+        jPanelTitulo.setBackground(new java.awt.Color(21, 67, 96));
+        jPanelTitulo.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 20, 12, 20));
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Company.png"))); // NOI18N
-        jMenuItem1.setText("Edificio");
-        jMenuItem1.addActionListener(this::jMenuItem1ActionPerformed);
-        jMenu1.add(jMenuItem1);
+        jLabelLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Company.png"))); // NOI18N
 
-        jMenuBar1.add(jMenu1);
+        jPanelTextoTitulo.setOpaque(false);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        jLabelTitulo.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitulo.setText("Sistema de Gestao de Condominio");
+
+        jLabelSubtitulo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabelSubtitulo.setForeground(new java.awt.Color(174, 214, 241));
+        jLabelSubtitulo.setText("Selecione um modulo para comecar");
+
+        javax.swing.GroupLayout jPanelTextoTituloLayout = new javax.swing.GroupLayout(jPanelTextoTitulo);
+        jPanelTextoTitulo.setLayout(jPanelTextoTituloLayout);
+        jPanelTextoTituloLayout.setHorizontalGroup(
+            jPanelTextoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelSubtitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanelTextoTituloLayout.setVerticalGroup(
+            jPanelTextoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTextoTituloLayout.createSequentialGroup()
+                .addComponent(jLabelTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelSubtitulo))
+        );
+
+        javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
+        jPanelTitulo.setLayout(jPanelTituloLayout);
+        jPanelTituloLayout.setHorizontalGroup(
+            jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTituloLayout.createSequentialGroup()
+                .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(jPanelTextoTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelTituloLayout.setVerticalGroup(
+            jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+            .addGroup(jPanelTituloLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jPanelTextoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanelModulos.setBackground(new java.awt.Color(240, 244, 248));
+        jPanelModulos.setBorder(javax.swing.BorderFactory.createEmptyBorder(22, 20, 22, 20));
+        jPanelModulos.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 18, 22));
+
+        jButtonEdificio.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonEdificio.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jButtonEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Company.png"))); // NOI18N
+        jButtonEdificio.setText("<html><center>Edificio<br><small>Cadastro de edificios [F1]</small></center></html>");
+        jButtonEdificio.setFocusPainted(false);
+        jButtonEdificio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonEdificio.setPreferredSize(new java.awt.Dimension(188, 158));
+        jButtonEdificio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonEdificio.addActionListener(this::jButtonEdificioActionPerformed);
+        jPanelModulos.add(jButtonEdificio);
+
+        jButtonCondominio.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCondominio.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jButtonCondominio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
+        jButtonCondominio.setText("<html><center>Condominio<br><small>Dados do condominio [F2]</small></center></html>");
+        jButtonCondominio.setFocusPainted(false);
+        jButtonCondominio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonCondominio.setPreferredSize(new java.awt.Dimension(188, 158));
+        jButtonCondominio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonCondominio.addActionListener(this::jButtonCondominioActionPerformed);
+        jPanelModulos.add(jButtonCondominio);
+
+        jButtonUnidade.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonUnidade.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jButtonUnidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Diagram.png"))); // NOI18N
+        jButtonUnidade.setText("<html><center>Unidade<br><small>Unidades do condominio [F3]</small></center></html>");
+        jButtonUnidade.setFocusPainted(false);
+        jButtonUnidade.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonUnidade.setPreferredSize(new java.awt.Dimension(188, 158));
+        jButtonUnidade.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonUnidade.addActionListener(this::jButtonUnidadeActionPerformed);
+        jPanelModulos.add(jButtonUnidade);
+
+        jButtonProprietario.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonProprietario.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jButtonProprietario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Person.png"))); // NOI18N
+        jButtonProprietario.setText("<html><center>Proprietario<br><small>Moradores e proprietarios [F4]</small></center></html>");
+        jButtonProprietario.setFocusPainted(false);
+        jButtonProprietario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonProprietario.setPreferredSize(new java.awt.Dimension(188, 158));
+        jButtonProprietario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProprietario.addActionListener(this::jButtonProprietarioActionPerformed);
+        jPanelModulos.add(jButtonProprietario);
+
+        jButtonFornecedor.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonFornecedor.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jButtonFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Briefcase.png"))); // NOI18N
+        jButtonFornecedor.setText("<html><center>Fornecedor<br><small>Prestadores de servico [F5]</small></center></html>");
+        jButtonFornecedor.setFocusPainted(false);
+        jButtonFornecedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonFornecedor.setPreferredSize(new java.awt.Dimension(188, 158));
+        jButtonFornecedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonFornecedor.addActionListener(this::jButtonFornecedorActionPerformed);
+        jPanelModulos.add(jButtonFornecedor);
+
+        jButtonReserva.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonReserva.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jButtonReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Calendar.png"))); // NOI18N
+        jButtonReserva.setText("<html><center>Reservas<br><small>Reserva de areas comuns</small></center></html>");
+        jButtonReserva.setFocusPainted(false);
+        jButtonReserva.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonReserva.setPreferredSize(new java.awt.Dimension(188, 158));
+        jButtonReserva.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonReserva.addActionListener(this::jButtonReservaActionPerformed);
+        jPanelModulos.add(jButtonReserva);
+
+        jPanelRodape.setBackground(new java.awt.Color(213, 219, 227));
+
+        jLabelRodape.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabelRodape.setForeground(new java.awt.Color(90, 100, 115));
+        jLabelRodape.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelRodape.setText("Sistema de Gestao de Condominio  v1.0");
+
+        javax.swing.GroupLayout jPanelRodapeLayout = new javax.swing.GroupLayout(jPanelRodape);
+        jPanelRodape.setLayout(jPanelRodapeLayout);
+        jPanelRodapeLayout.setHorizontalGroup(
+            jPanelRodapeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRodapeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelRodape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelRodapeLayout.setVerticalGroup(
+            jPanelRodapeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRodapeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelRodape)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jMenuCadastro.setText("Cadastro");
+
+        jMenuItemEdificio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItemEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Company.png"))); // NOI18N
+        jMenuItemEdificio.setText("Edificio");
+        jMenuItemEdificio.addActionListener(this::jMenuItemEdificioActionPerformed);
+        jMenuCadastro.add(jMenuItemEdificio);
+        jMenuCadastro.add(jSeparatorCadastro1);
+
+        jMenuItemCondominio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        jMenuItemCondominio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
+        jMenuItemCondominio.setText("Condominio");
+        jMenuItemCondominio.addActionListener(this::jMenuItemCondominioActionPerformed);
+        jMenuCadastro.add(jMenuItemCondominio);
+
+        jMenuItemUnidade.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        jMenuItemUnidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Diagram.png"))); // NOI18N
+        jMenuItemUnidade.setText("Unidade");
+        jMenuItemUnidade.addActionListener(this::jMenuItemUnidadeActionPerformed);
+        jMenuCadastro.add(jMenuItemUnidade);
+        jMenuCadastro.add(jSeparatorCadastro2);
+
+        jMenuItemProprietario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        jMenuItemProprietario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Person.png"))); // NOI18N
+        jMenuItemProprietario.setText("Proprietario");
+        jMenuItemProprietario.addActionListener(this::jMenuItemProprietarioActionPerformed);
+        jMenuCadastro.add(jMenuItemProprietario);
+
+        jMenuItemFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        jMenuItemFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Briefcase.png"))); // NOI18N
+        jMenuItemFornecedor.setText("Fornecedor");
+        jMenuItemFornecedor.addActionListener(this::jMenuItemFornecedorActionPerformed);
+        jMenuCadastro.add(jMenuItemFornecedor);
+
+        jMenuItemSindico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss_1.png"))); // NOI18N
+        jMenuItemSindico.setText("Sindico Profissional");
+        jMenuItemSindico.addActionListener(this::jMenuItemSindicoActionPerformed);
+        jMenuCadastro.add(jMenuItemSindico);
+
+        jMenuItemFuncaoMandato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Clipboard.png"))); // NOI18N
+        jMenuItemFuncaoMandato.setText("Funcao de Mandato");
+        jMenuItemFuncaoMandato.addActionListener(this::jMenuItemFuncaoMandatoActionPerformed);
+        jMenuCadastro.add(jMenuItemFuncaoMandato);
+
+        jMenuItemUnidadeCondomino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/People.png"))); // NOI18N
+        jMenuItemUnidadeCondomino.setText("Unidade Condomino");
+        jMenuItemUnidadeCondomino.addActionListener(this::jMenuItemUnidadeCondominoActionPerformed);
+        jMenuCadastro.add(jMenuItemUnidadeCondomino);
+        jMenuCadastro.add(jSeparatorCadastro3);
+
+        jMenuItemAreaCompartilhada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Globe.png"))); // NOI18N
+        jMenuItemAreaCompartilhada.setText("Area Compartilhada");
+        jMenuItemAreaCompartilhada.addActionListener(this::jMenuItemAreaCompartilhadaActionPerformed);
+        jMenuCadastro.add(jMenuItemAreaCompartilhada);
+
+        jMenuBar1.add(jMenuCadastro);
+
+        jMenuOperacoes.setText("Operacoes");
+
+        jMenuItemLeitura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Equipment.png"))); // NOI18N
+        jMenuItemLeitura.setText("Leitura de Medidores");
+        jMenuItemLeitura.addActionListener(this::jMenuItemLeituraActionPerformed);
+        jMenuOperacoes.add(jMenuItemLeitura);
+
+        jMenuItemMovimentoCaixa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Dollar.png"))); // NOI18N
+        jMenuItemMovimentoCaixa.setText("Movimento de Caixa");
+        jMenuItemMovimentoCaixa.addActionListener(this::jMenuItemMovimentoCaixaActionPerformed);
+        jMenuOperacoes.add(jMenuItemMovimentoCaixa);
+
+        jMenuItemReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Calendar.png"))); // NOI18N
+        jMenuItemReserva.setText("Reservas");
+        jMenuItemReserva.addActionListener(this::jMenuItemReservaActionPerformed);
+        jMenuOperacoes.add(jMenuItemReserva);
+        jMenuOperacoes.add(jSeparatorOperacoes1);
+
+        jMenuItemCustoNivel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Database.png"))); // NOI18N
+        jMenuItemCustoNivel1.setText("Custo Nivel 1");
+        jMenuItemCustoNivel1.addActionListener(this::jMenuItemCustoNivel1ActionPerformed);
+        jMenuOperacoes.add(jMenuItemCustoNivel1);
+
+        jMenuItemCustoNivel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Database.png"))); // NOI18N
+        jMenuItemCustoNivel2.setText("Custo Nivel 2");
+        jMenuItemCustoNivel2.addActionListener(this::jMenuItemCustoNivel2ActionPerformed);
+        jMenuOperacoes.add(jMenuItemCustoNivel2);
+
+        jMenuBar1.add(jMenuOperacoes);
+
+        jMenuSobre.setText("Sobre");
+
+        jMenuItemSobre.setText("Sistema de Gestao de Condominio v1.0");
+        jMenuItemSobre.setEnabled(false);
+        jMenuSobre.add(jMenuItemSobre);
+
+        jMenuBar1.add(jMenuSobre);
 
         setJMenuBar(jMenuBar1);
 
@@ -60,64 +331,103 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelModulos, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
+            .addComponent(jPanelRodape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 275, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanelModulos, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanelRodape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItemEdificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEdificioActionPerformed
         abrirEdificio();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jMenuItemEdificioActionPerformed
 
-    private void configurarMenusAdicionais() {
-        // ---- jMenu1: Cadastros ----
-        jMenuItem1.setText("Edificio");
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+    private void jMenuItemCondominioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCondominioActionPerformed
+        abrirCondominio();
+    }//GEN-LAST:event_jMenuItemCondominioActionPerformed
 
-        jMenu1.addSeparator();
-        adicionarItemMenu(jMenu1, "Condominio",           "Home.png",    javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0), this::abrirCondominio);
-        adicionarItemMenu(jMenu1, "Unidade",              "Diagram.png", javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0), this::abrirUnidade);
-        jMenu1.addSeparator();
-        adicionarItemMenu(jMenu1, "Proprietario",         "Person.png",  javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0), this::abrirProprietario);
-        adicionarItemMenu(jMenu1, "Fornecedor",           "Briefcase.png", javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0), this::abrirFornecedor);
-        adicionarItemMenu(jMenu1, "Sindico Profissional", "Boss_1.png",  null, this::abrirSindico);
-        adicionarItemMenu(jMenu1, "Funcao de Mandato",    "Clipboard.png", null, this::abrirFuncaoMandato);
-        adicionarItemMenu(jMenu1, "Unidade Condomino",    "People.png",  null, this::abrirUnidadeCondomino);
-        jMenu1.addSeparator();
-        adicionarItemMenu(jMenu1, "Area Compartilhada",   "Globe.png",   null, this::abrirAreaCompartilhada);
+    private void jMenuItemUnidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUnidadeActionPerformed
+        abrirUnidade();
+    }//GEN-LAST:event_jMenuItemUnidadeActionPerformed
 
-        // ---- jMenu2: Operações ----
-        jMenu2.setText("Operacoes");
-        adicionarItemMenu(jMenu2, "Leitura de Medidores", "Equipment.png", null, this::abrirLeitura);
-        adicionarItemMenu(jMenu2, "Movimento de Caixa",   "Dollar.png",  null, this::abrirMovimentoCaixa);
-        adicionarItemMenu(jMenu2, "Reservas",             "Calendar.png", null, this::abrirReserva);
-        jMenu2.addSeparator();
-        adicionarItemMenu(jMenu2, "Custo Nivel 1",        "Database.png", null, this::abrirCustoNivel1);
-        adicionarItemMenu(jMenu2, "Custo Nivel 2",        "Database.png", null, this::abrirCustoNivel2);
+    private void jMenuItemProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProprietarioActionPerformed
+        abrirProprietario();
+    }//GEN-LAST:event_jMenuItemProprietarioActionPerformed
 
-        // ---- jMenu3: Sobre ----
-        javax.swing.JMenu jMenu3 = new javax.swing.JMenu("Sobre");
-        jMenuBar1.add(jMenu3);
-        javax.swing.JMenuItem itemSobre = new javax.swing.JMenuItem("Sistema de Gestao de Condominio v1.0");
-        itemSobre.setEnabled(false);
-        jMenu3.add(itemSobre);
-    }
+    private void jMenuItemFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFornecedorActionPerformed
+        abrirFornecedor();
+    }//GEN-LAST:event_jMenuItemFornecedorActionPerformed
 
-    private void adicionarItemMenu(javax.swing.JMenu menu, String texto, String icone,
-                                   javax.swing.KeyStroke atalho, Runnable acao) {
-        javax.swing.JMenuItem item = new javax.swing.JMenuItem(texto);
-        if (atalho != null) item.setAccelerator(atalho);
-        java.net.URL url = getClass().getResource("/imagens/" + icone);
-        if (url != null) item.setIcon(new javax.swing.ImageIcon(url));
-        item.addActionListener(e -> acao.run());
-        menu.add(item);
-    }
+    private void jMenuItemSindicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSindicoActionPerformed
+        abrirSindico();
+    }//GEN-LAST:event_jMenuItemSindicoActionPerformed
+
+    private void jMenuItemFuncaoMandatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFuncaoMandatoActionPerformed
+        abrirFuncaoMandato();
+    }//GEN-LAST:event_jMenuItemFuncaoMandatoActionPerformed
+
+    private void jMenuItemUnidadeCondominoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUnidadeCondominoActionPerformed
+        abrirUnidadeCondomino();
+    }//GEN-LAST:event_jMenuItemUnidadeCondominoActionPerformed
+
+    private void jMenuItemAreaCompartilhadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAreaCompartilhadaActionPerformed
+        abrirAreaCompartilhada();
+    }//GEN-LAST:event_jMenuItemAreaCompartilhadaActionPerformed
+
+    private void jMenuItemLeituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLeituraActionPerformed
+        abrirLeitura();
+    }//GEN-LAST:event_jMenuItemLeituraActionPerformed
+
+    private void jMenuItemMovimentoCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMovimentoCaixaActionPerformed
+        abrirMovimentoCaixa();
+    }//GEN-LAST:event_jMenuItemMovimentoCaixaActionPerformed
+
+    private void jMenuItemReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemReservaActionPerformed
+        abrirReserva();
+    }//GEN-LAST:event_jMenuItemReservaActionPerformed
+
+    private void jMenuItemCustoNivel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCustoNivel1ActionPerformed
+        abrirCustoNivel1();
+    }//GEN-LAST:event_jMenuItemCustoNivel1ActionPerformed
+
+    private void jMenuItemCustoNivel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCustoNivel2ActionPerformed
+        abrirCustoNivel2();
+    }//GEN-LAST:event_jMenuItemCustoNivel2ActionPerformed
+
+    private void jButtonEdificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEdificioActionPerformed
+        abrirEdificio();
+    }//GEN-LAST:event_jButtonEdificioActionPerformed
+
+    private void jButtonCondominioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCondominioActionPerformed
+        abrirCondominio();
+    }//GEN-LAST:event_jButtonCondominioActionPerformed
+
+    private void jButtonUnidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUnidadeActionPerformed
+        abrirUnidade();
+    }//GEN-LAST:event_jButtonUnidadeActionPerformed
+
+    private void jButtonProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProprietarioActionPerformed
+        abrirProprietario();
+    }//GEN-LAST:event_jButtonProprietarioActionPerformed
+
+    private void jButtonFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFornecedorActionPerformed
+        abrirFornecedor();
+    }//GEN-LAST:event_jButtonFornecedorActionPerformed
+
+    private void jButtonReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReservaActionPerformed
+        abrirReserva();
+    }//GEN-LAST:event_jButtonReservaActionPerformed
 
     // ── abrir forms ─────────────────────────────────────────────────────────
 
@@ -205,170 +515,6 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
     }
 
-    // ── tela principal ───────────────────────────────────────────────────────
-
-    private void configurarTelaPrincipal() {
-        setTitle("Sistema de Gestao de Condominio");
-        setResizable(true);
-        setMinimumSize(new java.awt.Dimension(680, 460));
-
-        // ── header ──────────────────────────────────────────────────────────
-        javax.swing.JPanel header = new javax.swing.JPanel(new java.awt.BorderLayout(0, 0)) {
-            @Override protected void paintComponent(java.awt.Graphics g) {
-                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
-                g2.setPaint(new java.awt.GradientPaint(0, 0, new java.awt.Color(21, 67, 96),
-                        getWidth(), 0, new java.awt.Color(40, 116, 166)));
-                g2.fillRect(0, 0, getWidth(), getHeight());
-                g2.dispose();
-            }
-        };
-        header.setPreferredSize(new java.awt.Dimension(0, 88));
-        header.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 20, 12, 20));
-
-        java.net.URL logoUrl = getClass().getResource("/imagens/Company.png");
-        if (logoUrl != null) {
-            java.awt.Image img = new javax.swing.ImageIcon(logoUrl).getImage()
-                    .getScaledInstance(58, 58, java.awt.Image.SCALE_SMOOTH);
-            javax.swing.JLabel logoLabel = new javax.swing.JLabel(new javax.swing.ImageIcon(img));
-            header.add(logoLabel, java.awt.BorderLayout.WEST);
-        }
-
-        javax.swing.JPanel headerTexto = new javax.swing.JPanel(new java.awt.GridLayout(2, 1, 0, 2));
-        headerTexto.setOpaque(false);
-        headerTexto.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 16, 0, 0));
-
-        javax.swing.JLabel lblTitulo = new javax.swing.JLabel("Sistema de Gestao de Condominio");
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 22));
-        lblTitulo.setForeground(java.awt.Color.WHITE);
-
-        javax.swing.JLabel lblSub = new javax.swing.JLabel("Selecione um modulo para comecar");
-        lblSub.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
-        lblSub.setForeground(new java.awt.Color(174, 214, 241));
-
-        headerTexto.add(lblTitulo);
-        headerTexto.add(lblSub);
-        header.add(headerTexto, java.awt.BorderLayout.CENTER);
-
-        // ── modulos ──────────────────────────────────────────────────────────
-        javax.swing.JPanel painelModulos = new javax.swing.JPanel(
-                new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 18, 22));
-        painelModulos.setBackground(new java.awt.Color(240, 244, 248));
-        painelModulos.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 20, 10, 20));
-
-        painelModulos.add(criarCartao("Edificio",   "Cadastro de edificios",      "Company.png",   this::abrirEdificio,  "F1"));
-        painelModulos.add(criarCartao("Condominio", "Dados do condominio",         "Home.png",      this::abrirCondominio,"F2"));
-        painelModulos.add(criarCartao("Unidade",    "Unidades do condominio",      "Diagram.png",   this::abrirUnidade,   "F3"));
-        painelModulos.add(criarCartao("Proprietario","Moradores e proprietarios",  "Person.png",    this::abrirProprietario,"F4"));
-        painelModulos.add(criarCartao("Fornecedor", "Prestadores de servico",      "Briefcase.png", this::abrirFornecedor,"F5"));
-        painelModulos.add(criarCartao("Reservas",   "Reserva de areas comuns",     "Calendar.png",  this::abrirReserva,   ""));
-
-        // ── footer ───────────────────────────────────────────────────────────
-        javax.swing.JPanel footer = new javax.swing.JPanel(
-                new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 12, 6));
-        footer.setBackground(new java.awt.Color(213, 219, 227));
-        javax.swing.JLabel lblFooter = new javax.swing.JLabel(
-                "Sistema de Gestao de Condominio  v1.0  |  2024");
-        lblFooter.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 11));
-        lblFooter.setForeground(new java.awt.Color(90, 100, 115));
-        footer.add(lblFooter);
-
-        // ── monta conteudo ───────────────────────────────────────────────────
-        getContentPane().removeAll();
-        getContentPane().setLayout(new java.awt.BorderLayout());
-        getContentPane().add(header, java.awt.BorderLayout.NORTH);
-        getContentPane().add(painelModulos, java.awt.BorderLayout.CENTER);
-        getContentPane().add(footer, java.awt.BorderLayout.SOUTH);
-
-        setSize(780, 510);
-        setLocationRelativeTo(null);
-        revalidate();
-        repaint();
-    }
-
-    private javax.swing.JPanel criarCartao(String titulo, String descricao,
-            String icone, Runnable acao, String atalho) {
-
-        final java.awt.Color COR_NORMAL = java.awt.Color.WHITE;
-        final java.awt.Color COR_HOVER  = new java.awt.Color(232, 244, 255);
-        final java.awt.Color COR_BORDA  = new java.awt.Color(200, 210, 220);
-        final java.awt.Color COR_BORDA_H = new java.awt.Color(40, 116, 166);
-        final int PAD = 18;
-
-        javax.swing.JPanel card = new javax.swing.JPanel(new java.awt.BorderLayout(0, 10));
-        card.setOpaque(true);
-        card.setBackground(COR_NORMAL);
-        card.setBorder(javax.swing.BorderFactory.createCompoundBorder(
-                javax.swing.BorderFactory.createLineBorder(COR_BORDA, 1, true),
-                javax.swing.BorderFactory.createEmptyBorder(PAD, PAD, PAD, PAD)));
-        card.setPreferredSize(new java.awt.Dimension(188, 158));
-        card.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
-
-        // icone
-        java.net.URL iconUrl = getClass().getResource("/imagens/" + icone);
-        if (iconUrl != null) {
-            java.awt.Image img = new javax.swing.ImageIcon(iconUrl).getImage()
-                    .getScaledInstance(54, 54, java.awt.Image.SCALE_SMOOTH);
-            javax.swing.JLabel iconLabel = new javax.swing.JLabel(new javax.swing.ImageIcon(img));
-            iconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            card.add(iconLabel, java.awt.BorderLayout.CENTER);
-        }
-
-        // texto
-        javax.swing.JPanel textoPanel = new javax.swing.JPanel(new java.awt.GridLayout(2, 1, 0, 3));
-        textoPanel.setOpaque(false);
-
-        javax.swing.JLabel lblTit = new javax.swing.JLabel(
-                atalho.isEmpty() ? titulo : titulo + "  <small>[" + atalho + "]</small>");
-        if (!atalho.isEmpty())
-            lblTit.setText("<html><center>" + titulo + "&nbsp;&nbsp;<small><font color='#888'>[" + atalho + "]</font></small></center></html>");
-        else
-            lblTit.setText(titulo);
-        lblTit.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 13));
-        lblTit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTit.setForeground(new java.awt.Color(30, 50, 70));
-
-        javax.swing.JLabel lblDesc = new javax.swing.JLabel(
-                "<html><center>" + descricao + "</center></html>");
-        lblDesc.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 10));
-        lblDesc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDesc.setForeground(new java.awt.Color(120, 140, 160));
-
-        textoPanel.add(lblTit);
-        textoPanel.add(lblDesc);
-        card.add(textoPanel, java.awt.BorderLayout.SOUTH);
-
-        // hover + click
-        java.awt.event.MouseAdapter ma = new java.awt.event.MouseAdapter() {
-            @Override public void mouseEntered(java.awt.event.MouseEvent e) {
-                card.setBackground(COR_HOVER);
-                card.setBorder(javax.swing.BorderFactory.createCompoundBorder(
-                        javax.swing.BorderFactory.createLineBorder(COR_BORDA_H, 2, true),
-                        javax.swing.BorderFactory.createEmptyBorder(PAD - 1, PAD - 1, PAD - 1, PAD - 1)));
-            }
-            @Override public void mouseExited(java.awt.event.MouseEvent e) {
-                java.awt.Point p = javax.swing.SwingUtilities.convertPoint(
-                        e.getComponent(), e.getPoint(), card);
-                if (!card.contains(p)) {
-                    card.setBackground(COR_NORMAL);
-                    card.setBorder(javax.swing.BorderFactory.createCompoundBorder(
-                            javax.swing.BorderFactory.createLineBorder(COR_BORDA, 1, true),
-                            javax.swing.BorderFactory.createEmptyBorder(PAD, PAD, PAD, PAD)));
-                }
-            }
-            @Override public void mouseClicked(java.awt.event.MouseEvent e) { acao.run(); }
-        };
-        aplicarMouseListenerRecursivo(card, ma);
-        return card;
-    }
-
-    private void aplicarMouseListenerRecursivo(java.awt.Component comp,
-            java.awt.event.MouseListener ml) {
-        comp.addMouseListener(ml);
-        if (comp instanceof java.awt.Container)
-            for (java.awt.Component c : ((java.awt.Container) comp).getComponents())
-                aplicarMouseListenerRecursivo(c, ml);
-    }
-
     /**
      * @param args the command line arguments
      */
@@ -395,9 +541,42 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JButton jButtonCondominio;
+    private javax.swing.JButton jButtonEdificio;
+    private javax.swing.JButton jButtonFornecedor;
+    private javax.swing.JButton jButtonProprietario;
+    private javax.swing.JButton jButtonReserva;
+    private javax.swing.JButton jButtonUnidade;
+    private javax.swing.JLabel jLabelLogo;
+    private javax.swing.JLabel jLabelRodape;
+    private javax.swing.JLabel jLabelSubtitulo;
+    private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenu jMenuCadastro;
+    private javax.swing.JMenuItem jMenuItemAreaCompartilhada;
+    private javax.swing.JMenuItem jMenuItemCondominio;
+    private javax.swing.JMenuItem jMenuItemCustoNivel1;
+    private javax.swing.JMenuItem jMenuItemCustoNivel2;
+    private javax.swing.JMenuItem jMenuItemEdificio;
+    private javax.swing.JMenuItem jMenuItemFornecedor;
+    private javax.swing.JMenuItem jMenuItemFuncaoMandato;
+    private javax.swing.JMenuItem jMenuItemLeitura;
+    private javax.swing.JMenuItem jMenuItemMovimentoCaixa;
+    private javax.swing.JMenuItem jMenuItemProprietario;
+    private javax.swing.JMenuItem jMenuItemReserva;
+    private javax.swing.JMenuItem jMenuItemSindico;
+    private javax.swing.JMenuItem jMenuItemSobre;
+    private javax.swing.JMenuItem jMenuItemUnidade;
+    private javax.swing.JMenuItem jMenuItemUnidadeCondomino;
+    private javax.swing.JMenu jMenuOperacoes;
+    private javax.swing.JMenu jMenuSobre;
+    private javax.swing.JPanel jPanelModulos;
+    private javax.swing.JPanel jPanelRodape;
+    private javax.swing.JPanel jPanelTextoTitulo;
+    private javax.swing.JPanel jPanelTitulo;
+    private javax.swing.JPopupMenu.Separator jSeparatorCadastro1;
+    private javax.swing.JPopupMenu.Separator jSeparatorCadastro2;
+    private javax.swing.JPopupMenu.Separator jSeparatorCadastro3;
+    private javax.swing.JPopupMenu.Separator jSeparatorOperacoes1;
     // End of variables declaration//GEN-END:variables
 }
