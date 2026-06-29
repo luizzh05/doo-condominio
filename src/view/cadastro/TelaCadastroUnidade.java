@@ -53,11 +53,11 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
         jComboBoxTipoUnidade = new javax.swing.JComboBox<>();
         jScrollPaneObservacao = new javax.swing.JScrollPane();
         jTextAreaObservacao = new javax.swing.JTextArea();
+        jButtonSelecionarEdificio = new javax.swing.JButton();
         jPanelbotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonGravar = new javax.swing.JButton();
-        jButtonSelecionarEdificio = new javax.swing.JButton();
         jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
 
@@ -137,6 +137,16 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
         jTextAreaObservacao.setWrapStyleWord(true);
         jScrollPaneObservacao.setViewportView(jTextAreaObservacao);
 
+        jButtonSelecionarEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jButtonSelecionarEdificio.setText("Buscar");
+        jButtonSelecionarEdificio.setMinimumSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarEdificio.setPreferredSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarEdificio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSelecionarEdificioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
         jPanelDadosLayout.setHorizontalGroup(
@@ -155,7 +165,9 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
                         .addGroup(jPanelDadosLayout.createSequentialGroup()
                             .addComponent(jLabelTipoUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jComboBoxTipoUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
+                            .addComponent(jComboBoxTipoUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButtonSelecionarEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
                             .addComponent(jLabelDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
@@ -195,7 +207,8 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTipoUnidade)
-                    .addComponent(jComboBoxTipoUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxTipoUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSelecionarEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoObservacoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -224,12 +237,6 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
         jButtonGravar.setMinimumSize(new java.awt.Dimension(112, 30));
         jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonGravar);
-
-        jButtonSelecionarEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
-        jButtonSelecionarEdificio.setText("Selecionar Edificio");
-        jButtonSelecionarEdificio.setMinimumSize(new java.awt.Dimension(150, 30));
-        jButtonSelecionarEdificio.setPreferredSize(new java.awt.Dimension(150, 30));
-        jPanelbotoes.add(jButtonSelecionarEdificio);
 
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jButtonBuscar.setText("Buscar");
@@ -276,6 +283,10 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldIdActionPerformed
 
+    private void jButtonSelecionarEdificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarEdificioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSelecionarEdificioActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -318,12 +329,12 @@ public class TelaCadastroUnidade extends javax.swing.JDialog {
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonSelecionarEdificio;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JButton jButtonSelecionarEdificio;
     private javax.swing.JComboBox<String> jComboBoxTipoUnidade;
     private javax.swing.JLabel jLabelDescricao;
     private javax.swing.JLabel jLabelId;

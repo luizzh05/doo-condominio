@@ -118,6 +118,8 @@
                               <Component id="jLabelTipoUnidade" min="-2" pref="150" max="150" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jComboBoxTipoUnidade" min="-2" pref="170" max="170" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonSelecionarEdificio" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabelSecaoObservacoes" min="-2" pref="520" max="520" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
@@ -168,6 +170,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelTipoUnidade" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboBoxTipoUnidade" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonSelecionarEdificio" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabelSecaoObservacoes" min="-2" max="-2" attributes="0"/>
@@ -323,6 +326,23 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="jButtonSelecionarEdificio">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/Find.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Buscar"/>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[150, 30]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[150, 30]"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSelecionarEdificioActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanelbotoes">
@@ -377,20 +397,6 @@
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[112, 30]"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButtonSelecionarEdificio">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/Find.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Selecionar Edificio"/>
-            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[150, 30]"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[150, 30]"/>
             </Property>
           </Properties>
         </Component>

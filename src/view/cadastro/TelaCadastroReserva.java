@@ -51,11 +51,11 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
         jTextFieldDataHoraFim = new javax.swing.JFormattedTextField();
         jScrollPaneObservacao = new javax.swing.JScrollPane();
         jTextAreaObservacao = new javax.swing.JTextArea();
+        jButtonSelecionarAreaCompartilhadaEdificio = new javax.swing.JButton();
         jPanelbotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonGravar = new javax.swing.JButton();
-        jButtonSelecionarAreaCompartilhadaEdificio = new javax.swing.JButton();
         jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
 
@@ -140,6 +140,16 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
         jTextAreaObservacao.setWrapStyleWord(true);
         jScrollPaneObservacao.setViewportView(jTextAreaObservacao);
 
+        jButtonSelecionarAreaCompartilhadaEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jButtonSelecionarAreaCompartilhadaEdificio.setText("Buscar");
+        jButtonSelecionarAreaCompartilhadaEdificio.setMinimumSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarAreaCompartilhadaEdificio.setPreferredSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarAreaCompartilhadaEdificio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSelecionarAreaCompartilhadaEdificioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
         jPanelDadosLayout.setHorizontalGroup(
@@ -148,26 +158,30 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPaneObservacao)
-                    .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabelSecaoReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
-                        .addGroup(jPanelDadosLayout.createSequentialGroup()
-                            .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, 70))
-                        .addGroup(jPanelDadosLayout.createSequentialGroup()
-                            .addComponent(jLabelAreaCompartilhadaEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jComboBoxAreaCompartilhadaEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520))
-                        .addComponent(jLabelSecaoPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
-                        .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
-                        .addGroup(jPanelDadosLayout.createSequentialGroup()
-                            .addComponent(jLabelDataHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldDataHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
-                            .addGap(67, 67, 67)
-                            .addComponent(jLabelDataHoraFim)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextFieldDataHoraFim, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))))
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelSecaoReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
+                            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, 70))
+                            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                .addComponent(jLabelAreaCompartilhadaEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxAreaCompartilhadaEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonSelecionarAreaCompartilhadaEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelSecaoPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
+                            .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520))
+                        .addGap(156, 156, 156))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelDadosLayout.createSequentialGroup()
+                        .addComponent(jLabelDataHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldDataHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabelDataHoraFim)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldDataHoraFim, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)))
                 .addContainerGap())
         );
         jPanelDadosLayout.setVerticalGroup(
@@ -180,9 +194,10 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
                     .addComponent(jLabelId)
                     .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelAreaCompartilhadaEdificio)
-                    .addComponent(jComboBoxAreaCompartilhadaEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxAreaCompartilhadaEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSelecionarAreaCompartilhadaEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAreaCompartilhadaEdificio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoPeriodo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -219,12 +234,6 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
         jButtonGravar.setMinimumSize(new java.awt.Dimension(112, 30));
         jButtonGravar.setPreferredSize(new java.awt.Dimension(112, 30));
         jPanelbotoes.add(jButtonGravar);
-
-        jButtonSelecionarAreaCompartilhadaEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
-        jButtonSelecionarAreaCompartilhadaEdificio.setText("Selecionar Area/Edificio");
-        jButtonSelecionarAreaCompartilhadaEdificio.setMinimumSize(new java.awt.Dimension(150, 30));
-        jButtonSelecionarAreaCompartilhadaEdificio.setPreferredSize(new java.awt.Dimension(150, 30));
-        jPanelbotoes.add(jButtonSelecionarAreaCompartilhadaEdificio);
 
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jButtonBuscar.setText("Buscar");
@@ -271,6 +280,10 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldIdActionPerformed
 
+    private void jButtonSelecionarAreaCompartilhadaEdificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarAreaCompartilhadaEdificioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSelecionarAreaCompartilhadaEdificioActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -313,12 +326,12 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonSelecionarAreaCompartilhadaEdificio;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JButton jButtonSelecionarAreaCompartilhadaEdificio;
     private javax.swing.JComboBox<String> jComboBoxAreaCompartilhadaEdificio;
     private javax.swing.JLabel jLabelAreaCompartilhadaEdificio;
     private javax.swing.JLabel jLabelDataHoraFim;
