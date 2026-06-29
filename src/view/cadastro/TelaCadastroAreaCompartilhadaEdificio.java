@@ -4,6 +4,14 @@
  */
 package view.cadastro;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author aluno
@@ -256,13 +264,13 @@ public class TelaCadastroAreaCompartilhadaEdificio extends javax.swing.JDialog {
         });
     }
 
-    public javax.swing.JButton getjButtonBuscar() { return jButtonBuscar; }
-    public javax.swing.JButton getjButtonCancelar() { return jButtonCancelar; }
-    public javax.swing.JButton getjButtonGravar() { return jButtonGravar; }
-    public javax.swing.JButton getjButtonNovo() { return jButtonNovo; }
-    public javax.swing.JButton getjButtonSair() { return jButtonSair; }
-    public javax.swing.JPanel getjPanelDados() { return jPanelDados; }
-    public javax.swing.JPanel getjPanelbotoes() { return jPanelbotoes; }
+    public JButton getjButtonBuscar() { return jButtonBuscar; }
+    public JButton getjButtonCancelar() { return jButtonCancelar; }
+    public JButton getjButtonGravar() { return jButtonGravar; }
+    public JButton getjButtonNovo() { return jButtonNovo; }
+    public JButton getjButtonSair() { return jButtonSair; }
+    public JPanel getjPanelDados() { return jPanelDados; }
+    public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;

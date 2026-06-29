@@ -6,7 +6,9 @@ package view.cadastro;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,13 +22,6 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     public TelaCadastroEdificio(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        configurarMascaras();
-        ajustarLayout();
-    }
-
-    private void configurarMascaras() {
-        utils.Utils.aplicarMascara(jTextFieldCnpj, "##.###.###/####-##");
-        utils.Utils.aplicarMascara(jTextFieldCep, "#####-###");
     }
 
     public JButton getjButtonBuscar() {
@@ -60,8 +55,6 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     public ButtonGroup getBtnGroupCalculo() {
         return btnGroupCalculo;
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -603,77 +596,9 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField jTextFieldQuantidadeUnidades;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JTextField getjTextFieldId() { return jTextFieldId; }
-    public javax.swing.JTextField getjTextFieldNome() { return jTextFieldNome; }
-    public javax.swing.JFormattedTextField getjTextFieldCnpj() { return jTextFieldCnpj; }
-    public javax.swing.JFormattedTextField getjTextFieldAnoLancamento() { return jTextFieldAnoLancamento; }
-    public javax.swing.JFormattedTextField getjTextFieldAreaTotal() { return jTextFieldAreaTotal; }
-    public javax.swing.JFormattedTextField getjTextFieldQuantidadeAndares() { return jTextFieldQuantidadeAndares; }
-    public javax.swing.JFormattedTextField getjTextFieldQuantidadeUnidades() { return jTextFieldQuantidadeUnidades; }
-    public javax.swing.JFormattedTextField getjTextFieldCep() { return jTextFieldCep; }
-    public javax.swing.JTextField getjTextFieldLogradouro() { return jTextFieldLogradouro; }
-    public javax.swing.JTextField getjTextFieldCidade() { return jTextFieldCidade; }
-    public javax.swing.JTextField getjTextFieldBairro() { return jTextFieldBairro; }
-    public javax.swing.JTextField getjTextFieldComplemento() { return jTextFieldComplemento; }
-    public javax.swing.JTextField getjTextFieldNumeroUnidadeAgua() { return jTextFieldNumeroUnidadeAgua; }
-    public javax.swing.JTextField getjTextFieldNumeroUnidadeGas() { return jTextFieldNumeroUnidadeGas; }
-    public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
-    public javax.swing.JRadioButton getjRadioButton1() { return jRadioButton1; }
-    public javax.swing.JRadioButton getjRadioButton2() { return jRadioButton2; }
-
-    private void ajustarLayout() {
-        java.awt.Rectangle bounds = java.awt.GraphicsEnvironment
-                .getLocalGraphicsEnvironment().getMaximumWindowBounds();
-        int alturaMaxima = (int) (bounds.height * 0.93);
-
-        if (getHeight() <= alturaMaxima) {
-            return;
-        }
-
-        int alturaTitulo = jPanelTitulo.getPreferredSize().height;
-        int alturaBotoes = jPanelbotoes.getPreferredSize().height;
-        int larguraDados = jPanelDados.getPreferredSize().width;
-        int alturaScroll = alturaMaxima - alturaTitulo - alturaBotoes - 60;
-        if (alturaScroll < 150) alturaScroll = 150;
-
-        javax.swing.JScrollPane scrollDados = new javax.swing.JScrollPane(jPanelDados);
-        scrollDados.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-        scrollDados.setPreferredSize(new java.awt.Dimension(larguraDados + 18, alturaScroll));
-        scrollDados.getVerticalScrollBar().setUnitIncrement(16);
-        scrollDados.setHorizontalScrollBarPolicy(javax.swing.JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-        getContentPane().removeAll();
-        javax.swing.GroupLayout novoLayout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(novoLayout);
-        novoLayout.setHorizontalGroup(
-            novoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(novoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(novoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrollDados, javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelbotoes, javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        novoLayout.setVerticalGroup(
-            novoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(novoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollDados)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelbotoes, javax.swing.GroupLayout.PREFERRED_SIZE,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        setResizable(true);
-        pack();
-        setLocationRelativeTo(null);
-    }
+    public JTextField getjTextFieldId() { return jTextFieldId; }
+    public JTextField getjTextFieldNome() { return jTextFieldNome; }
+    public JFormattedTextField getjTextFieldCnpj() { return jTextFieldCnpj; }
+    public JFormattedTextField getjTextFieldAnoLancamento() { return jTextFieldAnoLancamento; }
+    public JFormattedTextField getjTextFieldAreaTotal() { return jTextFieldAreaTotal; }
 }

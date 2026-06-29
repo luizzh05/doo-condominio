@@ -4,6 +4,14 @@
  */
 package view.consulta;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author aluno
@@ -253,13 +261,13 @@ public class TelaConsultaSindicoProfissional extends javax.swing.JDialog {
         });
     }
 
-    public javax.swing.JButton getjButtonFechar() { return jButtonFechar; }
-    public javax.swing.JButton getjButtonLimpar() { return jButtonLimpar; }
-    public javax.swing.JButton getjButtonPesquisar() { return jButtonPesquisar; }
-    public javax.swing.JButton getjButtonSelecionar() { return jButtonSelecionar; }
-    public javax.swing.JComboBox<String> getjComboBoxCampoFiltro() { return jComboBoxCampoFiltro; }
-    public javax.swing.JTable getjTableResultado() { return jTableResultado; }
-    public javax.swing.JTextField getjTextFieldFiltro() { return jTextFieldFiltro; }
+    public JButton getjButtonFechar() { return jButtonFechar; }
+    public JButton getjButtonLimpar() { return jButtonLimpar; }
+    public JButton getjButtonPesquisar() { return jButtonPesquisar; }
+    public JButton getjButtonSelecionar() { return jButtonSelecionar; }
+    public JComboBox<String> getjComboBoxCampoFiltro() { return jComboBoxCampoFiltro; }
+    public JTable getjTableResultado() { return jTableResultado; }
+    public JTextField getjTextFieldFiltro() { return jTextFieldFiltro; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFechar;
