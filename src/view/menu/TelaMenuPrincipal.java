@@ -87,7 +87,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(680, 460));
         setResizable(false);
 
-        jPanelTitulo.setBackground(new java.awt.Color(21, 67, 96));
+        jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 20, 12, 20));
 
         jLabelLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -264,6 +264,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuItemFornecedor.addActionListener(this::jMenuItemFornecedorActionPerformed);
         jMenuCadastro.add(jMenuItemFornecedor);
 
+        jMenuItemSindico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         jMenuItemSindico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss_1.png"))); // NOI18N
         jMenuItemSindico.setText("Sindico Profissional");
         jMenuItemSindico.addActionListener(this::jMenuItemSindicoActionPerformed);

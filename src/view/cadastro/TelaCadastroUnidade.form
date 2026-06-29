@@ -118,7 +118,7 @@
                               <Component id="jLabelTipoUnidade" min="-2" pref="150" max="150" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jComboBoxTipoUnidade" min="-2" pref="170" max="170" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jButtonSelecionarEdificio" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabelSecaoObservacoes" min="-2" pref="520" max="520" attributes="0"/>

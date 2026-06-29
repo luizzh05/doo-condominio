@@ -127,9 +127,9 @@
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jButtonSelecionarEdificio" min="-2" pref="101" max="-2" attributes="0"/>
-                              <Component id="jButtonSelecionarAreaCompartilhada" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="jButtonSelecionarAreaCompartilhada" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

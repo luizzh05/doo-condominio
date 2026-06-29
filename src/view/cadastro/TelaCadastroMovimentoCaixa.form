@@ -273,10 +273,10 @@
                       <Component id="jLabelFlagFormula" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldFlagFormula" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelFlagRateio" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxFlagRateio" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxFlagRateio" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabelSecaoObservacoes" min="-2" max="-2" attributes="0"/>
