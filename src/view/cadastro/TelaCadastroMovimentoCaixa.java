@@ -142,16 +142,31 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
 
         jLabelDataEmissao.setText("Data de emissao");
 
+        try {
+            jTextFieldDataEmissao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataEmissao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataEmissao.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelDataVencimento.setText("Data de vencimento");
 
+        try {
+            jTextFieldDataVencimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataVencimento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataVencimento.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelDataPagamento.setText("Data de pagamento");
 
+        try {
+            jTextFieldDataPagamento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataPagamento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataPagamento.setPreferredSize(new java.awt.Dimension(170, 28));
 

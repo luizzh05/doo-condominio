@@ -112,21 +112,41 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
 
         jLabelMesReferencia.setText("Mes Referencia");
 
+        try {
+            jTextFieldMesReferencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldMesReferencia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldMesReferencia.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelAnoReferencia.setText("Ano Referencia");
 
+        try {
+            jTextFieldAnoReferencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldAnoReferencia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldAnoReferencia.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelDataEmissao.setText("Data Emissao");
 
+        try {
+            jTextFieldDataEmissao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataEmissao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataEmissao.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelDataVencimento.setText("Data Vencimento");
 
+        try {
+            jTextFieldDataVencimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataVencimento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataVencimento.setPreferredSize(new java.awt.Dimension(170, 28));
 

@@ -112,11 +112,21 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
 
         jLabelDataInicio.setText("Data de inicio");
 
+        try {
+            jTextFieldDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataInicio.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataInicio.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelDataFim.setText("Data de fim");
 
+        try {
+            jTextFieldDataFim.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataFim.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataFim.setPreferredSize(new java.awt.Dimension(170, 28));
 

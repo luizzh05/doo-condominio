@@ -160,6 +160,11 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
 
         jLabelCpf.setText("CPF");
 
+        try {
+            jTextFieldCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldCpf.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldCpf.setPreferredSize(new java.awt.Dimension(170, 28));
 
@@ -170,6 +175,11 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
 
         jLabelCnpj.setText("CNPJ");
 
+        try {
+            jTextFieldCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldCnpj.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldCnpj.setPreferredSize(new java.awt.Dimension(170, 28));
 
@@ -180,11 +190,21 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
 
         jLabelFone1.setText("Fone 1");
 
+        try {
+            jTextFieldFone1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldFone1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldFone1.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelFone2.setText("Fone 2");
 
+        try {
+            jTextFieldFone2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldFone2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldFone2.setPreferredSize(new java.awt.Dimension(170, 28));
 
@@ -195,11 +215,21 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
 
         jLabelDataNascimento.setText("Data Nascimento");
 
+        try {
+            jTextFieldDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataNascimento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataNascimento.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelDataCadastro.setText("Data Cadastro");
 
+        try {
+            jTextFieldDataCadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataCadastro.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataCadastro.setPreferredSize(new java.awt.Dimension(170, 28));
 
@@ -211,6 +241,11 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
 
         jLabelCep.setText("CEP");
 
+        try {
+            jTextFieldCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldCep.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldCep.setPreferredSize(new java.awt.Dimension(170, 28));
 

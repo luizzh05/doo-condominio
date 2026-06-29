@@ -113,6 +113,11 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
 
         jLabelDataLeitura.setText("Data Leitura");
 
+        try {
+            jTextFieldDataLeitura.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataLeitura.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataLeitura.setPreferredSize(new java.awt.Dimension(170, 28));
 
@@ -124,11 +129,21 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
 
         jLabelMesReferencia.setText("Mes Referencia");
 
+        try {
+            jTextFieldMesReferencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldMesReferencia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldMesReferencia.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelAnoReferencia.setText("Ano Referencia");
 
+        try {
+            jTextFieldAnoReferencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldAnoReferencia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldAnoReferencia.setPreferredSize(new java.awt.Dimension(170, 28));
 

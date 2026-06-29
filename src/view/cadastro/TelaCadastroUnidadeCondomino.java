@@ -117,11 +117,21 @@ public class TelaCadastroUnidadeCondomino extends javax.swing.JDialog {
 
         jLabelDataAquisicao.setText("Data Aquisicao");
 
+        try {
+            jTextFieldDataAquisicao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataAquisicao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataAquisicao.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelDataVenda.setText("Data Venda");
 
+        try {
+            jTextFieldDataVenda.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataVenda.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataVenda.setPreferredSize(new java.awt.Dimension(170, 28));
 

@@ -114,11 +114,21 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
 
         jLabelDataHoraInicio.setText("Data/Hora Inicio");
 
+        try {
+            jTextFieldDataHoraInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/#### ##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataHoraInicio.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataHoraInicio.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelDataHoraFim.setText("Data/Hora Fim");
 
+        try {
+            jTextFieldDataHoraFim.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/#### ##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldDataHoraFim.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataHoraFim.setPreferredSize(new java.awt.Dimension(170, 28));
 
