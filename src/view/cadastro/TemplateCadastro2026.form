@@ -29,7 +29,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanelTitulo" max="32767" attributes="0"/>
-                  <Component id="jPanelDados" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneDados" max="32767" attributes="0"/>
                   <Component id="jPanelbotoes" alignment="0" pref="722" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -42,7 +42,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelTitulo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanelDados" min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPaneDados" min="0" pref="400" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelbotoes" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -87,52 +87,61 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanelDados">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-            <BevelBorder/>
-          </Border>
-        </Property>
-      </Properties>
+    <Container class="javax.swing.JScrollPane" name="jScrollPaneDados">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelId" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="jTextFieldId" min="-2" pref="26" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabelId" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTextFieldId" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="184" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabelId">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ID"/>
-            <Property name="toolTipText" type="java.lang.String" value="R&#xe1;m glu glu"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldId">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIdActionPerformed"/>
-          </Events>
-        </Component>
+      <Container class="javax.swing.JPanel" name="jPanelDados">
+        <Properties>
+          <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+            <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+              <BevelBorder/>
+            </Border>
+          </Property>
+        </Properties>
+  
+        <Layout>
+          <DimensionLayout dim="0">
+            <Group type="103" groupAlignment="0" attributes="0">
+                <Group type="102" attributes="0">
+                    <EmptySpace max="-2" attributes="0"/>
+                    <Group type="103" groupAlignment="0" attributes="0">
+                        <Component id="jLabelId" min="-2" pref="37" max="-2" attributes="0"/>
+                        <Component id="jTextFieldId" min="-2" pref="26" max="-2" attributes="0"/>
+                    </Group>
+                    <EmptySpace max="32767" attributes="0"/>
+                </Group>
+            </Group>
+          </DimensionLayout>
+          <DimensionLayout dim="1">
+            <Group type="103" groupAlignment="0" attributes="0">
+                <Group type="102" alignment="0" attributes="0">
+                    <EmptySpace max="-2" attributes="0"/>
+                    <Component id="jLabelId" min="-2" max="-2" attributes="0"/>
+                    <EmptySpace max="-2" attributes="0"/>
+                    <Component id="jTextFieldId" min="-2" max="-2" attributes="0"/>
+                    <EmptySpace pref="184" max="32767" attributes="0"/>
+                </Group>
+            </Group>
+          </DimensionLayout>
+        </Layout>
+        <SubComponents>
+          <Component class="javax.swing.JLabel" name="jLabelId">
+            <Properties>
+              <Property name="text" type="java.lang.String" value="ID"/>
+              <Property name="toolTipText" type="java.lang.String" value="R&#xe1;m glu glu"/>
+            </Properties>
+          </Component>
+          <Component class="javax.swing.JTextField" name="jTextFieldId">
+            <Events>
+              <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIdActionPerformed"/>
+            </Events>
+          </Component>
+        </SubComponents>
+      </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanelbotoes">

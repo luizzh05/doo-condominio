@@ -134,6 +134,11 @@ public class TelaCadastroAreaCompartilhadaEdificio extends javax.swing.JDialog {
         jButtonSelecionarEdificio.setText("Buscar");
         jButtonSelecionarEdificio.setMinimumSize(new java.awt.Dimension(150, 30));
         jButtonSelecionarEdificio.setPreferredSize(new java.awt.Dimension(150, 30));
+        jButtonSelecionarEdificio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSelecionarEdificioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
@@ -263,6 +268,10 @@ public class TelaCadastroAreaCompartilhadaEdificio extends javax.swing.JDialog {
     private void jButtonSelecionarAreaCompartilhadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarAreaCompartilhadaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSelecionarAreaCompartilhadaActionPerformed
+
+    private void jButtonSelecionarEdificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarEdificioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSelecionarEdificioActionPerformed
 
     public static void main(String args[]) {
         try {
