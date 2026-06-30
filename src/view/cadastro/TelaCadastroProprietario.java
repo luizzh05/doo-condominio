@@ -38,6 +38,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jPanelTitulo = new javax.swing.JPanel();
         jLabeltitulo = new javax.swing.JLabel();
         jScrollPaneDados = new javax.swing.JScrollPane();
+        jScrollPaneDados.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jPanelDados = new javax.swing.JPanel();
         jLabelSecaoIdentificacao = new javax.swing.JLabel();
         jLabelSecaoDocumentos = new javax.swing.JLabel();
@@ -282,7 +283,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jLabelTipoPessoa.setText("Tipo Pessoa");
 
         jComboBoxTipoPessoa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxTipoPessoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fisica", "Juridica" }));
+        jComboBoxTipoPessoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Fisica", "Juridica" }));
         jComboBoxTipoPessoa.setPreferredSize(new java.awt.Dimension(170, 28));
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
