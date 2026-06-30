@@ -2,6 +2,7 @@ package controller.consulta;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import mock.DemoTableData;
 import view.consulta.TelaConsultaReserva;
 
 public class ConsultaReservaController implements ActionListener {
@@ -14,6 +15,7 @@ public class ConsultaReservaController implements ActionListener {
         this.tela.getjButtonPesquisar().addActionListener(this);
         this.tela.getjButtonLimpar().addActionListener(this);
         this.tela.getjButtonFechar().addActionListener(this);
+        DemoTableData.carregarReservas(this.tela.getjTableResultado());
     }
 
     @Override
