@@ -54,13 +54,17 @@ public class Utils {
                 ((JTextField) componenteAtual).setText("");
                 componenteAtual.setEnabled(estadoComponentes);
             } else if (componenteAtual instanceof JComboBox){
-                ((JComboBox) componenteAtual).setSelectedIndex(-1);
+                JComboBox comboBox = (JComboBox) componenteAtual;
+                
+                comboBox.setSelectedIndex(comboBox.getItemCount() > 0 ? 0 : -1);
                 componenteAtual.setEnabled(estadoComponentes);
             }else if(componenteAtual instanceof JRadioButton){
                componenteAtual.setEnabled(estadoComponentes);
                ((JRadioButton) componenteAtual).setSelected(false);
             }else if (componenteAtual instanceof JTextArea){
                 ((JTextArea) componenteAtual).setText("");
+                componenteAtual.setEnabled(estadoComponentes);
+            }else if (componenteAtual instanceof JButton){
                 componenteAtual.setEnabled(estadoComponentes);
             }else if (componenteAtual instanceof Container){
                 limpaComponentes((Container) componenteAtual, estadoComponentes);
