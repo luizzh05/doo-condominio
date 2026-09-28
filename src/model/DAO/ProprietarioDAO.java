@@ -136,6 +136,7 @@ public class ProprietarioDAO implements InterfaceDAO<Proprietario> {
         p.setComplemento(rs.getString("complemento"));
         p.setObservacao(rs.getString("observacao"));
         p.setStatus(rs.getString("status"));
+        p.setTipoPessoa("Proprietario");
         return p;
     }
 }
