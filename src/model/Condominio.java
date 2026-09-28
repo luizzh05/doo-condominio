@@ -9,6 +9,7 @@ public class Condominio {
     private int anoReferencia;
     private LocalDate dataEmissao;
     private LocalDate dataVencimento;
+    private LocalDate dataPagamento;
     private double juros;
     private double multas;
     private double correcao;
@@ -75,6 +76,14 @@ public class Condominio {
 
     public void setDataVencimento(LocalDate dataVencimento) {
         this.dataVencimento = dataVencimento;
+    }
+
+    public LocalDate getDataPagamento() {
+        return dataPagamento;
+    }
+
+    public void setDataPagamento(LocalDate dataPagamento) {
+        this.dataPagamento = dataPagamento;
     }
 
     public double getJuros() {

@@ -11,6 +11,7 @@ public class FuncaoMandato {
     private String observacao;
     private String status;
     private SindicoProfissional sindicoProfissional;
+    private Proprietario proprietario;
     private Edificio edificio;
 
     public FuncaoMandato() {
@@ -81,6 +82,14 @@ public class FuncaoMandato {
 
     public void setSindicoProfissional(SindicoProfissional sindicoProfissional) {
         this.sindicoProfissional = sindicoProfissional;
+    }
+
+    public Proprietario getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(Proprietario proprietario) {
+        this.proprietario = proprietario;
     }
 
     public Edificio getEdificio() {

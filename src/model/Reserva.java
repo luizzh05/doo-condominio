@@ -11,6 +11,7 @@ public class Reserva {
     private String status;
 
     private AreaCompartilhadaEdificio areaCompartilhadaEdificio;
+    private UnidadeCondomino unidadeCondomino;
     
     
 
@@ -72,6 +73,14 @@ public class Reserva {
 
     public void setAreaCompartilhadaEdificio(AreaCompartilhadaEdificio areaCompartilhadaEdificio) {
         this.areaCompartilhadaEdificio = areaCompartilhadaEdificio;
+    }
+
+    public UnidadeCondomino getUnidadeCondomino() {
+        return unidadeCondomino;
+    }
+
+    public void setUnidadeCondomino(UnidadeCondomino unidadeCondomino) {
+        this.unidadeCondomino = unidadeCondomino;
     }
 
     
