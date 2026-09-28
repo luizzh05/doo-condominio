@@ -8,17 +8,18 @@ public class Leitura {
     private LocalDate dataLeitura;
     private int mesReferencia;
     private int anoReferencia;
-    private float medicaoAnterior;
-    private float medicaoAtual;
+    private double medicaoAnterior;
+    private double medicaoAtual;
     private String tipo;
     private String observacao;
     private String status;
     private Unidade unidade;
+    private UnidadeCondomino unidadeCondomino;
 
     public Leitura() {
     }
 
-    public Leitura(int id, LocalDate dataLeitura, int mesReferencia, int anoReferencia, float medicaoAnterior, float medicaoAtual, String tipo, String observacao, String status, Unidade unidade) {
+    public Leitura(int id, LocalDate dataLeitura, int mesReferencia, int anoReferencia, double medicaoAnterior, double medicaoAtual, String tipo, String observacao, String status, Unidade unidade) {
         this.id = id;
         this.dataLeitura = dataLeitura;
         this.mesReferencia = mesReferencia;
@@ -29,6 +30,14 @@ public class Leitura {
         this.observacao = observacao;
         this.status = status;
         this.unidade = unidade;
+    }
+
+    public Leitura(int id, LocalDate dataLeitura, int mesReferencia, int anoReferencia,
+            double medicaoAnterior, double medicaoAtual, String tipo, String observacao,
+            String status, Unidade unidade, UnidadeCondomino unidadeCondomino) {
+        this(id, dataLeitura, mesReferencia, anoReferencia, medicaoAnterior, medicaoAtual,
+                tipo, observacao, status, unidade);
+        this.unidadeCondomino = unidadeCondomino;
     }
 
     public int getId() {
@@ -63,19 +72,19 @@ public class Leitura {
         this.anoReferencia = anoReferencia;
     }
 
-    public float getMedicaoAnterior() {
+    public double getMedicaoAnterior() {
         return medicaoAnterior;
     }
 
-    public void setMedicaoAnterior(float medicaoAnterior) {
+    public void setMedicaoAnterior(double medicaoAnterior) {
         this.medicaoAnterior = medicaoAnterior;
     }
 
-    public float getMedicaoAtual() {
+    public double getMedicaoAtual() {
         return medicaoAtual;
     }
 
-    public void setMedicaoAtual(float medicaoAtual) {
+    public void setMedicaoAtual(double medicaoAtual) {
         this.medicaoAtual = medicaoAtual;
     }
 
@@ -109,5 +118,13 @@ public class Leitura {
 
     public void setUnidade(Unidade unidade) {
         this.unidade = unidade;
+    }
+
+    public UnidadeCondomino getUnidadeCondomino() {
+        return unidadeCondomino;
+    }
+
+    public void setUnidadeCondomino(UnidadeCondomino unidadeCondomino) {
+        this.unidadeCondomino = unidadeCondomino;
     }
 }

@@ -10,7 +10,7 @@ public class Edificio {
     private int quantidadeUnidades;
     private String cnpj;
     private int anoLancamento;
-    private float areaTotal;
+    private double areaTotal;
     private String cep;
     private String logradouro;
     private String cidade;
@@ -26,7 +26,7 @@ public class Edificio {
     public Edificio() {
     }
 
-    public Edificio(int id, String nome, int quantidadeAndares, int quantidadeUnidades, String cnpj, int anoLancamento, float areaTotal, String cep, String logradouro, String cidade, String bairro, String complemento, String numeroUnidadeAgua, String numeroUnidadeGas, String formulaCalculo, String observacao, String status) {
+    public Edificio(int id, String nome, int quantidadeAndares, int quantidadeUnidades, String cnpj, int anoLancamento, double areaTotal, String cep, String logradouro, String cidade, String bairro, String complemento, String numeroUnidadeAgua, String numeroUnidadeGas, String formulaCalculo, String observacao, String status) {
         this.id = id;
         this.nome = nome;
         this.quantidadeAndares = quantidadeAndares;
@@ -94,11 +94,11 @@ public class Edificio {
         this.anoLancamento = anoLancamento;
     }
 
-    public float getAreaTotal() {
+    public double getAreaTotal() {
         return areaTotal;
     }
 
-    public void setAreaTotal(float areaTotal) {
+    public void setAreaTotal(double areaTotal) {
         this.areaTotal = areaTotal;
     }
 

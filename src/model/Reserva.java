@@ -1,12 +1,12 @@
 package model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Reserva {
 
     private int id;
-    private LocalDate dataHoraInicio;
-    private LocalDate dataHoraFim;
+    private LocalDateTime dataHoraInicio;
+    private LocalDateTime dataHoraFim;
     private String observacao;
     private String status;
 
@@ -17,7 +17,7 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(int id, LocalDate dataHoraInicio, LocalDate dataHoraFim, String observacao, String status, AreaCompartilhadaEdificio areaCompartilhadaEdificio) {
+    public Reserva(int id, LocalDateTime dataHoraInicio, LocalDateTime dataHoraFim, String observacao, String status, AreaCompartilhadaEdificio areaCompartilhadaEdificio) {
         this.id = id;
         this.dataHoraInicio = dataHoraInicio;
         this.dataHoraFim = dataHoraFim;
@@ -34,19 +34,19 @@ public class Reserva {
         this.id = id;
     }
 
-    public LocalDate getDataHoraInicio() {
+    public LocalDateTime getDataHoraInicio() {
         return dataHoraInicio;
     }
 
-    public void setDataHoraInicio(LocalDate dataHoraInicio) {
+    public void setDataHoraInicio(LocalDateTime dataHoraInicio) {
         this.dataHoraInicio = dataHoraInicio;
     }
 
-    public LocalDate getDataHoraFim() {
+    public LocalDateTime getDataHoraFim() {
         return dataHoraFim;
     }
 
-    public void setDataHoraFim(LocalDate dataHoraFim) {
+    public void setDataHoraFim(LocalDateTime dataHoraFim) {
         this.dataHoraFim = dataHoraFim;
     }
 

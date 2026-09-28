@@ -9,11 +9,11 @@ public class Condominio {
     private int anoReferencia;
     private LocalDate dataEmissao;
     private LocalDate dataVencimento;
-    private float juros;
-    private float multas;
-    private float correcao;
-    private float valorEmitido;
-    private float valorPago;
+    private double juros;
+    private double multas;
+    private double correcao;
+    private double valorEmitido;
+    private double valorPago;
     private String observacao;
     private String status;
     private UnidadeCondomino unidadeCondomino;
@@ -21,7 +21,7 @@ public class Condominio {
     public Condominio() {
     }
 
-    public Condominio(int id, int mesReferencia, int anoReferencia, LocalDate dataEmissao, LocalDate dataVencimento, float juros, float multas, float correcao, float valorEmitido, float valorPago, String observacao, String status, UnidadeCondomino unidadeCondomino) {
+    public Condominio(int id, int mesReferencia, int anoReferencia, LocalDate dataEmissao, LocalDate dataVencimento, double juros, double multas, double correcao, double valorEmitido, double valorPago, String observacao, String status, UnidadeCondomino unidadeCondomino) {
         this.id = id;
         this.mesReferencia = mesReferencia;
         this.anoReferencia = anoReferencia;
@@ -77,43 +77,43 @@ public class Condominio {
         this.dataVencimento = dataVencimento;
     }
 
-    public float getJuros() {
+    public double getJuros() {
         return juros;
     }
 
-    public void setJuros(float juros) {
+    public void setJuros(double juros) {
         this.juros = juros;
     }
 
-    public float getMultas() {
+    public double getMultas() {
         return multas;
     }
 
-    public void setMultas(float multas) {
+    public void setMultas(double multas) {
         this.multas = multas;
     }
 
-    public float getCorrecao() {
+    public double getCorrecao() {
         return correcao;
     }
 
-    public void setCorrecao(float correcao) {
+    public void setCorrecao(double correcao) {
         this.correcao = correcao;
     }
 
-    public float getValorEmitido() {
+    public double getValorEmitido() {
         return valorEmitido;
     }
 
-    public void setValorEmitido(float valorEmitido) {
+    public void setValorEmitido(double valorEmitido) {
         this.valorEmitido = valorEmitido;
     }
 
-    public float getValorPago() {
+    public double getValorPago() {
         return valorPago;
     }
 
-    public void setValorPago(float valorPago) {
+    public void setValorPago(double valorPago) {
         this.valorPago = valorPago;
     }
 

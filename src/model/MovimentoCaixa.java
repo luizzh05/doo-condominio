@@ -8,11 +8,11 @@ public class MovimentoCaixa {
     private LocalDate dataEmissao;
     private LocalDate dataVencimento;
     private LocalDate dataPagamento;
-    private float valorEmitido;
-    private float multas;
-    private float correcaoMonetaria;
-    private float juros;
-    private float valorPagoRec;
+    private double valorEmitido;
+    private double multas;
+    private double correcaoMonetaria;
+    private double juros;
+    private double valorPagoRec;
     private String tipo;
     private boolean flagRateio;
     private String flagFormula;
@@ -26,7 +26,7 @@ public class MovimentoCaixa {
     public MovimentoCaixa() {
     }
 
-    public MovimentoCaixa(int id, LocalDate dataEmissao, LocalDate dataVencimento, LocalDate dataPagamento, float valorEmitido, float multas, float correcaoMonetaria, float juros, float valorPagoRec, String tipo, boolean flagRateio, String flagFormula, String observacao, String status, Edificio edificio, Fornecedor fornecedor, CustoNivel1 custoNivel1, CustoNivel2 custoNivel2) {
+    public MovimentoCaixa(int id, LocalDate dataEmissao, LocalDate dataVencimento, LocalDate dataPagamento, double valorEmitido, double multas, double correcaoMonetaria, double juros, double valorPagoRec, String tipo, boolean flagRateio, String flagFormula, String observacao, String status, Edificio edificio, Fornecedor fornecedor, CustoNivel1 custoNivel1, CustoNivel2 custoNivel2) {
         this.id = id;
         this.dataEmissao = dataEmissao;
         this.dataVencimento = dataVencimento;
@@ -79,43 +79,43 @@ public class MovimentoCaixa {
         this.dataPagamento = dataPagamento;
     }
 
-    public float getValorEmitido() {
+    public double getValorEmitido() {
         return valorEmitido;
     }
 
-    public void setValorEmitido(float valorEmitido) {
+    public void setValorEmitido(double valorEmitido) {
         this.valorEmitido = valorEmitido;
     }
 
-    public float getMultas() {
+    public double getMultas() {
         return multas;
     }
 
-    public void setMultas(float multas) {
+    public void setMultas(double multas) {
         this.multas = multas;
     }
 
-    public float getCorrecaoMonetaria() {
+    public double getCorrecaoMonetaria() {
         return correcaoMonetaria;
     }
 
-    public void setCorrecaoMonetaria(float correcaoMonetaria) {
+    public void setCorrecaoMonetaria(double correcaoMonetaria) {
         this.correcaoMonetaria = correcaoMonetaria;
     }
 
-    public float getJuros() {
+    public double getJuros() {
         return juros;
     }
 
-    public void setJuros(float juros) {
+    public void setJuros(double juros) {
         this.juros = juros;
     }
 
-    public float getValorPagoRec() {
+    public double getValorPagoRec() {
         return valorPagoRec;
     }
 
-    public void setValorPagoRec(float valorPagoRec) {
+    public void setValorPagoRec(double valorPagoRec) {
         this.valorPagoRec = valorPagoRec;
     }
 
