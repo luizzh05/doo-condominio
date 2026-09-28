@@ -12,6 +12,7 @@ import controller.cadastro.CadastroCustoNivel2Controller;
 import controller.cadastro.CadastroProprietarioController;
 import controller.cadastro.CadastroSindicoProfissionalController;
 import controller.cadastro.CadastroAreaCompartilhadaController;
+import controller.cadastro.CadastroAreaCompartilhadaEdificioController;
 import controller.cadastro.CadastroUnidadeCondominoController;
 import controller.cadastro.CadastroFuncaoMandatoController;
 import controller.cadastro.CadastroFornecedorController;
@@ -72,6 +73,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuItemUnidadeCondomino = new javax.swing.JMenuItem();
         jSeparatorCadastro3 = new javax.swing.JPopupMenu.Separator();
         jMenuItemAreaCompartilhada = new javax.swing.JMenuItem();
+        jMenuItemAreaCompartilhadaEdificio = new javax.swing.JMenuItem();
         jMenuOperacoes = new javax.swing.JMenu();
         jMenuItemLeitura = new javax.swing.JMenuItem();
         jMenuItemMovimentoCaixa = new javax.swing.JMenuItem();
@@ -286,6 +288,11 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuItemAreaCompartilhada.addActionListener(this::jMenuItemAreaCompartilhadaActionPerformed);
         jMenuCadastro.add(jMenuItemAreaCompartilhada);
 
+        jMenuItemAreaCompartilhadaEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Diagram.png"))); // NOI18N
+        jMenuItemAreaCompartilhadaEdificio.setText("Area Compartilhada do Edificio");
+        jMenuItemAreaCompartilhadaEdificio.addActionListener(this::jMenuItemAreaCompartilhadaEdificioActionPerformed);
+        jMenuCadastro.add(jMenuItemAreaCompartilhadaEdificio);
+
         jMenuBar1.add(jMenuCadastro);
 
         jMenuOperacoes.setText("Operacoes");
@@ -385,6 +392,10 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemAreaCompartilhadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAreaCompartilhadaActionPerformed
         abrirAreaCompartilhada();
     }//GEN-LAST:event_jMenuItemAreaCompartilhadaActionPerformed
+
+    private void jMenuItemAreaCompartilhadaEdificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAreaCompartilhadaEdificioActionPerformed
+        abrirAreaCompartilhadaEdificio();
+    }//GEN-LAST:event_jMenuItemAreaCompartilhadaEdificioActionPerformed
 
     private void jMenuItemLeituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLeituraActionPerformed
         abrirLeitura();
@@ -486,6 +497,12 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
     }
 
+    private void abrirAreaCompartilhadaEdificio() {
+        TelaCadastroAreaCompartilhadaEdificio tela = new TelaCadastroAreaCompartilhadaEdificio(null, true);
+        new CadastroAreaCompartilhadaEdificioController(tela);
+        tela.setVisible(true);
+    }
+
     private void abrirLeitura() {
         TelaCadastroLeitura tela = new TelaCadastroLeitura(null, true);
         new CadastroLeituraController(tela);
@@ -555,6 +572,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenuItem jMenuItemAreaCompartilhada;
+    private javax.swing.JMenuItem jMenuItemAreaCompartilhadaEdificio;
     private javax.swing.JMenuItem jMenuItemCondominio;
     private javax.swing.JMenuItem jMenuItemCustoNivel1;
     private javax.swing.JMenuItem jMenuItemCustoNivel2;
