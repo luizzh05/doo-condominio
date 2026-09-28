@@ -4,14 +4,14 @@ public class Unidade {
     
     private int id;
     private String descricao;
-    private float metragemTotal;
-    private float metragemIndividual;
-    private int tipoUnidade;
+    private double metragemTotal;
+    private double metragemIndividual;
+    private String tipoUnidade;
     private String observacao;
     private String status;
     private Edificio edificio;
 
-    public Unidade(int id, String descricao, float metragemTotal, float metragemIndividual, int tipoUnidade, String observacao, String status) {
+    public Unidade(int id, String descricao, double metragemTotal, double metragemIndividual, String tipoUnidade, String observacao, String status) {
         this.id = id;
         this.descricao = descricao;
         this.metragemTotal = metragemTotal;
@@ -21,7 +21,7 @@ public class Unidade {
         this.status = status;
     }
 
-    public Unidade(int id, String descricao, float metragemTotal, float metragemIndividual, int tipoUnidade, String observacao, String status, Edificio edificio) {
+    public Unidade(int id, String descricao, double metragemTotal, double metragemIndividual, String tipoUnidade, String observacao, String status, Edificio edificio) {
         this.id = id;
         this.descricao = descricao;
         this.metragemTotal = metragemTotal;
@@ -52,27 +52,27 @@ public class Unidade {
         this.descricao = descricao;
     }
 
-    public float getMetragemTotal() {
+    public double getMetragemTotal() {
         return metragemTotal;
     }
 
-    public void setMetragemTotal(float metragemTotal) {
+    public void setMetragemTotal(double metragemTotal) {
         this.metragemTotal = metragemTotal;
     }
 
-    public float getMetragemIndividual() {
+    public double getMetragemIndividual() {
         return metragemIndividual;
     }
 
-    public void setMetragemIndividual(float metragemIndividual) {
+    public void setMetragemIndividual(double metragemIndividual) {
         this.metragemIndividual = metragemIndividual;
     }
 
-    public int getTipoUnidade() {
+    public String getTipoUnidade() {
         return tipoUnidade;
     }
 
-    public void setTipoUnidade(int tipoUnidade) {
+    public void setTipoUnidade(String tipoUnidade) {
         this.tipoUnidade = tipoUnidade;
     }
 
