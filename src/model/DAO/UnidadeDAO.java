@@ -103,7 +103,7 @@ public class UnidadeDAO implements InterfaceDAO<Unidade> {
         stmt.setString(4, objeto.getTipoUnidade());
         stmt.setString(5, objeto.getObservacao());
         stmt.setString(6, objeto.getStatus());
-        if (objeto.getEdificio() == null) throw new IllegalArgumentException("Edifício é obrigatório");
+        if (objeto.getEdificio() == null || objeto.getEdificio().getId() <= 0) throw new IllegalArgumentException("Edifício é obrigatório");
         stmt.setInt(7, objeto.getEdificio().getId());
     }
 
