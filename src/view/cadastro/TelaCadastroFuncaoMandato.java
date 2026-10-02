@@ -56,6 +56,24 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
         jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
 
+        jLabelProprietario = new javax.swing.JLabel();
+        jComboBoxProprietario = new javax.swing.JComboBox<>();
+        jButtonSelecionarProprietario = new javax.swing.JButton();
+        jLabelStatus = new javax.swing.JLabel();
+        jComboBoxStatus = new javax.swing.JComboBox<>();
+
+        jLabelProprietario.setText("Proprietario");
+        jComboBoxProprietario.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        jComboBoxProprietario.setPreferredSize(new java.awt.Dimension(170, 28));
+        jComboBoxProprietario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+        jButtonSelecionarProprietario.setText("Buscar");
+        jButtonSelecionarProprietario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png")));
+        jButtonSelecionarProprietario.setPreferredSize(new java.awt.Dimension(100, 30));
+        jLabelStatus.setText("Status");
+        jComboBoxStatus.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        jComboBoxStatus.setPreferredSize(new java.awt.Dimension(170, 28));
+        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A - Ativo", "I - Inativo" }));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Mandato");
         setResizable(false);
@@ -184,6 +202,16 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jButtonSelecionarSindicoProfissional, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addComponent(jLabelProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonSelecionarProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
@@ -223,6 +251,15 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
                     .addComponent(jLabelDataFim)
                     .addComponent(jTextFieldDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelProprietario)
+                    .addComponent(jComboBoxProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSelecionarProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelStatus)
+                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoObservacoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,7 +341,16 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
     public JPanel getjPanelDados() { return jPanelDados; }
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
+    public javax.swing.JComboBox<String> getjComboBoxProprietario() { return jComboBoxProprietario; }
+    public javax.swing.JButton getjButtonSelecionarProprietario() { return jButtonSelecionarProprietario; }
+    public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelProprietario;
+    private javax.swing.JComboBox<String> jComboBoxProprietario;
+    private javax.swing.JButton jButtonSelecionarProprietario;
+    private javax.swing.JLabel jLabelStatus;
+    private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGravar;

@@ -59,6 +59,24 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
         jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
 
+        jLabelUnidadeCondomino = new javax.swing.JLabel();
+        jComboBoxUnidadeCondomino = new javax.swing.JComboBox<>();
+        jButtonSelecionarUnidadeCondomino = new javax.swing.JButton();
+        jLabelStatus = new javax.swing.JLabel();
+        jComboBoxStatus = new javax.swing.JComboBox<>();
+
+        jLabelUnidadeCondomino.setText("Unidade Condomino");
+        jComboBoxUnidadeCondomino.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        jComboBoxUnidadeCondomino.setPreferredSize(new java.awt.Dimension(170, 28));
+        jComboBoxUnidadeCondomino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+        jButtonSelecionarUnidadeCondomino.setText("Buscar");
+        jButtonSelecionarUnidadeCondomino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png")));
+        jButtonSelecionarUnidadeCondomino.setPreferredSize(new java.awt.Dimension(100, 30));
+        jLabelStatus.setText("Status");
+        jComboBoxStatus.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        jComboBoxStatus.setPreferredSize(new java.awt.Dimension(170, 28));
+        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A - Ativo", "I - Inativo" }));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Reserva");
         setResizable(false);
@@ -172,6 +190,16 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButtonSelecionarAreaCompartilhadaEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabelSecaoPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
+                            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                .addComponent(jLabelUnidadeCondomino, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxUnidadeCondomino, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonSelecionarUnidadeCondomino, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                             .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520))
                         .addGap(156, 156, 156))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelDadosLayout.createSequentialGroup()
@@ -206,6 +234,15 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
                     .addComponent(jTextFieldDataHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDataHoraFim)
                     .addComponent(jTextFieldDataHoraFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUnidadeCondomino)
+                    .addComponent(jComboBoxUnidadeCondomino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSelecionarUnidadeCondomino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelStatus)
+                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoObservacoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -325,7 +362,16 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
     public JPanel getjPanelDados() { return jPanelDados; }
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
+    public javax.swing.JComboBox<String> getjComboBoxUnidadeCondomino() { return jComboBoxUnidadeCondomino; }
+    public javax.swing.JButton getjButtonSelecionarUnidadeCondomino() { return jButtonSelecionarUnidadeCondomino; }
+    public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelUnidadeCondomino;
+    private javax.swing.JComboBox<String> jComboBoxUnidadeCondomino;
+    private javax.swing.JButton jButtonSelecionarUnidadeCondomino;
+    private javax.swing.JLabel jLabelStatus;
+    private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGravar;

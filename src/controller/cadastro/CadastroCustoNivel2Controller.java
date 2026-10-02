@@ -1,6 +1,8 @@
 package controller.cadastro;
 
 import controller.consulta.ConsultaCustoNivel2Controller;
+import controller.consulta.ConsultaCustoNivel1Controller;
+import view.consulta.TelaConsultaCustoNivel1;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import utils.Utils;
@@ -18,6 +20,7 @@ public class CadastroCustoNivel2Controller implements ActionListener {
         this.tela.getjButtonCancelar().addActionListener(this);
         this.tela.getjButtonGravar().addActionListener(this);
         this.tela.getjButtonBuscar().addActionListener(this);
+        this.tela.getjButtonSelecionarCustoNivel1().addActionListener(this);
         this.tela.getjButtonSair().addActionListener(this);
 
         Utils.ativaDesativaBtn(this.tela.getjPanelbotoes(), false);
@@ -40,6 +43,10 @@ public class CadastroCustoNivel2Controller implements ActionListener {
         } else if (e.getSource() == tela.getjButtonBuscar()) {
             TelaConsultaCustoNivel2 telaConsulta = new TelaConsultaCustoNivel2(null, true);
             ConsultaCustoNivel2Controller consultaController = new ConsultaCustoNivel2Controller(telaConsulta);
+            telaConsulta.setVisible(true);
+        } else if (e.getSource() == tela.getjButtonSelecionarCustoNivel1()) {
+            TelaConsultaCustoNivel1 telaConsulta = new TelaConsultaCustoNivel1(null, true);
+            new ConsultaCustoNivel1Controller(telaConsulta);
             telaConsulta.setVisible(true);
         } else if (e.getSource() == tela.getjButtonSair()) {
             tela.dispose();

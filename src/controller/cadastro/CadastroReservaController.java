@@ -2,6 +2,8 @@ package controller.cadastro;
 
 import controller.consulta.ConsultaReservaController;
 import controller.consulta.ConsultaAreaCompartilhadaEdificioController;
+import controller.consulta.ConsultaUnidadeCondominoController;
+import view.consulta.TelaConsultaUnidadeCondomino;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import utils.Utils;
@@ -21,6 +23,7 @@ public class CadastroReservaController implements ActionListener {
         this.tela.getjButtonGravar().addActionListener(this);
         this.tela.getjButtonBuscar().addActionListener(this);
         this.tela.getjButtonSelecionarAreaCompartilhadaEdificio().addActionListener(this);
+        this.tela.getjButtonSelecionarUnidadeCondomino().addActionListener(this);
         this.tela.getjButtonSair().addActionListener(this);
 
         Utils.ativaDesativaBtn(this.tela.getjPanelbotoes(), false);
@@ -47,6 +50,10 @@ public class CadastroReservaController implements ActionListener {
         } else if (e.getSource() == tela.getjButtonSelecionarAreaCompartilhadaEdificio()) {
             TelaConsultaAreaCompartilhadaEdificio telaConsulta = new TelaConsultaAreaCompartilhadaEdificio(null, true);
             new ConsultaAreaCompartilhadaEdificioController(telaConsulta);
+            telaConsulta.setVisible(true);
+        } else if (e.getSource() == tela.getjButtonSelecionarUnidadeCondomino()) {
+            TelaConsultaUnidadeCondomino telaConsulta = new TelaConsultaUnidadeCondomino(null, true);
+            new ConsultaUnidadeCondominoController(telaConsulta);
             telaConsulta.setVisible(true);
         } else if (e.getSource() == tela.getjButtonSair()) {
             tela.dispose();

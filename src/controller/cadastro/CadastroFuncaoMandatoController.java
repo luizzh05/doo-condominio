@@ -3,6 +3,8 @@ package controller.cadastro;
 import controller.consulta.ConsultaFuncaoMandatoController;
 import controller.consulta.ConsultaSindicoProfissionalController;
 import controller.consulta.ConsultaEdificioController;
+import controller.consulta.ConsultaProprietarioController;
+import view.consulta.TelaConsultaProprietario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import utils.Utils;
@@ -24,6 +26,7 @@ public class CadastroFuncaoMandatoController implements ActionListener {
         this.tela.getjButtonBuscar().addActionListener(this);
         this.tela.getjButtonSelecionarSindicoProfissional().addActionListener(this);
         this.tela.getjButtonSelecionarEdificio().addActionListener(this);
+        this.tela.getjButtonSelecionarProprietario().addActionListener(this);
         this.tela.getjButtonSair().addActionListener(this);
 
         Utils.ativaDesativaBtn(this.tela.getjPanelbotoes(), false);
@@ -54,6 +57,10 @@ public class CadastroFuncaoMandatoController implements ActionListener {
         } else if (e.getSource() == tela.getjButtonSelecionarEdificio()) {
             TelaConsultaEdificio telaConsulta = new TelaConsultaEdificio(null, true);
             new ConsultaEdificioController(telaConsulta);
+            telaConsulta.setVisible(true);
+        } else if (e.getSource() == tela.getjButtonSelecionarProprietario()) {
+            TelaConsultaProprietario telaConsulta = new TelaConsultaProprietario(null, true);
+            new ConsultaProprietarioController(telaConsulta);
             telaConsulta.setVisible(true);
         } else if (e.getSource() == tela.getjButtonSair()) {
             tela.dispose();

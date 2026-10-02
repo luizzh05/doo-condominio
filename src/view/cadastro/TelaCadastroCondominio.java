@@ -68,6 +68,24 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
 
+        jLabelDataPagamento = new javax.swing.JLabel();
+        jTextFieldDataPagamento = new javax.swing.JFormattedTextField();
+        jLabelStatus = new javax.swing.JLabel();
+        jComboBoxStatus = new javax.swing.JComboBox<>();
+
+        jLabelDataPagamento.setText("Data de pagamento");
+        jTextFieldDataPagamento.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        jTextFieldDataPagamento.setPreferredSize(new java.awt.Dimension(170, 28));
+        try {
+            jTextFieldDataPagamento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            throw new IllegalStateException(ex);
+        }
+        jLabelStatus.setText("Status");
+        jComboBoxStatus.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        jComboBoxStatus.setPreferredSize(new java.awt.Dimension(170, 28));
+        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A - Ativo", "I - Inativo" }));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Condominio");
         setResizable(false);
@@ -258,6 +276,14 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
                         .addComponent(jLabelCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addComponent(jLabelDataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldDataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
                     .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(63, Short.MAX_VALUE))
@@ -308,6 +334,14 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCorrecao)
                     .addComponent(jTextFieldCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDataPagamento)
+                    .addComponent(jTextFieldDataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelStatus)
+                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoObservacoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -396,7 +430,14 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
     public JPanel getjPanelDados() { return jPanelDados; }
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
+    public javax.swing.JFormattedTextField getjTextFieldDataPagamento() { return jTextFieldDataPagamento; }
+    public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelDataPagamento;
+    private javax.swing.JFormattedTextField jTextFieldDataPagamento;
+    private javax.swing.JLabel jLabelStatus;
+    private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGravar;
