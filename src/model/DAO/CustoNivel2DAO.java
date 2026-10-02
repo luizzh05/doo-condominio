@@ -50,6 +50,7 @@ public class CustoNivel2DAO implements InterfaceDAO<CustoNivel2> {
         }
         String coluna = switch (parametro) {
             case "descricao" -> "descricao";
+            case "custo_nivel1" -> "(SELECT c.descricao FROM custo_nivel1 c WHERE c.id = custo_nivel2.custo_nivel1_id)";
             case "status" -> "status";
             default -> throw new IllegalArgumentException("Campo de busca inválido: " + parametro);
         };

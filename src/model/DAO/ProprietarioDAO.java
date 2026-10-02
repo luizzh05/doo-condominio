@@ -45,6 +45,10 @@ public class ProprietarioDAO implements InterfaceDAO<Proprietario> {
 
     @Override
     public List<Proprietario> retrieve(String parametro, String valor) {
+        if ("id".equals(parametro)) {
+            Proprietario item = retrieve(Integer.parseInt(valor));
+            return item == null ? List.of() : List.of(item);
+        }
         String column = switch (parametro) {
             case "nome_fantasia" -> "nome_fantasia";
             case "cpf" -> "cpf";

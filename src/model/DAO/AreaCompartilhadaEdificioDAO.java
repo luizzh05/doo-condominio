@@ -50,6 +50,8 @@ public class AreaCompartilhadaEdificioDAO implements InterfaceDAO<AreaCompartilh
             return item == null ? List.of() : List.of(item);
         }
         String coluna = switch (parametro) {
+            case "area_compartilhada" -> "(SELECT ac.descricao FROM area_compartilhada ac WHERE ac.id = area_compartilhada_edificio.area_compartilhada_id)";
+            case "edificio" -> "(SELECT e.nome FROM edificio e WHERE e.id = area_compartilhada_edificio.edificio_id)";
             case "status" -> "status";
             default -> throw new IllegalArgumentException("Campo de busca inválido: " + parametro);
         };

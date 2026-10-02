@@ -50,6 +50,7 @@ public class ReservaDAO implements InterfaceDAO<Reserva> {
             return item == null ? List.of() : List.of(item);
         }
         String coluna = switch (parametro) {
+            case "area_compartilhada" -> "(SELECT ac.descricao FROM area_compartilhada ac JOIN area_compartilhada_edificio ace ON ace.area_compartilhada_id = ac.id WHERE ace.id = reserva.area_compartilhada_edificio_id)";
             case "status" -> "status";
             default -> throw new IllegalArgumentException("Campo de busca inválido: " + parametro);
         };

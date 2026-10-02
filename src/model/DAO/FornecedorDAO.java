@@ -51,6 +51,7 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
             case "nome_fantasia" -> "nome_fantasia";
             case "cpf" -> "cpf";
             case "cnpj" -> "cnpj";
+            case "razao_social" -> "razao_social";
             case "status" -> "status";
             default -> throw new IllegalArgumentException("Campo de busca inválido: " + parametro);
         };

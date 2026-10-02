@@ -51,6 +51,7 @@ public class EdificioDAO implements InterfaceDAO<Edificio> {
         String coluna = switch (parametro) {
             case "nome" -> "nome";
             case "cnpj" -> "cnpj";
+            case "cidade" -> "cidade";
             case "status" -> "status";
             default -> throw new IllegalArgumentException("Campo de busca inválido: " + parametro);
         };

@@ -57,6 +57,8 @@ public class MovimentoCaixaDAO implements InterfaceDAO<MovimentoCaixa> {
         }
         String coluna = switch (parametro) {
             case "tipo" -> "tipo";
+            case "edificio" -> "(SELECT e.nome FROM edificio e WHERE e.id = movimento_caixa.edificio_id)";
+            case "fornecedor" -> "(SELECT f.nome_fantasia FROM fornecedor f WHERE f.id = movimento_caixa.fornecedor_id)";
             case "status" -> "status";
             default -> throw new IllegalArgumentException("Campo de busca inválido: " + parametro);
         };

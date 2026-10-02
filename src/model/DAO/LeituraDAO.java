@@ -54,14 +54,24 @@ public class LeituraDAO implements InterfaceDAO<Leitura> {
         }
         String coluna = switch (parametro) {
             case "tipo" -> "tipo";
+            case "unidade" -> "(SELECT u.descricao FROM unidade u JOIN unidade_condomino uc ON uc.unidade_id = u.id WHERE uc.id = leitura.unidade_condomino_id)";
+            case "mes_referencia" -> "mes_referencia";
+            case "ano_referencia" -> "ano_referencia";
             case "status" -> "status";
             default -> throw new IllegalArgumentException("Campo de busca inválido: " + parametro);
         };
-        String sql = "SELECT " + COLUMNS + " FROM leitura WHERE " + coluna + " LIKE ?";
+        boolean referencia = "mes_referencia".equals(coluna) || "ano_referencia".equals(coluna);
+        Integer numeroReferencia = referencia ? Integer.valueOf(valor) : null;
+        String sql = "SELECT " + COLUMNS + " FROM leitura WHERE " + coluna
+                + (referencia ? " = ?" : " LIKE ?");
         List<Leitura> itens = new ArrayList<>();
         try (Connection conn = ConnectionFactory.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, "%" + valor + "%");
+            if (referencia) {
+                stmt.setInt(1, numeroReferencia);
+            } else {
+                stmt.setString(1, "%" + valor + "%");
+            }
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) itens.add(map(rs));
             }

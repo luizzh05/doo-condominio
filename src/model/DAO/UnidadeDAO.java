@@ -46,9 +46,14 @@ public class UnidadeDAO implements InterfaceDAO<Unidade> {
 
     @Override
     public List<Unidade> retrieve(String parametro, String valor) {
+        if ("id".equals(parametro)) {
+            Unidade item = retrieve(Integer.parseInt(valor));
+            return item == null ? List.of() : List.of(item);
+        }
         String column = switch (parametro) {
             case "descricao" -> "descricao";
             case "tipo_unidade" -> "tipo_unidade";
+            case "edificio" -> "(SELECT e.nome FROM edificio e WHERE e.id = unidade.edificio_id)";
             case "status" -> "status";
             default -> throw new IllegalArgumentException("Campo de busca inválido: " + parametro);
         };

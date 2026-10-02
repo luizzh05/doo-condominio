@@ -52,6 +52,8 @@ public class FuncaoMandatoDAO implements InterfaceDAO<FuncaoMandato> {
         }
         String coluna = switch (parametro) {
             case "funcao" -> "funcao";
+            case "sindico" -> "(SELECT s.nome_fantasia FROM sindico_profissional s WHERE s.id = funcao_mandato.sindico_profissional_id)";
+            case "edificio" -> "(SELECT e.nome FROM edificio e WHERE e.id = funcao_mandato.edificio_id)";
             case "status" -> "status";
             default -> throw new IllegalArgumentException("Campo de busca inválido: " + parametro);
         };

@@ -50,6 +50,8 @@ public class UnidadeCondominoDAO implements InterfaceDAO<UnidadeCondomino> {
             return item == null ? List.of() : List.of(item);
         }
         String coluna = switch (parametro) {
+            case "unidade" -> "(SELECT u.descricao FROM unidade u WHERE u.id = unidade_condomino.unidade_id)";
+            case "proprietario" -> "(SELECT p.nome_fantasia FROM proprietario p WHERE p.id = unidade_condomino.proprietario_id)";
             case "status" -> "status";
             default -> throw new IllegalArgumentException("Campo de busca inválido: " + parametro);
         };
