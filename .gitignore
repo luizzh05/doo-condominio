@@ -31,4 +31,8 @@ Thumbs.db
 *.log
 *.tmp
 *.temp
+
+# Configuracao local e credenciais
 .env
+.env.*
+!.env.example
