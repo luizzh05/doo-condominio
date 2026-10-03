@@ -250,6 +250,7 @@ public class TelaConsultaMovimentoCaixa extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaConsultaMovimentoCaixa dialog = new TelaConsultaMovimentoCaixa(new javax.swing.JFrame(), true);
+                new controller.consulta.ConsultaMovimentoCaixaController(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

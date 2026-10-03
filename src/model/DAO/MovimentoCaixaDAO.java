@@ -18,7 +18,8 @@ public class MovimentoCaixaDAO implements InterfaceDAO<MovimentoCaixa> {
             + "valor_emitido, multas, correcao_monetaria, juros, valor_pagamento, tipo, "
             + "flag_rateio, flag_formula, observacao, status, edificio_id, custo_nivel2_id, fornecedor_id, "
             + "(SELECT c.custo_nivel1_id FROM custo_nivel2 c "
-            + "WHERE c.id = movimento_caixa.custo_nivel2_id) AS custo_nivel1_id";
+            + "WHERE c.id = movimento_caixa.custo_nivel2_id) AS custo_nivel1_id"
+            + ", (SELECT v.nome FROM edificio v WHERE v.id = movimento_caixa.edificio_id) AS nome_edificio, (SELECT v.nome_fantasia FROM fornecedor v WHERE v.id = movimento_caixa.fornecedor_id) AS nome_fornecedor, (SELECT v.descricao FROM custo_nivel1 v JOIN custo_nivel2 c ON c.custo_nivel1_id = v.id WHERE c.id = movimento_caixa.custo_nivel2_id) AS nome_custo_nivel1, (SELECT v.descricao FROM custo_nivel2 v WHERE v.id = movimento_caixa.custo_nivel2_id) AS nome_custo_nivel2";
 
     @Override
     public void create(MovimentoCaixa objeto) {
@@ -162,6 +163,11 @@ public class MovimentoCaixaDAO implements InterfaceDAO<MovimentoCaixa> {
             fornecedor.setId(fornecedorId);
             objeto.setFornecedor(fornecedor);
         }
+        if (objeto.getEdificio() != null) objeto.getEdificio().setNome(rs.getString("nome_edificio"));
+        if (objeto.getFornecedor() != null) objeto.getFornecedor().setNomeFantasia(rs.getString("nome_fornecedor"));
+        if (objeto.getCustoNivel1() != null) objeto.getCustoNivel1().setDescricao(rs.getString("nome_custo_nivel1"));
+        if (objeto.getCustoNivel2() != null) objeto.getCustoNivel2().setDescricao(rs.getString("nome_custo_nivel2"));
+        if (objeto.getCustoNivel2() != null) objeto.getCustoNivel2().setCustoNivel1(objeto.getCustoNivel1());
         return objeto;
     }
 }

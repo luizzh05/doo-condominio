@@ -504,6 +504,24 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
 
     public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
 
+    public javax.swing.JCheckBox getjCheckBoxFlagRateio() { return jCheckBoxFlagRateio; }
+    public javax.swing.JComboBox<String> getjComboBoxCustoNivel1() { return jComboBoxCustoNivel1; }
+    public javax.swing.JComboBox<String> getjComboBoxCustoNivel2() { return jComboBoxCustoNivel2; }
+    public javax.swing.JComboBox<String> getjComboBoxEdificio() { return jComboBoxEdificio; }
+    public javax.swing.JComboBox<String> getjComboBoxFornecedor() { return jComboBoxFornecedor; }
+    public javax.swing.JComboBox<String> getjComboBoxTipo() { return jComboBoxTipo; }
+    public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
+    public javax.swing.JFormattedTextField getjTextFieldCorrecaoMonetaria() { return jTextFieldCorrecaoMonetaria; }
+    public javax.swing.JFormattedTextField getjTextFieldDataEmissao() { return jTextFieldDataEmissao; }
+    public javax.swing.JFormattedTextField getjTextFieldDataPagamento() { return jTextFieldDataPagamento; }
+    public javax.swing.JFormattedTextField getjTextFieldDataVencimento() { return jTextFieldDataVencimento; }
+    public javax.swing.JTextField getjTextFieldFlagFormula() { return jTextFieldFlagFormula; }
+    public javax.swing.JTextField getjTextFieldId() { return jTextFieldId; }
+    public javax.swing.JFormattedTextField getjTextFieldJuros() { return jTextFieldJuros; }
+    public javax.swing.JFormattedTextField getjTextFieldMultas() { return jTextFieldMultas; }
+    public javax.swing.JFormattedTextField getjTextFieldValorEmitido() { return jTextFieldValorEmitido; }
+    public javax.swing.JFormattedTextField getjTextFieldValorPagoRec() { return jTextFieldValorPagoRec; }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelStatus;
     private javax.swing.JComboBox<String> jComboBoxStatus;

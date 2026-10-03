@@ -12,7 +12,7 @@ public final class ConnectionFactory {
         String url = System.getenv().getOrDefault("CONDOMINIO_DB_URL",
                 "jdbc:mysql://localhost:3306/condominio?useSSL=false&serverTimezone=UTC");
         String user = System.getenv().getOrDefault("CONDOMINIO_DB_USER", "root");
-        String password = System.getenv().getOrDefault("CONDOMINIO_DB_PASSWORD", "");
+        String password = System.getenv().getOrDefault("DB_PASSWORD", "");
         return DriverManager.getConnection(url, user, password);
     }
 }
