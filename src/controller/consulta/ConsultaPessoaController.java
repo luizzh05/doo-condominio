@@ -2,7 +2,6 @@ package controller.consulta;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import mock.DemoTableData;
 import view.consulta.TelaConsultaPessoa;
 
 public class ConsultaPessoaController implements ActionListener {
@@ -15,7 +14,6 @@ public class ConsultaPessoaController implements ActionListener {
         this.tela.getjButtonPesquisar().addActionListener(this);
         this.tela.getjButtonLimpar().addActionListener(this);
         this.tela.getjButtonFechar().addActionListener(this);
-        DemoTableData.carregarPessoas(this.tela.getjTableResultado());
     }
 
     @Override
