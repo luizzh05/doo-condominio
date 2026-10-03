@@ -535,6 +535,27 @@ public class TelaCadastroSindicoProfissional extends javax.swing.JDialog {
 
     public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
 
+    public javax.swing.JComboBox<String> getjComboBoxEstadoCivil() { return jComboBoxEstadoCivil; }
+    public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
+    public javax.swing.JTextField getjTextFieldBairro() { return jTextFieldBairro; }
+    public javax.swing.JFormattedTextField getjTextFieldCep() { return jTextFieldCep; }
+    public javax.swing.JTextField getjTextFieldCidade() { return jTextFieldCidade; }
+    public javax.swing.JFormattedTextField getjTextFieldCnpj() { return jTextFieldCnpj; }
+    public javax.swing.JTextField getjTextFieldComplemento() { return jTextFieldComplemento; }
+    public javax.swing.JFormattedTextField getjTextFieldCpf() { return jTextFieldCpf; }
+    public javax.swing.JTextField getjTextFieldCra() { return jTextFieldCra; }
+    public javax.swing.JFormattedTextField getjTextFieldDataCadastro() { return jTextFieldDataCadastro; }
+    public javax.swing.JFormattedTextField getjTextFieldDataNascimento() { return jTextFieldDataNascimento; }
+    public javax.swing.JTextField getjTextFieldEmail() { return jTextFieldEmail; }
+    public javax.swing.JFormattedTextField getjTextFieldFone1() { return jTextFieldFone1; }
+    public javax.swing.JFormattedTextField getjTextFieldFone2() { return jTextFieldFone2; }
+    public javax.swing.JTextField getjTextFieldId() { return jTextFieldId; }
+    public javax.swing.JTextField getjTextFieldInscricaoEstadual() { return jTextFieldInscricaoEstadual; }
+    public javax.swing.JTextField getjTextFieldLogradouro() { return jTextFieldLogradouro; }
+    public javax.swing.JTextField getjTextFieldNomeFantasia() { return jTextFieldNomeFantasia; }
+    public javax.swing.JTextField getjTextFieldRazaoSocial() { return jTextFieldRazaoSocial; }
+    public javax.swing.JTextField getjTextFieldRg() { return jTextFieldRg; }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelStatus;
     private javax.swing.JComboBox<String> jComboBoxStatus;
