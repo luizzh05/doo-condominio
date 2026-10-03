@@ -345,6 +345,14 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
     public javax.swing.JButton getjButtonSelecionarProprietario() { return jButtonSelecionarProprietario; }
     public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
 
+    public javax.swing.JComboBox<String> getjComboBoxEdificio() { return jComboBoxEdificio; }
+    public javax.swing.JComboBox<String> getjComboBoxFuncao() { return jComboBoxFuncao; }
+    public javax.swing.JComboBox<String> getjComboBoxSindicoProfissional() { return jComboBoxSindicoProfissional; }
+    public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
+    public javax.swing.JFormattedTextField getjTextFieldDataFim() { return jTextFieldDataFim; }
+    public javax.swing.JFormattedTextField getjTextFieldDataInicio() { return jTextFieldDataInicio; }
+    public javax.swing.JTextField getjTextFieldId() { return jTextFieldId; }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelProprietario;
     private javax.swing.JComboBox<String> jComboBoxProprietario;

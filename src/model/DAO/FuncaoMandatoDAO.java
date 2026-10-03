@@ -13,7 +13,8 @@ import model.Proprietario;
 import model.SindicoProfissional;
 
 public class FuncaoMandatoDAO implements InterfaceDAO<FuncaoMandato> {
-    private static final String COLUMNS = "id, funcao, data_inicio, data_fim, observacao, status, edificio_id, proprietario_id, sindico_profissional_id";
+    private static final String COLUMNS = "id, funcao, data_inicio, data_fim, observacao, status, edificio_id, proprietario_id, sindico_profissional_id"
+            + ", (SELECT v.nome_fantasia FROM sindico_profissional v WHERE v.id = funcao_mandato.sindico_profissional_id) AS nome_sindico_profissional, (SELECT v.nome_fantasia FROM proprietario v WHERE v.id = funcao_mandato.proprietario_id) AS nome_proprietario, (SELECT v.nome FROM edificio v WHERE v.id = funcao_mandato.edificio_id) AS nome_edificio";
 
     @Override
     public void create(FuncaoMandato objeto) {
@@ -139,6 +140,9 @@ public class FuncaoMandatoDAO implements InterfaceDAO<FuncaoMandato> {
             sindicoProfissional.setId(sindicoProfissionalId);
             objeto.setSindicoProfissional(sindicoProfissional);
         }
+        if (objeto.getSindicoProfissional() != null) objeto.getSindicoProfissional().setNomeFantasia(rs.getString("nome_sindico_profissional"));
+        if (objeto.getProprietario() != null) objeto.getProprietario().setNomeFantasia(rs.getString("nome_proprietario"));
+        if (objeto.getEdificio() != null) objeto.getEdificio().setNome(rs.getString("nome_edificio"));
         return objeto;
     }
 }

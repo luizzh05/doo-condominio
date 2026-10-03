@@ -250,6 +250,7 @@ public class TelaConsultaFuncaoMandato extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaConsultaFuncaoMandato dialog = new TelaConsultaFuncaoMandato(new javax.swing.JFrame(), true);
+                new controller.consulta.ConsultaFuncaoMandatoController(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
