@@ -17,6 +17,7 @@
 # IntelliJ IDEA
 /.idea/
 *.iml
+!/doo-condominio.iml
 
 # Eclipse
 /.classpath
