@@ -11,7 +11,9 @@ import model.CustoNivel2;
 import model.CustoNivel1;
 
 public class CustoNivel2DAO implements InterfaceDAO<CustoNivel2> {
-    private static final String COLUMNS = "id, descricao, observacao, status, custo_nivel1_id";
+    private static final String COLUMNS = "id, descricao, observacao, status, custo_nivel1_id, "
+            + "(SELECT c.descricao FROM custo_nivel1 c WHERE c.id = custo_nivel2.custo_nivel1_id) "
+            + "AS descricao_custo_nivel1";
 
     @Override
     public void create(CustoNivel2 objeto) {
@@ -110,6 +112,7 @@ public class CustoNivel2DAO implements InterfaceDAO<CustoNivel2> {
         if (!rs.wasNull()) {
             CustoNivel1 custoNivel1 = new CustoNivel1();
             custoNivel1.setId(custoNivel1Id);
+            custoNivel1.setDescricao(rs.getString("descricao_custo_nivel1"));
             objeto.setCustoNivel1(custoNivel1);
         }
         return objeto;

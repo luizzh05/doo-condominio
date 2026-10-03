@@ -250,6 +250,7 @@ public class TelaConsultaCustoNivel2 extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaConsultaCustoNivel2 dialog = new TelaConsultaCustoNivel2(new javax.swing.JFrame(), true);
+                new controller.consulta.ConsultaCustoNivel2Controller(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
