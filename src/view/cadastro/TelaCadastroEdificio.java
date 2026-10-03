@@ -551,6 +551,7 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaCadastroEdificio dialog = new TelaCadastroEdificio(new javax.swing.JFrame(), true);
+                new controller.cadastro.CadastroEdificioController(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -563,6 +564,19 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     }
 
     public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
+
+    public javax.swing.JRadioButton getjRadioButton1() { return jRadioButton1; }
+    public javax.swing.JRadioButton getjRadioButton2() { return jRadioButton2; }
+    public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
+    public javax.swing.JTextField getjTextFieldBairro() { return jTextFieldBairro; }
+    public javax.swing.JFormattedTextField getjTextFieldCep() { return jTextFieldCep; }
+    public javax.swing.JTextField getjTextFieldCidade() { return jTextFieldCidade; }
+    public javax.swing.JTextField getjTextFieldComplemento() { return jTextFieldComplemento; }
+    public javax.swing.JTextField getjTextFieldLogradouro() { return jTextFieldLogradouro; }
+    public javax.swing.JTextField getjTextFieldNumeroUnidadeAgua() { return jTextFieldNumeroUnidadeAgua; }
+    public javax.swing.JTextField getjTextFieldNumeroUnidadeGas() { return jTextFieldNumeroUnidadeGas; }
+    public javax.swing.JFormattedTextField getjTextFieldQuantidadeAndares() { return jTextFieldQuantidadeAndares; }
+    public javax.swing.JFormattedTextField getjTextFieldQuantidadeUnidades() { return jTextFieldQuantidadeUnidades; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelStatus;
