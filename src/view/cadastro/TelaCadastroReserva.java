@@ -342,6 +342,7 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaCadastroReserva dialog = new TelaCadastroReserva(new javax.swing.JFrame(), true);
+                new controller.cadastro.CadastroReservaController(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -365,6 +366,12 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
     public javax.swing.JComboBox<String> getjComboBoxUnidadeCondomino() { return jComboBoxUnidadeCondomino; }
     public javax.swing.JButton getjButtonSelecionarUnidadeCondomino() { return jButtonSelecionarUnidadeCondomino; }
     public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
+
+    public javax.swing.JComboBox<String> getjComboBoxAreaCompartilhadaEdificio() { return jComboBoxAreaCompartilhadaEdificio; }
+    public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
+    public javax.swing.JFormattedTextField getjTextFieldDataHoraFim() { return jTextFieldDataHoraFim; }
+    public javax.swing.JFormattedTextField getjTextFieldDataHoraInicio() { return jTextFieldDataHoraInicio; }
+    public javax.swing.JTextField getjTextFieldId() { return jTextFieldId; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelUnidadeCondomino;

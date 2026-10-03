@@ -12,7 +12,8 @@ import model.AreaCompartilhadaEdificio;
 import model.UnidadeCondomino;
 
 public class ReservaDAO implements InterfaceDAO<Reserva> {
-    private static final String COLUMNS = "id, data_hora_inicio, data_hora_fim, observacao, status, area_compartilhada_edificio_id, unidade_condominio_id";
+    private static final String COLUMNS = "id, data_hora_inicio, data_hora_fim, observacao, status, area_compartilhada_edificio_id, unidade_condominio_id"
+            + ", (SELECT ac.descricao FROM area_compartilhada ac JOIN area_compartilhada_edificio ace ON ace.area_compartilhada_id = ac.id WHERE ace.id = reserva.area_compartilhada_edificio_id) AS descricao_area, (SELECT u.descricao FROM unidade u JOIN unidade_condomino uc ON uc.unidade_id = u.id WHERE uc.id = reserva.unidade_condominio_id) AS descricao_unidade";
 
     @Override
     public void create(Reserva objeto) {
@@ -121,6 +122,16 @@ public class ReservaDAO implements InterfaceDAO<Reserva> {
             UnidadeCondomino unidadeCondomino = new UnidadeCondomino();
             unidadeCondomino.setId(unidadeCondominoId);
             objeto.setUnidadeCondomino(unidadeCondomino);
+        }
+        if (objeto.getAreaCompartilhadaEdificio() != null) {
+            model.AreaCompartilhada areaVinculada = new model.AreaCompartilhada();
+            areaVinculada.setDescricao(rs.getString("descricao_area"));
+            objeto.getAreaCompartilhadaEdificio().setAreaCompartilhada(areaVinculada);
+        }
+        if (objeto.getUnidadeCondomino() != null) {
+            model.Unidade unidadeVinculada = new model.Unidade();
+            unidadeVinculada.setDescricao(rs.getString("descricao_unidade"));
+            objeto.getUnidadeCondomino().setUnidade(unidadeVinculada);
         }
         return objeto;
     }
