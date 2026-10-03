@@ -12,7 +12,8 @@ import model.AreaCompartilhada;
 import model.Edificio;
 
 public class AreaCompartilhadaEdificioDAO implements InterfaceDAO<AreaCompartilhadaEdificio> {
-    private static final String COLUMNS = "id, observacao, status, area_compartilhada_id, edificio_id";
+    private static final String COLUMNS = "id, observacao, status, area_compartilhada_id, edificio_id"
+            + ", (SELECT v.descricao FROM area_compartilhada v WHERE v.id = area_compartilhada_edificio.area_compartilhada_id) AS nome_area_compartilhada, (SELECT v.nome FROM edificio v WHERE v.id = area_compartilhada_edificio.edificio_id) AS nome_edificio";
 
     @Override
     public void create(AreaCompartilhadaEdificio objeto) {
@@ -119,6 +120,8 @@ public class AreaCompartilhadaEdificioDAO implements InterfaceDAO<AreaCompartilh
             edificio.setId(edificioId);
             objeto.setEdificio(edificio);
         }
+        if (objeto.getAreaCompartilhada() != null) objeto.getAreaCompartilhada().setDescricao(rs.getString("nome_area_compartilhada"));
+        if (objeto.getEdificio() != null) objeto.getEdificio().setNome(rs.getString("nome_edificio"));
         return objeto;
     }
 }
