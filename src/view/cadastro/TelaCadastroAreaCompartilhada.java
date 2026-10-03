@@ -261,6 +261,7 @@ public class TelaCadastroAreaCompartilhada extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaCadastroAreaCompartilhada dialog = new TelaCadastroAreaCompartilhada(new javax.swing.JFrame(), true);
+                new controller.cadastro.CadastroAreaCompartilhadaController(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -279,6 +280,9 @@ public class TelaCadastroAreaCompartilhada extends javax.swing.JDialog {
     public JButton getjButtonSair() { return jButtonSair; }
     public JPanel getjPanelDados() { return jPanelDados; }
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
+    public JTextField getjTextFieldId() { return jTextFieldId; }
+    public JTextField getjTextFieldDescricao() { return jTextFieldDescricao; }
+    public JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
 
     public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
 
