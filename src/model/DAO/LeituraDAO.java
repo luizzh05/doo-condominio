@@ -15,7 +15,8 @@ public class LeituraDAO implements InterfaceDAO<Leitura> {
     private static final String COLUMNS = "id, data_leitura, mes_referencia, ano_referencia, "
             + "medicao_anterior, medicao_atual, tipo, observacao, status, unidade_condomino_id, "
             + "(SELECT uc.unidade_id FROM unidade_condomino uc "
-            + "WHERE uc.id = leitura.unidade_condomino_id) AS unidade_id";
+            + "WHERE uc.id = leitura.unidade_condomino_id) AS unidade_id"
+            + ", (SELECT u.descricao FROM unidade u JOIN unidade_condomino uc ON uc.unidade_id = u.id WHERE uc.id = leitura.unidade_condomino_id) AS descricao_unidade";
 
     @Override
     public void create(Leitura objeto) {
@@ -141,6 +142,12 @@ public class LeituraDAO implements InterfaceDAO<Leitura> {
             unidade.setId(unidadeId);
             objeto.setUnidade(unidade);
         }
+        if (objeto.getUnidadeCondomino() != null) {
+            model.Unidade unidadeVinculada = new model.Unidade();
+            unidadeVinculada.setDescricao(rs.getString("descricao_unidade"));
+            objeto.getUnidadeCondomino().setUnidade(unidadeVinculada);
+        }
+        if (objeto.getUnidade() != null) objeto.getUnidade().setDescricao(rs.getString("descricao_unidade"));
         return objeto;
     }
 }

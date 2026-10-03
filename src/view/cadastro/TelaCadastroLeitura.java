@@ -384,6 +384,7 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaCadastroLeitura dialog = new TelaCadastroLeitura(new javax.swing.JFrame(), true);
+                new controller.cadastro.CadastroLeituraController(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -405,6 +406,16 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
     public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
+
+    public javax.swing.JComboBox<String> getjComboBoxTipo() { return jComboBoxTipo; }
+    public javax.swing.JComboBox<String> getjComboBoxUnidade() { return jComboBoxUnidade; }
+    public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
+    public javax.swing.JFormattedTextField getjTextFieldAnoReferencia() { return jTextFieldAnoReferencia; }
+    public javax.swing.JFormattedTextField getjTextFieldDataLeitura() { return jTextFieldDataLeitura; }
+    public javax.swing.JTextField getjTextFieldId() { return jTextFieldId; }
+    public javax.swing.JFormattedTextField getjTextFieldMedicaoAnterior() { return jTextFieldMedicaoAnterior; }
+    public javax.swing.JFormattedTextField getjTextFieldMedicaoAtual() { return jTextFieldMedicaoAtual; }
+    public javax.swing.JFormattedTextField getjTextFieldMesReferencia() { return jTextFieldMesReferencia; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelStatus;
