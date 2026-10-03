@@ -11,7 +11,8 @@ import model.Condominio;
 import model.UnidadeCondomino;
 
 public class CondominioDAO implements InterfaceDAO<Condominio> {
-    private static final String COLUMNS = "id, mes_referencia, ano_referencia, data_emissao, data_vencimento, data_pagamento, juros, multas, correcao, valor_emitido, valor_pago, observacao, status, unidade_condomino_id";
+    private static final String COLUMNS = "id, mes_referencia, ano_referencia, data_emissao, data_vencimento, data_pagamento, juros, multas, correcao, valor_emitido, valor_pago, observacao, status, unidade_condomino_id"
+            + ", (SELECT u.descricao FROM unidade u JOIN unidade_condomino uc ON uc.unidade_id = u.id WHERE uc.id = condominio.unidade_condomino_id) AS descricao_unidade";
 
     @Override
     public void create(Condominio objeto) {
@@ -137,6 +138,11 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
             UnidadeCondomino unidadeCondomino = new UnidadeCondomino();
             unidadeCondomino.setId(unidadeCondominoId);
             objeto.setUnidadeCondomino(unidadeCondomino);
+        }
+        if (objeto.getUnidadeCondomino() != null) {
+            model.Unidade unidadeVinculada = new model.Unidade();
+            unidadeVinculada.setDescricao(rs.getString("descricao_unidade"));
+            objeto.getUnidadeCondomino().setUnidade(unidadeVinculada);
         }
         return objeto;
     }

@@ -433,6 +433,19 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
     public javax.swing.JFormattedTextField getjTextFieldDataPagamento() { return jTextFieldDataPagamento; }
     public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
 
+    public javax.swing.JComboBox<String> getjComboBoxUnidadeCondomino() { return jComboBoxUnidadeCondomino; }
+    public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
+    public javax.swing.JFormattedTextField getjTextFieldAnoReferencia() { return jTextFieldAnoReferencia; }
+    public javax.swing.JFormattedTextField getjTextFieldCorrecao() { return jTextFieldCorrecao; }
+    public javax.swing.JFormattedTextField getjTextFieldDataEmissao() { return jTextFieldDataEmissao; }
+    public javax.swing.JFormattedTextField getjTextFieldDataVencimento() { return jTextFieldDataVencimento; }
+    public javax.swing.JTextField getjTextFieldId() { return jTextFieldId; }
+    public javax.swing.JFormattedTextField getjTextFieldJuros() { return jTextFieldJuros; }
+    public javax.swing.JFormattedTextField getjTextFieldMesReferencia() { return jTextFieldMesReferencia; }
+    public javax.swing.JFormattedTextField getjTextFieldMultas() { return jTextFieldMultas; }
+    public javax.swing.JFormattedTextField getjTextFieldValorEmitido() { return jTextFieldValorEmitido; }
+    public javax.swing.JFormattedTextField getjTextFieldValorPago() { return jTextFieldValorPago; }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelDataPagamento;
     private javax.swing.JFormattedTextField jTextFieldDataPagamento;

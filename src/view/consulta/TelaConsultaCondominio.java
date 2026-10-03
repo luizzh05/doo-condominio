@@ -250,6 +250,7 @@ public class TelaConsultaCondominio extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaConsultaCondominio dialog = new TelaConsultaCondominio(new javax.swing.JFrame(), true);
+                new controller.consulta.ConsultaCondominioController(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
