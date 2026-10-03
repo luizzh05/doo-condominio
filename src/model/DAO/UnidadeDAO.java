@@ -12,7 +12,8 @@ import model.Unidade;
 
 public class UnidadeDAO implements InterfaceDAO<Unidade> {
     private static final String COLUMNS = "id, descricao, metragem_total, metragem_individual, "
-            + "tipo_unidade, observacao, status, edificio_id";
+            + "tipo_unidade, observacao, status, edificio_id"
+            + ", (SELECT v.nome FROM edificio v WHERE v.id = unidade.edificio_id) AS nome_edificio";
 
     @Override
     public void create(Unidade objeto) {
@@ -119,6 +120,7 @@ public class UnidadeDAO implements InterfaceDAO<Unidade> {
         Edificio edificio = new Edificio();
         edificio.setId(rs.getInt("edificio_id"));
         unidade.setEdificio(edificio);
+        if (unidade.getEdificio() != null) unidade.getEdificio().setNome(rs.getString("nome_edificio"));
         return unidade;
     }
 }

@@ -250,6 +250,7 @@ public class TelaConsultaUnidade extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaConsultaUnidade dialog = new TelaConsultaUnidade(new javax.swing.JFrame(), true);
+                new controller.consulta.ConsultaUnidadeController(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
