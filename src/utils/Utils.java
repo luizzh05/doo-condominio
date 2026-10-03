@@ -125,6 +125,24 @@ public class Utils {
         return valor.toString();
     }
 
+    public static void preencherCampo(JTextComponent campo, Object valor) {
+        String texto = formatar(valor);
+        if (campo instanceof JFormattedTextField && texto.matches("[0-9]+")) {
+            JFormattedTextField formatado = (JFormattedTextField) campo;
+            if (formatado.getFormatter() instanceof javax.swing.text.MaskFormatter) {
+                String mascara = ((javax.swing.text.MaskFormatter) formatado.getFormatter()).getMask();
+                StringBuilder preenchido = new StringBuilder();
+                int indice = 0;
+                for (char caractere : mascara.toCharArray()) {
+                    if (caractere == '#') preenchido.append(indice < texto.length() ? texto.charAt(indice++) : ' ');
+                    else preenchido.append(caractere);
+                }
+                texto = preenchido.toString();
+            }
+        }
+        campo.setText(texto);
+    }
+
     public static void habilitarComponentes(Container painel, boolean estado) {
         for (Component componente : painel.getComponents()) {
             if (componente instanceof JTextComponent || componente instanceof JComboBox

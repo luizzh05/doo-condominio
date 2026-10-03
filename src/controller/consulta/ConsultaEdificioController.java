@@ -103,6 +103,7 @@ public class ConsultaEdificioController implements ActionListener {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        if ("cnpj".equals(parametro)) filtro = filtro.replaceAll("[^0-9]", "");
         String valor = filtro;
         definirOcupado(true);
         // Limpa resultados anteriores para nao selecionar registros de um filtro antigo.
