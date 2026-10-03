@@ -333,6 +333,7 @@ public class TelaCadastroUnidadeCondomino extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaCadastroUnidadeCondomino dialog = new TelaCadastroUnidadeCondomino(new javax.swing.JFrame(), true);
+                new controller.cadastro.CadastroUnidadeCondominoController(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -355,6 +356,13 @@ public class TelaCadastroUnidadeCondomino extends javax.swing.JDialog {
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
     public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
+
+    public javax.swing.JComboBox<String> getjComboBoxProprietario() { return jComboBoxProprietario; }
+    public javax.swing.JComboBox<String> getjComboBoxUnidade() { return jComboBoxUnidade; }
+    public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
+    public javax.swing.JFormattedTextField getjTextFieldDataAquisicao() { return jTextFieldDataAquisicao; }
+    public javax.swing.JFormattedTextField getjTextFieldDataVenda() { return jTextFieldDataVenda; }
+    public javax.swing.JTextField getjTextFieldId() { return jTextFieldId; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelStatus;

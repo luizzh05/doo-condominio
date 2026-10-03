@@ -12,7 +12,8 @@ import model.Proprietario;
 import model.Unidade;
 
 public class UnidadeCondominoDAO implements InterfaceDAO<UnidadeCondomino> {
-    private static final String COLUMNS = "id, data_aquisicao, data_venda, observacao, status, proprietario_id, unidade_id";
+    private static final String COLUMNS = "id, data_aquisicao, data_venda, observacao, status, proprietario_id, unidade_id"
+            + ", (SELECT v.descricao FROM unidade v WHERE v.id = unidade_condomino.unidade_id) AS nome_unidade, (SELECT v.nome_fantasia FROM proprietario v WHERE v.id = unidade_condomino.proprietario_id) AS nome_proprietario";
 
     @Override
     public void create(UnidadeCondomino objeto) {
@@ -123,6 +124,8 @@ public class UnidadeCondominoDAO implements InterfaceDAO<UnidadeCondomino> {
             unidade.setId(unidadeId);
             objeto.setUnidade(unidade);
         }
+        if (objeto.getUnidade() != null) objeto.getUnidade().setDescricao(rs.getString("nome_unidade"));
+        if (objeto.getProprietario() != null) objeto.getProprietario().setNomeFantasia(rs.getString("nome_proprietario"));
         return objeto;
     }
 }
