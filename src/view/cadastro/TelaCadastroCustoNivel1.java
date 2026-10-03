@@ -271,6 +271,7 @@ public class TelaCadastroCustoNivel1 extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaCadastroCustoNivel1 dialog = new TelaCadastroCustoNivel1(new javax.swing.JFrame(), true);
+                new controller.cadastro.CadastroCustoNivel1Controller(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -291,6 +292,11 @@ public class TelaCadastroCustoNivel1 extends javax.swing.JDialog {
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
 
     public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
+
+    public javax.swing.JTextField getjTextFieldId() { return jTextFieldId; }
+    public javax.swing.JTextField getjTextFieldDescricao() { return jTextFieldDescricao; }
+    public javax.swing.JTextArea getjTextAreaObservacao() { return jTextAreaObservacao; }
+    public javax.swing.JComboBox<String> getjComboBoxTipoCc() { return jComboBoxTipoCc; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelStatus;
