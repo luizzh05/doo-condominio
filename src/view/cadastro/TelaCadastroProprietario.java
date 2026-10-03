@@ -565,6 +565,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaCadastroProprietario dialog = new TelaCadastroProprietario(new javax.swing.JFrame(), true);
+                new controller.cadastro.CadastroProprietarioController(dialog);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -577,6 +578,20 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
     }
 
     public javax.swing.JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
+
+
+
+    public void alternarCamposPessoa() {
+        boolean fisica = jComboBoxTipoPessoa.isEnabled() && "Fisica".equals(jComboBoxTipoPessoa.getSelectedItem());
+        boolean juridica = jComboBoxTipoPessoa.isEnabled() && "Juridica".equals(jComboBoxTipoPessoa.getSelectedItem());
+        jTextFieldCpf.setEnabled(fisica);
+        jTextFieldRg.setEnabled(fisica);
+        jTextFieldDataNascimento.setEnabled(fisica);
+        jComboBoxEstadoCivil.setEnabled(fisica);
+        jTextFieldRazaoSocial.setEnabled(juridica);
+        jTextFieldCnpj.setEnabled(juridica);
+        jTextFieldInscricaoEstadual.setEnabled(juridica);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelStatus;
