@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.UnidadeCondomino;
-import model.DAO.UnidadeCondominoDAO;
+import service.UnidadeCondominoService;
 import utils.Utils;
 import view.cadastro.TelaCadastroUnidadeCondomino;
 import view.consulta.TelaConsultaUnidadeCondomino;
@@ -23,7 +23,7 @@ import view.consulta.TelaConsultaProprietario;
 
 public class CadastroUnidadeCondominoController implements ActionListener {
     private final TelaCadastroUnidadeCondomino tela;
-    private final UnidadeCondominoDAO dao = new UnidadeCondominoDAO();
+    private final UnidadeCondominoService service = new UnidadeCondominoService();
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
@@ -120,7 +120,7 @@ public class CadastroUnidadeCondominoController implements ActionListener {
             registro.setUnidade(unidadeSelecionado);
             if (proprietarioSelecionado == null || proprietarioSelecionado.getId() <= 0 || tela.getjComboBoxProprietario().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione Proprietario.");
             registro.setProprietario(proprietarioSelecionado);
-            if (registro.getDataVenda() != null && registro.getDataVenda().isBefore(registro.getDataAquisicao())) throw new IllegalArgumentException("DataVenda nao pode ser anterior a DataAquisicao.");
+            service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
@@ -129,8 +129,7 @@ public class CadastroUnidadeCondominoController implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (registro.getId() == 0) dao.create(registro);
-                else dao.update(registro);
+                service.salvar(registro, registro.getId());
                 return null;
             }
 

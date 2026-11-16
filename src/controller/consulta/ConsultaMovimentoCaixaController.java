@@ -15,13 +15,13 @@ import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import model.MovimentoCaixa;
 import utils.Utils;
-import model.DAO.MovimentoCaixaDAO;
+import service.MovimentoCaixaService;
 import view.consulta.TelaConsultaMovimentoCaixa;
 
 public class ConsultaMovimentoCaixaController implements ActionListener {
 
     private final TelaConsultaMovimentoCaixa tela;
-    private final MovimentoCaixaDAO dao = new MovimentoCaixaDAO();
+    private final MovimentoCaixaService service = new MovimentoCaixaService();
     private List<MovimentoCaixa> resultados = List.of();
     private MovimentoCaixa registroSelecionado;
     private boolean pesquisando;
@@ -111,7 +111,7 @@ public class ConsultaMovimentoCaixaController implements ActionListener {
         preencherTabela(List.of());
         new SwingWorker<List<MovimentoCaixa>, Void>() {
             @Override
-            protected List<MovimentoCaixa> doInBackground() { return dao.retrieve(parametro, valor); }
+            protected List<MovimentoCaixa> doInBackground() { return service.consultar(parametro, valor); }
 
             @Override
             protected void done() {

@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.Reserva;
-import model.DAO.ReservaDAO;
+import service.ReservaService;
 import utils.Utils;
 import view.cadastro.TelaCadastroReserva;
 import view.consulta.TelaConsultaReserva;
@@ -23,7 +23,7 @@ import view.consulta.TelaConsultaUnidadeCondomino;
 
 public class CadastroReservaController implements ActionListener {
     private final TelaCadastroReserva tela;
-    private final ReservaDAO dao = new ReservaDAO();
+    private final ReservaService service = new ReservaService();
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
@@ -120,7 +120,7 @@ public class CadastroReservaController implements ActionListener {
             registro.setAreaCompartilhadaEdificio(areaCompartilhadaEdificioSelecionado);
             if (unidadeCondominoSelecionado == null || unidadeCondominoSelecionado.getId() <= 0 || tela.getjComboBoxUnidadeCondomino().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione UnidadeCondomino.");
             registro.setUnidadeCondomino(unidadeCondominoSelecionado);
-            if (!registro.getDataHoraFim().isAfter(registro.getDataHoraInicio())) throw new IllegalArgumentException("O fim da reserva deve ser posterior ao inicio.");
+            service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
@@ -129,8 +129,7 @@ public class CadastroReservaController implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (registro.getId() == 0) dao.create(registro);
-                else dao.update(registro);
+                service.salvar(registro, registro.getId());
                 return null;
             }
 

@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.Condominio;
-import model.DAO.CondominioDAO;
+import service.CondominioService;
 import utils.Utils;
 import view.cadastro.TelaCadastroCondominio;
 import view.consulta.TelaConsultaCondominio;
@@ -20,7 +20,7 @@ import view.consulta.TelaConsultaUnidadeCondomino;
 
 public class CadastroCondominioController implements ActionListener {
     private final TelaCadastroCondominio tela;
-    private final CondominioDAO dao = new CondominioDAO();
+    private final CondominioService service = new CondominioService();
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
@@ -120,7 +120,7 @@ public class CadastroCondominioController implements ActionListener {
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             if (unidadeCondominoSelecionado == null || unidadeCondominoSelecionado.getId() <= 0 || tela.getjComboBoxUnidadeCondomino().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione UnidadeCondomino.");
             registro.setUnidadeCondomino(unidadeCondominoSelecionado);
-            if (registro.getDataVencimento() != null && registro.getDataVencimento().isBefore(registro.getDataEmissao())) throw new IllegalArgumentException("DataVencimento nao pode ser anterior a DataEmissao.");
+            service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
@@ -129,8 +129,7 @@ public class CadastroCondominioController implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (registro.getId() == 0) dao.create(registro);
-                else dao.update(registro);
+                service.salvar(registro, registro.getId());
                 return null;
             }
 

@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import model.Edificio;
-import model.DAO.EdificioDAO;
+import service.EdificioService;
 import view.consulta.TelaConsultaEdificio;
 
 public class ConsultaEdificioController implements ActionListener {
 
     private final TelaConsultaEdificio tela;
-    private final EdificioDAO dao = new EdificioDAO();
+    private final EdificioService service = new EdificioService();
     private List<Edificio> resultados = List.of();
     private Edificio registroSelecionado;
     private boolean pesquisando;
@@ -110,7 +110,7 @@ public class ConsultaEdificioController implements ActionListener {
         preencherTabela(List.of());
         new SwingWorker<List<Edificio>, Void>() {
             @Override
-            protected List<Edificio> doInBackground() { return dao.retrieve(parametro, valor); }
+            protected List<Edificio> doInBackground() { return service.consultar(parametro, valor); }
 
             @Override
             protected void done() {

@@ -15,13 +15,13 @@ import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import model.AreaCompartilhadaEdificio;
 import utils.Utils;
-import model.DAO.AreaCompartilhadaEdificioDAO;
+import service.AreaCompartilhadaEdificioService;
 import view.consulta.TelaConsultaAreaCompartilhadaEdificio;
 
 public class ConsultaAreaCompartilhadaEdificioController implements ActionListener {
 
     private final TelaConsultaAreaCompartilhadaEdificio tela;
-    private final AreaCompartilhadaEdificioDAO dao = new AreaCompartilhadaEdificioDAO();
+    private final AreaCompartilhadaEdificioService service = new AreaCompartilhadaEdificioService();
     private List<AreaCompartilhadaEdificio> resultados = List.of();
     private AreaCompartilhadaEdificio registroSelecionado;
     private boolean pesquisando;
@@ -110,7 +110,7 @@ public class ConsultaAreaCompartilhadaEdificioController implements ActionListen
         preencherTabela(List.of());
         new SwingWorker<List<AreaCompartilhadaEdificio>, Void>() {
             @Override
-            protected List<AreaCompartilhadaEdificio> doInBackground() { return dao.retrieve(parametro, valor); }
+            protected List<AreaCompartilhadaEdificio> doInBackground() { return service.consultar(parametro, valor); }
 
             @Override
             protected void done() {

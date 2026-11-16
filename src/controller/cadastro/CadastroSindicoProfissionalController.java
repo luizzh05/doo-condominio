@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.SindicoProfissional;
-import model.DAO.SindicoProfissionalDAO;
+import service.SindicoProfissionalService;
 import utils.Utils;
 import view.cadastro.TelaCadastroSindicoProfissional;
 import view.consulta.TelaConsultaSindicoProfissional;
@@ -18,7 +18,7 @@ import view.consulta.TelaConsultaSindicoProfissional;
 
 public class CadastroSindicoProfissionalController implements ActionListener {
     private final TelaCadastroSindicoProfissional tela;
-    private final SindicoProfissionalDAO dao = new SindicoProfissionalDAO();
+    private final SindicoProfissionalService service = new SindicoProfissionalService();
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
@@ -126,8 +126,7 @@ public class CadastroSindicoProfissionalController implements ActionListener {
             registro.setComplemento(Utils.texto(tela.getjTextFieldComplemento(), "complemento", 100, false));
             registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
-            if (!registro.getEmail().matches("[^\\s@]+@[^\\s@]+\\.[^\\s@]+")) throw new IllegalArgumentException("Informe um email valido.");
-            if (registro.getDataNascimento() != null && registro.getDataNascimento().isAfter(java.time.LocalDate.now())) throw new IllegalArgumentException("A data de nascimento nao pode estar no futuro.");
+            service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
@@ -136,8 +135,7 @@ public class CadastroSindicoProfissionalController implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (registro.getId() == 0) dao.create(registro);
-                else dao.update(registro);
+                service.salvar(registro, registro.getId());
                 return null;
             }
 

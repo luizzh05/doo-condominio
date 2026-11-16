@@ -11,11 +11,11 @@ import model.Edificio;
 
 
 public class EdificioDAO implements InterfaceDAO<Edificio> {
-    private static final String COLUMNS = "id, nome, quantidade_andares, quantidade_unidades, cnpj, ano_lancamento, area_total, cep, logradouro, cidade, bairro, complemento, numero_unidade_agua, numero_unidade_gas, formula_calculo, observacao, status";
+    private static final String COLUMNS = "id, nome, quantidade_andares, quantidade_unidades, cnpj, ano_lancamento, area_total, cep, logradouro, cidade, bairro, complemento, numero_unidade_agua, numero_unidade_gas, preco_m3_agua, preco_m3_gas, formula_calculo, observacao, status";
 
     @Override
     public void create(Edificio objeto) {
-        String sql = "INSERT INTO edificio (nome, quantidade_andares, quantidade_unidades, cnpj, ano_lancamento, area_total, cep, logradouro, cidade, bairro, complemento, numero_unidade_agua, numero_unidade_gas, formula_calculo, observacao, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO edificio (nome, quantidade_andares, quantidade_unidades, cnpj, ano_lancamento, area_total, cep, logradouro, cidade, bairro, complemento, numero_unidade_agua, numero_unidade_gas, preco_m3_agua, preco_m3_gas, formula_calculo, observacao, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = ConnectionFactory.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             bind(stmt, objeto);
@@ -71,11 +71,11 @@ public class EdificioDAO implements InterfaceDAO<Edificio> {
 
     @Override
     public void update(Edificio objeto) {
-        String sql = "UPDATE edificio SET nome = ?, quantidade_andares = ?, quantidade_unidades = ?, cnpj = ?, ano_lancamento = ?, area_total = ?, cep = ?, logradouro = ?, cidade = ?, bairro = ?, complemento = ?, numero_unidade_agua = ?, numero_unidade_gas = ?, formula_calculo = ?, observacao = ?, status = ? WHERE id = ?";
+        String sql = "UPDATE edificio SET nome = ?, quantidade_andares = ?, quantidade_unidades = ?, cnpj = ?, ano_lancamento = ?, area_total = ?, cep = ?, logradouro = ?, cidade = ?, bairro = ?, complemento = ?, numero_unidade_agua = ?, numero_unidade_gas = ?, preco_m3_agua = ?, preco_m3_gas = ?, formula_calculo = ?, observacao = ?, status = ? WHERE id = ?";
         try (Connection conn = ConnectionFactory.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             bind(stmt, objeto);
-            stmt.setInt(17, objeto.getId());
+            stmt.setInt(19, objeto.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             throw new IllegalStateException("Erro ao atualizar edificio", ex);
@@ -107,9 +107,11 @@ public class EdificioDAO implements InterfaceDAO<Edificio> {
         stmt.setString(11, objeto.getComplemento());
         stmt.setString(12, objeto.getNumeroUnidadeAgua());
         stmt.setString(13, objeto.getNumeroUnidadeGas());
-        stmt.setString(14, objeto.getFormulaCalculo());
-        stmt.setString(15, objeto.getObservacao());
-        stmt.setString(16, objeto.getStatus());
+        stmt.setBigDecimal(14, objeto.getPrecoM3Agua());
+        stmt.setBigDecimal(15, objeto.getPrecoM3Gas());
+        stmt.setString(16, objeto.getFormulaCalculo());
+        stmt.setString(17, objeto.getObservacao());
+        stmt.setString(18, objeto.getStatus());
     }
 
     private static Edificio map(ResultSet rs) throws SQLException {
@@ -128,6 +130,8 @@ public class EdificioDAO implements InterfaceDAO<Edificio> {
         objeto.setComplemento(rs.getString("complemento"));
         objeto.setNumeroUnidadeAgua(rs.getString("numero_unidade_agua"));
         objeto.setNumeroUnidadeGas(rs.getString("numero_unidade_gas"));
+        objeto.setPrecoM3Agua(rs.getBigDecimal("preco_m3_agua"));
+        objeto.setPrecoM3Gas(rs.getBigDecimal("preco_m3_gas"));
         objeto.setFormulaCalculo(rs.getString("formula_calculo"));
         objeto.setObservacao(rs.getString("observacao"));
         objeto.setStatus(rs.getString("status"));

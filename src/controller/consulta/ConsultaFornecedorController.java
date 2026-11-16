@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import model.Fornecedor;
-import model.DAO.FornecedorDAO;
+import service.FornecedorService;
 import view.consulta.TelaConsultaFornecedor;
 
 public class ConsultaFornecedorController implements ActionListener {
 
     private final TelaConsultaFornecedor tela;
-    private final FornecedorDAO dao = new FornecedorDAO();
+    private final FornecedorService service = new FornecedorService();
     private List<Fornecedor> resultados = List.of();
     private Fornecedor registroSelecionado;
     private boolean pesquisando;
@@ -110,7 +110,7 @@ public class ConsultaFornecedorController implements ActionListener {
         preencherTabela(List.of());
         new SwingWorker<List<Fornecedor>, Void>() {
             @Override
-            protected List<Fornecedor> doInBackground() { return dao.retrieve(parametro, valor); }
+            protected List<Fornecedor> doInBackground() { return service.consultar(parametro, valor); }
 
             @Override
             protected void done() {

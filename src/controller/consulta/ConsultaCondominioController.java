@@ -15,13 +15,13 @@ import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import model.Condominio;
 import utils.Utils;
-import model.DAO.CondominioDAO;
+import service.CondominioService;
 import view.consulta.TelaConsultaCondominio;
 
 public class ConsultaCondominioController implements ActionListener {
 
     private final TelaConsultaCondominio tela;
-    private final CondominioDAO dao = new CondominioDAO();
+    private final CondominioService service = new CondominioService();
     private List<Condominio> resultados = List.of();
     private Condominio registroSelecionado;
     private boolean pesquisando;
@@ -111,7 +111,7 @@ public class ConsultaCondominioController implements ActionListener {
         preencherTabela(List.of());
         new SwingWorker<List<Condominio>, Void>() {
             @Override
-            protected List<Condominio> doInBackground() { return dao.retrieve(parametro, valor); }
+            protected List<Condominio> doInBackground() { return service.consultar(parametro, valor); }
 
             @Override
             protected void done() {

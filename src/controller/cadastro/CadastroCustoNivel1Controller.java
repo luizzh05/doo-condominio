@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.CustoNivel1;
-import model.DAO.CustoNivel1DAO;
+import service.CustoNivel1Service;
 import utils.Utils;
 import view.cadastro.TelaCadastroCustoNivel1;
 import view.consulta.TelaConsultaCustoNivel1;
@@ -19,7 +19,7 @@ import view.consulta.TelaConsultaCustoNivel1;
 public class CadastroCustoNivel1Controller implements ActionListener {
 
     private final TelaCadastroCustoNivel1 tela;
-    private final CustoNivel1DAO dao = new CustoNivel1DAO();
+    private final CustoNivel1Service service = new CustoNivel1Service();
     private int idEmEdicao;
     private boolean gravando;
 
@@ -110,8 +110,7 @@ public class CadastroCustoNivel1Controller implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (custo.getId() == 0) dao.create(custo);
-                else dao.update(custo);
+                service.salvar(custo, custo.getId());
                 return null;
             }
 

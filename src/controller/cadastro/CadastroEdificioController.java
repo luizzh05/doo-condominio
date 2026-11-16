@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.Edificio;
-import model.DAO.EdificioDAO;
+import service.EdificioService;
 import utils.Utils;
 import view.cadastro.TelaCadastroEdificio;
 import view.consulta.TelaConsultaEdificio;
@@ -18,7 +18,7 @@ import view.consulta.TelaConsultaEdificio;
 
 public class CadastroEdificioController implements ActionListener {
     private final TelaCadastroEdificio tela;
-    private final EdificioDAO dao = new EdificioDAO();
+    private final EdificioService service = new EdificioService();
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
@@ -78,6 +78,8 @@ public class CadastroEdificioController implements ActionListener {
         Utils.preencherCampo(tela.getjTextFieldComplemento(), registro.getComplemento());
         Utils.preencherCampo(tela.getjTextFieldNumeroUnidadeAgua(), registro.getNumeroUnidadeAgua());
         Utils.preencherCampo(tela.getjTextFieldNumeroUnidadeGas(), registro.getNumeroUnidadeGas());
+        Utils.preencherCampo(tela.getjTextFieldPrecoM3Agua(), registro.getPrecoM3Agua());
+        Utils.preencherCampo(tela.getjTextFieldPrecoM3Gas(), registro.getPrecoM3Gas());
         tela.getjRadioButton1().setSelected(tela.getjRadioButton1().getText().equals(registro.getFormulaCalculo()));
         tela.getjRadioButton2().setSelected(tela.getjRadioButton2().getText().equals(registro.getFormulaCalculo()));
         tela.getjTextAreaObservacao().setText(Utils.formatar(registro.getObservacao()));
@@ -115,9 +117,12 @@ public class CadastroEdificioController implements ActionListener {
             registro.setComplemento(Utils.texto(tela.getjTextFieldComplemento(), "complemento", 45, true));
             registro.setNumeroUnidadeAgua(Utils.texto(tela.getjTextFieldNumeroUnidadeAgua(), "numero unidade agua", 45, true));
             registro.setNumeroUnidadeGas(Utils.texto(tela.getjTextFieldNumeroUnidadeGas(), "numero unidade gas", 45, true));
+            registro.setPrecoM3Agua(Utils.preco(tela.getjTextFieldPrecoM3Agua(), "agua por m3"));
+            registro.setPrecoM3Gas(Utils.preco(tela.getjTextFieldPrecoM3Gas(), "gas por m3"));
             registro.setFormulaCalculo(tela.getjRadioButton1().isSelected() ? tela.getjRadioButton1().getText() : tela.getjRadioButton2().isSelected() ? tela.getjRadioButton2().getText() : null);
             registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
+            service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
@@ -126,8 +131,7 @@ public class CadastroEdificioController implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (registro.getId() == 0) dao.create(registro);
-                else dao.update(registro);
+                service.salvar(registro, registro.getId());
                 return null;
             }
 

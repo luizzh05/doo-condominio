@@ -16,7 +16,16 @@ O esquema usado pelos DAOs está em `database/schema.sql`. Ele foi baseado no
 `CondominioScript.sql` e ajustado para guardar o logradouro do edifício e o tipo
 textual da unidade, conforme as telas e os modelos.
 
-Cada classe concreta de `model` possui um DAO com cadastro, consulta, atualização e exclusão.
-As telas ainda utilizam dados demonstrativos e seus controladores não chamam os DAOs.
-Para usar o banco nas telas, é preciso ligar os controladores a essas classes e criar
-as tabelas com o script acima.
+## Organização do código
+
+- `view`: formulários Swing;
+- `controller.cadastro` e `controller.consulta`: eventos, leitura dos campos e apresentação;
+- `service`: operações de cadastro e consulta, além das regras de negócio;
+- `model`: entidades;
+- `model.DAO`: acesso ao MySQL.
+
+Os controladores chamam os services, que usam os DAOs. Para executar as telas com
+dados persistidos, crie as tabelas com `database/schema.sql` e configure a conexão.
+
+Para um banco já criado, aplique `database/migrations/2026_11_16_preco_m3_edificio.sql`
+antes de executar a versão com preços de água e gás por m³.

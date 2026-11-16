@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.AreaCompartilhadaEdificio;
-import model.DAO.AreaCompartilhadaEdificioDAO;
+import service.AreaCompartilhadaEdificioService;
 import utils.Utils;
 import view.cadastro.TelaCadastroAreaCompartilhadaEdificio;
 import view.consulta.TelaConsultaAreaCompartilhadaEdificio;
@@ -23,7 +23,7 @@ import view.consulta.TelaConsultaEdificio;
 
 public class CadastroAreaCompartilhadaEdificioController implements ActionListener {
     private final TelaCadastroAreaCompartilhadaEdificio tela;
-    private final AreaCompartilhadaEdificioDAO dao = new AreaCompartilhadaEdificioDAO();
+    private final AreaCompartilhadaEdificioService service = new AreaCompartilhadaEdificioService();
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
@@ -124,8 +124,7 @@ public class CadastroAreaCompartilhadaEdificioController implements ActionListen
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (registro.getId() == 0) dao.create(registro);
-                else dao.update(registro);
+                service.salvar(registro, registro.getId());
                 return null;
             }
 

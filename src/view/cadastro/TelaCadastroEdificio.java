@@ -102,6 +102,10 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         jTextFieldNumeroUnidadeAgua = new javax.swing.JTextField();
         jLabelNumeroUnidadeGas = new javax.swing.JLabel();
         jTextFieldNumeroUnidadeGas = new javax.swing.JTextField();
+        jLabelPrecoM3Agua = new javax.swing.JLabel();
+        jTextFieldPrecoM3Agua = new javax.swing.JTextField();
+        jLabelPrecoM3Gas = new javax.swing.JLabel();
+        jTextFieldPrecoM3Gas = new javax.swing.JTextField();
         jTextAreaObservacao = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -281,6 +285,16 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         jTextFieldNumeroUnidadeGas.setEnabled(false);
         jTextFieldNumeroUnidadeGas.setPreferredSize(new java.awt.Dimension(170, 28));
 
+        jLabelPrecoM3Agua.setText("Preco da agua por m³");
+        jTextFieldPrecoM3Agua.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        jTextFieldPrecoM3Agua.setEnabled(false);
+        jTextFieldPrecoM3Agua.setPreferredSize(new java.awt.Dimension(170, 28));
+
+        jLabelPrecoM3Gas.setText("Preco do gas por m³");
+        jTextFieldPrecoM3Gas.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        jTextFieldPrecoM3Gas.setEnabled(false);
+        jTextFieldPrecoM3Gas.setPreferredSize(new java.awt.Dimension(170, 28));
+
         jTextAreaObservacao.setColumns(20);
         jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextAreaObservacao.setLineWrap(true);
@@ -342,6 +356,14 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldNumeroUnidadeGas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addComponent(jLabelSecaoMedidores, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addComponent(jLabelPrecoM3Agua, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPrecoM3Agua, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelPrecoM3Gas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPrecoM3Gas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -437,6 +459,12 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
                     .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelSecaoMedidores)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPrecoM3Agua)
+                    .addComponent(jTextFieldPrecoM3Agua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPrecoM3Gas)
+                    .addComponent(jTextFieldPrecoM3Gas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -575,6 +603,8 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     public javax.swing.JTextField getjTextFieldLogradouro() { return jTextFieldLogradouro; }
     public javax.swing.JTextField getjTextFieldNumeroUnidadeAgua() { return jTextFieldNumeroUnidadeAgua; }
     public javax.swing.JTextField getjTextFieldNumeroUnidadeGas() { return jTextFieldNumeroUnidadeGas; }
+    public javax.swing.JTextField getjTextFieldPrecoM3Agua() { return jTextFieldPrecoM3Agua; }
+    public javax.swing.JTextField getjTextFieldPrecoM3Gas() { return jTextFieldPrecoM3Gas; }
     public javax.swing.JFormattedTextField getjTextFieldQuantidadeAndares() { return jTextFieldQuantidadeAndares; }
     public javax.swing.JFormattedTextField getjTextFieldQuantidadeUnidades() { return jTextFieldQuantidadeUnidades; }
 
@@ -626,6 +656,10 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldNumeroUnidadeAgua;
     private javax.swing.JTextField jTextFieldNumeroUnidadeGas;
+    private javax.swing.JLabel jLabelPrecoM3Agua;
+    private javax.swing.JTextField jTextFieldPrecoM3Agua;
+    private javax.swing.JLabel jLabelPrecoM3Gas;
+    private javax.swing.JTextField jTextFieldPrecoM3Gas;
     private javax.swing.JFormattedTextField jTextFieldQuantidadeAndares;
     private javax.swing.JFormattedTextField jTextFieldQuantidadeUnidades;
     // End of variables declaration//GEN-END:variables

@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import model.SindicoProfissional;
-import model.DAO.SindicoProfissionalDAO;
+import service.SindicoProfissionalService;
 import view.consulta.TelaConsultaSindicoProfissional;
 
 public class ConsultaSindicoProfissionalController implements ActionListener {
 
     private final TelaConsultaSindicoProfissional tela;
-    private final SindicoProfissionalDAO dao = new SindicoProfissionalDAO();
+    private final SindicoProfissionalService service = new SindicoProfissionalService();
     private List<SindicoProfissional> resultados = List.of();
     private SindicoProfissional registroSelecionado;
     private boolean pesquisando;
@@ -110,7 +110,7 @@ public class ConsultaSindicoProfissionalController implements ActionListener {
         preencherTabela(List.of());
         new SwingWorker<List<SindicoProfissional>, Void>() {
             @Override
-            protected List<SindicoProfissional> doInBackground() { return dao.retrieve(parametro, valor); }
+            protected List<SindicoProfissional> doInBackground() { return service.consultar(parametro, valor); }
 
             @Override
             protected void done() {

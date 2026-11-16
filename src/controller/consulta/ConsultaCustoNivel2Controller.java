@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import model.CustoNivel2;
-import model.DAO.CustoNivel2DAO;
+import service.CustoNivel2Service;
 import view.consulta.TelaConsultaCustoNivel2;
 
 public class ConsultaCustoNivel2Controller implements ActionListener {
 
     private final TelaConsultaCustoNivel2 tela;
-    private final CustoNivel2DAO dao = new CustoNivel2DAO();
+    private final CustoNivel2Service service = new CustoNivel2Service();
     private List<CustoNivel2> resultados = List.of();
     private CustoNivel2 custoSelecionado;
     private boolean pesquisando;
@@ -104,7 +104,7 @@ public class ConsultaCustoNivel2Controller implements ActionListener {
         preencherTabela(List.of());
         new SwingWorker<List<CustoNivel2>, Void>() {
             @Override
-            protected List<CustoNivel2> doInBackground() { return dao.retrieve(parametro, valor); }
+            protected List<CustoNivel2> doInBackground() { return service.consultar(parametro, valor); }
 
             @Override
             protected void done() {

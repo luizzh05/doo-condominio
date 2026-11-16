@@ -44,6 +44,8 @@ CREATE TABLE IF NOT EXISTS `Condominio`.`edificio` (
   `complemento` VARCHAR(45) NOT NULL,
   `numero_unidade_agua` VARCHAR(45) NOT NULL,
   `numero_unidade_gas` VARCHAR(45) NOT NULL,
+  `preco_m3_agua` DECIMAL(12,4) NOT NULL DEFAULT 0.0000,
+  `preco_m3_gas` DECIMAL(12,4) NOT NULL DEFAULT 0.0000,
   `formula_calculo` VARCHAR(45) NULL,
   `observacao` VARCHAR(100) NULL,
   `status` CHAR(1) NOT NULL,

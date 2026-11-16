@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.MovimentoCaixa;
-import model.DAO.MovimentoCaixaDAO;
+import service.MovimentoCaixaService;
 import utils.Utils;
 import view.cadastro.TelaCadastroMovimentoCaixa;
 import view.consulta.TelaConsultaMovimentoCaixa;
@@ -29,7 +29,7 @@ import view.consulta.TelaConsultaCustoNivel2;
 
 public class CadastroMovimentoCaixaController implements ActionListener {
     private final TelaCadastroMovimentoCaixa tela;
-    private final MovimentoCaixaDAO dao = new MovimentoCaixaDAO();
+    private final MovimentoCaixaService service = new MovimentoCaixaService();
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
@@ -170,8 +170,7 @@ public class CadastroMovimentoCaixaController implements ActionListener {
             registro.setCustoNivel1(custoNivel1Selecionado);
             if (custoNivel2Selecionado == null || custoNivel2Selecionado.getId() <= 0 || tela.getjComboBoxCustoNivel2().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione CustoNivel2.");
             registro.setCustoNivel2(custoNivel2Selecionado);
-            if (registro.getDataVencimento() != null && registro.getDataVencimento().isBefore(registro.getDataEmissao())) throw new IllegalArgumentException("DataVencimento nao pode ser anterior a DataEmissao.");
-            if (custoNivel2Selecionado.getCustoNivel1() == null || custoNivel2Selecionado.getCustoNivel1().getId() != custoNivel1Selecionado.getId()) throw new IllegalArgumentException("Os custos de nivel 1 e 2 devem pertencer ao mesmo grupo.");
+            service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
@@ -180,8 +179,7 @@ public class CadastroMovimentoCaixaController implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (registro.getId() == 0) dao.create(registro);
-                else dao.update(registro);
+                service.salvar(registro, registro.getId());
                 return null;
             }
 

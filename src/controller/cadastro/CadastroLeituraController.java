@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.Leitura;
-import model.DAO.LeituraDAO;
+import service.LeituraService;
 import utils.Utils;
 import view.cadastro.TelaCadastroLeitura;
 import view.consulta.TelaConsultaLeitura;
@@ -20,7 +20,7 @@ import view.consulta.TelaConsultaUnidadeCondomino;
 
 public class CadastroLeituraController implements ActionListener {
     private final TelaCadastroLeitura tela;
-    private final LeituraDAO dao = new LeituraDAO();
+    private final LeituraService service = new LeituraService();
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
@@ -120,8 +120,7 @@ public class CadastroLeituraController implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (registro.getId() == 0) dao.create(registro);
-                else dao.update(registro);
+                service.salvar(registro, registro.getId());
                 return null;
             }
 

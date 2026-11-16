@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import model.AreaCompartilhada;
-import model.DAO.AreaCompartilhadaDAO;
+import service.AreaCompartilhadaService;
 import view.consulta.TelaConsultaAreaCompartilhada;
 
 public class ConsultaAreaCompartilhadaController implements ActionListener {
 
     private final TelaConsultaAreaCompartilhada tela;
-    private final AreaCompartilhadaDAO dao = new AreaCompartilhadaDAO();
+    private final AreaCompartilhadaService service = new AreaCompartilhadaService();
     private List<AreaCompartilhada> resultados = List.of();
     private AreaCompartilhada areaSelecionada;
     private boolean pesquisando;
@@ -103,7 +103,7 @@ public class ConsultaAreaCompartilhadaController implements ActionListener {
         preencherTabela(List.of());
         new SwingWorker<List<AreaCompartilhada>, Void>() {
             @Override
-            protected List<AreaCompartilhada> doInBackground() { return dao.retrieve(parametro, valor); }
+            protected List<AreaCompartilhada> doInBackground() { return service.consultar(parametro, valor); }
 
             @Override
             protected void done() {

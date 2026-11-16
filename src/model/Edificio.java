@@ -1,6 +1,8 @@
 
 package model;
 
+import java.math.BigDecimal;
+
 
 public class Edificio {
     
@@ -18,6 +20,8 @@ public class Edificio {
     private String complemento;
     private String numeroUnidadeAgua;
     private String numeroUnidadeGas;
+    private BigDecimal precoM3Agua = BigDecimal.ZERO;
+    private BigDecimal precoM3Gas = BigDecimal.ZERO;
     private String formulaCalculo;
     private String observacao;
     private String status;
@@ -156,6 +160,22 @@ public class Edificio {
 
     public void setNumeroUnidadeGas(String numeroUnidadeGas) {
         this.numeroUnidadeGas = numeroUnidadeGas;
+    }
+
+    public BigDecimal getPrecoM3Agua() {
+        return precoM3Agua;
+    }
+
+    public void setPrecoM3Agua(BigDecimal precoM3Agua) {
+        this.precoM3Agua = precoM3Agua;
+    }
+
+    public BigDecimal getPrecoM3Gas() {
+        return precoM3Gas;
+    }
+
+    public void setPrecoM3Gas(BigDecimal precoM3Gas) {
+        this.precoM3Gas = precoM3Gas;
     }
 
     public String getFormulaCalculo() {

@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import model.Proprietario;
-import model.DAO.ProprietarioDAO;
+import service.ProprietarioService;
 import view.consulta.TelaConsultaProprietario;
 
 public class ConsultaProprietarioController implements ActionListener {
 
     private final TelaConsultaProprietario tela;
-    private final ProprietarioDAO dao = new ProprietarioDAO();
+    private final ProprietarioService service = new ProprietarioService();
     private List<Proprietario> resultados = List.of();
     private Proprietario registroSelecionado;
     private boolean pesquisando;
@@ -110,7 +110,7 @@ public class ConsultaProprietarioController implements ActionListener {
         preencherTabela(List.of());
         new SwingWorker<List<Proprietario>, Void>() {
             @Override
-            protected List<Proprietario> doInBackground() { return dao.retrieve(parametro, valor); }
+            protected List<Proprietario> doInBackground() { return service.consultar(parametro, valor); }
 
             @Override
             protected void done() {

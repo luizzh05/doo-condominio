@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.Proprietario;
-import model.DAO.ProprietarioDAO;
+import service.ProprietarioService;
 import utils.Utils;
 import view.cadastro.TelaCadastroProprietario;
 import view.consulta.TelaConsultaProprietario;
@@ -18,7 +18,7 @@ import view.consulta.TelaConsultaProprietario;
 
 public class CadastroProprietarioController implements ActionListener {
     private final TelaCadastroProprietario tela;
-    private final ProprietarioDAO dao = new ProprietarioDAO();
+    private final ProprietarioService service = new ProprietarioService();
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
@@ -126,11 +126,8 @@ public class CadastroProprietarioController implements ActionListener {
             registro.setComplemento(Utils.texto(tela.getjTextFieldComplemento(), "complemento", 100, false));
             registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
-            if (!registro.getEmail().matches("[^\\s@]+@[^\\s@]+\\.[^\\s@]+")) throw new IllegalArgumentException("Informe um email valido.");
-            if (registro.getDataNascimento() != null && registro.getDataNascimento().isAfter(java.time.LocalDate.now())) throw new IllegalArgumentException("A data de nascimento nao pode estar no futuro.");
             registro.setTipoPessoa(tipoPessoa);
-            if ("Fisica".equals(tipoPessoa)) { if (registro.getCpf() == null) throw new IllegalArgumentException("Informe o CPF da pessoa fisica."); registro.setCnpj("Juridica".equals(tipoPessoa) ? null : null); registro.setInscricaoEstadual("Juridica".equals(tipoPessoa) ? null : null); }
-            else { if (registro.getCnpj() == null) throw new IllegalArgumentException("Informe o CNPJ da pessoa juridica."); registro.setCpf("Fisica".equals(tipoPessoa) ? null : null); registro.setRg("Fisica".equals(tipoPessoa) ? null : null); registro.setDataNascimento("Fisica".equals(tipoPessoa) ? null : null); registro.setEstadoCivil("Fisica".equals(tipoPessoa) ? null : null); }
+            service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
@@ -139,8 +136,7 @@ public class CadastroProprietarioController implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (registro.getId() == 0) dao.create(registro);
-                else dao.update(registro);
+                service.salvar(registro, registro.getId());
                 return null;
             }
 

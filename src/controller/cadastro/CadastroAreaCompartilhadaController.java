@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.AreaCompartilhada;
-import model.DAO.AreaCompartilhadaDAO;
+import service.AreaCompartilhadaService;
 import utils.Utils;
 import view.cadastro.TelaCadastroAreaCompartilhada;
 import view.consulta.TelaConsultaAreaCompartilhada;
@@ -19,7 +19,7 @@ import view.consulta.TelaConsultaAreaCompartilhada;
 public class CadastroAreaCompartilhadaController implements ActionListener {
 
     private final TelaCadastroAreaCompartilhada tela;
-    private final AreaCompartilhadaDAO dao = new AreaCompartilhadaDAO();
+    private final AreaCompartilhadaService service = new AreaCompartilhadaService();
     private int idEmEdicao;
     private boolean gravando;
 
@@ -103,8 +103,7 @@ public class CadastroAreaCompartilhadaController implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (area.getId() == 0) dao.create(area);
-                else dao.update(area);
+                service.salvar(area, area.getId());
                 return null;
             }
 

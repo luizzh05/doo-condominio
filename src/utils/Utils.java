@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.ResolverStyle;
 import java.time.format.DateTimeParseException;
+import java.math.BigDecimal;
 
 
 public class Utils {
@@ -67,6 +68,28 @@ public class Utils {
             return valor;
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException("Informe um numero valido, maior ou igual a zero, para " + nome + ".");
+        }
+    }
+
+    public static BigDecimal preco(JTextComponent campo, String nome) {
+        String texto = campo.getText().trim();
+        if (texto.isEmpty()) return BigDecimal.ZERO;
+        if (texto.contains(",")) {
+            if (!texto.matches("[0-9]+(,[0-9]{1,4})?|[0-9]{1,3}(\\.[0-9]{3})+(,[0-9]{1,4})?")) {
+                throw new IllegalArgumentException("Informe um preco valido para " + nome + ".");
+            }
+            texto = texto.replace(".", "").replace(',', '.');
+        } else if (!texto.matches("[0-9]+(\\.[0-9]{1,4})?")) {
+            throw new IllegalArgumentException("Informe um preco valido para " + nome + ".");
+        }
+        try {
+            BigDecimal valor = new BigDecimal(texto);
+            if (valor.signum() < 0 || valor.scale() > 4 || valor.precision() - valor.scale() > 8) {
+                throw new NumberFormatException();
+            }
+            return valor;
+        } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException("Informe um preco valido para " + nome + ".");
         }
     }
 
@@ -122,6 +145,7 @@ public class Utils {
         if (valor instanceof LocalDateTime) return ((LocalDateTime) valor).format(DATA_HORA);
         if (valor instanceof Double) return java.math.BigDecimal.valueOf((Double) valor)
                 .stripTrailingZeros().toPlainString().replace('.', ',');
+        if (valor instanceof BigDecimal) return ((BigDecimal) valor).stripTrailingZeros().toPlainString().replace('.', ',');
         return valor.toString();
     }
 

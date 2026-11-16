@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.FuncaoMandato;
-import model.DAO.FuncaoMandatoDAO;
+import service.FuncaoMandatoService;
 import utils.Utils;
 import view.cadastro.TelaCadastroFuncaoMandato;
 import view.consulta.TelaConsultaFuncaoMandato;
@@ -26,7 +26,7 @@ import view.consulta.TelaConsultaEdificio;
 
 public class CadastroFuncaoMandatoController implements ActionListener {
     private final TelaCadastroFuncaoMandato tela;
-    private final FuncaoMandatoDAO dao = new FuncaoMandatoDAO();
+    private final FuncaoMandatoService service = new FuncaoMandatoService();
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
@@ -136,8 +136,7 @@ public class CadastroFuncaoMandatoController implements ActionListener {
             registro.setProprietario(tela.getjComboBoxProprietario().getSelectedIndex() > 0 ? proprietarioSelecionado : null);
             if (edificioSelecionado == null || edificioSelecionado.getId() <= 0 || tela.getjComboBoxEdificio().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione Edificio.");
             registro.setEdificio(edificioSelecionado);
-            if (registro.getDataFim() != null && registro.getDataFim().isBefore(registro.getDataInicio())) throw new IllegalArgumentException("DataFim nao pode ser anterior a DataInicio.");
-            if (registro.getSindicoProfissional() == null && registro.getProprietario() == null) throw new IllegalArgumentException("Selecione um sindico profissional ou proprietario para o mandato.");
+            service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
@@ -146,8 +145,7 @@ public class CadastroFuncaoMandatoController implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (registro.getId() == 0) dao.create(registro);
-                else dao.update(registro);
+                service.salvar(registro, registro.getId());
                 return null;
             }
 

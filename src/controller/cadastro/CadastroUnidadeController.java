@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.Unidade;
-import model.DAO.UnidadeDAO;
+import service.UnidadeService;
 import utils.Utils;
 import view.cadastro.TelaCadastroUnidade;
 import view.consulta.TelaConsultaUnidade;
@@ -20,7 +20,7 @@ import view.consulta.TelaConsultaEdificio;
 
 public class CadastroUnidadeController implements ActionListener {
     private final TelaCadastroUnidade tela;
-    private final UnidadeDAO dao = new UnidadeDAO();
+    private final UnidadeService service = new UnidadeService();
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
@@ -108,7 +108,7 @@ public class CadastroUnidadeController implements ActionListener {
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             if (edificioSelecionado == null || edificioSelecionado.getId() <= 0 || tela.getjComboBoxTipoUnidade1().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione Edificio.");
             registro.setEdificio(edificioSelecionado);
-            if (registro.getMetragemIndividual() > registro.getMetragemTotal()) throw new IllegalArgumentException("A metragem individual nao pode exceder a total.");
+            service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
@@ -117,8 +117,7 @@ public class CadastroUnidadeController implements ActionListener {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() {
-                if (registro.getId() == 0) dao.create(registro);
-                else dao.update(registro);
+                service.salvar(registro, registro.getId());
                 return null;
             }
 
