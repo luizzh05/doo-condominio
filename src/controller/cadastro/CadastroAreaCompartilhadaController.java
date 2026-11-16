@@ -79,25 +79,16 @@ public class CadastroAreaCompartilhadaController implements ActionListener {
     private void gravarAreaCompartilhada() {
         String descricao = tela.getDescricao().trim();
         String observacao = tela.getObservacao().trim();
-        if (descricao.isEmpty() || descricao.length() > 100) {
-            JOptionPane.showMessageDialog(tela, "Informe uma descricao de ate 100 caracteres.",
-                    "Validacao", JOptionPane.WARNING_MESSAGE);
-            tela.getjTextFieldDescricao().requestFocusInWindow();
+        final AreaCompartilhada area;
+        try {
+            area = new AreaCompartilhada(idEmEdicao, descricao,
+                    observacao.isEmpty() ? null : observacao,
+                    Utils.status(tela.getjComboBoxStatus()));
+            service.validar(area);
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (observacao.length() > 100) {
-            JOptionPane.showMessageDialog(tela, "A observacao deve ter ate 100 caracteres.",
-                    "Validacao", JOptionPane.WARNING_MESSAGE);
-            tela.getjTextAreaObservacao().requestFocusInWindow();
-            return;
-        }
-        if (tela.getjComboBoxStatus().getSelectedIndex() < 0) {
-            JOptionPane.showMessageDialog(tela, "Selecione o status.", "Validacao", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        AreaCompartilhada area = new AreaCompartilhada(idEmEdicao, descricao,
-                observacao.isEmpty() ? null : observacao,
-                tela.getjComboBoxStatus().getSelectedIndex() == 0 ? "A" : "I");
         gravando = true;
         definirOcupado(true);
         new SwingWorker<Void, Void>() {

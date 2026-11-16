@@ -105,31 +105,17 @@ public class CadastroCustoNivel2Controller implements ActionListener {
     private void gravarCustoNivel2() {
         String descricao = tela.getjTextFieldDescricao().getText().trim();
         String observacao = tela.getjTextAreaObservacao().getText().trim();
-        if (descricao.isEmpty() || descricao.length() > 100) {
-            JOptionPane.showMessageDialog(tela, "Informe uma descricao de ate 100 caracteres.",
-                    "Validacao", JOptionPane.WARNING_MESSAGE);
-            tela.getjTextFieldDescricao().requestFocusInWindow();
+        final CustoNivel2 custo;
+        try {
+            custo = new CustoNivel2(idEmEdicao, descricao,
+                    observacao.isEmpty() ? null : observacao,
+                    Utils.status(tela.getjComboBoxStatus()),
+                    tela.getjComboBoxCustoNivel1().getSelectedIndex() > 0 ? custoNivel1Selecionado : null);
+            service.validar(custo);
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (observacao.length() > 100) {
-            JOptionPane.showMessageDialog(tela, "A observacao deve ter ate 100 caracteres.",
-                    "Validacao", JOptionPane.WARNING_MESSAGE);
-            tela.getjTextAreaObservacao().requestFocusInWindow();
-            return;
-        }
-        if (tela.getjComboBoxStatus().getSelectedIndex() < 0) {
-            JOptionPane.showMessageDialog(tela, "Selecione o status.", "Validacao", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        if (custoNivel1Selecionado == null || custoNivel1Selecionado.getId() <= 0
-                || tela.getjComboBoxCustoNivel1().getSelectedIndex() <= 0) {
-            JOptionPane.showMessageDialog(tela, "Busque e selecione um custo de nivel 1.",
-                    "Validacao", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        CustoNivel2 custo = new CustoNivel2(idEmEdicao, descricao,
-                observacao.isEmpty() ? null : observacao,
-                tela.getjComboBoxStatus().getSelectedIndex() == 0 ? "A" : "I", custoNivel1Selecionado);
         gravando = true;
         definirOcupado(true);
         new SwingWorker<Void, Void>() {

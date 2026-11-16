@@ -106,8 +106,7 @@ public class CadastroUnidadeController implements ActionListener {
             registro.setTipoUnidade(Utils.escolha(tela.getjComboBoxTipoUnidade(), "tipo unidade", true));
             registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
-            if (edificioSelecionado == null || edificioSelecionado.getId() <= 0 || tela.getjComboBoxTipoUnidade1().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione Edificio.");
-            registro.setEdificio(edificioSelecionado);
+            registro.setEdificio(tela.getjComboBoxTipoUnidade1().getSelectedIndex() > 0 ? edificioSelecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);

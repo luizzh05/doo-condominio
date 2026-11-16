@@ -112,10 +112,9 @@ public class CadastroAreaCompartilhadaEdificioController implements ActionListen
             registro.setId(idEmEdicao);
             registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
-            if (areaCompartilhadaSelecionado == null || areaCompartilhadaSelecionado.getId() <= 0 || tela.getjComboBoxAreaCompartilhada().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione AreaCompartilhada.");
-            registro.setAreaCompartilhada(areaCompartilhadaSelecionado);
-            if (edificioSelecionado == null || edificioSelecionado.getId() <= 0 || tela.getjComboBoxEdificio().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione Edificio.");
-            registro.setEdificio(edificioSelecionado);
+            registro.setAreaCompartilhada(tela.getjComboBoxAreaCompartilhada().getSelectedIndex() > 0 ? areaCompartilhadaSelecionado : null);
+            registro.setEdificio(tela.getjComboBoxEdificio().getSelectedIndex() > 0 ? edificioSelecionado : null);
+            service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
             return;

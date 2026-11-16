@@ -11,6 +11,9 @@ public class FuncaoMandatoService extends CrudService<FuncaoMandato> {
     @Override
     public void validar(FuncaoMandato registro) {
         super.validar(registro);
+        if (registro.getEdificio() == null || registro.getEdificio().getId() <= 0) {
+            throw new IllegalArgumentException("Busque e selecione Edificio.");
+        }
         if (registro.getDataFim() != null && registro.getDataFim().isBefore(registro.getDataInicio())) {
             throw new IllegalArgumentException("DataFim nao pode ser anterior a DataInicio.");
         }

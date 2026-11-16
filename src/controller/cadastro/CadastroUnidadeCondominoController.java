@@ -116,10 +116,8 @@ public class CadastroUnidadeCondominoController implements ActionListener {
             registro.setDataVenda(Utils.data(tela.getjTextFieldDataVenda(), "data venda", false));
             registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
-            if (unidadeSelecionado == null || unidadeSelecionado.getId() <= 0 || tela.getjComboBoxUnidade().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione Unidade.");
-            registro.setUnidade(unidadeSelecionado);
-            if (proprietarioSelecionado == null || proprietarioSelecionado.getId() <= 0 || tela.getjComboBoxProprietario().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione Proprietario.");
-            registro.setProprietario(proprietarioSelecionado);
+            registro.setUnidade(tela.getjComboBoxUnidade().getSelectedIndex() > 0 ? unidadeSelecionado : null);
+            registro.setProprietario(tela.getjComboBoxProprietario().getSelectedIndex() > 0 ? proprietarioSelecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);

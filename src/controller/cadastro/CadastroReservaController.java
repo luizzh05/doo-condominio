@@ -116,10 +116,8 @@ public class CadastroReservaController implements ActionListener {
             registro.setDataHoraFim(Utils.dataHora(tela.getjTextFieldDataHoraFim(), "data hora fim"));
             registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
-            if (areaCompartilhadaEdificioSelecionado == null || areaCompartilhadaEdificioSelecionado.getId() <= 0 || tela.getjComboBoxAreaCompartilhadaEdificio().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione AreaCompartilhadaEdificio.");
-            registro.setAreaCompartilhadaEdificio(areaCompartilhadaEdificioSelecionado);
-            if (unidadeCondominoSelecionado == null || unidadeCondominoSelecionado.getId() <= 0 || tela.getjComboBoxUnidadeCondomino().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione UnidadeCondomino.");
-            registro.setUnidadeCondomino(unidadeCondominoSelecionado);
+            registro.setAreaCompartilhadaEdificio(tela.getjComboBoxAreaCompartilhadaEdificio().getSelectedIndex() > 0 ? areaCompartilhadaEdificioSelecionado : null);
+            registro.setUnidadeCondomino(tela.getjComboBoxUnidadeCondomino().getSelectedIndex() > 0 ? unidadeCondominoSelecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);

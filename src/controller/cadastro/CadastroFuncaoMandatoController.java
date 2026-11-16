@@ -134,8 +134,7 @@ public class CadastroFuncaoMandatoController implements ActionListener {
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             registro.setSindicoProfissional(tela.getjComboBoxSindicoProfissional().getSelectedIndex() > 0 ? sindicoProfissionalSelecionado : null);
             registro.setProprietario(tela.getjComboBoxProprietario().getSelectedIndex() > 0 ? proprietarioSelecionado : null);
-            if (edificioSelecionado == null || edificioSelecionado.getId() <= 0 || tela.getjComboBoxEdificio().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione Edificio.");
-            registro.setEdificio(edificioSelecionado);
+            registro.setEdificio(tela.getjComboBoxEdificio().getSelectedIndex() > 0 ? edificioSelecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);

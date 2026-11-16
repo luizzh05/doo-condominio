@@ -162,14 +162,10 @@ public class CadastroMovimentoCaixaController implements ActionListener {
             registro.setFlagFormula(Utils.texto(tela.getjTextFieldFlagFormula(), "flag formula", 45, false));
             registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
-            if (edificioSelecionado == null || edificioSelecionado.getId() <= 0 || tela.getjComboBoxEdificio().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione Edificio.");
-            registro.setEdificio(edificioSelecionado);
-            if (fornecedorSelecionado == null || fornecedorSelecionado.getId() <= 0 || tela.getjComboBoxFornecedor().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione Fornecedor.");
-            registro.setFornecedor(fornecedorSelecionado);
-            if (custoNivel1Selecionado == null || custoNivel1Selecionado.getId() <= 0 || tela.getjComboBoxCustoNivel1().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione CustoNivel1.");
-            registro.setCustoNivel1(custoNivel1Selecionado);
-            if (custoNivel2Selecionado == null || custoNivel2Selecionado.getId() <= 0 || tela.getjComboBoxCustoNivel2().getSelectedIndex() <= 0) throw new IllegalArgumentException("Busque e selecione CustoNivel2.");
-            registro.setCustoNivel2(custoNivel2Selecionado);
+            registro.setEdificio(tela.getjComboBoxEdificio().getSelectedIndex() > 0 ? edificioSelecionado : null);
+            registro.setFornecedor(tela.getjComboBoxFornecedor().getSelectedIndex() > 0 ? fornecedorSelecionado : null);
+            registro.setCustoNivel1(tela.getjComboBoxCustoNivel1().getSelectedIndex() > 0 ? custoNivel1Selecionado : null);
+            registro.setCustoNivel2(tela.getjComboBoxCustoNivel2().getSelectedIndex() > 0 ? custoNivel2Selecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
