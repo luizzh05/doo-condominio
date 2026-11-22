@@ -94,6 +94,29 @@ public class UnidadeCondominoDAO implements InterfaceDAO<UnidadeCondomino> {
         }
     }
 
+    public List<UnidadeCondomino> listarAtivasPorEdificio(int edificioId) {
+        String sql = "SELECT uc.id, uc.data_aquisicao, uc.data_venda, uc.observacao, uc.status, uc.proprietario_id, uc.unidade_id, "
+                + "u.descricao AS nome_unidade, p.nome_fantasia AS nome_proprietario, u.metragem_individual "
+                + "FROM unidade_condomino uc JOIN unidade u ON u.id = uc.unidade_id JOIN proprietario p ON p.id = uc.proprietario_id "
+                + "WHERE u.edificio_id = ? AND u.status = 'A' AND uc.status = 'A' AND uc.data_venda IS NULL "
+                + "ORDER BY u.descricao, uc.id";
+        List<UnidadeCondomino> itens = new ArrayList<>();
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, edificioId);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    UnidadeCondomino item = map(rs);
+                    item.getUnidade().setMetragemIndividual(rs.getDouble("metragem_individual"));
+                    itens.add(item);
+                }
+            }
+            return itens;
+        } catch (SQLException ex) {
+            throw new IllegalStateException("Erro ao listar unidade_condomino ativas por edificio", ex);
+        }
+    }
+
     private static void bind(PreparedStatement stmt, UnidadeCondomino objeto) throws SQLException {
         stmt.setObject(1, objeto.getDataAquisicao());
         stmt.setObject(2, objeto.getDataVenda());

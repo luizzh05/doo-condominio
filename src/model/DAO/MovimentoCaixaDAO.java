@@ -101,6 +101,23 @@ public class MovimentoCaixaDAO implements InterfaceDAO<MovimentoCaixa> {
         }
     }
 
+    public List<MovimentoCaixa> listarRateioPorEdificioPeriodo(int edificioId, java.time.LocalDate inicio, java.time.LocalDate fim) {
+        String sql = "SELECT " + COLUMNS + " FROM movimento_caixa WHERE edificio_id = ? AND flag_rateio = 1 AND status = 'A' AND data_emissao BETWEEN ? AND ? ORDER BY data_emissao, id";
+        List<MovimentoCaixa> itens = new ArrayList<>();
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, edificioId);
+            stmt.setObject(2, inicio);
+            stmt.setObject(3, fim);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) itens.add(map(rs));
+            }
+            return itens;
+        } catch (SQLException ex) {
+            throw new IllegalStateException("Erro ao listar movimentos de rateio por edificio e periodo", ex);
+        }
+    }
+
     private static void bind(PreparedStatement stmt, MovimentoCaixa objeto) throws SQLException {
         stmt.setObject(1, objeto.getDataEmissao());
         stmt.setObject(2, objeto.getDataVencimento());

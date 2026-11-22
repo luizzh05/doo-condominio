@@ -106,6 +106,33 @@ public class LeituraDAO implements InterfaceDAO<Leitura> {
         }
     }
 
+    public List<Leitura> listarAtivasPorEdificioReferencia(int edificioId, int mesReferencia, int anoReferencia) {
+        String sql = "SELECT l.id, l.data_leitura, l.mes_referencia, l.ano_referencia, "
+                + "l.medicao_anterior, (l.medicao_anterior IS NULL) AS sem_medicao_anterior, l.medicao_atual, l.tipo, l.observacao, l.status, "
+                + "l.unidade_condomino_id, uc.unidade_id, u.descricao AS descricao_unidade "
+                + "FROM leitura l JOIN unidade_condomino uc ON uc.id = l.unidade_condomino_id JOIN unidade u ON u.id = uc.unidade_id "
+                + "WHERE u.edificio_id = ? AND l.mes_referencia = ? AND l.ano_referencia = ? AND l.status = 'A' AND l.tipo IN ('Agua','Gas') "
+                + "ORDER BY l.unidade_condomino_id, l.tipo, l.id";
+        List<Leitura> itens = new ArrayList<>();
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, edificioId);
+            stmt.setInt(2, mesReferencia);
+            stmt.setInt(3, anoReferencia);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Leitura leitura = map(rs);
+                    // Sem medicao anterior: sinaliza com NaN (apenas neste metodo) para o chamador tratar.
+                    if (rs.getBoolean("sem_medicao_anterior")) leitura.setMedicaoAnterior(Double.NaN);
+                    itens.add(leitura);
+                }
+            }
+            return itens;
+        } catch (SQLException ex) {
+            throw new IllegalStateException("Erro ao listar leituras ativas por edificio e referencia", ex);
+        }
+    }
+
     private static void bind(PreparedStatement stmt, Leitura objeto) throws SQLException {
         stmt.setObject(1, objeto.getDataLeitura());
         stmt.setInt(2, objeto.getMesReferencia());

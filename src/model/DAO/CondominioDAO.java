@@ -101,6 +101,101 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
         }
     }
 
+    private static final String EXISTE_SQL = "SELECT 1 FROM condominio c JOIN unidade_condomino uc ON uc.id = c.unidade_condomino_id JOIN unidade u ON u.id = uc.unidade_id"
+            + " WHERE u.edificio_id = ? AND c.mes_referencia = ? AND c.ano_referencia = ? LIMIT 1";
+
+    public boolean existeParaEdificioReferencia(int edificioId, int mesReferencia, int anoReferencia) {
+        try (Connection conn = ConnectionFactory.getConnection()) {
+            return existe(conn, edificioId, mesReferencia, anoReferencia);
+        } catch (SQLException ex) {
+            throw new IllegalStateException("Erro ao consultar condominio", ex);
+        }
+    }
+
+    public List<Condominio> listarPorEdificioReferencia(int edificioId, int mesReferencia, int anoReferencia) {
+        String sql = "SELECT c.id, c.mes_referencia, c.ano_referencia, c.data_emissao, c.data_vencimento, c.data_pagamento, c.juros, c.multas, c.correcao, c.valor_emitido, c.valor_pago, c.observacao, c.status, c.unidade_condomino_id, u.descricao AS descricao_unidade, p.nome_fantasia AS nome_proprietario"
+                + " FROM condominio c JOIN unidade_condomino uc ON uc.id = c.unidade_condomino_id JOIN unidade u ON u.id = uc.unidade_id JOIN proprietario p ON p.id = uc.proprietario_id"
+                + " WHERE u.edificio_id = ? AND c.mes_referencia = ? AND c.ano_referencia = ? ORDER BY u.descricao, c.id";
+        List<Condominio> itens = new ArrayList<>();
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, edificioId);
+            stmt.setInt(2, mesReferencia);
+            stmt.setInt(3, anoReferencia);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Condominio item = map(rs);
+                    model.Proprietario proprietario = new model.Proprietario();
+                    proprietario.setNomeFantasia(rs.getString("nome_proprietario"));
+                    item.getUnidadeCondomino().setProprietario(proprietario);
+                    itens.add(item);
+                }
+            }
+            return itens;
+        } catch (SQLException ex) {
+            throw new IllegalStateException("Erro ao listar condominios", ex);
+        }
+    }
+
+    public void createLote(int edificioId, int mesReferencia, int anoReferencia, List<Condominio> condominios) {
+        if (condominios == null || condominios.isEmpty()) {
+            throw new IllegalArgumentException("Nenhum condominio para gerar.");
+        }
+        String sql = "INSERT INTO condominio (mes_referencia, ano_referencia, data_emissao, data_vencimento, data_pagamento, juros, multas, correcao, valor_emitido, valor_pago, observacao, status, unidade_condomino_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String mensagemDuplicado = String.format("Ja existem condominios gerados para este edificio em %02d/%04d. Geracao bloqueada.", mesReferencia, anoReferencia);
+        try (Connection conn = ConnectionFactory.getConnection()) {
+            try {
+                conn.setAutoCommit(false);
+                if (existe(conn, edificioId, mesReferencia, anoReferencia)) {
+                    conn.rollback();
+                    throw new IllegalArgumentException(mensagemDuplicado);
+                }
+                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                    for (Condominio condominio : condominios) {
+                        bind(stmt, condominio);
+                        stmt.addBatch();
+                    }
+                    stmt.executeBatch();
+                }
+                conn.commit();
+            } catch (SQLException ex) {
+                rollbackSilencioso(conn);
+                if (duplicidade(ex)) {
+                    throw new IllegalArgumentException(mensagemDuplicado);
+                }
+                throw new IllegalStateException("Erro ao gerar condominios", ex);
+            } catch (RuntimeException ex) {
+                rollbackSilencioso(conn);
+                throw ex;
+            } finally {
+                try {
+                    conn.setAutoCommit(true);
+                } catch (SQLException ignorada) {
+                    // conexao sera fechada em seguida
+                }
+            }
+        } catch (SQLException ex) {
+            throw new IllegalStateException("Erro ao gerar condominios", ex);
+        }
+    }
+
+    private static boolean duplicidade(Throwable ex) {
+        java.util.Set<Throwable> visitados = java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<>());
+        return duplicidade(ex, visitados);
+    }
+
+    private static boolean duplicidade(Throwable t, java.util.Set<Throwable> visitados) {
+        for (; t != null && visitados.add(t); t = t.getCause()) {
+            if (t instanceof SQLException s) {
+                if (s.getErrorCode() == 1062) return true;
+                for (SQLException n = s.getNextException(); n != null && visitados.add(n); n = n.getNextException()) {
+                    if (duplicidade(n, visitados)) return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public boolean existeParaUnidadeReferencia(int unidadeCondominoId, int mes, int ano, int ignorarId) {
         String sql = "SELECT 1 FROM condominio WHERE unidade_condomino_id = ? AND mes_referencia = ? AND ano_referencia = ? AND id <> ? LIMIT 1";
         try (Connection conn = ConnectionFactory.getConnection();
@@ -114,6 +209,25 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
             }
         } catch (SQLException ex) {
             throw new IllegalStateException("Erro ao consultar condominio", ex);
+        }
+    }
+
+    private static void rollbackSilencioso(Connection conn) {
+        try {
+            conn.rollback();
+        } catch (SQLException ignorada) {
+            // melhor esforco
+        }
+    }
+
+    private static boolean existe(Connection conn, int edificioId, int mes, int ano) throws SQLException {
+        try (PreparedStatement stmt = conn.prepareStatement(EXISTE_SQL)) {
+            stmt.setInt(1, edificioId);
+            stmt.setInt(2, mes);
+            stmt.setInt(3, ano);
+            try (ResultSet rs = stmt.executeQuery()) {
+                return rs.next();
+            }
         }
     }
 
