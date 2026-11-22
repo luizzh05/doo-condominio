@@ -329,6 +329,7 @@ CREATE TABLE IF NOT EXISTS `Condominio`.`condominio` (
   `unidade_condomino_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_condominio_unidade_condomino1_idx` (`unidade_condomino_id` ASC)  ,
+  UNIQUE INDEX `uq_condominio_unidade_referencia` (`unidade_condomino_id` ASC, `ano_referencia` ASC, `mes_referencia` ASC),
   CONSTRAINT `fk_condominio_unidade_condomino1`
     FOREIGN KEY (`unidade_condomino_id`)
     REFERENCES `Condominio`.`unidade_condomino` (`id`)

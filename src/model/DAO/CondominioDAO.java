@@ -101,6 +101,22 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
         }
     }
 
+    public boolean existeParaUnidadeReferencia(int unidadeCondominoId, int mes, int ano, int ignorarId) {
+        String sql = "SELECT 1 FROM condominio WHERE unidade_condomino_id = ? AND mes_referencia = ? AND ano_referencia = ? AND id <> ? LIMIT 1";
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, unidadeCondominoId);
+            stmt.setInt(2, mes);
+            stmt.setInt(3, ano);
+            stmt.setInt(4, ignorarId);
+            try (ResultSet rs = stmt.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException ex) {
+            throw new IllegalStateException("Erro ao consultar condominio", ex);
+        }
+    }
+
     private static void bind(PreparedStatement stmt, Condominio objeto) throws SQLException {
         stmt.setInt(1, objeto.getMesReferencia());
         stmt.setInt(2, objeto.getAnoReferencia());
