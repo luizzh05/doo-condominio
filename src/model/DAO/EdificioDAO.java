@@ -24,7 +24,7 @@ public class EdificioDAO implements InterfaceDAO<Edificio> {
                 if (keys.next()) objeto.setId(keys.getInt(1));
             }
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao criar edificio", ex);
+            throw new IllegalStateException("Erro ao criar edifício", ex);
         }
     }
 
@@ -38,7 +38,7 @@ public class EdificioDAO implements InterfaceDAO<Edificio> {
                 return rs.next() ? map(rs) : null;
             }
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao consultar edificio", ex);
+            throw new IllegalStateException("Erro ao consultar edifício", ex);
         }
     }
 
@@ -65,7 +65,7 @@ public class EdificioDAO implements InterfaceDAO<Edificio> {
             }
             return itens;
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao buscar edificio", ex);
+            throw new IllegalStateException("Erro ao buscar edifício", ex);
         }
     }
 
@@ -78,7 +78,7 @@ public class EdificioDAO implements InterfaceDAO<Edificio> {
             stmt.setInt(19, objeto.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao atualizar edificio", ex);
+            throw new IllegalStateException("Erro ao atualizar edifício", ex);
         }
     }
 
@@ -89,7 +89,7 @@ public class EdificioDAO implements InterfaceDAO<Edificio> {
             stmt.setInt(1, objeto.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao excluir edificio", ex);
+            throw new IllegalStateException("Erro ao excluir edifício", ex);
         }
     }
 

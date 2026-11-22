@@ -129,7 +129,7 @@ public class LeituraDAO implements InterfaceDAO<Leitura> {
             }
             return itens;
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao listar leituras ativas por edificio e referencia", ex);
+            throw new IllegalStateException("Erro ao listar leituras ativas por edifício e referência", ex);
         }
     }
 
@@ -142,7 +142,7 @@ public class LeituraDAO implements InterfaceDAO<Leitura> {
         stmt.setString(6, objeto.getTipo());
         stmt.setString(7, objeto.getObservacao());
         stmt.setString(8, objeto.getStatus());
-        if (objeto.getUnidadeCondomino() == null || objeto.getUnidadeCondomino().getId() <= 0) throw new IllegalArgumentException("UnidadeCondomino é obrigatório");
+        if (objeto.getUnidadeCondomino() == null || objeto.getUnidadeCondomino().getId() <= 0) throw new IllegalArgumentException("Unidade condômino é obrigatória");
         stmt.setInt(9, objeto.getUnidadeCondomino().getId());
     }
 

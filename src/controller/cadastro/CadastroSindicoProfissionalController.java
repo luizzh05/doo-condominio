@@ -106,29 +106,29 @@ public class CadastroSindicoProfissionalController implements ActionListener {
         final SindicoProfissional registro = new SindicoProfissional();
         try {
             registro.setId(idEmEdicao);
-            registro.setCra(Utils.texto(tela.getjTextFieldCra(), "cra", 45, true));
+            registro.setCra(Utils.texto(tela.getjTextFieldCra(), "CRA", 45, true));
             registro.setNomeFantasia(Utils.texto(tela.getjTextFieldNomeFantasia(), "nome fantasia", 100, true));
-            registro.setRazaoSocial(Utils.texto(tela.getjTextFieldRazaoSocial(), "razao social", 100, false));
-            registro.setCpf(Utils.documento(tela.getjTextFieldCpf(), "cpf", 11, 11, false));
-            registro.setRg(Utils.texto(tela.getjTextFieldRg(), "rg", 10, false));
-            registro.setCnpj(Utils.documento(tela.getjTextFieldCnpj(), "cnpj", 14, 14, false));
-            registro.setInscricaoEstadual(Utils.texto(tela.getjTextFieldInscricaoEstadual(), "inscricao estadual", 45, false));
-            registro.setFone1(Utils.documento(tela.getjTextFieldFone1(), "fone1", 10, 11, true));
-            registro.setFone2(Utils.documento(tela.getjTextFieldFone2(), "fone2", 10, 11, false));
-            registro.setEmail(Utils.texto(tela.getjTextFieldEmail(), "email", 100, true));
-            registro.setDataNascimento(Utils.data(tela.getjTextFieldDataNascimento(), "data nascimento", false));
-            registro.setDataCadastro(Utils.data(tela.getjTextFieldDataCadastro(), "data cadastro", true));
+            registro.setRazaoSocial(Utils.texto(tela.getjTextFieldRazaoSocial(), "razão social", 100, false));
+            registro.setCpf(Utils.documento(tela.getjTextFieldCpf(), "CPF", 11, 11, false));
+            registro.setRg(Utils.texto(tela.getjTextFieldRg(), "RG", 10, false));
+            registro.setCnpj(Utils.documento(tela.getjTextFieldCnpj(), "CNPJ", 14, 14, false));
+            registro.setInscricaoEstadual(Utils.texto(tela.getjTextFieldInscricaoEstadual(), "inscrição estadual", 45, false));
+            registro.setFone1(Utils.documento(tela.getjTextFieldFone1(), "telefone 1", 10, 11, true));
+            registro.setFone2(Utils.documento(tela.getjTextFieldFone2(), "telefone 2", 10, 11, false));
+            registro.setEmail(Utils.texto(tela.getjTextFieldEmail(), "e-mail", 100, true));
+            registro.setDataNascimento(Utils.data(tela.getjTextFieldDataNascimento(), "data de nascimento", false));
+            registro.setDataCadastro(Utils.data(tela.getjTextFieldDataCadastro(), "data de cadastro", true));
             registro.setEstadoCivil(Utils.escolha(tela.getjComboBoxEstadoCivil(), "estado civil", false));
-            registro.setCep(Utils.documento(tela.getjTextFieldCep(), "cep", 8, 8, true));
+            registro.setCep(Utils.documento(tela.getjTextFieldCep(), "CEP", 8, 8, true));
             registro.setLogradouro(Utils.texto(tela.getjTextFieldLogradouro(), "logradouro", 45, true));
             registro.setCidade(Utils.texto(tela.getjTextFieldCidade(), "cidade", 45, true));
             registro.setBairro(Utils.texto(tela.getjTextFieldBairro(), "bairro", 45, true));
             registro.setComplemento(Utils.texto(tela.getjTextFieldComplemento(), "complemento", 100, false));
-            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
+            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observação", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         definirOcupado(true);
@@ -169,7 +169,7 @@ public class CadastroSindicoProfissionalController implements ActionListener {
 
     private void mostrarErro(Throwable erro) {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar SindicoProfissional", erro);
-        JOptionPane.showMessageDialog(tela, "Nao foi possivel gravar. Verifique a conexao e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(tela, "Não foi possível gravar. Verifique a conexão e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
 

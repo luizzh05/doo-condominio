@@ -87,7 +87,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuItemSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sistema de Gestao de Condominio");
+        setTitle("Sistema de Gestão de Condomínio");
         setMinimumSize(new java.awt.Dimension(680, 460));
         setResizable(false);
 
@@ -101,11 +101,11 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
 
         jLabelTitulo.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("Sistema de Gestao de Condominio");
+        jLabelTitulo.setText("Sistema de Gestão de Condomínio");
 
         jLabelSubtitulo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelSubtitulo.setForeground(new java.awt.Color(174, 214, 241));
-        jLabelSubtitulo.setText("Selecione um modulo para comecar");
+        jLabelSubtitulo.setText("Selecione um módulo para começar");
 
         javax.swing.GroupLayout jPanelTextoTituloLayout = new javax.swing.GroupLayout(jPanelTextoTitulo);
         jPanelTextoTitulo.setLayout(jPanelTextoTituloLayout);
@@ -147,7 +147,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jButtonEdificio.setBackground(new java.awt.Color(255, 255, 255));
         jButtonEdificio.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButtonEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Company.png"))); // NOI18N
-        jButtonEdificio.setText("<html><center>Edificio<br><small>Cadastro de edificios [F1]</small></center></html>");
+        jButtonEdificio.setText("<html><center>Edifício<br><small>Cadastro de edifícios [F1]</small></center></html>");
         jButtonEdificio.setFocusPainted(false);
         jButtonEdificio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonEdificio.setPreferredSize(new java.awt.Dimension(188, 158));
@@ -158,7 +158,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jButtonCondominio.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCondominio.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButtonCondominio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
-        jButtonCondominio.setText("<html><center>Condominio<br><small>Dados do condominio [F2]</small></center></html>");
+        jButtonCondominio.setText("<html><center>Condomínio<br><small>Dados do condomínio [F2]</small></center></html>");
         jButtonCondominio.setFocusPainted(false);
         jButtonCondominio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonCondominio.setPreferredSize(new java.awt.Dimension(188, 158));
@@ -169,7 +169,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jButtonUnidade.setBackground(new java.awt.Color(255, 255, 255));
         jButtonUnidade.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButtonUnidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Diagram.png"))); // NOI18N
-        jButtonUnidade.setText("<html><center>Unidade<br><small>Unidades do condominio [F3]</small></center></html>");
+        jButtonUnidade.setText("<html><center>Unidade<br><small>Unidades do condomínio [F3]</small></center></html>");
         jButtonUnidade.setFocusPainted(false);
         jButtonUnidade.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonUnidade.setPreferredSize(new java.awt.Dimension(188, 158));
@@ -180,7 +180,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jButtonProprietario.setBackground(new java.awt.Color(255, 255, 255));
         jButtonProprietario.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButtonProprietario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Person.png"))); // NOI18N
-        jButtonProprietario.setText("<html><center>Proprietario<br><small>Moradores e proprietarios [F4]</small></center></html>");
+        jButtonProprietario.setText("<html><center>Proprietário<br><small>Moradores e proprietários [F4]</small></center></html>");
         jButtonProprietario.setFocusPainted(false);
         jButtonProprietario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonProprietario.setPreferredSize(new java.awt.Dimension(188, 158));
@@ -191,7 +191,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jButtonFornecedor.setBackground(new java.awt.Color(255, 255, 255));
         jButtonFornecedor.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButtonFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Briefcase.png"))); // NOI18N
-        jButtonFornecedor.setText("<html><center>Fornecedor<br><small>Prestadores de servico [F5]</small></center></html>");
+        jButtonFornecedor.setText("<html><center>Fornecedor<br><small>Prestadores de serviço [F5]</small></center></html>");
         jButtonFornecedor.setFocusPainted(false);
         jButtonFornecedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonFornecedor.setPreferredSize(new java.awt.Dimension(188, 158));
@@ -202,7 +202,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jButtonReserva.setBackground(new java.awt.Color(255, 255, 255));
         jButtonReserva.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButtonReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Calendar.png"))); // NOI18N
-        jButtonReserva.setText("<html><center>Reservas<br><small>Reserva de areas comuns</small></center></html>");
+        jButtonReserva.setText("<html><center>Reservas<br><small>Reserva de áreas comuns</small></center></html>");
         jButtonReserva.setFocusPainted(false);
         jButtonReserva.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonReserva.setPreferredSize(new java.awt.Dimension(188, 158));
@@ -215,7 +215,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jLabelRodape.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabelRodape.setForeground(new java.awt.Color(90, 100, 115));
         jLabelRodape.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelRodape.setText("Sistema de Gestao de Condominio  v1.0");
+        jLabelRodape.setText("Sistema de Gestão de Condomínio v1.0");
 
         javax.swing.GroupLayout jPanelRodapeLayout = new javax.swing.GroupLayout(jPanelRodape);
         jPanelRodape.setLayout(jPanelRodapeLayout);
@@ -238,14 +238,14 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
 
         jMenuItemEdificio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
         jMenuItemEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Company.png"))); // NOI18N
-        jMenuItemEdificio.setText("Edificio");
+        jMenuItemEdificio.setText("Edifício");
         jMenuItemEdificio.addActionListener(this::jMenuItemEdificioActionPerformed);
         jMenuCadastro.add(jMenuItemEdificio);
         jMenuCadastro.add(jSeparatorCadastro1);
 
         jMenuItemCondominio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
         jMenuItemCondominio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
-        jMenuItemCondominio.setText("Condominio");
+        jMenuItemCondominio.setText("Condomínio");
         jMenuItemCondominio.addActionListener(this::jMenuItemCondominioActionPerformed);
         jMenuCadastro.add(jMenuItemCondominio);
 
@@ -258,7 +258,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
 
         jMenuItemProprietario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
         jMenuItemProprietario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Person.png"))); // NOI18N
-        jMenuItemProprietario.setText("Proprietario");
+        jMenuItemProprietario.setText("Proprietário");
         jMenuItemProprietario.addActionListener(this::jMenuItemProprietarioActionPerformed);
         jMenuCadastro.add(jMenuItemProprietario);
 
@@ -270,34 +270,34 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
 
         jMenuItemSindico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         jMenuItemSindico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss_1.png"))); // NOI18N
-        jMenuItemSindico.setText("Sindico Profissional");
+        jMenuItemSindico.setText("Síndico Profissional");
         jMenuItemSindico.addActionListener(this::jMenuItemSindicoActionPerformed);
         jMenuCadastro.add(jMenuItemSindico);
 
         jMenuItemFuncaoMandato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Clipboard.png"))); // NOI18N
-        jMenuItemFuncaoMandato.setText("Funcao de Mandato");
+        jMenuItemFuncaoMandato.setText("Função de Mandato");
         jMenuItemFuncaoMandato.addActionListener(this::jMenuItemFuncaoMandatoActionPerformed);
         jMenuCadastro.add(jMenuItemFuncaoMandato);
 
         jMenuItemUnidadeCondomino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/People.png"))); // NOI18N
-        jMenuItemUnidadeCondomino.setText("Unidade Condomino");
+        jMenuItemUnidadeCondomino.setText("Unidade Condômino");
         jMenuItemUnidadeCondomino.addActionListener(this::jMenuItemUnidadeCondominoActionPerformed);
         jMenuCadastro.add(jMenuItemUnidadeCondomino);
         jMenuCadastro.add(jSeparatorCadastro3);
 
         jMenuItemAreaCompartilhada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Globe.png"))); // NOI18N
-        jMenuItemAreaCompartilhada.setText("Area Compartilhada");
+        jMenuItemAreaCompartilhada.setText("Área Compartilhada");
         jMenuItemAreaCompartilhada.addActionListener(this::jMenuItemAreaCompartilhadaActionPerformed);
         jMenuCadastro.add(jMenuItemAreaCompartilhada);
 
         jMenuItemAreaCompartilhadaEdificio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Diagram.png"))); // NOI18N
-        jMenuItemAreaCompartilhadaEdificio.setText("Area Compartilhada do Edificio");
+        jMenuItemAreaCompartilhadaEdificio.setText("Área Compartilhada do Edifício");
         jMenuItemAreaCompartilhadaEdificio.addActionListener(this::jMenuItemAreaCompartilhadaEdificioActionPerformed);
         jMenuCadastro.add(jMenuItemAreaCompartilhadaEdificio);
 
         jMenuBar1.add(jMenuCadastro);
 
-        jMenuOperacoes.setText("Operacoes");
+        jMenuOperacoes.setText("Operações");
 
         jMenuItemLeitura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Equipment.png"))); // NOI18N
         jMenuItemLeitura.setText("Leitura de Medidores");
@@ -310,7 +310,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuOperacoes.add(jMenuItemMovimentoCaixa);
 
         jMenuItemGestaoCondominio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Calculator.png"))); // NOI18N
-        jMenuItemGestaoCondominio.setText("Gestao de Condominios");
+        jMenuItemGestaoCondominio.setText("Gestão de Condomínios");
         jMenuItemGestaoCondominio.addActionListener(this::jMenuItemGestaoCondominioActionPerformed);
         jMenuOperacoes.add(jMenuItemGestaoCondominio);
 
@@ -321,12 +321,12 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuOperacoes.add(jSeparatorOperacoes1);
 
         jMenuItemCustoNivel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Database.png"))); // NOI18N
-        jMenuItemCustoNivel1.setText("Custo Nivel 1");
+        jMenuItemCustoNivel1.setText("Custo Nível 1");
         jMenuItemCustoNivel1.addActionListener(this::jMenuItemCustoNivel1ActionPerformed);
         jMenuOperacoes.add(jMenuItemCustoNivel1);
 
         jMenuItemCustoNivel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Database.png"))); // NOI18N
-        jMenuItemCustoNivel2.setText("Custo Nivel 2");
+        jMenuItemCustoNivel2.setText("Custo Nível 2");
         jMenuItemCustoNivel2.addActionListener(this::jMenuItemCustoNivel2ActionPerformed);
         jMenuOperacoes.add(jMenuItemCustoNivel2);
 
@@ -334,7 +334,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
 
         jMenuSobre.setText("Sobre");
 
-        jMenuItemSobre.setText("Sistema de Gestao de Condominio v1.0");
+        jMenuItemSobre.setText("Sistema de Gestão de Condomínio v1.0");
         jMenuItemSobre.setEnabled(false);
         jMenuSobre.add(jMenuItemSobre);
 

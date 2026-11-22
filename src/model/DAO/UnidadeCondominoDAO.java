@@ -113,7 +113,7 @@ public class UnidadeCondominoDAO implements InterfaceDAO<UnidadeCondomino> {
             }
             return itens;
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao listar unidade_condomino ativas por edificio", ex);
+            throw new IllegalStateException("Erro ao listar unidade_condomino ativas por edifício", ex);
         }
     }
 
@@ -122,7 +122,7 @@ public class UnidadeCondominoDAO implements InterfaceDAO<UnidadeCondomino> {
         stmt.setObject(2, objeto.getDataVenda());
         stmt.setString(3, objeto.getObservacao());
         stmt.setString(4, objeto.getStatus());
-        if (objeto.getProprietario() == null || objeto.getProprietario().getId() <= 0) throw new IllegalArgumentException("Proprietario é obrigatório");
+        if (objeto.getProprietario() == null || objeto.getProprietario().getId() <= 0) throw new IllegalArgumentException("Proprietário é obrigatório");
         stmt.setInt(5, objeto.getProprietario().getId());
         if (objeto.getUnidade() == null || objeto.getUnidade().getId() <= 0) throw new IllegalArgumentException("Unidade é obrigatório");
         stmt.setInt(6, objeto.getUnidade().getId());

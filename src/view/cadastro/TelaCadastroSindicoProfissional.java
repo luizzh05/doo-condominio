@@ -93,7 +93,7 @@ public class TelaCadastroSindicoProfissional extends javax.swing.JDialog {
         jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A - Ativo", "I - Inativo" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Sindico Profissional");
+        setTitle("Cadastro de Síndico Profissional");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
@@ -101,7 +101,7 @@ public class TelaCadastroSindicoProfissional extends javax.swing.JDialog {
 
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabeltitulo.setText("Cadastro de Sindico Profissional");
+        jLabeltitulo.setText("Cadastro de Síndico Profissional");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -118,7 +118,7 @@ public class TelaCadastroSindicoProfissional extends javax.swing.JDialog {
 
         jLabelSecaoIdentificacao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoIdentificacao.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoIdentificacao.setText("Identificacao");
+        jLabelSecaoIdentificacao.setText("Identificação");
 
         jLabelId.setText("ID");
 
@@ -130,7 +130,7 @@ public class TelaCadastroSindicoProfissional extends javax.swing.JDialog {
         jTextFieldNomeFantasia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldNomeFantasia.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelRazaoSocial.setText("Razao Social");
+        jLabelRazaoSocial.setText("Razão Social");
 
         jTextFieldRazaoSocial.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldRazaoSocial.setPreferredSize(new java.awt.Dimension(170, 28));
@@ -169,7 +169,7 @@ public class TelaCadastroSindicoProfissional extends javax.swing.JDialog {
         jTextFieldCnpj.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldCnpj.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelInscricaoEstadual.setText("Inscricao Estadual");
+        jLabelInscricaoEstadual.setText("Inscrição Estadual");
 
         jTextFieldInscricaoEstadual.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldInscricaoEstadual.setPreferredSize(new java.awt.Dimension(170, 28));
@@ -198,7 +198,7 @@ public class TelaCadastroSindicoProfissional extends javax.swing.JDialog {
         jTextFieldFone2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldFone2.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelEmail.setText("Email");
+        jLabelEmail.setText("E-mail");
 
         jTextFieldEmail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldEmail.setPreferredSize(new java.awt.Dimension(520, 28));
@@ -235,7 +235,7 @@ public class TelaCadastroSindicoProfissional extends javax.swing.JDialog {
 
         jLabelSecaoEndereco.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoEndereco.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoEndereco.setText("Endereco");
+        jLabelSecaoEndereco.setText("Endereço");
 
         jLabelCep.setText("CEP");
 
@@ -269,7 +269,7 @@ public class TelaCadastroSindicoProfissional extends javax.swing.JDialog {
 
         jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoObservacoes.setText("Observacoes");
+        jLabelSecaoObservacoes.setText("Observações");
 
         jTextAreaObservacao.setColumns(20);
         jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N

@@ -12,10 +12,10 @@ public class AreaCompartilhadaEdificioService extends CrudService<AreaCompartilh
     public void validar(AreaCompartilhadaEdificio registro) {
         super.validar(registro);
         if (registro.getAreaCompartilhada() == null || registro.getAreaCompartilhada().getId() <= 0) {
-            throw new IllegalArgumentException("Busque e selecione AreaCompartilhada.");
+            throw new IllegalArgumentException("Busque e selecione a área compartilhada.");
         }
         if (registro.getEdificio() == null || registro.getEdificio().getId() <= 0) {
-            throw new IllegalArgumentException("Busque e selecione Edificio.");
+            throw new IllegalArgumentException("Busque e selecione o edifício.");
         }
     }
 }

@@ -27,10 +27,15 @@ public class Utils {
     private static final DateTimeFormatter DATA_HORA = DateTimeFormatter.ofPattern("dd/MM/uuuu HH:mm")
             .withResolverStyle(ResolverStyle.STRICT);
 
+    private static String capitalizar(String s) {
+        if (s == null || s.isEmpty()) return s;
+        return Character.toUpperCase(s.charAt(0)) + s.substring(1);
+    }
+
     public static String texto(JTextComponent campo, String nome, int limite, boolean obrigatorio) {
         String valor = campo.getText().trim();
         if (obrigatorio && valor.isEmpty()) throw new IllegalArgumentException("Informe " + nome + ".");
-        if (valor.length() > limite) throw new IllegalArgumentException(nome + ": limite de " + limite + " caracteres.");
+        if (valor.length() > limite) throw new IllegalArgumentException(capitalizar(nome) + ": limite de " + limite + " caracteres.");
         return valor.isEmpty() ? null : valor;
     }
 
@@ -49,7 +54,7 @@ public class Utils {
             if (valor < minimo || valor > maximo) throw new NumberFormatException();
             return valor;
         } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException(nome + " deve ser um inteiro entre " + minimo + " e " + maximo + ".");
+            throw new IllegalArgumentException(capitalizar(nome) + " deve ser um número inteiro entre " + minimo + " e " + maximo + ".");
         }
     }
 
@@ -67,7 +72,7 @@ public class Utils {
             if (!Double.isFinite(valor) || valor < 0) throw new NumberFormatException();
             return valor;
         } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException("Informe um numero valido, maior ou igual a zero, para " + nome + ".");
+            throw new IllegalArgumentException("Informe um número válido, maior ou igual a zero, para " + nome + ".");
         }
     }
 
@@ -76,11 +81,11 @@ public class Utils {
         if (texto.isEmpty()) return BigDecimal.ZERO;
         if (texto.contains(",")) {
             if (!texto.matches("[0-9]+(,[0-9]{1,4})?|[0-9]{1,3}(\\.[0-9]{3})+(,[0-9]{1,4})?")) {
-                throw new IllegalArgumentException("Informe um preco valido para " + nome + ".");
+                throw new IllegalArgumentException("Informe um preço válido para " + nome + ".");
             }
             texto = texto.replace(".", "").replace(',', '.');
         } else if (!texto.matches("[0-9]+(\\.[0-9]{1,4})?")) {
-            throw new IllegalArgumentException("Informe um preco valido para " + nome + ".");
+            throw new IllegalArgumentException("Informe um preço válido para " + nome + ".");
         }
         try {
             BigDecimal valor = new BigDecimal(texto);
@@ -89,7 +94,7 @@ public class Utils {
             }
             return valor;
         } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException("Informe um preco valido para " + nome + ".");
+            throw new IllegalArgumentException("Informe um preço válido para " + nome + ".");
         }
     }
 
@@ -99,7 +104,7 @@ public class Utils {
         try {
             return LocalDate.parse(texto, DATA);
         } catch (DateTimeParseException ex) {
-            throw new IllegalArgumentException("Informe " + nome + " no formato dd/mm/aaaa, com uma data valida.");
+            throw new IllegalArgumentException("Informe " + nome + " no formato dd/mm/aaaa, com uma data válida.");
         }
     }
 

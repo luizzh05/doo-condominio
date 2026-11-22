@@ -19,15 +19,15 @@ public class CondominioService extends CrudService<Condominio> {
     public void validar(Condominio registro) {
         super.validar(registro);
         if (registro.getUnidadeCondomino() == null || registro.getUnidadeCondomino().getId() <= 0) {
-            throw new IllegalArgumentException("Busque e selecione UnidadeCondomino.");
+            throw new IllegalArgumentException("Busque e selecione a unidade condômino.");
         }
         if (registro.getDataVencimento() != null && registro.getDataVencimento().isBefore(registro.getDataEmissao())) {
-            throw new IllegalArgumentException("DataVencimento nao pode ser anterior a DataEmissao.");
+            throw new IllegalArgumentException("A data de vencimento não pode ser anterior à data de emissão.");
         }
         int mes = registro.getMesReferencia();
         int ano = registro.getAnoReferencia();
         if (condominioDAO.existeParaUnidadeReferencia(registro.getUnidadeCondomino().getId(), mes, ano, registro.getId())) {
-            throw new IllegalArgumentException(String.format("Ja existe condominio para esta unidade em %02d/%04d.", mes, ano));
+            throw new IllegalArgumentException(String.format("Já existe condomínio para esta unidade em %02d/%04d.", mes, ano));
         }
     }
 }

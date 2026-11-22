@@ -25,7 +25,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
                 if (keys.next()) objeto.setId(keys.getInt(1));
             }
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao criar condominio", ex);
+            throw new IllegalStateException("Erro ao criar condomínio", ex);
         }
     }
 
@@ -39,7 +39,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
                 return rs.next() ? map(rs) : null;
             }
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao consultar condominio", ex);
+            throw new IllegalStateException("Erro ao consultar condomínio", ex);
         }
     }
 
@@ -73,7 +73,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
             }
             return itens;
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao buscar condominio", ex);
+            throw new IllegalStateException("Erro ao buscar condomínio", ex);
         }
     }
 
@@ -86,7 +86,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
             stmt.setInt(14, objeto.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao atualizar condominio", ex);
+            throw new IllegalStateException("Erro ao atualizar condomínio", ex);
         }
     }
 
@@ -97,7 +97,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
             stmt.setInt(1, objeto.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao excluir condominio", ex);
+            throw new IllegalStateException("Erro ao excluir condomínio", ex);
         }
     }
 
@@ -108,7 +108,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
         try (Connection conn = ConnectionFactory.getConnection()) {
             return existe(conn, edificioId, mesReferencia, anoReferencia);
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao consultar condominio", ex);
+            throw new IllegalStateException("Erro ao consultar condomínio", ex);
         }
     }
 
@@ -133,16 +133,16 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
             }
             return itens;
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao listar condominios", ex);
+            throw new IllegalStateException("Erro ao listar condomínios", ex);
         }
     }
 
     public void createLote(int edificioId, int mesReferencia, int anoReferencia, List<Condominio> condominios) {
         if (condominios == null || condominios.isEmpty()) {
-            throw new IllegalArgumentException("Nenhum condominio para gerar.");
+            throw new IllegalArgumentException("Nenhum condomínio para gerar.");
         }
         String sql = "INSERT INTO condominio (mes_referencia, ano_referencia, data_emissao, data_vencimento, data_pagamento, juros, multas, correcao, valor_emitido, valor_pago, observacao, status, unidade_condomino_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        String mensagemDuplicado = String.format("Ja existem condominios gerados para este edificio em %02d/%04d. Geracao bloqueada.", mesReferencia, anoReferencia);
+        String mensagemDuplicado = String.format("Já existem condomínios gerados para este edifício em %02d/%04d. Geração bloqueada.", mesReferencia, anoReferencia);
         try (Connection conn = ConnectionFactory.getConnection()) {
             try {
                 conn.setAutoCommit(false);
@@ -163,7 +163,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
                 if (duplicidade(ex)) {
                     throw new IllegalArgumentException(mensagemDuplicado);
                 }
-                throw new IllegalStateException("Erro ao gerar condominios", ex);
+                throw new IllegalStateException("Erro ao gerar condomínios", ex);
             } catch (RuntimeException ex) {
                 rollbackSilencioso(conn);
                 throw ex;
@@ -175,7 +175,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
                 }
             }
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao gerar condominios", ex);
+            throw new IllegalStateException("Erro ao gerar condomínios", ex);
         }
     }
 
@@ -208,7 +208,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
                 return rs.next();
             }
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao consultar condominio", ex);
+            throw new IllegalStateException("Erro ao consultar condomínio", ex);
         }
     }
 
@@ -244,7 +244,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
         stmt.setDouble(10, objeto.getValorPago());
         stmt.setString(11, objeto.getObservacao());
         stmt.setString(12, objeto.getStatus());
-        if (objeto.getUnidadeCondomino() == null || objeto.getUnidadeCondomino().getId() <= 0) throw new IllegalArgumentException("UnidadeCondomino é obrigatório");
+        if (objeto.getUnidadeCondomino() == null || objeto.getUnidadeCondomino().getId() <= 0) throw new IllegalArgumentException("Condômino da unidade é obrigatório");
         stmt.setInt(13, objeto.getUnidadeCondomino().getId());
     }
 

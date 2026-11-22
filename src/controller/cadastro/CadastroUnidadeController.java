@@ -100,16 +100,16 @@ public class CadastroUnidadeController implements ActionListener {
         final Unidade registro = new Unidade();
         try {
             registro.setId(idEmEdicao);
-            registro.setDescricao(Utils.texto(tela.getjTextFieldDescricao(), "descricao", 45, true));
+            registro.setDescricao(Utils.texto(tela.getjTextFieldDescricao(), "descrição", 45, true));
             registro.setMetragemTotal(Utils.numero(tela.getjTextFieldMetragemTotal(), "metragem total", true));
             registro.setMetragemIndividual(Utils.numero(tela.getjTextFieldMetragemIndividual(), "metragem individual", true));
-            registro.setTipoUnidade(Utils.escolha(tela.getjComboBoxTipoUnidade(), "tipo unidade", true));
-            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
+            registro.setTipoUnidade(Utils.escolha(tela.getjComboBoxTipoUnidade(), "tipo de unidade", true));
+            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observação", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             registro.setEdificio(tela.getjComboBoxTipoUnidade1().getSelectedIndex() > 0 ? edificioSelecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         definirOcupado(true);
@@ -150,7 +150,7 @@ public class CadastroUnidadeController implements ActionListener {
 
     private void mostrarErro(Throwable erro) {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar Unidade", erro);
-        JOptionPane.showMessageDialog(tela, "Nao foi possivel gravar. Verifique a conexao e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(tela, "Não foi possível gravar. Verifique a conexão e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
     private void definirEdificio(Edificio registro) {

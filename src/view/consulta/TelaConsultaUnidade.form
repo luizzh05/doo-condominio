@@ -166,9 +166,9 @@
               <StringArray count="6">
                 <StringItem index="0" value="Selecione"/>
                 <StringItem index="1" value="ID"/>
-                <StringItem index="2" value="Descricao"/>
+                <StringItem index="2" value="Descri&#xe7;&#xe3;o"/>
                 <StringItem index="3" value="Tipo Unidade"/>
-                <StringItem index="4" value="Edificio"/>
+                <StringItem index="4" value="Edif&#xed;cio"/>
                 <StringItem index="5" value="Status"/>
               </StringArray>
             </Property>
@@ -258,10 +258,10 @@
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="6" rowCount="0">
                     <Column editable="true" title="ID" type="java.lang.Object"/>
-                    <Column editable="true" title="Descricao" type="java.lang.Object"/>
+                    <Column editable="true" title="Descri&#xe7;&#xe3;o" type="java.lang.Object"/>
                     <Column editable="true" title="Tipo Unidade" type="java.lang.Object"/>
                     <Column editable="true" title="Metragem Total" type="java.lang.Object"/>
-                    <Column editable="true" title="Edificio" type="java.lang.Object"/>
+                    <Column editable="true" title="Edif&#xed;cio" type="java.lang.Object"/>
                     <Column editable="true" title="Status" type="java.lang.Object"/>
                   </Table>
                 </Property>

@@ -155,18 +155,18 @@ public class CadastroMovimentoCaixaController implements ActionListener {
         final MovimentoCaixa registro = new MovimentoCaixa();
         try {
             registro.setId(idEmEdicao);
-            registro.setDataEmissao(Utils.data(tela.getjTextFieldDataEmissao(), "data emissao", true));
-            registro.setDataVencimento(Utils.data(tela.getjTextFieldDataVencimento(), "data vencimento", true));
-            registro.setDataPagamento(Utils.data(tela.getjTextFieldDataPagamento(), "data pagamento", false));
+            registro.setDataEmissao(Utils.data(tela.getjTextFieldDataEmissao(), "data de emissão", true));
+            registro.setDataVencimento(Utils.data(tela.getjTextFieldDataVencimento(), "data de vencimento", true));
+            registro.setDataPagamento(Utils.data(tela.getjTextFieldDataPagamento(), "data de pagamento", false));
             registro.setValorEmitido(Utils.numero(tela.getjTextFieldValorEmitido(), "valor emitido", true));
             registro.setMultas(Utils.numero(tela.getjTextFieldMultas(), "multas", false));
-            registro.setCorrecaoMonetaria(Utils.numero(tela.getjTextFieldCorrecaoMonetaria(), "correcao monetaria", false));
+            registro.setCorrecaoMonetaria(Utils.numero(tela.getjTextFieldCorrecaoMonetaria(), "correção monetária", false));
             registro.setJuros(Utils.numero(tela.getjTextFieldJuros(), "juros", false));
-            registro.setValorPagoRec(Utils.numero(tela.getjTextFieldValorPagoRec(), "valor pagamento", false));
+            registro.setValorPagoRec(Utils.numero(tela.getjTextFieldValorPagoRec(), "valor pago", false));
             registro.setTipo(Utils.escolha(tela.getjComboBoxTipo(), "tipo", true));
             registro.setFlagRateio(tela.getjCheckBoxFlagRateio().isSelected());
-            registro.setFlagFormula(Utils.escolha(tela.getjComboBoxFlagFormula(), "formula", false));
-            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
+            registro.setFlagFormula(Utils.escolha(tela.getjComboBoxFlagFormula(), "fórmula", false));
+            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observação", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             registro.setEdificio(tela.getjComboBoxEdificio().getSelectedIndex() > 0 ? edificioSelecionado : null);
             registro.setFornecedor(tela.getjComboBoxFornecedor().getSelectedIndex() > 0 ? fornecedorSelecionado : null);
@@ -174,7 +174,7 @@ public class CadastroMovimentoCaixaController implements ActionListener {
             registro.setCustoNivel2(tela.getjComboBoxCustoNivel2().getSelectedIndex() > 0 ? custoNivel2Selecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         definirOcupado(true);
@@ -215,7 +215,7 @@ public class CadastroMovimentoCaixaController implements ActionListener {
 
     private void mostrarErro(Throwable erro) {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar MovimentoCaixa", erro);
-        JOptionPane.showMessageDialog(tela, "Nao foi possivel gravar. Verifique a conexao e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(tela, "Não foi possível gravar. Verifique a conexão e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
     private void definirEdificio(Edificio registro) {

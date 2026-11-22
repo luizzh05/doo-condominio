@@ -83,12 +83,12 @@ public class CadastroCustoNivel1Controller implements ActionListener {
         final CustoNivel1 custo;
         try {
             custo = new CustoNivel1(idEmEdicao, descricao,
-                    Utils.escolha(tela.getjComboBoxTipoCc(), "tipo CC (Credito ou Debito)", true),
+                    Utils.escolha(tela.getjComboBoxTipoCc(), "tipo CC (Crédito ou Débito)", true),
                     observacao.isEmpty() ? null : observacao,
                     Utils.status(tela.getjComboBoxStatus()));
             service.validar(custo);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         gravando = true;
@@ -105,7 +105,7 @@ public class CadastroCustoNivel1Controller implements ActionListener {
                 try {
                     get();
                     encerrarEdicao();
-                    JOptionPane.showMessageDialog(tela, "Custo nivel 1 gravado com sucesso.");
+                    JOptionPane.showMessageDialog(tela, "Custo nível 1 gravado com sucesso.");
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                     mostrarErro(ex);
@@ -133,10 +133,10 @@ public class CadastroCustoNivel1Controller implements ActionListener {
     }
 
     private void mostrarErro(Throwable erro) {
-        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar custo nivel 1", erro);
+        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar custo nível 1", erro);
         Utils.ativaDesativaBtn(tela.getjPanelbotoes(), true);
         JOptionPane.showMessageDialog(tela,
-                "Nao foi possivel gravar. Verifique a conexao com o banco e tente novamente.",
+                "Não foi possível gravar. Verifique a conexão com o banco e tente novamente.",
                 "Erro", JOptionPane.ERROR_MESSAGE);
     }
 }

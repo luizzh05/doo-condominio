@@ -12,13 +12,13 @@ public class UnidadeCondominoService extends CrudService<UnidadeCondomino> {
     public void validar(UnidadeCondomino registro) {
         super.validar(registro);
         if (registro.getUnidade() == null || registro.getUnidade().getId() <= 0) {
-            throw new IllegalArgumentException("Busque e selecione Unidade.");
+            throw new IllegalArgumentException("Busque e selecione a unidade.");
         }
         if (registro.getProprietario() == null || registro.getProprietario().getId() <= 0) {
-            throw new IllegalArgumentException("Busque e selecione Proprietario.");
+            throw new IllegalArgumentException("Busque e selecione o proprietário.");
         }
         if (registro.getDataVenda() != null && registro.getDataVenda().isBefore(registro.getDataAquisicao())) {
-            throw new IllegalArgumentException("DataVenda nao pode ser anterior a DataAquisicao.");
+            throw new IllegalArgumentException("A data de venda não pode ser anterior à data de aquisição.");
         }
     }
 }

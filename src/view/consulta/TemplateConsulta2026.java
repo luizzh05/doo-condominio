@@ -77,7 +77,7 @@ public class TemplateConsulta2026 extends javax.swing.JDialog {
         jLabelCampoFiltro.setText("Campo");
 
         jComboBoxCampoFiltro.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Descricao", "Status" }));
+        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Descrição", "Status" }));
         jComboBoxCampoFiltro.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelFiltro.setText("Filtro");
@@ -129,7 +129,7 @@ public class TemplateConsulta2026 extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Descricao", "Status"
+                "ID", "Descrição", "Status"
             }
         ));
         jTableResultado.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

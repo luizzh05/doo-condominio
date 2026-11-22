@@ -27,7 +27,7 @@ public class ConsultaPessoaController implements ActionListener {
                     break;
                 case "Nome Fantasia":
                     break;
-                case "Razao Social":
+                case "Razão Social":
                     break;
                 case "CPF":
                     break;

@@ -13,7 +13,7 @@ public class CustoNivel2Service extends CrudService<CustoNivel2> {
         super.validar(registro);
         CadastroValidation.validarTexto(registro.getDescricao(), registro.getObservacao(), registro.getStatus());
         if (registro.getCustoNivel1() == null || registro.getCustoNivel1().getId() <= 0) {
-            throw new IllegalArgumentException("Busque e selecione um custo de nivel 1.");
+            throw new IllegalArgumentException("Busque e selecione um custo de nível 1.");
         }
     }
 }

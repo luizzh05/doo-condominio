@@ -167,7 +167,7 @@
                 <StringItem index="0" value="Selecione"/>
                 <StringItem index="1" value="ID"/>
                 <StringItem index="2" value="Tipo"/>
-                <StringItem index="3" value="Edificio"/>
+                <StringItem index="3" value="Edif&#xed;cio"/>
                 <StringItem index="4" value="Fornecedor"/>
                 <StringItem index="5" value="Status"/>
               </StringArray>
@@ -259,7 +259,7 @@
                   <Table columnCount="7" rowCount="0">
                     <Column editable="true" title="ID" type="java.lang.Object"/>
                     <Column editable="true" title="Tipo" type="java.lang.Object"/>
-                    <Column editable="true" title="Edificio" type="java.lang.Object"/>
+                    <Column editable="true" title="Edif&#xed;cio" type="java.lang.Object"/>
                     <Column editable="true" title="Fornecedor" type="java.lang.Object"/>
                     <Column editable="true" title="Valor Emitido" type="java.lang.Object"/>
                     <Column editable="true" title="Valor Pago" type="java.lang.Object"/>

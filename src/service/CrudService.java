@@ -21,7 +21,7 @@ public class CrudService<T> {
     }
 
     public void validar(T registro) {
-        Objects.requireNonNull(registro, "Registro obrigatorio");
+        Objects.requireNonNull(registro, "Registro obrigatório");
     }
 
     public void salvar(T registro, int id) {
@@ -31,7 +31,7 @@ public class CrudService<T> {
     }
 
     public void excluir(T registro) {
-        Objects.requireNonNull(registro, "Registro obrigatorio");
+        Objects.requireNonNull(registro, "Registro obrigatório");
         dao.delete(registro);
     }
 }

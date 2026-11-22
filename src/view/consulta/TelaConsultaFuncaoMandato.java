@@ -54,7 +54,7 @@ public class TelaConsultaFuncaoMandato extends javax.swing.JDialog {
         jButtonFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Consulta de Funcao Mandato");
+        setTitle("Consulta de Função de Mandato");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
@@ -63,7 +63,7 @@ public class TelaConsultaFuncaoMandato extends javax.swing.JDialog {
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltitulo.setText("Consulta de Funcao Mandato");
+        jLabeltitulo.setText("Consulta de Função de Mandato");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -85,7 +85,7 @@ public class TelaConsultaFuncaoMandato extends javax.swing.JDialog {
         jLabelCampoFiltro.setText("Campo");
 
         jComboBoxCampoFiltro.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Funcao", "Sindico", "Edificio", "Status" }));
+        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Função", "Síndico", "Edifício", "Status" }));
         jComboBoxCampoFiltro.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelFiltro.setText("Filtro");
@@ -137,7 +137,7 @@ public class TelaConsultaFuncaoMandato extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Funcao", "Sindico", "Edificio", "Data Inicio", "Data Fim", "Status"
+                "ID", "Função", "Síndico", "Edifício", "Data Início", "Data Fim", "Status"
             }
         ));
         jTableResultado.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

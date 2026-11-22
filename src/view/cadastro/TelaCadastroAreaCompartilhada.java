@@ -70,7 +70,7 @@ public class TelaCadastroAreaCompartilhada extends javax.swing.JDialog {
         jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A - Ativo", "I - Inativo" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Area Compartilhada");
+        setTitle("Cadastro de Área Compartilhada");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
@@ -79,7 +79,7 @@ public class TelaCadastroAreaCompartilhada extends javax.swing.JDialog {
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltitulo.setText("Cadastro de Area Compartilhada");
+        jLabeltitulo.setText("Cadastro de Área Compartilhada");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -96,14 +96,14 @@ public class TelaCadastroAreaCompartilhada extends javax.swing.JDialog {
 
         jLabelSecaoIdentificacao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoIdentificacao.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoIdentificacao.setText("Identificacao");
+        jLabelSecaoIdentificacao.setText("Identificação");
 
         jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoObservacoes.setText("Observacoes");
+        jLabelSecaoObservacoes.setText("Observações");
 
         jLabelId.setText("ID");
-        jLabelId.setToolTipText("Codigo interno do cadastro");
+        jLabelId.setToolTipText("Código interno do cadastro");
 
         jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldId.setPreferredSize(new java.awt.Dimension(70, 28));
@@ -113,7 +113,7 @@ public class TelaCadastroAreaCompartilhada extends javax.swing.JDialog {
             }
         });
 
-        jLabelDescricao.setText("Descricao");
+        jLabelDescricao.setText("Descrição");
 
         jTextFieldDescricao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDescricao.setPreferredSize(new java.awt.Dimension(170, 28));

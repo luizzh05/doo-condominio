@@ -103,7 +103,7 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
 
         jLabelSecaoIdentificacao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoIdentificacao.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoIdentificacao.setText("Identificacao");
+        jLabelSecaoIdentificacao.setText("Identificação");
 
         jLabelId.setText("ID");
 
@@ -118,7 +118,7 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
 
         jLabelSecaoReferencia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoReferencia.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoReferencia.setText("Referencia");
+        jLabelSecaoReferencia.setText("Referência");
 
         jLabelDataLeitura.setText("Data Leitura");
 
@@ -136,7 +136,7 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
         jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Agua", "Gas" }));
         jComboBoxTipo.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelMesReferencia.setText("Mes Referencia");
+        jLabelMesReferencia.setText("Mês Referência");
 
         try {
             jTextFieldMesReferencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
@@ -146,7 +146,7 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
         jTextFieldMesReferencia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldMesReferencia.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelAnoReferencia.setText("Ano Referencia");
+        jLabelAnoReferencia.setText("Ano Referência");
 
         try {
             jTextFieldAnoReferencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
@@ -158,21 +158,21 @@ public class TelaCadastroLeitura extends javax.swing.JDialog {
 
         jLabelSecaoMedicao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoMedicao.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoMedicao.setText("Medicao");
+        jLabelSecaoMedicao.setText("Medição");
 
-        jLabelMedicaoAnterior.setText("Medicao Anterior");
+        jLabelMedicaoAnterior.setText("Medição Anterior");
 
         jTextFieldMedicaoAnterior.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldMedicaoAnterior.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelMedicaoAtual.setText("Medicao Atual");
+        jLabelMedicaoAtual.setText("Medição Atual");
 
         jTextFieldMedicaoAtual.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldMedicaoAtual.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoObservacoes.setText("Observacoes");
+        jLabelSecaoObservacoes.setText("Observações");
 
         jTextAreaObservacao.setColumns(20);
         jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N

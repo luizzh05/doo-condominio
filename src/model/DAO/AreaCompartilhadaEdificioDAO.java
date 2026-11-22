@@ -97,9 +97,9 @@ public class AreaCompartilhadaEdificioDAO implements InterfaceDAO<AreaCompartilh
     private static void bind(PreparedStatement stmt, AreaCompartilhadaEdificio objeto) throws SQLException {
         stmt.setString(1, objeto.getObservacao());
         stmt.setString(2, objeto.getStatus());
-        if (objeto.getAreaCompartilhada() == null || objeto.getAreaCompartilhada().getId() <= 0) throw new IllegalArgumentException("AreaCompartilhada é obrigatório");
+        if (objeto.getAreaCompartilhada() == null || objeto.getAreaCompartilhada().getId() <= 0) throw new IllegalArgumentException("Área compartilhada é obrigatória");
         stmt.setInt(3, objeto.getAreaCompartilhada().getId());
-        if (objeto.getEdificio() == null || objeto.getEdificio().getId() <= 0) throw new IllegalArgumentException("Edificio é obrigatório");
+        if (objeto.getEdificio() == null || objeto.getEdificio().getId() <= 0) throw new IllegalArgumentException("Edifício é obrigatório");
         stmt.setInt(4, objeto.getEdificio().getId());
     }
 

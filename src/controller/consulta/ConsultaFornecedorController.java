@@ -33,7 +33,7 @@ public class ConsultaFornecedorController implements ActionListener {
         tela.getjButtonFechar().addActionListener(this);
         tela.getjTextFieldFiltro().addActionListener(this);
         tela.getjButtonSelecionar().setEnabled(false);
-        tela.getjTableResultado().setModel(new DefaultTableModel(new Object[]{"ID", "Nome Fantasia", "Razao Social", "CNPJ", "Status"}, 0) {
+        tela.getjTableResultado().setModel(new DefaultTableModel(new Object[]{"ID", "Nome Fantasia", "Razão Social", "CNPJ", "Status"}, 0) {
             @Override
             public boolean isCellEditable(int row, int column) { return false; }
         });
@@ -52,7 +52,7 @@ public class ConsultaFornecedorController implements ActionListener {
             int linha = tela.getjTableResultado().getSelectedRow();
             if (linha < 0) {
                 JOptionPane.showMessageDialog(tela, "Selecione um registro na tabela.",
-                        "Selecao", JOptionPane.WARNING_MESSAGE);
+                        "Seleção", JOptionPane.WARNING_MESSAGE);
                 return;
             }
             registroSelecionado = resultados.get(tela.getjTableResultado().convertRowIndexToModel(linha));
@@ -75,10 +75,10 @@ public class ConsultaFornecedorController implements ActionListener {
         String parametro = switch (campo) {
             case "ID" -> "id";
             case "Nome Fantasia", "Selecione" -> "nome_fantasia";
-            case "Razao Social" -> "razao_social";
+            case "Razão Social" -> "razao_social";
             case "CNPJ" -> "cnpj";
             case "Status" -> "status";
-            default -> throw new IllegalArgumentException("Campo de busca invalido");
+            default -> throw new IllegalArgumentException("Campo de busca inválido");
         };
         try {
             if ("id".equals(parametro)) {
@@ -96,11 +96,11 @@ public class ConsultaFornecedorController implements ActionListener {
                 };
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(tela, "Informe um numero valido para o filtro (ID/ano positivo, mes de 1 a 12).",
-                    "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, "Informe um número válido para o filtro (ID/ano positivo, mês de 1 a 12).",
+                    "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         if ("cpf".equals(parametro) || "cnpj".equals(parametro)) filtro = filtro.replaceAll("[^0-9]", "");
@@ -155,7 +155,7 @@ public class ConsultaFornecedorController implements ActionListener {
     private void mostrarErro(Throwable erro) {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao consultar Fornecedor", erro);
         JOptionPane.showMessageDialog(tela,
-                "Nao foi possivel consultar. Verifique a conexao com o banco e tente novamente.",
+                "Não foi possível consultar. Verifique a conexão com o banco e tente novamente.",
                 "Erro", JOptionPane.ERROR_MESSAGE);
     }
 }

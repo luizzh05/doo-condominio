@@ -12,7 +12,7 @@ public class LeituraService extends CrudService<Leitura> {
     public void validar(Leitura registro) {
         super.validar(registro);
         if (registro.getUnidadeCondomino() == null || registro.getUnidadeCondomino().getId() <= 0) {
-            throw new IllegalArgumentException("Busque e selecione UnidadeCondomino.");
+            throw new IllegalArgumentException("Busque e selecione a unidade condômino.");
         }
     }
 }

@@ -126,7 +126,7 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A - Ativo", "I - Inativo" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Edificio");
+        setTitle("Cadastro de Edifício");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
@@ -135,7 +135,7 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltitulo.setText("Cadastro de Edificio");
+        jLabeltitulo.setText("Cadastro de Edifício");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -152,7 +152,7 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
 
         jLabelSecaoIdentificacao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoIdentificacao.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoIdentificacao.setText("Identificacao");
+        jLabelSecaoIdentificacao.setText("Identificação");
 
         jLabelSecaoEstrutura.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoEstrutura.setForeground(new java.awt.Color(83, 0, 30));
@@ -160,18 +160,18 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
 
         jLabelSecaoEndereco.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoEndereco.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoEndereco.setText("Endereco");
+        jLabelSecaoEndereco.setText("Endereço");
 
         jLabelSecaoMedidores.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoMedidores.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoMedidores.setText("Medidores e calculo");
+        jLabelSecaoMedidores.setText("Medidores e cálculo");
 
         jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoObservacoes.setText("Observacoes");
+        jLabelSecaoObservacoes.setText("Observações");
 
         jLabelId.setText("ID");
-        jLabelId.setToolTipText("Codigo interno do cadastro");
+        jLabelId.setToolTipText("Código interno do cadastro");
 
         jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldId.setEnabled(false);
@@ -188,13 +188,13 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         jTextFieldNome.setEnabled(false);
         jTextFieldNome.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelQuantidadeAndares.setText("Quantidade Andares");
+        jLabelQuantidadeAndares.setText("Quantidade de Andares");
 
         jTextFieldQuantidadeAndares.setEnabled(false);
         jTextFieldQuantidadeAndares.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldQuantidadeAndares.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelQuantidadeUnidades.setText("Quantidade Unidades");
+        jLabelQuantidadeUnidades.setText("Quantidade de Unidades");
 
         jTextFieldQuantidadeUnidades.setEnabled(false);
         jTextFieldQuantidadeUnidades.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -211,7 +211,7 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         jTextFieldCnpj.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldCnpj.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelAnoLancamento.setText("Ano Lancamento");
+        jLabelAnoLancamento.setText("Ano de Lançamento");
 
         try {
             jTextFieldAnoLancamento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
@@ -227,7 +227,7 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
             }
         });
 
-        jLabelAreaTotal.setText("Area Total");
+        jLabelAreaTotal.setText("Área Total");
 
         jTextFieldAreaTotal.setEnabled(false);
         jTextFieldAreaTotal.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -273,24 +273,24 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         jTextFieldComplemento.setEnabled(false);
         jTextFieldComplemento.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelNumeroUnidadeAgua.setText("Numero Unidade Água");
+        jLabelNumeroUnidadeAgua.setText("Número Unidade Água");
 
         jTextFieldNumeroUnidadeAgua.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldNumeroUnidadeAgua.setEnabled(false);
         jTextFieldNumeroUnidadeAgua.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelNumeroUnidadeGas.setText("Numero Unidade Gás");
+        jLabelNumeroUnidadeGas.setText("Número Unidade Gás");
 
         jTextFieldNumeroUnidadeGas.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldNumeroUnidadeGas.setEnabled(false);
         jTextFieldNumeroUnidadeGas.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelPrecoM3Agua.setText("Preco da agua por m³");
+        jLabelPrecoM3Agua.setText("Preço da água por m³");
         jTextFieldPrecoM3Agua.setFont(new java.awt.Font("Segoe UI", 0, 12));
         jTextFieldPrecoM3Agua.setEnabled(false);
         jTextFieldPrecoM3Agua.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelPrecoM3Gas.setText("Preco do gas por m³");
+        jLabelPrecoM3Gas.setText("Preço do gás por m³");
         jTextFieldPrecoM3Gas.setFont(new java.awt.Font("Segoe UI", 0, 12));
         jTextFieldPrecoM3Gas.setEnabled(false);
         jTextFieldPrecoM3Gas.setPreferredSize(new java.awt.Dimension(170, 28));
@@ -303,7 +303,7 @@ public class TelaCadastroEdificio extends javax.swing.JDialog {
         jTextAreaObservacao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextAreaObservacao.setEnabled(false);
 
-        jLabel9.setText("Método de Cálculo(Rateio)");
+        jLabel9.setText("Método de Cálculo (Rateio)");
 
         btnGroupCalculo.add(jRadioButton2);
         jRadioButton2.setText("Por m²");

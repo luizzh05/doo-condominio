@@ -55,7 +55,7 @@ public class TelaConsultaAreaCompartilhada extends javax.swing.JDialog {
         jButtonFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Consulta de Area Compartilhada");
+        setTitle("Consulta de Área Compartilhada");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
@@ -64,7 +64,7 @@ public class TelaConsultaAreaCompartilhada extends javax.swing.JDialog {
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltitulo.setText("Consulta de Area Compartilhada");
+        jLabeltitulo.setText("Consulta de Área Compartilhada");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -86,7 +86,7 @@ public class TelaConsultaAreaCompartilhada extends javax.swing.JDialog {
         jLabelCampoFiltro.setText("Campo");
 
         jComboBoxCampoFiltro.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Descricao", "Status" }));
+        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Descrição", "Status" }));
         jComboBoxCampoFiltro.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelFiltro.setText("Filtro");
@@ -138,7 +138,7 @@ public class TelaConsultaAreaCompartilhada extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Descricao", "Status"
+                "ID", "Descrição", "Status"
             }
         ));
         jTableResultado.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

@@ -62,7 +62,7 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
         jLabelStatus = new javax.swing.JLabel();
         jComboBoxStatus = new javax.swing.JComboBox<>();
 
-        jLabelProprietario.setText("Proprietario");
+        jLabelProprietario.setText("Proprietário");
         jComboBoxProprietario.setFont(new java.awt.Font("Segoe UI", 0, 12));
         jComboBoxProprietario.setPreferredSize(new java.awt.Dimension(170, 28));
         jComboBoxProprietario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
@@ -75,7 +75,7 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
         jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A - Ativo", "I - Inativo" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Mandato");
+        setTitle("Cadastro de Função de Mandato");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
@@ -84,7 +84,7 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltitulo.setText("Cadastro de Mandato");
+        jLabeltitulo.setText("Cadastro de Função de Mandato");
         jLabeltitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
@@ -109,25 +109,25 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
         jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldId.setPreferredSize(new java.awt.Dimension(70, 28));
 
-        jLabelFuncao.setText("Funcao no mandato");
+        jLabelFuncao.setText("Função no mandato");
 
         jComboBoxFuncao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxFuncao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Sindico", "Subsindico", "Conselheiro fiscal" }));
         jComboBoxFuncao.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelSindicoProfissional.setText("Sindico profissional");
+        jLabelSindicoProfissional.setText("Síndico profissional");
 
         jComboBoxSindicoProfissional.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxSindicoProfissional.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         jComboBoxSindicoProfissional.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelEdificio.setText("Edificio");
+        jLabelEdificio.setText("Edifício");
 
         jComboBoxEdificio.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxEdificio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         jComboBoxEdificio.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelDataInicio.setText("Data de inicio");
+        jLabelDataInicio.setText("Data de início");
 
         try {
             jTextFieldDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -149,7 +149,7 @@ public class TelaCadastroFuncaoMandato extends javax.swing.JDialog {
 
         jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoObservacoes.setText("Observacoes");
+        jLabelSecaoObservacoes.setText("Observações");
 
         jTextAreaObservacao.setColumns(20);
         jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N

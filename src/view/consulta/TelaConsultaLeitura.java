@@ -85,7 +85,7 @@ public class TelaConsultaLeitura extends javax.swing.JDialog {
         jLabelCampoFiltro.setText("Campo");
 
         jComboBoxCampoFiltro.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Unidade", "Tipo", "Mes", "Ano", "Status" }));
+        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Unidade", "Tipo", "Mês", "Ano", "Status" }));
         jComboBoxCampoFiltro.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelFiltro.setText("Filtro");
@@ -137,7 +137,7 @@ public class TelaConsultaLeitura extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Unidade", "Tipo", "Mes", "Ano", "Medicao Atual", "Status"
+                "ID", "Unidade", "Tipo", "Mês", "Ano", "Medição Atual", "Status"
             }
         ));
         jTableResultado.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

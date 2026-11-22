@@ -28,10 +28,10 @@ public final class CalculadoraCondominio {
     public static PreviaGeracaoCondominio calcular(Edificio edificio, List<UnidadeCondomino> unidades,
             List<Leitura> leituras, List<MovimentoCaixa> movimentos, YearMonth referencia, LocalDate hoje) {
         if (edificio == null || !"A".equals(edificio.getStatus())) {
-            throw new IllegalArgumentException("Edificio inativo ou nao informado.");
+            throw new IllegalArgumentException("Edifício inativo ou não informado.");
         }
         if (unidades == null || unidades.isEmpty()) {
-            throw new IllegalArgumentException("Edificio sem unidades ativas com condomino vinculado.");
+            throw new IllegalArgumentException("Edifício sem unidades ativas com condômino vinculado.");
         }
         if (leituras == null) {
             leituras = List.of();
@@ -53,17 +53,17 @@ public final class CalculadoraCondominio {
                 formula = edificio.getFormulaCalculo() == null ? null : edificio.getFormulaCalculo().trim();
             }
             if (formula == null || formula.isBlank()) {
-                throw new IllegalArgumentException("Movimento #" + m.getId() + " sem formula e edificio sem formula de calculo.");
+                throw new IllegalArgumentException("Movimento #" + m.getId() + " sem fórmula e edifício sem fórmula de cálculo.");
             }
             if (!FormulaRateio.valida(formula)) {
-                throw new IllegalArgumentException("Movimento #" + m.getId() + " com formula invalida: " + formula + ".");
+                throw new IllegalArgumentException("Movimento #" + m.getId() + " com fórmula inválida: " + formula + ".");
             }
             String tipo = m.getTipo() == null ? null : m.getTipo().trim();
             BigDecimal valor = BigDecimal.valueOf(m.getValorEmitido());
             if ("Receita".equals(tipo)) {
                 valor = valor.negate();
             } else if (!"Despesa".equals(tipo)) {
-                throw new IllegalArgumentException("Movimento #" + m.getId() + " com tipo invalido: " + m.getTipo() + ".");
+                throw new IllegalArgumentException("Movimento #" + m.getId() + " com tipo inválido: " + m.getTipo() + ".");
             }
             if (FormulaRateio.POR_UNIDADE.equals(formula)) {
                 totalUnd = totalUnd.add(valor);
@@ -86,7 +86,7 @@ public final class CalculadoraCondominio {
             somaM2 = somaM2.add(metragem);
         }
         if (totalM2.signum() != 0 && somaM2.signum() <= 0) {
-            throw new IllegalArgumentException("Metragem individual total das unidades e zero; nao e possivel ratear movimentos Por m2.");
+            throw new IllegalArgumentException("Metragem individual total das unidades é zero; não é possível ratear movimentos Por m².");
         }
         List<BigDecimal> rateioUnd = ratear(totalUnd, pesosUnd);
         List<BigDecimal> rateioM2 = ratear(totalM2, pesosM2);
@@ -102,7 +102,7 @@ public final class CalculadoraCondominio {
             UnidadeCondomino uc = l.getUnidadeCondomino();
             String tipo = l.getTipo() == null ? "" : l.getTipo().trim();
             if (uc == null || !idsUc.contains(uc.getId())) {
-                avisos.add("Leitura #" + l.getId() + " ignorada: unidade nao pertence aos condominos ativos do edificio.");
+                avisos.add("Leitura #" + l.getId() + " ignorada: unidade não pertence aos condôminos ativos do edifício.");
                 continue;
             }
             Map<Integer, BigDecimal> destino;
@@ -114,14 +114,14 @@ public final class CalculadoraCondominio {
                 continue;
             }
             if (Double.isNaN(l.getMedicaoAnterior())) {
-                avisos.add("Leitura #" + l.getId() + " (unidade " + descricao(uc) + ", " + tipo
-                        + ") sem medicao anterior; consumo considerado 0.");
+                avisos.add("Leitura #" + l.getId() + " (unidade " + descricao(uc) + ", " + rotuloTipo(tipo)
+                        + ") sem medição anterior; consumo considerado 0.");
                 continue;
             }
             BigDecimal consumo = BigDecimal.valueOf(l.getMedicaoAtual()).subtract(BigDecimal.valueOf(l.getMedicaoAnterior()));
             if (consumo.signum() < 0) {
-                throw new IllegalArgumentException("Leitura #" + l.getId() + " (unidade " + descricao(uc) + ", " + tipo
-                        + ") com medicao atual menor que a anterior.");
+                throw new IllegalArgumentException("Leitura #" + l.getId() + " (unidade " + descricao(uc) + ", " + rotuloTipo(tipo)
+                        + ") com medição atual menor que a anterior.");
             }
             destino.merge(uc.getId(), consumo, BigDecimal::add);
         }
@@ -132,21 +132,21 @@ public final class CalculadoraCondominio {
         BigDecimal somaGas = BigDecimal.ZERO;
         for (UnidadeCondomino uc : unidades) {
             if (!consAgua.containsKey(uc.getId())) {
-                avisos.add("Unidade " + descricao(uc) + " sem leitura de Agua em " + mmaaaa + " (considerado 0).");
+                avisos.add("Unidade " + descricao(uc) + " sem leitura de Água em " + mmaaaa + " (considerado 0).");
             } else {
                 somaAgua = somaAgua.add(consAgua.get(uc.getId()));
             }
             if (!consGas.containsKey(uc.getId())) {
-                avisos.add("Unidade " + descricao(uc) + " sem leitura de Gas em " + mmaaaa + " (considerado 0).");
+                avisos.add("Unidade " + descricao(uc) + " sem leitura de Gás em " + mmaaaa + " (considerado 0).");
             } else {
                 somaGas = somaGas.add(consGas.get(uc.getId()));
             }
         }
         if (somaAgua.signum() > 0 && precoAgua.signum() == 0) {
-            avisos.add("Preco do m3 de agua do edificio e zero; consumo cobrado como 0.");
+            avisos.add("Preço do m³ de água do edifício é zero; consumo cobrado como 0.");
         }
         if (somaGas.signum() > 0 && precoGas.signum() == 0) {
-            avisos.add("Preco do m3 de gas do edificio e zero; consumo cobrado como 0.");
+            avisos.add("Preço do m³ de gás do edifício é zero; consumo cobrado como 0.");
         }
         if (movimentos.isEmpty()) {
             avisos.add("Nenhum movimento de rateio em " + mmaaaa + ".");
@@ -163,7 +163,7 @@ public final class CalculadoraCondominio {
             BigDecimal gas = consGas.getOrDefault(uc.getId(), BigDecimal.ZERO).multiply(precoGas).setScale(2, RoundingMode.HALF_UP);
             BigDecimal valor = und.add(m2).add(agua).add(gas);
             if (valor.signum() < 0) {
-                throw new IllegalArgumentException("Valor calculado negativo para unidade " + descricao(uc) + " (receitas maiores que despesas).");
+                throw new IllegalArgumentException("Valor calculado negativo para a unidade " + descricao(uc) + " (receitas maiores que despesas).");
             }
             Condominio c = new Condominio();
             c.setMesReferencia(referencia.getMonthValue());
@@ -177,7 +177,7 @@ public final class CalculadoraCondominio {
             c.setValorPago(0);
             c.setStatus("A");
             c.setValorEmitido(valor.doubleValue());
-            String obs = String.format("Gerado: Und %s; m2 %s; Agua %s; Gas %s",
+            String obs = String.format("Gerado: Und %s; m² %s; Água %s; Gás %s",
                     und.toPlainString(), m2.toPlainString(), agua.toPlainString(), gas.toPlainString());
             c.setObservacao(obs.length() > 100 ? obs.substring(0, 100) : obs);
             c.setUnidadeCondomino(uc);
@@ -234,8 +234,18 @@ public final class CalculadoraCondominio {
         }
         if (!duplicadas.isEmpty()) {
             Collections.sort(duplicadas);
-            throw new IllegalArgumentException("Unidades com mais de um condomino ativo: " + String.join(", ", duplicadas) + ".");
+            throw new IllegalArgumentException("Unidades com mais de um condômino ativo: " + String.join(", ", duplicadas) + ".");
         }
+    }
+
+    private static String rotuloTipo(String tipo) {
+        if (AGUA.equalsIgnoreCase(tipo)) {
+            return "Água";
+        }
+        if (GAS.equalsIgnoreCase(tipo)) {
+            return "Gás";
+        }
+        return tipo;
     }
 
     private static String descricao(UnidadeCondomino uc) {

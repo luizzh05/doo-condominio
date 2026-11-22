@@ -85,7 +85,7 @@ public class TelaConsultaReserva extends javax.swing.JDialog {
         jLabelCampoFiltro.setText("Campo");
 
         jComboBoxCampoFiltro.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Area Compartilhada", "Status" }));
+        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Área Compartilhada", "Status" }));
         jComboBoxCampoFiltro.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelFiltro.setText("Filtro");
@@ -137,7 +137,7 @@ public class TelaConsultaReserva extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Area Compartilhada", "Data Inicio", "Data Fim", "Status"
+                "ID", "Área Compartilhada", "Data Início", "Data Fim", "Status"
             }
         ));
         jTableResultado.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

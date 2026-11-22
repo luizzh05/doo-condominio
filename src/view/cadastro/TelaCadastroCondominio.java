@@ -87,7 +87,7 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A - Ativo", "I - Inativo" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Condominio");
+        setTitle("Cadastro de Condomínio");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
@@ -96,7 +96,7 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltitulo.setText("Cadastro de Condominio");
+        jLabeltitulo.setText("Cadastro de Condomínio");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -113,14 +113,14 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
 
         jLabelSecaoIdentificacao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoIdentificacao.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoIdentificacao.setText("Identificacao");
+        jLabelSecaoIdentificacao.setText("Identificação");
 
         jLabelId.setText("ID");
 
         jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldId.setPreferredSize(new java.awt.Dimension(70, 28));
 
-        jLabelUnidadeCondomino.setText("Unidade Condomino");
+        jLabelUnidadeCondomino.setText("Unidade Condômino");
 
         jComboBoxUnidadeCondomino.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxUnidadeCondomino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
@@ -128,9 +128,9 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
 
         jLabelSecaoReferencia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoReferencia.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoReferencia.setText("Referencia");
+        jLabelSecaoReferencia.setText("Referência");
 
-        jLabelMesReferencia.setText("Mes Referencia");
+        jLabelMesReferencia.setText("Mês de Referência");
 
         try {
             jTextFieldMesReferencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
@@ -140,7 +140,7 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jTextFieldMesReferencia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldMesReferencia.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelAnoReferencia.setText("Ano Referencia");
+        jLabelAnoReferencia.setText("Ano de Referência");
 
         try {
             jTextFieldAnoReferencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
@@ -150,7 +150,7 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jTextFieldAnoReferencia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldAnoReferencia.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelDataEmissao.setText("Data Emissao");
+        jLabelDataEmissao.setText("Data de Emissão");
 
         try {
             jTextFieldDataEmissao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -160,7 +160,7 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jTextFieldDataEmissao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldDataEmissao.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelDataVencimento.setText("Data Vencimento");
+        jLabelDataVencimento.setText("Data de Vencimento");
 
         try {
             jTextFieldDataVencimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -194,14 +194,14 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jTextFieldMultas.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldMultas.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelCorrecao.setText("Correcao");
+        jLabelCorrecao.setText("Correção");
 
         jTextFieldCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldCorrecao.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoObservacoes.setText("Observacoes");
+        jLabelSecaoObservacoes.setText("Observações");
 
         jTextAreaObservacao.setColumns(20);
         jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N

@@ -102,7 +102,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A - Ativo", "I - Inativo" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Proprietario");
+        setTitle("Cadastro de Proprietário");
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -110,7 +110,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltitulo.setText("Cadastro de Proprietario");
+        jLabeltitulo.setText("Cadastro de Proprietário");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -127,7 +127,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
 
         jLabelSecaoIdentificacao.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoIdentificacao.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoIdentificacao.setText("Identificacao");
+        jLabelSecaoIdentificacao.setText("Identificação");
 
         jLabelSecaoDocumentos.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoDocumentos.setForeground(new java.awt.Color(83, 0, 30));
@@ -143,14 +143,14 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
 
         jLabelSecaoEndereco.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoEndereco.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoEndereco.setText("Endereco");
+        jLabelSecaoEndereco.setText("Endereço");
 
         jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoObservacoes.setText("Observacoes");
+        jLabelSecaoObservacoes.setText("Observações");
 
         jLabelId.setText("ID");
-        jLabelId.setToolTipText("Codigo interno do cadastro");
+        jLabelId.setToolTipText("Código interno do cadastro");
 
         jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldId.setPreferredSize(new java.awt.Dimension(70, 28));
@@ -165,7 +165,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jTextFieldNomeFantasia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldNomeFantasia.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelRazaoSocial.setText("Razao Social");
+        jLabelRazaoSocial.setText("Razão Social");
 
         jTextFieldRazaoSocial.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldRazaoSocial.setPreferredSize(new java.awt.Dimension(170, 28));
@@ -195,7 +195,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jTextFieldCnpj.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldCnpj.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelInscricaoEstadual.setText("Inscricao Estadual");
+        jLabelInscricaoEstadual.setText("Inscrição Estadual");
 
         jTextFieldInscricaoEstadual.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldInscricaoEstadual.setPreferredSize(new java.awt.Dimension(170, 28));
@@ -220,7 +220,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jTextFieldFone2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldFone2.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelEmail.setText("Email");
+        jLabelEmail.setText("E-mail");
 
         jTextFieldEmail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldEmail.setPreferredSize(new java.awt.Dimension(170, 28));
@@ -291,7 +291,7 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
         jLabelTipoPessoa.setText("Tipo Pessoa");
 
         jComboBoxTipoPessoa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxTipoPessoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Fisica", "Juridica" }));
+        jComboBoxTipoPessoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Física", "Jurídica" }));
         jComboBoxTipoPessoa.setPreferredSize(new java.awt.Dimension(170, 28));
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
@@ -582,8 +582,8 @@ public class TelaCadastroProprietario extends javax.swing.JDialog {
 
 
     public void alternarCamposPessoa() {
-        boolean fisica = jComboBoxTipoPessoa.isEnabled() && "Fisica".equals(jComboBoxTipoPessoa.getSelectedItem());
-        boolean juridica = jComboBoxTipoPessoa.isEnabled() && "Juridica".equals(jComboBoxTipoPessoa.getSelectedItem());
+        boolean fisica = jComboBoxTipoPessoa.isEnabled() && "Física".equals(jComboBoxTipoPessoa.getSelectedItem());
+        boolean juridica = jComboBoxTipoPessoa.isEnabled() && "Jurídica".equals(jComboBoxTipoPessoa.getSelectedItem());
         jTextFieldCpf.setEnabled(fisica);
         jTextFieldRg.setEnabled(fisica);
         jTextFieldDataNascimento.setEnabled(fisica);

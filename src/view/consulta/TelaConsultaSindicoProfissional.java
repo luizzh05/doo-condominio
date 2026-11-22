@@ -54,7 +54,7 @@ public class TelaConsultaSindicoProfissional extends javax.swing.JDialog {
         jButtonFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Consulta de Sindico Profissional");
+        setTitle("Consulta de Síndico Profissional");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
@@ -63,7 +63,7 @@ public class TelaConsultaSindicoProfissional extends javax.swing.JDialog {
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltitulo.setText("Consulta de Sindico Profissional");
+        jLabeltitulo.setText("Consulta de Síndico Profissional");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);

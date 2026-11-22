@@ -114,7 +114,7 @@ public class MovimentoCaixaDAO implements InterfaceDAO<MovimentoCaixa> {
             }
             return itens;
         } catch (SQLException ex) {
-            throw new IllegalStateException("Erro ao listar movimentos de rateio por edificio e periodo", ex);
+            throw new IllegalStateException("Erro ao listar movimentos de rateio por edifício e período", ex);
         }
     }
 
@@ -132,9 +132,9 @@ public class MovimentoCaixaDAO implements InterfaceDAO<MovimentoCaixa> {
         stmt.setString(11, objeto.getFlagFormula());
         stmt.setString(12, objeto.getObservacao());
         stmt.setString(13, objeto.getStatus());
-        if (objeto.getEdificio() == null || objeto.getEdificio().getId() <= 0) throw new IllegalArgumentException("Edificio é obrigatório");
+        if (objeto.getEdificio() == null || objeto.getEdificio().getId() <= 0) throw new IllegalArgumentException("Edifício é obrigatório");
         stmt.setInt(14, objeto.getEdificio().getId());
-        if (objeto.getCustoNivel2() == null || objeto.getCustoNivel2().getId() <= 0) throw new IllegalArgumentException("CustoNivel2 é obrigatório");
+        if (objeto.getCustoNivel2() == null || objeto.getCustoNivel2().getId() <= 0) throw new IllegalArgumentException("Custo nível 2 é obrigatório");
         stmt.setInt(15, objeto.getCustoNivel2().getId());
         if (objeto.getFornecedor() == null || objeto.getFornecedor().getId() <= 0) throw new IllegalArgumentException("Fornecedor é obrigatório");
         stmt.setInt(16, objeto.getFornecedor().getId());

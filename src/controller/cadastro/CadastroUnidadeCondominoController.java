@@ -112,15 +112,15 @@ public class CadastroUnidadeCondominoController implements ActionListener {
         final UnidadeCondomino registro = new UnidadeCondomino();
         try {
             registro.setId(idEmEdicao);
-            registro.setDataAquisicao(Utils.data(tela.getjTextFieldDataAquisicao(), "data aquisicao", true));
-            registro.setDataVenda(Utils.data(tela.getjTextFieldDataVenda(), "data venda", false));
-            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
+            registro.setDataAquisicao(Utils.data(tela.getjTextFieldDataAquisicao(), "data de aquisição", true));
+            registro.setDataVenda(Utils.data(tela.getjTextFieldDataVenda(), "data de venda", false));
+            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observação", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             registro.setUnidade(tela.getjComboBoxUnidade().getSelectedIndex() > 0 ? unidadeSelecionado : null);
             registro.setProprietario(tela.getjComboBoxProprietario().getSelectedIndex() > 0 ? proprietarioSelecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         definirOcupado(true);
@@ -161,7 +161,7 @@ public class CadastroUnidadeCondominoController implements ActionListener {
 
     private void mostrarErro(Throwable erro) {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar UnidadeCondomino", erro);
-        JOptionPane.showMessageDialog(tela, "Nao foi possivel gravar. Verifique a conexao e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(tela, "Não foi possível gravar. Verifique a conexão e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
     private void definirUnidade(Unidade registro) {

@@ -54,7 +54,7 @@ public class TelaConsultaCustoNivel2 extends javax.swing.JDialog {
         jButtonFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Consulta de Custo Nivel 2");
+        setTitle("Consulta de Custo Nível 2");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
@@ -63,7 +63,7 @@ public class TelaConsultaCustoNivel2 extends javax.swing.JDialog {
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltitulo.setText("Consulta de Custo Nivel 2");
+        jLabeltitulo.setText("Consulta de Custo Nível 2");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -85,7 +85,7 @@ public class TelaConsultaCustoNivel2 extends javax.swing.JDialog {
         jLabelCampoFiltro.setText("Campo");
 
         jComboBoxCampoFiltro.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Descricao", "Custo Nivel 1", "Status" }));
+        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Descrição", "Custo Nível 1", "Status" }));
         jComboBoxCampoFiltro.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelFiltro.setText("Filtro");
@@ -137,7 +137,7 @@ public class TelaConsultaCustoNivel2 extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Descricao", "Custo Nivel 1", "Status"
+                "ID", "Descrição", "Custo Nível 1", "Status"
             }
         ));
         jTableResultado.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

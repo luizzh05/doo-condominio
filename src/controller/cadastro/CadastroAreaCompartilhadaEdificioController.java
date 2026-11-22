@@ -110,13 +110,13 @@ public class CadastroAreaCompartilhadaEdificioController implements ActionListen
         final AreaCompartilhadaEdificio registro = new AreaCompartilhadaEdificio();
         try {
             registro.setId(idEmEdicao);
-            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
+            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observação", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             registro.setAreaCompartilhada(tela.getjComboBoxAreaCompartilhada().getSelectedIndex() > 0 ? areaCompartilhadaSelecionado : null);
             registro.setEdificio(tela.getjComboBoxEdificio().getSelectedIndex() > 0 ? edificioSelecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         definirOcupado(true);
@@ -157,7 +157,7 @@ public class CadastroAreaCompartilhadaEdificioController implements ActionListen
 
     private void mostrarErro(Throwable erro) {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar AreaCompartilhadaEdificio", erro);
-        JOptionPane.showMessageDialog(tela, "Nao foi possivel gravar. Verifique a conexao e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(tela, "Não foi possível gravar. Verifique a conexão e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
     private void definirAreaCompartilhada(AreaCompartilhada registro) {

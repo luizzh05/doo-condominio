@@ -98,9 +98,9 @@ public class ReservaDAO implements InterfaceDAO<Reserva> {
         stmt.setObject(2, objeto.getDataHoraFim());
         stmt.setString(3, objeto.getObservacao());
         stmt.setString(4, objeto.getStatus());
-        if (objeto.getAreaCompartilhadaEdificio() == null || objeto.getAreaCompartilhadaEdificio().getId() <= 0) throw new IllegalArgumentException("AreaCompartilhadaEdificio é obrigatório");
+        if (objeto.getAreaCompartilhadaEdificio() == null || objeto.getAreaCompartilhadaEdificio().getId() <= 0) throw new IllegalArgumentException("Área compartilhada do edifício é obrigatória");
         stmt.setInt(5, objeto.getAreaCompartilhadaEdificio().getId());
-        if (objeto.getUnidadeCondomino() == null || objeto.getUnidadeCondomino().getId() <= 0) throw new IllegalArgumentException("UnidadeCondomino é obrigatório");
+        if (objeto.getUnidadeCondomino() == null || objeto.getUnidadeCondomino().getId() <= 0) throw new IllegalArgumentException("Unidade condômino é obrigatória");
         stmt.setInt(6, objeto.getUnidadeCondomino().getId());
     }
 

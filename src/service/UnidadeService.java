@@ -12,10 +12,10 @@ public class UnidadeService extends CrudService<Unidade> {
     public void validar(Unidade registro) {
         super.validar(registro);
         if (registro.getEdificio() == null || registro.getEdificio().getId() <= 0) {
-            throw new IllegalArgumentException("Busque e selecione Edificio.");
+            throw new IllegalArgumentException("Busque e selecione o edifício.");
         }
         if (registro.getMetragemIndividual() > registro.getMetragemTotal()) {
-            throw new IllegalArgumentException("A metragem individual nao pode exceder a total.");
+            throw new IllegalArgumentException("A metragem individual não pode exceder a total.");
         }
     }
 }

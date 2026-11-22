@@ -65,7 +65,7 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
         jLabelStatus = new javax.swing.JLabel();
         jComboBoxStatus = new javax.swing.JComboBox<>();
 
-        jLabelUnidadeCondomino.setText("Unidade Condomino");
+        jLabelUnidadeCondomino.setText("Unidade Condômino");
         jComboBoxUnidadeCondomino.setFont(new java.awt.Font("Segoe UI", 0, 12));
         jComboBoxUnidadeCondomino.setPreferredSize(new java.awt.Dimension(170, 28));
         jComboBoxUnidadeCondomino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
@@ -108,14 +108,14 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
 
         jLabelSecaoPeriodo.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoPeriodo.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoPeriodo.setText("Periodo");
+        jLabelSecaoPeriodo.setText("Período");
 
         jLabelSecaoObservacoes.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelSecaoObservacoes.setForeground(new java.awt.Color(83, 0, 30));
-        jLabelSecaoObservacoes.setText("Observacoes");
+        jLabelSecaoObservacoes.setText("Observações");
 
         jLabelId.setText("ID");
-        jLabelId.setToolTipText("Codigo interno do cadastro");
+        jLabelId.setToolTipText("Código interno do cadastro");
 
         jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldId.setPreferredSize(new java.awt.Dimension(70, 28));
@@ -125,13 +125,13 @@ public class TelaCadastroReserva extends javax.swing.JDialog {
             }
         });
 
-        jLabelAreaCompartilhadaEdificio.setText("Area Compartilhada Edificio");
+        jLabelAreaCompartilhadaEdificio.setText("Área Compartilhada Edifício");
 
         jComboBoxAreaCompartilhadaEdificio.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxAreaCompartilhadaEdificio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         jComboBoxAreaCompartilhadaEdificio.setPreferredSize(new java.awt.Dimension(170, 28));
 
-        jLabelDataHoraInicio.setText("Data/Hora Inicio");
+        jLabelDataHoraInicio.setText("Data/Hora Início");
 
         try {
             jTextFieldDataHoraInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/#### ##:##")));

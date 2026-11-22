@@ -317,7 +317,7 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Lancamento"/>
+              <Property name="text" type="java.lang.String" value="Lan&#xe7;amento"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelId">
@@ -337,7 +337,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelEdificio">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Edificio"/>
+              <Property name="text" type="java.lang.String" value="Edif&#xed;cio"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JComboBox" name="jComboBoxEdificio">
@@ -383,7 +383,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelCustoNivel1">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Custo nivel 1"/>
+              <Property name="text" type="java.lang.String" value="Custo n&#xed;vel 1"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JComboBox" name="jComboBoxCustoNivel1">
@@ -406,7 +406,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelCustoNivel2">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Custo nivel 2"/>
+              <Property name="text" type="java.lang.String" value="Custo n&#xed;vel 2"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JComboBox" name="jComboBoxCustoNivel2">
@@ -440,7 +440,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelDataEmissao">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Data de emissao"/>
+              <Property name="text" type="java.lang.String" value="Data de emiss&#xe3;o"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JFormattedTextField" name="jTextFieldDataEmissao">
@@ -575,7 +575,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelCorrecaoMonetaria">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Correcao monetaria"/>
+              <Property name="text" type="java.lang.String" value="Corre&#xe7;&#xe3;o monet&#xe1;ria"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JFormattedTextField" name="jTextFieldCorrecaoMonetaria">
@@ -605,7 +605,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelFlagFormula">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Formula"/>
+              <Property name="text" type="java.lang.String" value="F&#xf3;rmula"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JComboBox" name="jComboBoxFlagFormula">
@@ -673,7 +673,7 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Observacoes"/>
+              <Property name="text" type="java.lang.String" value="Observa&#xe7;&#xf5;es"/>
             </Properties>
           </Component>
           <Container class="javax.swing.JScrollPane" name="jScrollPaneObservacao">

@@ -33,7 +33,7 @@ public class ConsultaAreaCompartilhadaController implements ActionListener {
         tela.getjButtonFechar().addActionListener(this);
         tela.getjTextFieldFiltro().addActionListener(this);
         tela.getjButtonSelecionar().setEnabled(false);
-        tela.getjTableResultado().setModel(new DefaultTableModel(new Object[]{"ID", "Descricao", "Status"}, 0) {
+        tela.getjTableResultado().setModel(new DefaultTableModel(new Object[]{"ID", "Descrição", "Status"}, 0) {
             @Override
             public boolean isCellEditable(int row, int column) { return false; }
         });
@@ -51,8 +51,8 @@ public class ConsultaAreaCompartilhadaController implements ActionListener {
         if (action.getSource() == tela.getjButtonSelecionar()) {
             int linha = tela.getjTableResultado().getSelectedRow();
             if (linha < 0) {
-                JOptionPane.showMessageDialog(tela, "Selecione uma area na tabela.",
-                        "Selecao", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(tela, "Selecione uma área na tabela.",
+                        "Seleção", JOptionPane.WARNING_MESSAGE);
                 return;
             }
             areaSelecionada = resultados.get(tela.getjTableResultado().convertRowIndexToModel(linha));
@@ -74,9 +74,9 @@ public class ConsultaAreaCompartilhadaController implements ActionListener {
         String filtro = tela.getjTextFieldFiltro().getText().trim();
         String parametro = switch (campo) {
             case "ID" -> "id";
-            case "Descricao", "Selecione" -> "descricao";
+            case "Descrição", "Selecione" -> "descricao";
             case "Status" -> "status";
-            default -> throw new IllegalArgumentException("Campo de busca invalido");
+            default -> throw new IllegalArgumentException("Campo de busca inválido");
         };
         try {
             if ("id".equals(parametro)) {
@@ -90,11 +90,11 @@ public class ConsultaAreaCompartilhadaController implements ActionListener {
                 };
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(tela, "Informe um ID numerico maior que zero.",
-                    "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, "Informe um ID numérico maior que zero.",
+                    "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         String valor = filtro;
@@ -148,7 +148,7 @@ public class ConsultaAreaCompartilhadaController implements ActionListener {
     private void mostrarErro(Throwable erro) {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao consultar areas compartilhadas", erro);
         JOptionPane.showMessageDialog(tela,
-                "Nao foi possivel consultar. Verifique a conexao com o banco e tente novamente.",
+                "Não foi possível consultar. Verifique a conexão com o banco e tente novamente.",
                 "Erro", JOptionPane.ERROR_MESSAGE);
     }
 }

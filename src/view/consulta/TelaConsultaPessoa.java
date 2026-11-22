@@ -85,7 +85,7 @@ public class TelaConsultaPessoa extends javax.swing.JDialog {
         jLabelCampoFiltro.setText("Campo");
 
         jComboBoxCampoFiltro.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Nome Fantasia", "Razao Social", "CPF", "CNPJ", "Status" }));
+        jComboBoxCampoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Nome Fantasia", "Razão Social", "CPF", "CNPJ", "Status" }));
         jComboBoxCampoFiltro.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelFiltro.setText("Filtro");
@@ -137,7 +137,7 @@ public class TelaConsultaPessoa extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Nome Fantasia", "Razao Social", "CPF", "CNPJ", "Status"
+                "ID", "Nome Fantasia", "Razão Social", "CPF", "CNPJ", "Status"
             }
         ));
         jTableResultado.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

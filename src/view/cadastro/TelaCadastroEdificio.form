@@ -7,7 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Cadastro de Edificio"/>
+    <Property name="title" type="java.lang.String" value="Cadastro de Edif&#xed;cio"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -89,7 +89,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Cadastro de Edificio"/>
+            <Property name="text" type="java.lang.String" value="Cadastro de Edif&#xed;cio"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -319,7 +319,7 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Identificacao"/>
+              <Property name="text" type="java.lang.String" value="Identifica&#xe7;&#xe3;o"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelSecaoEstrutura">
@@ -341,7 +341,7 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Endereco"/>
+              <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelSecaoMedidores">
@@ -352,7 +352,7 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Medidores e calculo"/>
+              <Property name="text" type="java.lang.String" value="Medidores e c&#xe1;lculo"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelStatus">
@@ -387,13 +387,13 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Observacoes"/>
+              <Property name="text" type="java.lang.String" value="Observa&#xe7;&#xf5;es"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelId">
             <Properties>
               <Property name="text" type="java.lang.String" value="ID"/>
-              <Property name="toolTipText" type="java.lang.String" value="Codigo interno do cadastro"/>
+              <Property name="toolTipText" type="java.lang.String" value="C&#xf3;digo interno do cadastro"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JTextField" name="jTextFieldId">
@@ -428,7 +428,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelQuantidadeAndares">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Quantidade Andares"/>
+              <Property name="text" type="java.lang.String" value="Quantidade de Andares"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JFormattedTextField" name="jTextFieldQuantidadeAndares">
@@ -444,7 +444,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelQuantidadeUnidades">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Quantidade Unidades"/>
+              <Property name="text" type="java.lang.String" value="Quantidade de Unidades"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JFormattedTextField" name="jTextFieldQuantidadeUnidades">
@@ -479,7 +479,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelAnoLancamento">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Ano Lancamento"/>
+              <Property name="text" type="java.lang.String" value="Ano de Lan&#xe7;amento"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JFormattedTextField" name="jTextFieldAnoLancamento">
@@ -501,7 +501,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelAreaTotal">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Area Total"/>
+              <Property name="text" type="java.lang.String" value="&#xc1;rea Total"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JFormattedTextField" name="jTextFieldAreaTotal">
@@ -603,7 +603,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelNumeroUnidadeAgua">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Numero Unidade &#xc1;gua"/>
+              <Property name="text" type="java.lang.String" value="N&#xfa;mero Unidade &#xc1;gua"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JTextField" name="jTextFieldNumeroUnidadeAgua">
@@ -619,7 +619,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelNumeroUnidadeGas">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Numero Unidade G&#xe1;s"/>
+              <Property name="text" type="java.lang.String" value="N&#xfa;mero Unidade G&#xe1;s"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JTextField" name="jTextFieldNumeroUnidadeGas">
@@ -635,7 +635,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelPrecoM3Agua">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Preco da agua por m&#xb3;"/>
+              <Property name="text" type="java.lang.String" value="Pre&#xe7;o da &#xe1;gua por m&#xb3;"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JTextField" name="jTextFieldPrecoM3Agua">
@@ -651,7 +651,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelPrecoM3Gas">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Preco do gas por m&#xb3;"/>
+              <Property name="text" type="java.lang.String" value="Pre&#xe7;o do g&#xe1;s por m&#xb3;"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JTextField" name="jTextFieldPrecoM3Gas">
@@ -684,7 +684,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabel9">
             <Properties>
-              <Property name="text" type="java.lang.String" value="M&#xe9;todo de C&#xe1;lculo(Rateio)"/>
+              <Property name="text" type="java.lang.String" value="M&#xe9;todo de C&#xe1;lculo (Rateio)"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JRadioButton" name="jRadioButton2">

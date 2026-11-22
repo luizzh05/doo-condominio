@@ -12,13 +12,13 @@ public class FuncaoMandatoService extends CrudService<FuncaoMandato> {
     public void validar(FuncaoMandato registro) {
         super.validar(registro);
         if (registro.getEdificio() == null || registro.getEdificio().getId() <= 0) {
-            throw new IllegalArgumentException("Busque e selecione Edificio.");
+            throw new IllegalArgumentException("Busque e selecione o edifício.");
         }
         if (registro.getDataFim() != null && registro.getDataFim().isBefore(registro.getDataInicio())) {
-            throw new IllegalArgumentException("DataFim nao pode ser anterior a DataInicio.");
+            throw new IllegalArgumentException("A data de fim não pode ser anterior à data de início.");
         }
         if (registro.getSindicoProfissional() == null && registro.getProprietario() == null) {
-            throw new IllegalArgumentException("Selecione um sindico profissional ou proprietario para o mandato.");
+            throw new IllegalArgumentException("Selecione um síndico profissional ou proprietário para o mandato.");
         }
     }
 }

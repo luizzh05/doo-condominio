@@ -98,7 +98,7 @@ public class CustoNivel2DAO implements InterfaceDAO<CustoNivel2> {
         stmt.setString(1, objeto.getDescricao());
         stmt.setString(2, objeto.getObservacao());
         stmt.setString(3, objeto.getStatus());
-        if (objeto.getCustoNivel1() == null || objeto.getCustoNivel1().getId() <= 0) throw new IllegalArgumentException("CustoNivel1 é obrigatório");
+        if (objeto.getCustoNivel1() == null || objeto.getCustoNivel1().getId() <= 0) throw new IllegalArgumentException("Custo nível 1 é obrigatório");
         stmt.setInt(4, objeto.getCustoNivel1().getId());
     }
 

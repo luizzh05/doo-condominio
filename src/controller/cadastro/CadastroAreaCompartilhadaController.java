@@ -86,7 +86,7 @@ public class CadastroAreaCompartilhadaController implements ActionListener {
                     Utils.status(tela.getjComboBoxStatus()));
             service.validar(area);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         gravando = true;
@@ -103,7 +103,7 @@ public class CadastroAreaCompartilhadaController implements ActionListener {
                 try {
                     get();
                     encerrarEdicao();
-                    JOptionPane.showMessageDialog(tela, "Area compartilhada gravada com sucesso.");
+                    JOptionPane.showMessageDialog(tela, "Área compartilhada gravada com sucesso.");
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                     mostrarErro(ex);
@@ -130,10 +130,10 @@ public class CadastroAreaCompartilhadaController implements ActionListener {
     }
 
     private void mostrarErro(Throwable erro) {
-        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar area compartilhada", erro);
+        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar área compartilhada", erro);
         Utils.ativaDesativaBtn(tela.getjPanelbotoes(), true);
         JOptionPane.showMessageDialog(tela,
-                "Nao foi possivel gravar. Verifique a conexao com o banco e tente novamente.",
+                "Não foi possível gravar. Verifique a conexão com o banco e tente novamente.",
                 "Erro", JOptionPane.ERROR_MESSAGE);
     }
 }

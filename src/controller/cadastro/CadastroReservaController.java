@@ -112,15 +112,15 @@ public class CadastroReservaController implements ActionListener {
         final Reserva registro = new Reserva();
         try {
             registro.setId(idEmEdicao);
-            registro.setDataHoraInicio(Utils.dataHora(tela.getjTextFieldDataHoraInicio(), "data hora inicio"));
-            registro.setDataHoraFim(Utils.dataHora(tela.getjTextFieldDataHoraFim(), "data hora fim"));
-            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
+            registro.setDataHoraInicio(Utils.dataHora(tela.getjTextFieldDataHoraInicio(), "data e hora de início"));
+            registro.setDataHoraFim(Utils.dataHora(tela.getjTextFieldDataHoraFim(), "data e hora de fim"));
+            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observação", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             registro.setAreaCompartilhadaEdificio(tela.getjComboBoxAreaCompartilhadaEdificio().getSelectedIndex() > 0 ? areaCompartilhadaEdificioSelecionado : null);
             registro.setUnidadeCondomino(tela.getjComboBoxUnidadeCondomino().getSelectedIndex() > 0 ? unidadeCondominoSelecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         definirOcupado(true);
@@ -161,7 +161,7 @@ public class CadastroReservaController implements ActionListener {
 
     private void mostrarErro(Throwable erro) {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar Reserva", erro);
-        JOptionPane.showMessageDialog(tela, "Nao foi possivel gravar. Verifique a conexao e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(tela, "Não foi possível gravar. Verifique a conexão e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
     private void definirAreaCompartilhadaEdificio(AreaCompartilhadaEdificio registro) {

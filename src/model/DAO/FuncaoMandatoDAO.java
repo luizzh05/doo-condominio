@@ -102,13 +102,13 @@ public class FuncaoMandatoDAO implements InterfaceDAO<FuncaoMandato> {
         stmt.setObject(3, objeto.getDataFim());
         stmt.setString(4, objeto.getObservacao());
         stmt.setString(5, objeto.getStatus());
-        if (objeto.getEdificio() == null || objeto.getEdificio().getId() <= 0) throw new IllegalArgumentException("Edificio é obrigatório");
+        if (objeto.getEdificio() == null || objeto.getEdificio().getId() <= 0) throw new IllegalArgumentException("Edifício é obrigatório");
         stmt.setInt(6, objeto.getEdificio().getId());
         if (objeto.getProprietario() != null && objeto.getProprietario().getId() <= 0) {
-            throw new IllegalArgumentException("Proprietario deve ter um ID valido");
+            throw new IllegalArgumentException("Proprietário deve ter um ID válido");
         }
         if (objeto.getSindicoProfissional() != null && objeto.getSindicoProfissional().getId() <= 0) {
-            throw new IllegalArgumentException("SindicoProfissional deve ter um ID valido");
+            throw new IllegalArgumentException("Síndico profissional deve ter um ID válido");
         }
         stmt.setObject(7, objeto.getProprietario() == null ? null : objeto.getProprietario().getId());
         stmt.setObject(8, objeto.getSindicoProfissional() == null ? null : objeto.getSindicoProfissional().getId());

@@ -113,7 +113,7 @@ public class CadastroCustoNivel2Controller implements ActionListener {
                     tela.getjComboBoxCustoNivel1().getSelectedIndex() > 0 ? custoNivel1Selecionado : null);
             service.validar(custo);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         gravando = true;
@@ -130,7 +130,7 @@ public class CadastroCustoNivel2Controller implements ActionListener {
                 try {
                     get();
                     encerrarEdicao();
-                    JOptionPane.showMessageDialog(tela, "Custo nivel 2 gravado com sucesso.");
+                    JOptionPane.showMessageDialog(tela, "Custo nível 2 gravado com sucesso.");
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                     mostrarErro(ex);
@@ -159,10 +159,10 @@ public class CadastroCustoNivel2Controller implements ActionListener {
     }
 
     private void mostrarErro(Throwable erro) {
-        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar custo nivel 2", erro);
+        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar custo nível 2", erro);
         Utils.ativaDesativaBtn(tela.getjPanelbotoes(), true);
         JOptionPane.showMessageDialog(tela,
-                "Nao foi possivel gravar. Verifique a conexao com o banco e tente novamente.",
+                "Não foi possível gravar. Verifique a conexão com o banco e tente novamente.",
                 "Erro", JOptionPane.ERROR_MESSAGE);
     }
 }

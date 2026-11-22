@@ -33,7 +33,7 @@ public class ConsultaCustoNivel2Controller implements ActionListener {
         tela.getjButtonFechar().addActionListener(this);
         tela.getjTextFieldFiltro().addActionListener(this);
         tela.getjButtonSelecionar().setEnabled(false);
-        tela.getjTableResultado().setModel(new DefaultTableModel(new Object[]{"ID", "Descricao", "Custo Nivel 1", "Status"}, 0) {
+        tela.getjTableResultado().setModel(new DefaultTableModel(new Object[]{"ID", "Descrição", "Custo Nível 1", "Status"}, 0) {
             @Override
             public boolean isCellEditable(int row, int column) { return false; }
         });
@@ -52,7 +52,7 @@ public class ConsultaCustoNivel2Controller implements ActionListener {
             int linha = tela.getjTableResultado().getSelectedRow();
             if (linha < 0) {
                 JOptionPane.showMessageDialog(tela, "Selecione um custo na tabela.",
-                        "Selecao", JOptionPane.WARNING_MESSAGE);
+                        "Seleção", JOptionPane.WARNING_MESSAGE);
                 return;
             }
             custoSelecionado = resultados.get(tela.getjTableResultado().convertRowIndexToModel(linha));
@@ -74,10 +74,10 @@ public class ConsultaCustoNivel2Controller implements ActionListener {
         String filtro = tela.getjTextFieldFiltro().getText().trim();
         String parametro = switch (campo) {
             case "ID" -> "id";
-            case "Descricao", "Selecione" -> "descricao";
-            case "Custo Nivel 1" -> "custo_nivel1";
+            case "Descrição", "Selecione" -> "descricao";
+            case "Custo Nível 1" -> "custo_nivel1";
             case "Status" -> "status";
-            default -> throw new IllegalArgumentException("Campo de busca invalido");
+            default -> throw new IllegalArgumentException("Campo de busca inválido");
         };
         try {
             if ("id".equals(parametro)) {
@@ -91,11 +91,11 @@ public class ConsultaCustoNivel2Controller implements ActionListener {
                 };
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(tela, "Informe um ID numerico maior que zero.",
-                    "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, "Informe um ID numérico maior que zero.",
+                    "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         String valor = filtro;
@@ -149,9 +149,9 @@ public class ConsultaCustoNivel2Controller implements ActionListener {
     }
 
     private void mostrarErro(Throwable erro) {
-        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao consultar custos nivel 2", erro);
+        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao consultar custos nível 2", erro);
         JOptionPane.showMessageDialog(tela,
-                "Nao foi possivel consultar. Verifique a conexao com o banco e tente novamente.",
+                "Não foi possível consultar. Verifique a conexão com o banco e tente novamente.",
                 "Erro", JOptionPane.ERROR_MESSAGE);
     }
 }

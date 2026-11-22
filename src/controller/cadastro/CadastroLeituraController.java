@@ -102,18 +102,18 @@ public class CadastroLeituraController implements ActionListener {
         final Leitura registro = new Leitura();
         try {
             registro.setId(idEmEdicao);
-            registro.setDataLeitura(Utils.data(tela.getjTextFieldDataLeitura(), "data leitura", true));
-            registro.setMesReferencia(Utils.inteiro(tela.getjTextFieldMesReferencia(), "mes referencia", 1, 12));
-            registro.setAnoReferencia(Utils.inteiro(tela.getjTextFieldAnoReferencia(), "ano referencia", 1, 9999));
-            registro.setMedicaoAnterior(Utils.numero(tela.getjTextFieldMedicaoAnterior(), "medicao anterior", false));
-            registro.setMedicaoAtual(Utils.numero(tela.getjTextFieldMedicaoAtual(), "medicao atual", true));
+            registro.setDataLeitura(Utils.data(tela.getjTextFieldDataLeitura(), "data de leitura", true));
+            registro.setMesReferencia(Utils.inteiro(tela.getjTextFieldMesReferencia(), "mês de referência", 1, 12));
+            registro.setAnoReferencia(Utils.inteiro(tela.getjTextFieldAnoReferencia(), "ano de referência", 1, 9999));
+            registro.setMedicaoAnterior(Utils.numero(tela.getjTextFieldMedicaoAnterior(), "medição anterior", false));
+            registro.setMedicaoAtual(Utils.numero(tela.getjTextFieldMedicaoAtual(), "medição atual", true));
             registro.setTipo(Utils.escolha(tela.getjComboBoxTipo(), "tipo", true));
-            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
+            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observação", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             registro.setUnidadeCondomino(tela.getjComboBoxUnidade().getSelectedIndex() > 0 ? unidadeCondominoSelecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         definirOcupado(true);
@@ -154,7 +154,7 @@ public class CadastroLeituraController implements ActionListener {
 
     private void mostrarErro(Throwable erro) {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar Leitura", erro);
-        JOptionPane.showMessageDialog(tela, "Nao foi possivel gravar. Verifique a conexao e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(tela, "Não foi possível gravar. Verifique a conexão e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
     private void definirUnidadeCondomino(UnidadeCondomino registro) {

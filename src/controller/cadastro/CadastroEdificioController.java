@@ -105,26 +105,26 @@ public class CadastroEdificioController implements ActionListener {
         try {
             registro.setId(idEmEdicao);
             registro.setNome(Utils.texto(tela.getjTextFieldNome(), "nome", 100, true));
-            registro.setQuantidadeAndares(Utils.inteiro(tela.getjTextFieldQuantidadeAndares(), "quantidade andares", 0, 2147483647));
-            registro.setQuantidadeUnidades(Utils.inteiro(tela.getjTextFieldQuantidadeUnidades(), "quantidade unidades", 0, 2147483647));
-            registro.setCnpj(Utils.documento(tela.getjTextFieldCnpj(), "cnpj", 14, 14, true));
-            registro.setAnoLancamento(Utils.inteiro(tela.getjTextFieldAnoLancamento(), "ano lancamento", 1, 9999));
-            registro.setAreaTotal(Utils.numero(tela.getjTextFieldAreaTotal(), "area total", true));
-            registro.setCep(Utils.documento(tela.getjTextFieldCep(), "cep", 8, 8, true));
+            registro.setQuantidadeAndares(Utils.inteiro(tela.getjTextFieldQuantidadeAndares(), "quantidade de andares", 0, 2147483647));
+            registro.setQuantidadeUnidades(Utils.inteiro(tela.getjTextFieldQuantidadeUnidades(), "quantidade de unidades", 0, 2147483647));
+            registro.setCnpj(Utils.documento(tela.getjTextFieldCnpj(), "CNPJ", 14, 14, true));
+            registro.setAnoLancamento(Utils.inteiro(tela.getjTextFieldAnoLancamento(), "ano de lançamento", 1, 9999));
+            registro.setAreaTotal(Utils.numero(tela.getjTextFieldAreaTotal(), "área total", true));
+            registro.setCep(Utils.documento(tela.getjTextFieldCep(), "CEP", 8, 8, true));
             registro.setLogradouro(Utils.texto(tela.getjTextFieldLogradouro(), "logradouro", 100, true));
             registro.setCidade(Utils.texto(tela.getjTextFieldCidade(), "cidade", 45, true));
             registro.setBairro(Utils.texto(tela.getjTextFieldBairro(), "bairro", 45, true));
             registro.setComplemento(Utils.texto(tela.getjTextFieldComplemento(), "complemento", 45, true));
-            registro.setNumeroUnidadeAgua(Utils.texto(tela.getjTextFieldNumeroUnidadeAgua(), "numero unidade agua", 45, true));
-            registro.setNumeroUnidadeGas(Utils.texto(tela.getjTextFieldNumeroUnidadeGas(), "numero unidade gas", 45, true));
-            registro.setPrecoM3Agua(Utils.preco(tela.getjTextFieldPrecoM3Agua(), "agua por m3"));
-            registro.setPrecoM3Gas(Utils.preco(tela.getjTextFieldPrecoM3Gas(), "gas por m3"));
+            registro.setNumeroUnidadeAgua(Utils.texto(tela.getjTextFieldNumeroUnidadeAgua(), "número da unidade de água", 45, true));
+            registro.setNumeroUnidadeGas(Utils.texto(tela.getjTextFieldNumeroUnidadeGas(), "número da unidade de gás", 45, true));
+            registro.setPrecoM3Agua(Utils.preco(tela.getjTextFieldPrecoM3Agua(), "o m³ de água"));
+            registro.setPrecoM3Gas(Utils.preco(tela.getjTextFieldPrecoM3Gas(), "o m³ de gás"));
             registro.setFormulaCalculo(tela.getjRadioButton1().isSelected() ? tela.getjRadioButton1().getText() : tela.getjRadioButton2().isSelected() ? tela.getjRadioButton2().getText() : null);
-            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
+            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observação", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         definirOcupado(true);
@@ -164,8 +164,8 @@ public class CadastroEdificioController implements ActionListener {
     }
 
     private void mostrarErro(Throwable erro) {
-        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar Edificio", erro);
-        JOptionPane.showMessageDialog(tela, "Nao foi possivel gravar. Verifique a conexao e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
+        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar Edifício", erro);
+        JOptionPane.showMessageDialog(tela, "Não foi possível gravar. Verifique a conexão e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
 

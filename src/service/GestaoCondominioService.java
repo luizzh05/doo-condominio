@@ -24,28 +24,28 @@ public class GestaoCondominioService {
 
     public static YearMonth referenciaDe(int mesSelecionado, int anoSelecionado) {
         if (mesSelecionado < 1 || mesSelecionado > 12 || anoSelecionado < 2000 || anoSelecionado > 2100) {
-            throw new IllegalArgumentException("Informe mes entre 1 e 12 e ano entre 2000 e 2100.");
+            throw new IllegalArgumentException("Informe mês entre 1 e 12 e ano entre 2000 e 2100.");
         }
         return YearMonth.of(anoSelecionado, mesSelecionado).minusMonths(1);
     }
 
     public PreviaGeracaoCondominio calcular(Edificio edificio, int mesSelecionado, int anoSelecionado) {
         if (edificio == null || edificio.getId() <= 0) {
-            throw new IllegalArgumentException("Busque e selecione o Edificio.");
+            throw new IllegalArgumentException("Busque e selecione o edifício.");
         }
         Edificio atual = edificioDAO.retrieve(edificio.getId());
         if (atual == null) {
-            throw new IllegalArgumentException("Busque e selecione o Edificio.");
+            throw new IllegalArgumentException("Busque e selecione o edifício.");
         }
         YearMonth ref = referenciaDe(mesSelecionado, anoSelecionado);
         if (!ref.isBefore(YearMonth.now())) {
             throw new IllegalArgumentException(String.format(
-                    "So e possivel gerar condominios de meses encerrados (referencia %02d/%04d).",
+                    "Só é possível gerar condomínios de meses encerrados (referência %02d/%04d).",
                     ref.getMonthValue(), ref.getYear()));
         }
         if (condominioDAO.existeParaEdificioReferencia(atual.getId(), ref.getMonthValue(), ref.getYear())) {
             throw new IllegalArgumentException(String.format(
-                    "Ja existem condominios gerados para %s em %02d/%04d. Geracao bloqueada.",
+                    "Já existem condomínios gerados para %s em %02d/%04d. Geração bloqueada.",
                     atual.getNome(), ref.getMonthValue(), ref.getYear()));
         }
         List<UnidadeCondomino> unidades = unidadeCondominoDAO.listarAtivasPorEdificio(atual.getId());
@@ -58,7 +58,7 @@ public class GestaoCondominioService {
 
     public int gravar(PreviaGeracaoCondominio previa) {
         if (previa == null) {
-            throw new IllegalArgumentException("Calcule a previa antes de gravar.");
+            throw new IllegalArgumentException("Calcule a prévia antes de gravar.");
         }
         for (Condominio c : previa.getCondominios()) {
             condominioService.validar(c);

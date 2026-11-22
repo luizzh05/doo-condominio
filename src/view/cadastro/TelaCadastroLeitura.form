@@ -234,7 +234,7 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Identificacao"/>
+              <Property name="text" type="java.lang.String" value="Identifica&#xe7;&#xe3;o"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelId">
@@ -283,7 +283,7 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Referencia"/>
+              <Property name="text" type="java.lang.String" value="Refer&#xea;ncia"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelDataLeitura">
@@ -331,7 +331,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelMesReferencia">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Mes Referencia"/>
+              <Property name="text" type="java.lang.String" value="M&#xea;s Refer&#xea;ncia"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JFormattedTextField" name="jTextFieldMesReferencia">
@@ -349,7 +349,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelAnoReferencia">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Ano Referencia"/>
+              <Property name="text" type="java.lang.String" value="Ano Refer&#xea;ncia"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JFormattedTextField" name="jTextFieldAnoReferencia">
@@ -373,12 +373,12 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Medicao"/>
+              <Property name="text" type="java.lang.String" value="Medi&#xe7;&#xe3;o"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelMedicaoAnterior">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Medicao Anterior"/>
+              <Property name="text" type="java.lang.String" value="Medi&#xe7;&#xe3;o Anterior"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JFormattedTextField" name="jTextFieldMedicaoAnterior">
@@ -393,7 +393,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelMedicaoAtual">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Medicao Atual"/>
+              <Property name="text" type="java.lang.String" value="Medi&#xe7;&#xe3;o Atual"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JFormattedTextField" name="jTextFieldMedicaoAtual">
@@ -438,7 +438,7 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Observacoes"/>
+              <Property name="text" type="java.lang.String" value="Observa&#xe7;&#xf5;es"/>
             </Properties>
           </Component>
           <Container class="javax.swing.JScrollPane" name="jScrollPaneObservacao">

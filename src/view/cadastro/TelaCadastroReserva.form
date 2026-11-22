@@ -228,12 +228,12 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Periodo"/>
+              <Property name="text" type="java.lang.String" value="Per&#xed;odo"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelUnidadeCondomino">
               <Properties>
-                  <Property name="text" type="java.lang.String" value="Unidade Condomino"/>
+                  <Property name="text" type="java.lang.String" value="Unidade Cond&#xf4;mino"/>
               </Properties>
           </Component>
           <Component class="javax.swing.JComboBox" name="jComboBoxUnidadeCondomino">
@@ -297,13 +297,13 @@
               <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                 <Color blue="1e" green="0" red="53" type="rgb"/>
               </Property>
-              <Property name="text" type="java.lang.String" value="Observacoes"/>
+              <Property name="text" type="java.lang.String" value="Observa&#xe7;&#xf5;es"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelId">
             <Properties>
               <Property name="text" type="java.lang.String" value="ID"/>
-              <Property name="toolTipText" type="java.lang.String" value="Codigo interno do cadastro"/>
+              <Property name="toolTipText" type="java.lang.String" value="C&#xf3;digo interno do cadastro"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JTextField" name="jTextFieldId">
@@ -321,7 +321,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelAreaCompartilhadaEdificio">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Area Compartilhada Edificio"/>
+              <Property name="text" type="java.lang.String" value="&#xc1;rea Compartilhada Edif&#xed;cio"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JComboBox" name="jComboBoxAreaCompartilhadaEdificio">
@@ -344,7 +344,7 @@
           </Component>
           <Component class="javax.swing.JLabel" name="jLabelDataHoraInicio">
             <Properties>
-              <Property name="text" type="java.lang.String" value="Data/Hora Inicio"/>
+              <Property name="text" type="java.lang.String" value="Data/Hora In&#xed;cio"/>
             </Properties>
           </Component>
           <Component class="javax.swing.JFormattedTextField" name="jTextFieldDataHoraInicio">

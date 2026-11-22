@@ -85,7 +85,7 @@ public class CadastroProprietarioController implements ActionListener {
         Utils.preencherCampo(tela.getjTextFieldComplemento(), registro.getComplemento());
         Utils.preencherCampo(tela.getjTextAreaObservacao(), registro.getObservacao());
         tela.getjComboBoxStatus().setSelectedIndex("A".equals(registro.getStatus()) ? 0 : "I".equals(registro.getStatus()) ? 1 : -1);
-        Utils.selecionarItem(tela.getjComboBoxTipoPessoa(), registro.getCnpj() == null ? "Fisica" : "Juridica");
+        Utils.selecionarItem(tela.getjComboBoxTipoPessoa(), registro.getCnpj() == null ? "Física" : "Jurídica");
         editando = true;
         definirOcupado(false);
     }
@@ -108,28 +108,28 @@ public class CadastroProprietarioController implements ActionListener {
             registro.setId(idEmEdicao);
             String tipoPessoa = Utils.escolha(tela.getjComboBoxTipoPessoa(), "tipo de pessoa", true);
             registro.setNomeFantasia(Utils.texto(tela.getjTextFieldNomeFantasia(), "nome fantasia", 100, true));
-            registro.setRazaoSocial("Juridica".equals(tipoPessoa) ? Utils.texto(tela.getjTextFieldRazaoSocial(), "razao social", 100, false) : null);
-            registro.setCpf("Fisica".equals(tipoPessoa) ? Utils.documento(tela.getjTextFieldCpf(), "cpf", 11, 11, false) : null);
-            registro.setRg("Fisica".equals(tipoPessoa) ? Utils.texto(tela.getjTextFieldRg(), "rg", 10, false) : null);
-            registro.setCnpj("Juridica".equals(tipoPessoa) ? Utils.documento(tela.getjTextFieldCnpj(), "cnpj", 14, 14, false) : null);
-            registro.setInscricaoEstadual("Juridica".equals(tipoPessoa) ? Utils.texto(tela.getjTextFieldInscricaoEstadual(), "inscricao estadual", 45, false) : null);
-            registro.setFone1(Utils.documento(tela.getjTextFieldFone1(), "fone1", 10, 11, true));
-            registro.setFone2(Utils.documento(tela.getjTextFieldFone2(), "fone2", 10, 11, false));
-            registro.setEmail(Utils.texto(tela.getjTextFieldEmail(), "email", 100, true));
-            registro.setDataNascimento("Fisica".equals(tipoPessoa) ? Utils.data(tela.getjTextFieldDataNascimento(), "data nascimento", false) : null);
-            registro.setDataCadastro(Utils.data(tela.getjTextFieldDataCadastro(), "data cadastro", true));
-            registro.setEstadoCivil("Fisica".equals(tipoPessoa) ? Utils.escolha(tela.getjComboBoxEstadoCivil(), "estado civil", false) : null);
-            registro.setCep(Utils.documento(tela.getjTextFieldCep(), "cep", 8, 8, true));
+            registro.setRazaoSocial("Jurídica".equals(tipoPessoa) ? Utils.texto(tela.getjTextFieldRazaoSocial(), "razão social", 100, false) : null);
+            registro.setCpf("Física".equals(tipoPessoa) ? Utils.documento(tela.getjTextFieldCpf(), "CPF", 11, 11, false) : null);
+            registro.setRg("Física".equals(tipoPessoa) ? Utils.texto(tela.getjTextFieldRg(), "RG", 10, false) : null);
+            registro.setCnpj("Jurídica".equals(tipoPessoa) ? Utils.documento(tela.getjTextFieldCnpj(), "CNPJ", 14, 14, false) : null);
+            registro.setInscricaoEstadual("Jurídica".equals(tipoPessoa) ? Utils.texto(tela.getjTextFieldInscricaoEstadual(), "inscrição estadual", 45, false) : null);
+            registro.setFone1(Utils.documento(tela.getjTextFieldFone1(), "telefone 1", 10, 11, true));
+            registro.setFone2(Utils.documento(tela.getjTextFieldFone2(), "telefone 2", 10, 11, false));
+            registro.setEmail(Utils.texto(tela.getjTextFieldEmail(), "e-mail", 100, true));
+            registro.setDataNascimento("Física".equals(tipoPessoa) ? Utils.data(tela.getjTextFieldDataNascimento(), "data de nascimento", false) : null);
+            registro.setDataCadastro(Utils.data(tela.getjTextFieldDataCadastro(), "data de cadastro", true));
+            registro.setEstadoCivil("Física".equals(tipoPessoa) ? Utils.escolha(tela.getjComboBoxEstadoCivil(), "estado civil", false) : null);
+            registro.setCep(Utils.documento(tela.getjTextFieldCep(), "CEP", 8, 8, true));
             registro.setLogradouro(Utils.texto(tela.getjTextFieldLogradouro(), "logradouro", 45, true));
             registro.setCidade(Utils.texto(tela.getjTextFieldCidade(), "cidade", 45, true));
             registro.setBairro(Utils.texto(tela.getjTextFieldBairro(), "bairro", 45, true));
             registro.setComplemento(Utils.texto(tela.getjTextFieldComplemento(), "complemento", 100, false));
-            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
+            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observação", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             registro.setTipoPessoa(tipoPessoa);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         definirOcupado(true);
@@ -170,8 +170,8 @@ public class CadastroProprietarioController implements ActionListener {
     }
 
     private void mostrarErro(Throwable erro) {
-        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar Proprietario", erro);
-        JOptionPane.showMessageDialog(tela, "Nao foi possivel gravar. Verifique a conexao e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
+        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar Proprietário", erro);
+        JOptionPane.showMessageDialog(tela, "Não foi possível gravar. Verifique a conexão e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
 

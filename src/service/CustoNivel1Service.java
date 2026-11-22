@@ -13,7 +13,7 @@ public class CustoNivel1Service extends CrudService<CustoNivel1> {
         super.validar(registro);
         CadastroValidation.validarTexto(registro.getDescricao(), registro.getObservacao(), registro.getStatus());
         if (!"Credito".equals(registro.getTipoCc()) && !"Debito".equals(registro.getTipoCc())) {
-            throw new IllegalArgumentException("Selecione o tipo CC (Credito ou Debito).");
+            throw new IllegalArgumentException("Selecione o tipo CC (Crédito ou Débito).");
         }
     }
 }

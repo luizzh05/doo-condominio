@@ -106,22 +106,22 @@ public class CadastroCondominioController implements ActionListener {
         final Condominio registro = new Condominio();
         try {
             registro.setId(idEmEdicao);
-            registro.setMesReferencia(Utils.inteiro(tela.getjTextFieldMesReferencia(), "mes referencia", 1, 12));
-            registro.setAnoReferencia(Utils.inteiro(tela.getjTextFieldAnoReferencia(), "ano referencia", 1, 9999));
-            registro.setDataEmissao(Utils.data(tela.getjTextFieldDataEmissao(), "data emissao", true));
-            registro.setDataVencimento(Utils.data(tela.getjTextFieldDataVencimento(), "data vencimento", true));
-            registro.setDataPagamento(Utils.data(tela.getjTextFieldDataPagamento(), "data pagamento", false));
+            registro.setMesReferencia(Utils.inteiro(tela.getjTextFieldMesReferencia(), "mês de referência", 1, 12));
+            registro.setAnoReferencia(Utils.inteiro(tela.getjTextFieldAnoReferencia(), "ano de referência", 1, 9999));
+            registro.setDataEmissao(Utils.data(tela.getjTextFieldDataEmissao(), "data de emissão", true));
+            registro.setDataVencimento(Utils.data(tela.getjTextFieldDataVencimento(), "data de vencimento", true));
+            registro.setDataPagamento(Utils.data(tela.getjTextFieldDataPagamento(), "data de pagamento", false));
             registro.setJuros(Utils.numero(tela.getjTextFieldJuros(), "juros", false));
             registro.setMultas(Utils.numero(tela.getjTextFieldMultas(), "multas", false));
-            registro.setCorrecao(Utils.numero(tela.getjTextFieldCorrecao(), "correcao", false));
+            registro.setCorrecao(Utils.numero(tela.getjTextFieldCorrecao(), "correção", false));
             registro.setValorEmitido(Utils.numero(tela.getjTextFieldValorEmitido(), "valor emitido", true));
             registro.setValorPago(Utils.numero(tela.getjTextFieldValorPago(), "valor pago", false));
-            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
+            registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observação", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             registro.setUnidadeCondomino(tela.getjComboBoxUnidadeCondomino().getSelectedIndex() > 0 ? unidadeCondominoSelecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return;
         }
         definirOcupado(true);
@@ -161,8 +161,8 @@ public class CadastroCondominioController implements ActionListener {
     }
 
     private void mostrarErro(Throwable erro) {
-        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar Condominio", erro);
-        JOptionPane.showMessageDialog(tela, "Nao foi possivel gravar. Verifique a conexao e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
+        Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao gravar Condomínio", erro);
+        JOptionPane.showMessageDialog(tela, "Não foi possível gravar. Verifique a conexão e os dados informados.", "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
     private void definirUnidadeCondomino(UnidadeCondomino registro) {

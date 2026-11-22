@@ -168,7 +168,7 @@
                 <StringItem index="1" value="ID"/>
                 <StringItem index="2" value="Unidade"/>
                 <StringItem index="3" value="Tipo"/>
-                <StringItem index="4" value="Mes"/>
+                <StringItem index="4" value="M&#xea;s"/>
                 <StringItem index="5" value="Ano"/>
                 <StringItem index="6" value="Status"/>
               </StringArray>
@@ -261,9 +261,9 @@
                     <Column editable="true" title="ID" type="java.lang.Object"/>
                     <Column editable="true" title="Unidade" type="java.lang.Object"/>
                     <Column editable="true" title="Tipo" type="java.lang.Object"/>
-                    <Column editable="true" title="Mes" type="java.lang.Object"/>
+                    <Column editable="true" title="M&#xea;s" type="java.lang.Object"/>
                     <Column editable="true" title="Ano" type="java.lang.Object"/>
-                    <Column editable="true" title="Medicao Atual" type="java.lang.Object"/>
+                    <Column editable="true" title="Medi&#xe7;&#xe3;o Atual" type="java.lang.Object"/>
                     <Column editable="true" title="Status" type="java.lang.Object"/>
                   </Table>
                 </Property>
