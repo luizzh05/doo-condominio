@@ -29,3 +29,19 @@ existente, recrie-o com `database/schema.sql` (e, opcionalmente, `database/dados
 
 Os controladores chamam os services, que usam os DAOs. Para executar as telas com
 dados persistidos, crie as tabelas com `database/schema.sql` e configure a conexão.
+
+## Geração de condomínios
+
+Menu Operações > Gestão de Condomínios. Selecione o edifício, o mês e o ano; o sistema
+gera os condomínios do mês ANTERIOR (referência) para todas as unidades ativas do edifício.
+
+- Valor emitido = água e gás (consumo das leituras × preço do m³ do edifício) + rateio dos
+  movimentos de caixa do edifício com rateio marcado e data de emissão no mês de referência
+  (Despesa soma, Receita abate).
+- Fórmula "Por Und." divide igual entre as unidades; "Por m²" divide proporcionalmente à
+  metragem individual. Movimento sem fórmula usa a fórmula do edifício.
+- É bloqueado se já houver condomínio do edifício naquele mês.
+- Só gera meses encerrados.
+
+Para testar com `database/dados_exemplo.sql`: edifício "Edificio Teste Geracao", mês 11,
+ano 2026 (referência 10/2026).
