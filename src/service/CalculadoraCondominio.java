@@ -186,6 +186,41 @@ public final class CalculadoraCondominio {
         return new PreviaGeracaoCondominio(edificio, referencia, resultado, avisos);
     }
 
+    /** Multa única de 2% sobre o valor emitido quando pago após o vencimento. */
+    public static final BigDecimal TAXA_MULTA = new BigDecimal("0.02");
+    /** Juros de mora de 1% ao mês, proporcional aos dias de atraso (mês de 30 dias). */
+    public static final BigDecimal TAXA_JUROS_MES = new BigDecimal("0.01");
+
+    public record Pagamento(LocalDate dataPagamento, long diasAtraso, BigDecimal multa, BigDecimal juros,
+            BigDecimal correcao, BigDecimal valorPago) {}
+
+    public static Pagamento calcularPagamento(double valorEmitido, LocalDate vencimento, LocalDate dataPagamento,
+            BigDecimal correcao) {
+        if (dataPagamento == null) {
+            throw new IllegalArgumentException("Informe a data de pagamento.");
+        }
+        if (correcao == null) {
+            correcao = BigDecimal.ZERO;
+        }
+        if (correcao.signum() < 0) {
+            throw new IllegalArgumentException("A correção não pode ser negativa.");
+        }
+        BigDecimal valor = BigDecimal.valueOf(valorEmitido);
+        long dias = vencimento == null ? 0 : Math.max(0, java.time.temporal.ChronoUnit.DAYS.between(vencimento, dataPagamento));
+        BigDecimal multa = BigDecimal.ZERO;
+        BigDecimal juros = BigDecimal.ZERO;
+        if (dias > 0) {
+            multa = valor.multiply(TAXA_MULTA);
+            juros = valor.multiply(TAXA_JUROS_MES).multiply(BigDecimal.valueOf(dias))
+                    .divide(BigDecimal.valueOf(30), 2, RoundingMode.HALF_UP);
+        }
+        multa = multa.setScale(2, RoundingMode.HALF_UP);
+        juros = juros.setScale(2, RoundingMode.HALF_UP);
+        correcao = correcao.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal pago = valor.add(multa).add(juros).add(correcao).setScale(2, RoundingMode.HALF_UP);
+        return new Pagamento(dataPagamento, dias, multa, juros, correcao, pago);
+    }
+
     public static LocalDate calcularVencimento(YearMonth referencia, LocalDate hoje) {
         LocalDate base = referencia.plusMonths(1).atDay(10);
         return base.isBefore(hoje) ? hoje.plusDays(10) : base;

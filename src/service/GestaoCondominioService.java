@@ -72,4 +72,59 @@ public class GestaoCondominioService {
     public List<Condominio> listar(int edificioId, YearMonth referencia) {
         return condominioDAO.listarPorEdificioReferencia(edificioId, referencia.getMonthValue(), referencia.getYear());
     }
+
+    public Condominio buscar(int id) {
+        Condominio atual = condominioDAO.retrieve(id);
+        if (atual == null) {
+            throw new IllegalArgumentException("Condomínio não encontrado. Pesquise novamente.");
+        }
+        return atual;
+    }
+
+    public CalculadoraCondominio.Pagamento simularPagamento(Condominio condominio, LocalDate dataPagamento,
+            java.math.BigDecimal correcao) {
+        return CalculadoraCondominio.calcularPagamento(condominio.getValorEmitido(),
+                condominio.getDataVencimento(), dataPagamento, correcao);
+    }
+
+    public void pagar(int id, LocalDate dataPagamento, java.math.BigDecimal correcao) {
+        Condominio atual = buscar(id);
+        if (!Condominio.ATIVO.equals(atual.getStatus()) && !Condominio.PROCESSADO.equals(atual.getStatus())) {
+            throw new IllegalArgumentException("Só é possível pagar condomínio Ativo ou Processado (status atual: "
+                    + Condominio.descricaoStatus(atual.getStatus()) + ").");
+        }
+        if (atual.getDataEmissao() != null && dataPagamento != null && dataPagamento.isBefore(atual.getDataEmissao())) {
+            throw new IllegalArgumentException("A data de pagamento não pode ser anterior à data de emissão.");
+        }
+        CalculadoraCondominio.Pagamento pg = simularPagamento(atual, dataPagamento, correcao);
+        atual.setDataPagamento(pg.dataPagamento());
+        atual.setMultas(pg.multa().doubleValue());
+        atual.setJuros(pg.juros().doubleValue());
+        atual.setCorrecao(pg.correcao().doubleValue());
+        atual.setValorPago(pg.valorPago().doubleValue());
+        atual.setStatus(Condominio.PAGO);
+        condominioDAO.update(atual);
+    }
+
+    public void processar(int id) {
+        Condominio atual = buscar(id);
+        if (!Condominio.ATIVO.equals(atual.getStatus())) {
+            throw new IllegalArgumentException("Só é possível processar condomínio Ativo (status atual: "
+                    + Condominio.descricaoStatus(atual.getStatus()) + ").");
+        }
+        atual.setStatus(Condominio.PROCESSADO);
+        condominioDAO.update(atual);
+    }
+
+    /** Alterna entre Ativo e Inativo; retorna o novo status. */
+    public String alternarAtivo(int id) {
+        Condominio atual = buscar(id);
+        if (Condominio.PAGO.equals(atual.getStatus())) {
+            throw new IllegalArgumentException("Condomínio pago não pode ser desativado.");
+        }
+        String novo = Condominio.INATIVO.equals(atual.getStatus()) ? Condominio.ATIVO : Condominio.INATIVO;
+        atual.setStatus(novo);
+        condominioDAO.update(atual);
+        return novo;
+    }
 }
