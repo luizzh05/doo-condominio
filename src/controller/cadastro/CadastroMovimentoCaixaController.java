@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import model.MovimentoCaixa;
+import service.FormulaRateio;
 import service.MovimentoCaixaService;
 import utils.Utils;
 import view.cadastro.TelaCadastroMovimentoCaixa;
@@ -119,7 +120,12 @@ public class CadastroMovimentoCaixaController implements ActionListener {
         Utils.preencherCampo(tela.getjTextFieldValorPagoRec(), registro.getValorPagoRec());
         Utils.selecionarItem(tela.getjComboBoxTipo(), registro.getTipo());
         tela.getjCheckBoxFlagRateio().setSelected(registro.isFlagRateio());
-        Utils.preencherCampo(tela.getjTextFieldFlagFormula(), registro.getFlagFormula());
+        String formulaGravada = registro.getFlagFormula();
+        if (formulaGravada != null && !formulaGravada.trim().isEmpty() && !FormulaRateio.valida(formulaGravada)) {
+            tela.getjComboBoxFlagFormula().setSelectedIndex(0);
+        } else {
+            Utils.selecionarItem(tela.getjComboBoxFlagFormula(), formulaGravada);
+        }
         Utils.preencherCampo(tela.getjTextAreaObservacao(), registro.getObservacao());
         tela.getjComboBoxStatus().setSelectedIndex("A".equals(registro.getStatus()) ? 0 : "I".equals(registro.getStatus()) ? 1 : -1);
         definirEdificio(registro.getEdificio());
@@ -159,7 +165,7 @@ public class CadastroMovimentoCaixaController implements ActionListener {
             registro.setValorPagoRec(Utils.numero(tela.getjTextFieldValorPagoRec(), "valor pagamento", false));
             registro.setTipo(Utils.escolha(tela.getjComboBoxTipo(), "tipo", true));
             registro.setFlagRateio(tela.getjCheckBoxFlagRateio().isSelected());
-            registro.setFlagFormula(Utils.texto(tela.getjTextFieldFlagFormula(), "flag formula", 45, false));
+            registro.setFlagFormula(Utils.escolha(tela.getjComboBoxFlagFormula(), "formula", false));
             registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observacao", 100, false));
             registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
             registro.setEdificio(tela.getjComboBoxEdificio().getSelectedIndex() > 0 ? edificioSelecionado : null);

@@ -63,7 +63,7 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
         jLabelJuros = new javax.swing.JLabel();
         jTextFieldJuros = new javax.swing.JFormattedTextField();
         jLabelFlagFormula = new javax.swing.JLabel();
-        jTextFieldFlagFormula = new javax.swing.JTextField();
+        jComboBoxFlagFormula = new javax.swing.JComboBox<>();
         jLabelFlagRateio = new javax.swing.JLabel();
         jCheckBoxFlagRateio = new javax.swing.JCheckBox();
         jLabelSecaoObservacoes = new javax.swing.JLabel();
@@ -217,8 +217,9 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
 
         jLabelFlagFormula.setText("Formula");
 
-        jTextFieldFlagFormula.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextFieldFlagFormula.setPreferredSize(new java.awt.Dimension(170, 28));
+        jComboBoxFlagFormula.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jComboBoxFlagFormula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Por Und.", "Por m²" }));
+        jComboBoxFlagFormula.setPreferredSize(new java.awt.Dimension(170, 28));
 
         jLabelFlagRateio.setText("Rateio por unidade");
 
@@ -309,7 +310,7 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(jLabelFlagFormula, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldFlagFormula, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
+                        .addComponent(jComboBoxFlagFormula, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelFlagRateio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -409,7 +410,7 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
                     .addComponent(jLabelJuros)
                     .addComponent(jTextFieldJuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelFlagFormula)
-                    .addComponent(jTextFieldFlagFormula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxFlagFormula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelFlagRateio)
@@ -515,7 +516,7 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
     public javax.swing.JFormattedTextField getjTextFieldDataEmissao() { return jTextFieldDataEmissao; }
     public javax.swing.JFormattedTextField getjTextFieldDataPagamento() { return jTextFieldDataPagamento; }
     public javax.swing.JFormattedTextField getjTextFieldDataVencimento() { return jTextFieldDataVencimento; }
-    public javax.swing.JTextField getjTextFieldFlagFormula() { return jTextFieldFlagFormula; }
+    public javax.swing.JComboBox<String> getjComboBoxFlagFormula() { return jComboBoxFlagFormula; }
     public javax.swing.JTextField getjTextFieldId() { return jTextFieldId; }
     public javax.swing.JFormattedTextField getjTextFieldJuros() { return jTextFieldJuros; }
     public javax.swing.JFormattedTextField getjTextFieldMultas() { return jTextFieldMultas; }
@@ -570,7 +571,7 @@ public class TelaCadastroMovimentoCaixa extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField jTextFieldDataEmissao;
     private javax.swing.JFormattedTextField jTextFieldDataPagamento;
     private javax.swing.JFormattedTextField jTextFieldDataVencimento;
-    private javax.swing.JTextField jTextFieldFlagFormula;
+    private javax.swing.JComboBox<String> jComboBoxFlagFormula;
     private javax.swing.JTextField jTextFieldId;
     private javax.swing.JFormattedTextField jTextFieldJuros;
     private javax.swing.JFormattedTextField jTextFieldMultas;
