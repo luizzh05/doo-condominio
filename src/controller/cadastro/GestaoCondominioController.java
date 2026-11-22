@@ -53,7 +53,7 @@ public class GestaoCondominioController implements ActionListener {
         tela.getjButtonPesquisar().addActionListener(this);
         tela.getjButtonLimpar().addActionListener(this);
         tela.getjButtonFechar().addActionListener(this);
-        modelo = new DefaultTableModel(new Object[]{"Mes", "Ano", "Unidade", "Valor Emitido", "Proprietario", "Status"}, 0) {
+        modelo = new DefaultTableModel(new Object[]{"Mês", "Ano", "Unidade", "Valor Emitido", "Proprietário", "Status"}, 0) {
             @Override
             public boolean isCellEditable(int row, int column) { return false; }
             @Override
@@ -66,6 +66,14 @@ public class GestaoCondominioController implements ActionListener {
             }
         };
         tela.getjTableResultado().setModel(modelo);
+        int[] larguras = {50, 60, 170, 130, 300, 80};
+        for (int i = 0; i < larguras.length; i++) {
+            tela.getjTableResultado().getColumnModel().getColumn(i).setPreferredWidth(larguras[i]);
+        }
+        DefaultTableCellRenderer centro = new DefaultTableCellRenderer();
+        centro.setHorizontalAlignment(SwingConstants.CENTER);
+        tela.getjTableResultado().getColumnModel().getColumn(0).setCellRenderer(centro);
+        tela.getjTableResultado().getColumnModel().getColumn(1).setCellRenderer(centro);
         NumberFormat moedaTabela = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR"));
         tela.getjTableResultado().getColumnModel().getColumn(3).setCellRenderer(new DefaultTableCellRenderer() {
             {
@@ -144,14 +152,14 @@ public class GestaoCondominioController implements ActionListener {
     private Parametros lerParametros() {
         try {
             Edificio edificio = tela.getjComboBoxEdificio().getSelectedIndex() > 0 ? edificioSelecionado : null;
-            if (edificio == null) throw new IllegalArgumentException("Busque e selecione o Edificio.");
-            int mes = Utils.inteiro(tela.getjTextFieldMes(), "mes", 1, 12);
+            if (edificio == null) throw new IllegalArgumentException("Busque e selecione o edifício.");
+            int mes = Utils.inteiro(tela.getjTextFieldMes(), "mês", 1, 12);
             int ano = Utils.inteiro(tela.getjTextFieldAno(), "ano", 2000, 2100);
             YearMonth ref = GestaoCondominioService.referenciaDe(mes, ano);
             tela.getjLabelReferenciaValor().setText(String.format("%02d/%04d", ref.getMonthValue(), ref.getYear()));
             return new Parametros(edificio, mes, ano, ref);
         } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
             return null;
         }
     }
@@ -213,8 +221,8 @@ public class GestaoCondominioController implements ActionListener {
     private void confirmarEGravar(PreviaGeracaoCondominio previa) {
         NumberFormat moeda = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR"));
         YearMonth ref = previa.getReferencia();
-        StringBuilder msg = new StringBuilder(String.format("Gerar %d condominios de %02d/%04d, total %s?",
-                previa.getCondominios().size(), ref.getMonthValue(), ref.getYear(), moeda.format(previa.getValorTotal())));
+        StringBuilder msg = new StringBuilder(String.format("Gerar %d %s de %02d/%04d, total %s?",
+                previa.getCondominios().size(), previa.getCondominios().size() == 1 ? "condomínio" : "condomínios", ref.getMonthValue(), ref.getYear(), moeda.format(previa.getValorTotal())));
         for (String aviso : previa.getAvisos()) msg.append("\n- ").append(aviso);
         Object mensagem = msg.toString();
         if (!previa.getAvisos().isEmpty()) {
@@ -225,7 +233,7 @@ public class GestaoCondominioController implements ActionListener {
             area.setCaretPosition(0);
             mensagem = new JScrollPane(area);
         }
-        int opcao = JOptionPane.showConfirmDialog(tela, mensagem, "Confirmar geracao",
+        int opcao = JOptionPane.showConfirmDialog(tela, mensagem, "Confirmar geração",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (opcao != JOptionPane.YES_OPTION) return;
         definirOcupado(true);
@@ -250,8 +258,8 @@ public class GestaoCondominioController implements ActionListener {
                     definirOcupado(false);
                     return;
                 }
-                JOptionPane.showMessageDialog(tela, String.format("%d condominios gerados para %02d/%04d.",
-                        gravados, ref.getMonthValue(), ref.getYear()), "Geracao",
+                JOptionPane.showMessageDialog(tela, String.format("%d %s para %02d/%04d.",
+                        gravados, gravados == 1 ? "condomínio gerado" : "condomínios gerados", ref.getMonthValue(), ref.getYear()), "Geração",
                         JOptionPane.INFORMATION_MESSAGE);
                 recarregarAposGravar(previa);
             }
@@ -284,13 +292,13 @@ public class GestaoCondominioController implements ActionListener {
     private void avisarFalhaRecarga(Throwable erro) {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao recarregar grade apos geracao", erro);
         JOptionPane.showMessageDialog(tela,
-                "Condominios gerados, mas nao foi possivel recarregar a grade. Use Pesquisar.",
+                "Condomínios gerados, mas não foi possível recarregar a grade. Use Pesquisar.",
                 "Aviso", JOptionPane.WARNING_MESSAGE);
     }
 
     private void tratarErro(Throwable causa) {
         if (causa instanceof IllegalArgumentException) {
-            JOptionPane.showMessageDialog(tela, causa.getMessage(), "Validacao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tela, causa.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
         } else {
             mostrarErro(causa);
         }
@@ -310,8 +318,8 @@ public class GestaoCondominioController implements ActionListener {
                 c.getValorEmitido(), prop, status});
             total = total.add(BigDecimal.valueOf(c.getValorEmitido()));
         }
-        tela.getjLabelTotal().setText(registros.size() + " condominios | Total emitido: "
-                + moeda.format(total.setScale(2, java.math.RoundingMode.HALF_UP)));
+        tela.getjLabelQuantidadeValor().setText(String.valueOf(registros.size()));
+        tela.getjLabelTotalValor().setText(moeda.format(total.setScale(2, java.math.RoundingMode.HALF_UP)));
         aplicarFiltro();
     }
 
@@ -333,7 +341,8 @@ public class GestaoCondominioController implements ActionListener {
         tela.getjTextFieldFiltroUnidade().setText("");
         tela.getjComboBoxStatus().setSelectedIndex(0);
         modelo.setRowCount(0);
-        tela.getjLabelTotal().setText("");
+        tela.getjLabelQuantidadeValor().setText("0");
+        tela.getjLabelTotalValor().setText(NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR")).format(java.math.BigDecimal.ZERO));
         tela.getjLabelReferenciaValor().setText("--/----");
     }
 
@@ -349,7 +358,7 @@ public class GestaoCondominioController implements ActionListener {
     private void mostrarErro(Throwable erro) {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro na gestao de Condominio", erro);
         JOptionPane.showMessageDialog(tela,
-                "Nao foi possivel concluir a operacao. Verifique a conexao com o banco e tente novamente.",
+                "Não foi possível concluir a operação. Verifique a conexão com o banco e tente novamente.",
                 "Erro", JOptionPane.ERROR_MESSAGE);
     }
 }
