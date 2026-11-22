@@ -4,6 +4,22 @@ import java.time.LocalDate;
 
 public class Condominio {
 
+    public static final String ATIVO = "A";
+    public static final String INATIVO = "I";
+    public static final String PAGO = "P";
+    public static final String PROCESSADO = "R";
+
+    public static String descricaoStatus(String status) {
+        if (status == null) return "";
+        return switch (status) {
+            case ATIVO -> "Ativo";
+            case INATIVO -> "Inativo";
+            case PAGO -> "Pago";
+            case PROCESSADO -> "Processado";
+            default -> status;
+        };
+    }
+
     private int id;
     private int mesReferencia;
     private int anoReferencia;

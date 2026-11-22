@@ -57,6 +57,11 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
         jComboBoxStatus = new javax.swing.JComboBox<>();
         jScrollPaneResultado = new javax.swing.JScrollPane();
         jTableResultado = new javax.swing.JTable();
+        jPanelAcoes = new javax.swing.JPanel();
+        jButtonEditar = new javax.swing.JButton();
+        jButtonPagar = new javax.swing.JButton();
+        jButtonProcessar = new javax.swing.JButton();
+        jButtonAtivarDesativar = new javax.swing.JButton();
         jPanelResumo = new javax.swing.JPanel();
         jLabelResumoQuantidade = new javax.swing.JLabel();
         jLabelQuantidadeValor = new javax.swing.JLabel();
@@ -216,7 +221,7 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
         jLabelStatus.setText("Status");
 
         jComboBoxStatus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Ativo", "Inativo" }));
+        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Ativo", "Inativo", "Processado", "Pago" }));
         jComboBoxStatus.setPreferredSize(new java.awt.Dimension(120, 28));
 
         jTableResultado.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -225,13 +230,39 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Mês", "Ano", "Unidade", "Valor Emitido", "Proprietário", "Status"
+                "Mês", "Ano", "Unidade", "Vencimento", "Valor Emitido", "Valor Pago", "Proprietário", "Status"
             }
         ));
         jTableResultado.setRowHeight(24);
         jTableResultado.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableResultado.getTableHeader().setReorderingAllowed(false);
         jScrollPaneResultado.setViewportView(jTableResultado);
+
+        jPanelAcoes.setOpaque(false);
+        jPanelAcoes.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 8, 0));
+
+        jButtonEditar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
+        jButtonEditar.setText("Editar");
+        jButtonEditar.setPreferredSize(new java.awt.Dimension(110, 30));
+        jPanelAcoes.add(jButtonEditar);
+
+        jButtonPagar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Dollar.png"))); // NOI18N
+        jButtonPagar.setText("Pagar");
+        jButtonPagar.setPreferredSize(new java.awt.Dimension(110, 30));
+        jPanelAcoes.add(jButtonPagar);
+
+        jButtonProcessar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonProcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/OK.png"))); // NOI18N
+        jButtonProcessar.setText("Processar");
+        jButtonProcessar.setPreferredSize(new java.awt.Dimension(120, 30));
+        jPanelAcoes.add(jButtonProcessar);
+
+        jButtonAtivarDesativar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonAtivarDesativar.setText("Ativar/Desativar");
+        jButtonAtivarDesativar.setPreferredSize(new java.awt.Dimension(140, 30));
+        jPanelAcoes.add(jButtonAtivarDesativar);
 
         jPanelResumo.setBackground(new java.awt.Color(248, 249, 250));
         jPanelResumo.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(222, 226, 230)));
@@ -300,6 +331,7 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
                         .addGap(6, 6, 6)
                         .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPaneResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelAcoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelResumo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
@@ -315,6 +347,8 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
                     .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addComponent(jScrollPaneResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(jPanelAcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addComponent(jPanelResumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
@@ -353,7 +387,7 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
 
         jLabelRodape.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabelRodape.setForeground(new java.awt.Color(134, 142, 150));
-        jLabelRodape.setText("F5 Pesquisar  |  F8 Gerar condomínios  |  Esc Fechar");
+        jLabelRodape.setText("F5 Pesquisar  |  F8 Gerar  |  Duplo clique Editar  |  Esc Fechar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -433,6 +467,11 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
     }
 
     public JButton getjButtonFechar() { return jButtonFechar; }
+    public JButton getjButtonEditar() { return jButtonEditar; }
+    public JButton getjButtonPagar() { return jButtonPagar; }
+    public JButton getjButtonProcessar() { return jButtonProcessar; }
+    public JButton getjButtonAtivarDesativar() { return jButtonAtivarDesativar; }
+    public JPanel getjPanelAcoes() { return jPanelAcoes; }
     public JButton getjButtonGerar() { return jButtonGerar; }
     public JButton getjButtonLimpar() { return jButtonLimpar; }
     public JButton getjButtonPesquisar() { return jButtonPesquisar; }
@@ -450,10 +489,14 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
     public JTextField getjTextFieldMes() { return jTextFieldMes; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAtivarDesativar;
+    private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonFechar;
     private javax.swing.JButton jButtonGerar;
     private javax.swing.JButton jButtonLimpar;
+    private javax.swing.JButton jButtonPagar;
     private javax.swing.JButton jButtonPesquisar;
+    private javax.swing.JButton jButtonProcessar;
     private javax.swing.JButton jButtonSelecionarEdificio;
     private javax.swing.JComboBox<String> jComboBoxEdificio;
     private javax.swing.JComboBox<String> jComboBoxStatus;
@@ -473,6 +516,7 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelTotalValor;
     private javax.swing.JLabel jLabelUnidade;
     private javax.swing.JLabel jLabeltitulo;
+    private javax.swing.JPanel jPanelAcoes;
     private javax.swing.JPanel jPanelParametros;
     private javax.swing.JPanel jPanelResultado;
     private javax.swing.JPanel jPanelResumo;

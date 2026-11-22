@@ -93,7 +93,9 @@ public class ConsultaCondominioController implements ActionListener {
                 filtro = switch (filtro.toUpperCase(Locale.ROOT)) {
                     case "A", "ATIVO", "A - ATIVO" -> "A";
                     case "I", "INATIVO", "I - INATIVO" -> "I";
-                    default -> throw new IllegalArgumentException("Informe Ativo ou Inativo no filtro de status.");
+                    case "R", "PROCESSADO", "R - PROCESSADO" -> "R";
+                    case "P", "PAGO", "P - PAGO" -> "P";
+                    default -> throw new IllegalArgumentException("Informe Ativo, Inativo, Processado ou Pago no filtro de status.");
                 };
             }
         } catch (NumberFormatException ex) {
@@ -134,8 +136,7 @@ public class ConsultaCondominioController implements ActionListener {
         DefaultTableModel modelo = (DefaultTableModel) tela.getjTableResultado().getModel();
         modelo.setRowCount(0);
         for (Condominio registro : registros) {
-            String status = "A".equals(registro.getStatus()) ? "Ativo"
-                    : "I".equals(registro.getStatus()) ? "Inativo" : registro.getStatus();
+            String status = Condominio.descricaoStatus(registro.getStatus());
             modelo.addRow(new Object[]{registro.getId(), (registro.getUnidadeCondomino() == null ? "" : (registro.getUnidadeCondomino().getUnidade() == null ? "" : registro.getUnidadeCondomino().getUnidade().getDescricao())), registro.getMesReferencia(), registro.getAnoReferencia(), Utils.formatar(registro.getValorEmitido()), Utils.formatar(registro.getValorPago()), status});
         }
     }
