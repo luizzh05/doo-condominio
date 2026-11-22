@@ -84,7 +84,7 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jLabelStatus.setText("Status");
         jComboBoxStatus.setFont(new java.awt.Font("Segoe UI", 0, 12));
         jComboBoxStatus.setPreferredSize(new java.awt.Dimension(170, 28));
-        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A - Ativo", "I - Inativo" }));
+        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A - Ativo", "I - Inativo", "R - Processado", "P - Pago" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Condomínio");

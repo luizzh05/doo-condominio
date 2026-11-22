@@ -69,6 +69,21 @@ public class CadastroCondominioController implements ActionListener {
         }
     }
 
+    private static final String[] STATUS = {Condominio.ATIVO, Condominio.INATIVO, Condominio.PROCESSADO, Condominio.PAGO};
+
+    private static int indiceStatus(String status) {
+        for (int i = 0; i < STATUS.length; i++) {
+            if (STATUS[i].equals(status)) return i;
+        }
+        return -1;
+    }
+
+    private String statusSelecionado() {
+        int indice = tela.getjComboBoxStatus().getSelectedIndex();
+        if (indice < 0 || indice >= STATUS.length) throw new IllegalArgumentException("Selecione o status.");
+        return STATUS[indice];
+    }
+
     private void carregar(Condominio registro) {
         limparRegistro();
         idEmEdicao = registro.getId();
@@ -84,7 +99,7 @@ public class CadastroCondominioController implements ActionListener {
         Utils.preencherCampo(tela.getjTextFieldValorEmitido(), registro.getValorEmitido());
         Utils.preencherCampo(tela.getjTextFieldValorPago(), registro.getValorPago());
         Utils.preencherCampo(tela.getjTextAreaObservacao(), registro.getObservacao());
-        tela.getjComboBoxStatus().setSelectedIndex("A".equals(registro.getStatus()) ? 0 : "I".equals(registro.getStatus()) ? 1 : -1);
+        tela.getjComboBoxStatus().setSelectedIndex(indiceStatus(registro.getStatus()));
         definirUnidadeCondomino(registro.getUnidadeCondomino());
         editando = true;
         definirOcupado(false);
@@ -117,7 +132,7 @@ public class CadastroCondominioController implements ActionListener {
             registro.setValorEmitido(Utils.numero(tela.getjTextFieldValorEmitido(), "valor emitido", true));
             registro.setValorPago(Utils.numero(tela.getjTextFieldValorPago(), "valor pago", false));
             registro.setObservacao(Utils.texto(tela.getjTextAreaObservacao(), "observação", 100, false));
-            registro.setStatus(Utils.status(tela.getjComboBoxStatus()));
+            registro.setStatus(statusSelecionado());
             registro.setUnidadeCondomino(tela.getjComboBoxUnidadeCondomino().getSelectedIndex() > 0 ? unidadeCondominoSelecionado : null);
             service.validar(registro);
         } catch (IllegalArgumentException ex) {
