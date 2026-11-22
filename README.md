@@ -16,6 +16,9 @@ O esquema usado pelos DAOs está em `database/schema.sql`. Ele foi baseado no
 `CondominioScript.sql` e ajustado para guardar o logradouro do edifício e o tipo
 textual da unidade, conforme as telas e os modelos.
 
+Não há migrations: o projeto ainda está fora de produção. Para atualizar um banco local
+existente, recrie-o com `database/schema.sql` (e, opcionalmente, `database/dados_exemplo.sql`).
+
 ## Organização do código
 
 - `view`: formulários Swing;
@@ -26,6 +29,3 @@ textual da unidade, conforme as telas e os modelos.
 
 Os controladores chamam os services, que usam os DAOs. Para executar as telas com
 dados persistidos, crie as tabelas com `database/schema.sql` e configure a conexão.
-
-Para um banco já criado, aplique `database/migrations/2026_11_16_preco_m3_edificio.sql`
-antes de executar a versão com preços de água e gás por m³.
