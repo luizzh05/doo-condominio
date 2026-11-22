@@ -45,3 +45,17 @@ gera os condomínios do mês ANTERIOR (referência) para todas as unidades ativa
 
 Para testar com `database/dados_exemplo.sql`: edifício "Edificio Teste Geracao", mês 11,
 ano 2026 (referência 10/2026).
+
+### Ações na grade
+
+Selecione um condomínio na grade da Gestão de Condomínios:
+
+- **Editar** (ou duplo clique): abre o cadastro do condomínio já carregado; a grade recarrega ao gravar.
+- **Pagar**: mostra o valor pago = valor emitido + multa de 2% (se pago após o vencimento) +
+  juros de 1% ao mês proporcional aos dias de atraso + correção (valor informado, padrão 0).
+  Grava data, multa, juros, correção e valor pago, e muda o status para Pago.
+  Só para condomínios Ativos ou Processados.
+- **Processar**: muda o status de Ativo para Processado.
+- **Ativar/Desativar**: alterna entre Ativo e Inativo (condomínio Pago não pode ser desativado).
+
+Status gravados: `A` Ativo, `I` Inativo, `R` Processado, `P` Pago.
