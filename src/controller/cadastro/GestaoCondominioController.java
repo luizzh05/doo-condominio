@@ -31,9 +31,11 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import model.Condominio;
 import model.Edificio;
+import service.CalculadoraCondominio;
 import service.GestaoCondominioService;
 import service.PreviaGeracaoCondominio;
 import utils.Utils;
+import view.cadastro.TelaCadastroCondominio;
 import view.cadastro.TelaGestaoCondominio;
 import view.consulta.TelaConsultaEdificio;
 
@@ -43,8 +45,13 @@ public class GestaoCondominioController implements ActionListener {
     private final GestaoCondominioService service = new GestaoCondominioService();
     private final DefaultTableModel modelo;
     private final TableRowSorter<DefaultTableModel> sorter;
+    private static final java.time.format.DateTimeFormatter DATA = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private Edificio edificioSelecionado;
     private boolean ocupado;
+    private List<Condominio> registros = List.of();
+    /** Edifício e referência da grade atual, para recarregar depois de editar/pagar/processar. */
+    private int edificioGrade;
+    private YearMonth referenciaGrade;
 
     public GestaoCondominioController(TelaGestaoCondominio tela) {
         this.tela = tela;
@@ -53,20 +60,25 @@ public class GestaoCondominioController implements ActionListener {
         tela.getjButtonPesquisar().addActionListener(this);
         tela.getjButtonLimpar().addActionListener(this);
         tela.getjButtonFechar().addActionListener(this);
-        modelo = new DefaultTableModel(new Object[]{"Mês", "Ano", "Unidade", "Valor Emitido", "Proprietário", "Status"}, 0) {
+        tela.getjButtonEditar().addActionListener(this);
+        tela.getjButtonPagar().addActionListener(this);
+        tela.getjButtonProcessar().addActionListener(this);
+        tela.getjButtonAtivarDesativar().addActionListener(this);
+        modelo = new DefaultTableModel(new Object[]{"Mês", "Ano", "Unidade", "Vencimento", "Valor Emitido", "Valor Pago", "Proprietário", "Status"}, 0) {
             @Override
             public boolean isCellEditable(int row, int column) { return false; }
             @Override
             public Class<?> getColumnClass(int column) {
                 return switch (column) {
                     case 0, 1 -> Integer.class;
-                    case 3 -> Double.class;
+                    case 3 -> LocalDate.class;
+                    case 4, 5 -> Double.class;
                     default -> String.class;
                 };
             }
         };
         tela.getjTableResultado().setModel(modelo);
-        int[] larguras = {50, 60, 170, 130, 300, 80};
+        int[] larguras = {45, 55, 130, 90, 110, 110, 180, 80};
         for (int i = 0; i < larguras.length; i++) {
             tela.getjTableResultado().getColumnModel().getColumn(i).setPreferredWidth(larguras[i]);
         }
@@ -74,14 +86,34 @@ public class GestaoCondominioController implements ActionListener {
         centro.setHorizontalAlignment(SwingConstants.CENTER);
         tela.getjTableResultado().getColumnModel().getColumn(0).setCellRenderer(centro);
         tela.getjTableResultado().getColumnModel().getColumn(1).setCellRenderer(centro);
-        NumberFormat moedaTabela = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR"));
         tela.getjTableResultado().getColumnModel().getColumn(3).setCellRenderer(new DefaultTableCellRenderer() {
+            {
+                setHorizontalAlignment(SwingConstants.CENTER);
+            }
+            @Override
+            protected void setValue(Object value) {
+                setText(value instanceof LocalDate d ? d.format(DATA) : "");
+            }
+        });
+        NumberFormat moedaTabela = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR"));
+        DefaultTableCellRenderer moedaRenderer = new DefaultTableCellRenderer() {
             {
                 setHorizontalAlignment(SwingConstants.RIGHT);
             }
             @Override
             protected void setValue(Object value) {
                 setText(value instanceof Number n ? moedaTabela.format(n.doubleValue()) : "");
+            }
+        };
+        tela.getjTableResultado().getColumnModel().getColumn(4).setCellRenderer(moedaRenderer);
+        tela.getjTableResultado().getColumnModel().getColumn(5).setCellRenderer(moedaRenderer);
+        tela.getjTableResultado().getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) atualizarAcoes();
+        });
+        tela.getjTableResultado().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                if (e.getClickCount() == 2 && !ocupado && tela.getjTableResultado().rowAtPoint(e.getPoint()) >= 0) editar();
             }
         });
         tela.getjTableResultado().getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)
@@ -106,6 +138,7 @@ public class GestaoCondominioController implements ActionListener {
         registrarAtalho(KeyStroke.getKeyStroke("F5"), "pesquisar", tela.getjButtonPesquisar());
         registrarAtalho(KeyStroke.getKeyStroke("F8"), "gerar", tela.getjButtonGerar());
         registrarAtalho(KeyStroke.getKeyStroke("ESCAPE"), "fechar", tela.getjButtonFechar());
+        atualizarAcoes();
     }
 
     private void registrarAtalho(KeyStroke tecla, String nome, javax.swing.JButton botao) {
@@ -138,6 +171,237 @@ public class GestaoCondominioController implements ActionListener {
             limpar();
         } else if (e.getSource() == tela.getjButtonFechar()) {
             tela.dispose();
+        } else if (e.getSource() == tela.getjButtonEditar()) {
+            editar();
+        } else if (e.getSource() == tela.getjButtonPagar()) {
+            pagar();
+        } else if (e.getSource() == tela.getjButtonProcessar()) {
+            processar();
+        } else if (e.getSource() == tela.getjButtonAtivarDesativar()) {
+            ativarDesativar();
+        }
+    }
+
+    private Condominio selecionado() {
+        int linha = tela.getjTableResultado().getSelectedRow();
+        if (linha < 0) return null;
+        int indice = tela.getjTableResultado().convertRowIndexToModel(linha);
+        return indice < registros.size() ? registros.get(indice) : null;
+    }
+
+    private Condominio exigirSelecionado() {
+        Condominio c = selecionado();
+        if (c == null) {
+            JOptionPane.showMessageDialog(tela, "Selecione um condomínio na grade.", "Validação", JOptionPane.WARNING_MESSAGE);
+        }
+        return c;
+    }
+
+    private void atualizarAcoes() {
+        Condominio c = selecionado();
+        boolean livre = !ocupado;
+        tela.getjButtonEditar().setEnabled(livre && c != null);
+        tela.getjButtonPagar().setEnabled(livre && c != null
+                && (Condominio.ATIVO.equals(c.getStatus()) || Condominio.PROCESSADO.equals(c.getStatus())));
+        tela.getjButtonProcessar().setEnabled(livre && c != null && Condominio.ATIVO.equals(c.getStatus()));
+        tela.getjButtonAtivarDesativar().setEnabled(livre && c != null && !Condominio.PAGO.equals(c.getStatus()));
+        tela.getjButtonAtivarDesativar().setText(c != null && Condominio.INATIVO.equals(c.getStatus()) ? "Ativar" : "Desativar");
+    }
+
+    private void editar() {
+        Condominio c = exigirSelecionado();
+        if (c == null) return;
+        Condominio atual;
+        try {
+            atual = service.buscar(c.getId());
+        } catch (RuntimeException ex) {
+            tratarErro(ex);
+            return;
+        }
+        atual.setUnidadeCondomino(c.getUnidadeCondomino());
+        TelaCadastroCondominio cadastro = new TelaCadastroCondominio(null, true);
+        CadastroCondominioController controller = new CadastroCondominioController(cadastro);
+        controller.editar(atual);
+        cadastro.setLocationRelativeTo(tela);
+        cadastro.setVisible(true);
+        if (controller.isGravou()) recarregar();
+    }
+
+    private void pagar() {
+        Condominio c = exigirSelecionado();
+        if (c == null) return;
+        Condominio atual;
+        try {
+            atual = service.buscar(c.getId());
+        } catch (RuntimeException ex) {
+            tratarErro(ex);
+            return;
+        }
+        NumberFormat moeda = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR"));
+        javax.swing.JTextField campoData = new javax.swing.JTextField(LocalDate.now().format(DATA), 10);
+        javax.swing.JTextField campoCorrecao = new javax.swing.JTextField("0,00", 10);
+        javax.swing.JLabel lblDias = new javax.swing.JLabel();
+        javax.swing.JLabel lblMulta = new javax.swing.JLabel();
+        javax.swing.JLabel lblJuros = new javax.swing.JLabel();
+        javax.swing.JLabel lblPago = new javax.swing.JLabel();
+        lblPago.setFont(lblPago.getFont().deriveFont(java.awt.Font.BOLD, 14f));
+        CalculadoraCondominio.Pagamento[] calculo = new CalculadoraCondominio.Pagamento[1];
+        Runnable recalcular = () -> {
+            try {
+                LocalDate data = LocalDate.parse(campoData.getText().trim(), DATA);
+                BigDecimal correcao = lerValor(campoCorrecao.getText());
+                calculo[0] = service.simularPagamento(atual, data, correcao);
+                lblDias.setText(Long.toString(calculo[0].diasAtraso()));
+                lblMulta.setText(moeda.format(calculo[0].multa()));
+                lblJuros.setText(moeda.format(calculo[0].juros()));
+                lblPago.setText(moeda.format(calculo[0].valorPago()));
+            } catch (RuntimeException ex) {
+                calculo[0] = null;
+                lblDias.setText("-");
+                lblMulta.setText("-");
+                lblJuros.setText("-");
+                lblPago.setText("informe data e correção válidas");
+            }
+        };
+        DocumentListener ouvinte = new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) { recalcular.run(); }
+            @Override
+            public void removeUpdate(DocumentEvent e) { recalcular.run(); }
+            @Override
+            public void changedUpdate(DocumentEvent e) { recalcular.run(); }
+        };
+        campoData.getDocument().addDocumentListener(ouvinte);
+        campoCorrecao.getDocument().addDocumentListener(ouvinte);
+        recalcular.run();
+
+        javax.swing.JPanel painel = new javax.swing.JPanel(new java.awt.GridLayout(0, 2, 12, 6));
+        String unidade = c.getUnidadeCondomino() == null || c.getUnidadeCondomino().getUnidade() == null
+                ? "" : c.getUnidadeCondomino().getUnidade().getDescricao();
+        painel.add(new javax.swing.JLabel("Unidade"));
+        painel.add(new javax.swing.JLabel(unidade + String.format("  (%02d/%04d)", atual.getMesReferencia(), atual.getAnoReferencia())));
+        painel.add(new javax.swing.JLabel("Valor emitido"));
+        painel.add(new javax.swing.JLabel(moeda.format(atual.getValorEmitido())));
+        painel.add(new javax.swing.JLabel("Vencimento"));
+        painel.add(new javax.swing.JLabel(atual.getDataVencimento() == null ? "" : atual.getDataVencimento().format(DATA)));
+        painel.add(new javax.swing.JLabel("Data de pagamento (dd/mm/aaaa)"));
+        painel.add(campoData);
+        painel.add(new javax.swing.JLabel("Dias de atraso"));
+        painel.add(lblDias);
+        painel.add(new javax.swing.JLabel("Multa (2%)"));
+        painel.add(lblMulta);
+        painel.add(new javax.swing.JLabel("Juros (1% a.m. pro rata)"));
+        painel.add(lblJuros);
+        painel.add(new javax.swing.JLabel("Correção (R$)"));
+        painel.add(campoCorrecao);
+        painel.add(new javax.swing.JLabel("Valor pago"));
+        painel.add(lblPago);
+
+        while (true) {
+            int opcao = JOptionPane.showConfirmDialog(tela, painel, "Pagar condomínio",
+                    JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if (opcao != JOptionPane.OK_OPTION) return;
+            if (calculo[0] != null) break;
+            JOptionPane.showMessageDialog(tela, "Informe a data no formato dd/mm/aaaa e uma correção válida (zero ou mais).",
+                    "Validação", JOptionPane.WARNING_MESSAGE);
+        }
+        CalculadoraCondominio.Pagamento pg = calculo[0];
+        executarAcao(() -> service.pagar(atual.getId(), pg.dataPagamento(), pg.correcao()),
+                "Pagamento registrado: " + moeda.format(pg.valorPago()) + ".");
+    }
+
+    private static BigDecimal lerValor(String texto) {
+        String t = texto == null ? "" : texto.trim().replace("R$", "").trim();
+        if (t.isEmpty()) return BigDecimal.ZERO;
+        t = t.replace(".", "").replace(",", ".");
+        return new BigDecimal(t);
+    }
+
+    private void processar() {
+        Condominio c = exigirSelecionado();
+        if (c == null) return;
+        executarAcao(() -> service.processar(c.getId()), "Condomínio processado.");
+    }
+
+    private void ativarDesativar() {
+        Condominio c = exigirSelecionado();
+        if (c == null) return;
+        boolean ativar = Condominio.INATIVO.equals(c.getStatus());
+        int opcao = JOptionPane.showConfirmDialog(tela, ativar ? "Ativar este condomínio?" : "Desativar este condomínio?",
+                ativar ? "Ativar" : "Desativar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (opcao != JOptionPane.YES_OPTION) return;
+        executarAcao(() -> service.alternarAtivo(c.getId()), ativar ? "Condomínio ativado." : "Condomínio desativado.");
+    }
+
+    /** Executa uma ação de status/pagamento fora da EDT e recarrega a grade. */
+    private void executarAcao(Runnable acao, String mensagemSucesso) {
+        definirOcupado(true);
+        new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() {
+                acao.run();
+                return null;
+            }
+
+            @Override
+            protected void done() {
+                try {
+                    get();
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                    mostrarErro(ex);
+                    definirOcupado(false);
+                    return;
+                } catch (ExecutionException ex) {
+                    tratarErro(ex.getCause());
+                    definirOcupado(false);
+                    return;
+                }
+                definirOcupado(false);
+                JOptionPane.showMessageDialog(tela, mensagemSucesso, "Gestão de Condomínios", JOptionPane.INFORMATION_MESSAGE);
+                recarregar();
+            }
+        }.execute();
+    }
+
+    /** Recarrega a grade mantendo o condomínio selecionado. */
+    private void recarregar() {
+        if (referenciaGrade == null) return;
+        Condominio anterior = selecionado();
+        int idAnterior = anterior == null ? 0 : anterior.getId();
+        int edificioId = edificioGrade;
+        YearMonth ref = referenciaGrade;
+        definirOcupado(true);
+        new SwingWorker<List<Condominio>, Void>() {
+            @Override
+            protected List<Condominio> doInBackground() {
+                return service.listar(edificioId, ref);
+            }
+
+            @Override
+            protected void done() {
+                try {
+                    preencherTabela(get(), edificioId, ref);
+                    selecionarPorId(idAnterior);
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                    mostrarErro(ex);
+                } catch (ExecutionException ex) {
+                    tratarErro(ex.getCause());
+                } finally {
+                    definirOcupado(false);
+                }
+            }
+        }.execute();
+    }
+
+    private void selecionarPorId(int id) {
+        for (int i = 0; i < registros.size(); i++) {
+            if (registros.get(i).getId() == id) {
+                int linha = tela.getjTableResultado().convertRowIndexToView(i);
+                if (linha >= 0) tela.getjTableResultado().setRowSelectionInterval(linha, linha);
+                return;
+            }
         }
     }
 
@@ -177,7 +441,7 @@ public class GestaoCondominioController implements ActionListener {
             @Override
             protected void done() {
                 try {
-                    preencherTabela(get());
+                    preencherTabela(get(), p.edificio().getId(), p.referencia());
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                     mostrarErro(ex);
@@ -276,7 +540,7 @@ public class GestaoCondominioController implements ActionListener {
             @Override
             protected void done() {
                 try {
-                    preencherTabela(get());
+                    preencherTabela(get(), previa.getEdificio().getId(), previa.getReferencia());
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                     avisarFalhaRecarga(ex);
@@ -304,8 +568,11 @@ public class GestaoCondominioController implements ActionListener {
         }
     }
 
-    private void preencherTabela(List<Condominio> registros) {
+    private void preencherTabela(List<Condominio> registros, int edificioId, YearMonth referencia) {
         NumberFormat moeda = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR"));
+        this.registros = List.copyOf(registros);
+        this.edificioGrade = edificioId;
+        this.referenciaGrade = referencia;
         modelo.setRowCount(0);
         BigDecimal total = BigDecimal.ZERO;
         for (Condominio c : registros) {
@@ -313,9 +580,10 @@ public class GestaoCondominioController implements ActionListener {
             String unidade = uc == null || uc.getUnidade() == null ? "" : uc.getUnidade().getDescricao();
             String prop = uc == null || uc.getProprietario() == null || uc.getProprietario().getNomeFantasia() == null
                     ? "" : uc.getProprietario().getNomeFantasia();
-            String status = "A".equals(c.getStatus()) ? "Ativo" : "I".equals(c.getStatus()) ? "Inativo" : c.getStatus();
+            String status = Condominio.descricaoStatus(c.getStatus());
+            Double pago = Condominio.PAGO.equals(c.getStatus()) ? c.getValorPago() : null;
             modelo.addRow(new Object[]{c.getMesReferencia(), c.getAnoReferencia(), unidade,
-                c.getValorEmitido(), prop, status});
+                c.getDataVencimento(), c.getValorEmitido(), pago, prop, status});
             total = total.add(BigDecimal.valueOf(c.getValorEmitido()));
         }
         tela.getjLabelQuantidadeValor().setText(String.valueOf(registros.size()));
@@ -328,8 +596,7 @@ public class GestaoCondominioController implements ActionListener {
         String txt = tela.getjTextFieldFiltroUnidade().getText().trim();
         if (!txt.isEmpty()) filtros.add(RowFilter.regexFilter("(?i)" + Pattern.quote(txt), 2));
         String status = String.valueOf(tela.getjComboBoxStatus().getSelectedItem());
-        if ("Ativo".equals(status)) filtros.add(RowFilter.regexFilter("^Ativo$", 5));
-        else if ("Inativo".equals(status)) filtros.add(RowFilter.regexFilter("^Inativo$", 5));
+        if (!"Todos".equals(status)) filtros.add(RowFilter.regexFilter("^" + Pattern.quote(status) + "$", 7));
         sorter.setRowFilter(filtros.isEmpty() ? null : RowFilter.andFilter(filtros));
     }
 
@@ -340,6 +607,8 @@ public class GestaoCondominioController implements ActionListener {
         tela.getjTextFieldAno().setText(Integer.toString(hoje.getYear()));
         tela.getjTextFieldFiltroUnidade().setText("");
         tela.getjComboBoxStatus().setSelectedIndex(0);
+        registros = List.of();
+        referenciaGrade = null;
         modelo.setRowCount(0);
         tela.getjLabelQuantidadeValor().setText("0");
         tela.getjLabelTotalValor().setText(NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR")).format(java.math.BigDecimal.ZERO));
@@ -353,6 +622,7 @@ public class GestaoCondominioController implements ActionListener {
                 : javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         Utils.habilitarComponentes(tela.getjPanelbotoes(), !estado);
         Utils.habilitarComponentes(tela.getjPanelParametros(), !estado);
+        atualizarAcoes();
     }
 
     private void mostrarErro(Throwable erro) {

@@ -24,6 +24,8 @@ public class CadastroCondominioController implements ActionListener {
     private int idEmEdicao;
     private boolean editando;
     private boolean ocupado;
+    private boolean fecharAoGravar;
+    private boolean gravou;
     private UnidadeCondomino unidadeCondominoSelecionado;
 
     public CadastroCondominioController(TelaCadastroCondominio tela) {
@@ -67,6 +69,16 @@ public class CadastroCondominioController implements ActionListener {
         } else if (e.getSource() == tela.getjButtonSair()) {
             tela.dispose();
         }
+    }
+
+    /** Abre o registro já em edição; a tela fecha sozinha depois de gravar. Usado pela Gestão de Condomínios. */
+    public void editar(Condominio registro) {
+        fecharAoGravar = true;
+        carregar(registro);
+    }
+
+    public boolean isGravou() {
+        return gravou;
     }
 
     private static final String[] STATUS = {Condominio.ATIVO, Condominio.INATIVO, Condominio.PROCESSADO, Condominio.PAGO};
@@ -152,7 +164,9 @@ public class CadastroCondominioController implements ActionListener {
                 try {
                     get();
                     encerrarEdicao();
+                    gravou = true;
                     JOptionPane.showMessageDialog(tela, "Registro gravado com sucesso.");
+                    if (fecharAoGravar) tela.dispose();
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                     mostrarErro(ex);
