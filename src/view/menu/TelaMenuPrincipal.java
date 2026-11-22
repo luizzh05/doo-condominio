@@ -19,6 +19,7 @@ import controller.cadastro.CadastroFornecedorController;
 import controller.cadastro.CadastroLeituraController;
 import controller.cadastro.CadastroEdificioController;
 import controller.cadastro.CadastroReservaController;
+import controller.cadastro.GestaoCondominioController;
 import view.cadastro.*;
 
 /**
@@ -77,6 +78,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuOperacoes = new javax.swing.JMenu();
         jMenuItemLeitura = new javax.swing.JMenuItem();
         jMenuItemMovimentoCaixa = new javax.swing.JMenuItem();
+        jMenuItemGestaoCondominio = new javax.swing.JMenuItem();
         jMenuItemReserva = new javax.swing.JMenuItem();
         jSeparatorOperacoes1 = new javax.swing.JPopupMenu.Separator();
         jMenuItemCustoNivel1 = new javax.swing.JMenuItem();
@@ -307,6 +309,11 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuItemMovimentoCaixa.addActionListener(this::jMenuItemMovimentoCaixaActionPerformed);
         jMenuOperacoes.add(jMenuItemMovimentoCaixa);
 
+        jMenuItemGestaoCondominio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Calculator.png"))); // NOI18N
+        jMenuItemGestaoCondominio.setText("Gestao de Condominios");
+        jMenuItemGestaoCondominio.addActionListener(this::jMenuItemGestaoCondominioActionPerformed);
+        jMenuOperacoes.add(jMenuItemGestaoCondominio);
+
         jMenuItemReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Calendar.png"))); // NOI18N
         jMenuItemReserva.setText("Reservas");
         jMenuItemReserva.addActionListener(this::jMenuItemReservaActionPerformed);
@@ -400,6 +407,10 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemLeituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLeituraActionPerformed
         abrirLeitura();
     }//GEN-LAST:event_jMenuItemLeituraActionPerformed
+
+    private void jMenuItemGestaoCondominioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGestaoCondominioActionPerformed
+        abrirGestaoCondominio();
+    }//GEN-LAST:event_jMenuItemGestaoCondominioActionPerformed
 
     private void jMenuItemMovimentoCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMovimentoCaixaActionPerformed
         abrirMovimentoCaixa();
@@ -515,6 +526,12 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
     }
 
+    private void abrirGestaoCondominio() {
+        TelaGestaoCondominio tela = new TelaGestaoCondominio(null, true);
+        new GestaoCondominioController(tela);
+        tela.setVisible(true);
+    }
+
     private void abrirReserva() {
         TelaCadastroReserva tela = new TelaCadastroReserva(null, true);
         new CadastroReservaController(tela);
@@ -579,6 +596,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemEdificio;
     private javax.swing.JMenuItem jMenuItemFornecedor;
     private javax.swing.JMenuItem jMenuItemFuncaoMandato;
+    private javax.swing.JMenuItem jMenuItemGestaoCondominio;
     private javax.swing.JMenuItem jMenuItemLeitura;
     private javax.swing.JMenuItem jMenuItemMovimentoCaixa;
     private javax.swing.JMenuItem jMenuItemProprietario;
