@@ -149,10 +149,6 @@
                               <Component id="jLabelValorEmitido" min="-2" pref="150" max="150" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldValorEmitido" min="-2" pref="170" max="170" attributes="0"/>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="jLabelValorPago" min="-2" pref="150" max="150" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldValorPago" min="-2" pref="170" max="170" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabelJuros" min="-2" pref="150" max="150" attributes="0"/>
@@ -168,10 +164,15 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldCorrecao" min="-2" pref="170" max="170" attributes="0"/>
                           </Group>
+                          <Component id="jLabelSecaoPagamento" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jLabelDataPagamento" min="-2" pref="150" max="150" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldDataPagamento" min="-2" pref="170" max="170" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="jLabelValorPago" min="-2" pref="150" max="150" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldValorPago" min="-2" pref="170" max="170" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabelStatus" min="-2" pref="150" max="150" attributes="0"/>
@@ -223,8 +224,6 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelValorEmitido" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldValorEmitido" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelValorPago" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldValorPago" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -239,9 +238,13 @@
                           <Component id="jTextFieldCorrecao" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelSecaoPagamento" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelDataPagamento" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldDataPagamento" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelValorPago" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldValorPago" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -315,7 +318,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="1e" green="0" red="53" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Refer&#xea;ncia"/>
+                <Property name="text" type="java.lang.String" value="Compet&#xea;ncia e vencimento"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelMesReferencia">
@@ -476,6 +479,17 @@
                 </Property>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="jLabelSecaoPagamento">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="1e" green="0" red="53" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Pagamento"/>
+              </Properties>
+            </Component>
             <Component class="javax.swing.JLabel" name="jLabelDataPagamento">
                 <Properties>
                     <Property name="text" type="java.lang.String" value="Data de pagamento"/>
@@ -513,6 +527,7 @@
                             <StringItem index="1" value="I - Inativo"/>
                             <StringItem index="2" value="R - Processado"/>
                             <StringItem index="3" value="P - Pago"/>
+                            <StringItem index="4" value="T - Protestado"/>
                         </StringArray>
                     </Property>
                 </Properties>
@@ -527,7 +542,6 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="1e" green="0" red="53" type="rgb"/>
-                            <StringItem index="4" value="T - Protestado"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Observa&#xe7;&#xf5;es"/>
               </Properties>
