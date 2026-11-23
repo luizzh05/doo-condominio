@@ -4,7 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="Consulta de Condom&#xed;nio"/>
-    <Property name="resizable" type="boolean" value="false"/>
+
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -45,7 +45,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelFiltros" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanelResultado" min="-2" max="-2" attributes="0"/>
+              <Component id="jPanelResultado" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelbotoes" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -213,7 +213,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelSecaoResultado" min="-2" pref="520" max="-2" attributes="0"/>
-                      <Component id="jScrollPaneResultado" min="-2" pref="680" max="-2" attributes="0"/>
+                      <Component id="jScrollPaneResultado" min="0" pref="680" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -225,7 +225,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabelSecaoResultado" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPaneResultado" min="-2" pref="260" max="-2" attributes="0"/>
+                  <Component id="jScrollPaneResultado" min="120" pref="260" max="32767" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
