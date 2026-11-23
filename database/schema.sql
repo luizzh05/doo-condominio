@@ -312,6 +312,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `Condominio`.`condominio`
 -- -----------------------------------------------------
+-- O detalhamento por conta faz parte da criacao desta tabela.
 CREATE TABLE IF NOT EXISTS `Condominio`.`condominio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `mes_referencia` INT NOT NULL,
