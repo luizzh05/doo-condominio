@@ -54,6 +54,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jPanelModulos = new javax.swing.JPanel();
         jButtonEdificio = new javax.swing.JButton();
         jButtonCondominio = new javax.swing.JButton();
+        jButtonGestaoCondominio = new javax.swing.JButton();
         jButtonUnidade = new javax.swing.JButton();
         jButtonProprietario = new javax.swing.JButton();
         jButtonFornecedor = new javax.swing.JButton();
@@ -165,6 +166,17 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jButtonCondominio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonCondominio.addActionListener(this::jButtonCondominioActionPerformed);
         jPanelModulos.add(jButtonCondominio);
+
+        jButtonGestaoCondominio.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonGestaoCondominio.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jButtonGestaoCondominio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Calculator.png"))); // NOI18N
+        jButtonGestaoCondominio.setText("<html><center>Gestão de Condomínios<br><small>Geração e pagamentos</small></center></html>");
+        jButtonGestaoCondominio.setFocusPainted(false);
+        jButtonGestaoCondominio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonGestaoCondominio.setPreferredSize(new java.awt.Dimension(188, 158));
+        jButtonGestaoCondominio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonGestaoCondominio.addActionListener(this::jMenuItemGestaoCondominioActionPerformed);
+        jPanelModulos.add(jButtonGestaoCondominio);
 
         jButtonUnidade.setBackground(new java.awt.Color(255, 255, 255));
         jButtonUnidade.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -347,7 +359,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelModulos, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
+            .addComponent(jPanelModulos, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
             .addComponent(jPanelRodape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -577,6 +589,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCondominio;
+    private javax.swing.JButton jButtonGestaoCondominio;
     private javax.swing.JButton jButtonEdificio;
     private javax.swing.JButton jButtonFornecedor;
     private javax.swing.JButton jButtonProprietario;
