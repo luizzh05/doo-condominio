@@ -22,6 +22,23 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
     public TelaCadastroCondominio(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        ajustarTamanho();
+    }
+
+    private void ajustarTamanho() {
+        var configuracao = getGraphicsConfiguration();
+        var area = configuracao.getBounds();
+        var margens = getToolkit().getScreenInsets(configuracao);
+        int alturaDisponivel = area.height - margens.top - margens.bottom - 24;
+        int alturaExterna = getHeight() - jScrollPaneDados.getViewport().getHeight();
+        int larguraExterna = getWidth() - jScrollPaneDados.getViewport().getWidth();
+        var formulario = jPanelDados.getPreferredSize();
+        int altura = Math.min(alturaDisponivel, formulario.height + alturaExterna);
+        int largura = Math.max(getWidth(), formulario.width + larguraExterna
+                + (altura < formulario.height + alturaExterna
+                        ? jScrollPaneDados.getVerticalScrollBar().getPreferredSize().width : 0));
+        setMinimumSize(new java.awt.Dimension(largura, Math.min(altura, 450)));
+        setSize(largura, altura);
     }
 
     @SuppressWarnings("unchecked")
@@ -92,7 +109,6 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Condomínio");
-        setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -110,7 +126,7 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         );
         jPanelTituloLayout.setVerticalGroup(
             jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabeltitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+            .addComponent(jLabeltitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
         );
 
         jPanelDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -210,7 +226,7 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
         jTextAreaObservacao.setColumns(20);
         jTextAreaObservacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextAreaObservacao.setLineWrap(true);
-        jTextAreaObservacao.setRows(5);
+        jTextAreaObservacao.setRows(2);
         jTextAreaObservacao.setWrapStyleWord(true);
         jScrollPaneObservacao.setViewportView(jTextAreaObservacao);
 
@@ -235,7 +251,11 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, 70))
+                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, 70)
+                        .addGap(118, 118, 118)
+                        .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelUnidadeCondomino, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -263,7 +283,11 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelValorEmitido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldValorEmitido, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
+                        .addComponent(jTextFieldValorEmitido, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelJuros, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -272,10 +296,6 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
                         .addComponent(jLabelMultas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldMultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
-                    .addGroup(jPanelDadosLayout.createSequentialGroup()
-                        .addComponent(jLabelCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addComponent(jLabelSecaoPagamento)
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabelDataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
@@ -285,13 +305,9 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
                         .addComponent(jLabelValorPago, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldValorPago, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
-                    .addGroup(jPanelDadosLayout.createSequentialGroup()
-                        .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, 150)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, 170))
                     .addComponent(jLabelSecaoObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 520, 520)
-                    .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                    .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanelDadosLayout.setVerticalGroup(
             jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,7 +317,9 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelId)
-                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelStatus)
+                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUnidadeCondomino)
@@ -326,17 +344,15 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelValorEmitido)
-                    .addComponent(jTextFieldValorEmitido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldValorEmitido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCorrecao)
+                    .addComponent(jTextFieldCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelJuros)
                     .addComponent(jTextFieldJuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelMultas)
                     .addComponent(jTextFieldMultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCorrecao)
-                    .addComponent(jTextFieldCorrecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoPagamento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -346,16 +362,14 @@ public class TelaCadastroCondominio extends javax.swing.JDialog {
                     .addComponent(jLabelValorPago)
                     .addComponent(jTextFieldValorPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelStatus)
-                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSecaoObservacoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPaneObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jScrollPaneDados.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPaneDados.getVerticalScrollBar().setUnitIncrement(24);
         jScrollPaneDados.setViewportView(jPanelDados);
 
         jPanelbotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

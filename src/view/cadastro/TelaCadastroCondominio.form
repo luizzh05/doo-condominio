@@ -4,7 +4,6 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="Cadastro de Condom&#xed;nio"/>
-    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -71,7 +70,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jLabeltitulo" alignment="0" pref="73" max="32767" attributes="0"/>
+              <Component id="jLabeltitulo" alignment="0" pref="54" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -91,6 +90,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JScrollPane" name="jScrollPaneDados">
+      <Properties>
+        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+      </Properties>
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -117,6 +119,10 @@
                               <Component id="jLabelId" min="-2" pref="150" max="150" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldId" min="-2" pref="70" max="70" attributes="0"/>
+                              <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                              <Component id="jLabelStatus" min="-2" pref="150" max="150" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jComboBoxStatus" min="-2" pref="170" max="170" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabelUnidadeCondomino" min="-2" pref="150" max="150" attributes="0"/>
@@ -149,6 +155,10 @@
                               <Component id="jLabelValorEmitido" min="-2" pref="150" max="150" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldValorEmitido" min="-2" pref="170" max="170" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="jLabelCorrecao" min="-2" pref="150" max="150" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldCorrecao" min="-2" pref="170" max="170" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabelJuros" min="-2" pref="150" max="150" attributes="0"/>
@@ -158,11 +168,6 @@
                               <Component id="jLabelMultas" min="-2" pref="150" max="150" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldMultas" min="-2" pref="170" max="170" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelCorrecao" min="-2" pref="150" max="150" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldCorrecao" min="-2" pref="170" max="170" attributes="0"/>
                           </Group>
                           <Component id="jLabelSecaoPagamento" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
@@ -174,15 +179,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldValorPago" min="-2" pref="170" max="170" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelStatus" min="-2" pref="150" max="150" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBoxStatus" min="-2" pref="170" max="170" attributes="0"/>
-                          </Group>
                           <Component id="jLabelSecaoObservacoes" min="-2" pref="520" max="520" attributes="0"/>
-                          <Component id="jScrollPaneObservacao" min="-2" pref="676" max="-2" attributes="0"/>
+                          <Component id="jScrollPaneObservacao" pref="676" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="63" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -195,6 +195,8 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelId" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldId" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelStatus" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxStatus" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -224,6 +226,8 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelValorEmitido" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldValorEmitido" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCorrecao" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCorrecao" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -233,11 +237,6 @@
                           <Component id="jTextFieldMultas" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelCorrecao" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldCorrecao" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelSecaoPagamento" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -245,11 +244,6 @@
                           <Component id="jTextFieldDataPagamento" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelValorPago" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldValorPago" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelStatus" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBoxStatus" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelSecaoObservacoes" min="-2" max="-2" attributes="0"/>
@@ -560,7 +554,7 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="lineWrap" type="boolean" value="true"/>
-                    <Property name="rows" type="int" value="5"/>
+                    <Property name="rows" type="int" value="2"/>
                     <Property name="wrapStyleWord" type="boolean" value="true"/>
                   </Properties>
                 </Component>
