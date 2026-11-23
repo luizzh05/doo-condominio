@@ -81,7 +81,7 @@ public class CadastroCondominioController implements ActionListener {
         return gravou;
     }
 
-    private static final String[] STATUS = {Condominio.ATIVO, Condominio.INATIVO, Condominio.PROCESSADO, Condominio.PAGO};
+    private static final String[] STATUS = {Condominio.ATIVO, Condominio.INATIVO, Condominio.PROCESSADO, Condominio.PAGO, Condominio.PROTESTADO};
 
     private static int indiceStatus(String status) {
         for (int i = 0; i < STATUS.length; i++) {

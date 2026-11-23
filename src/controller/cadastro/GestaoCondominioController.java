@@ -63,7 +63,7 @@ public class GestaoCondominioController implements ActionListener {
         tela.getjButtonEditar().addActionListener(this);
         tela.getjButtonPagar().addActionListener(this);
         tela.getjButtonProcessar().addActionListener(this);
-        tela.getjButtonAtivarDesativar().addActionListener(this);
+        tela.getjButtonProtestar().addActionListener(this);
         modelo = new DefaultTableModel(new Object[]{"Mês", "Ano", "Unidade", "Vencimento", "Valor Emitido", "Valor Pago", "Proprietário", "Status"}, 0) {
             @Override
             public boolean isCellEditable(int row, int column) { return false; }
@@ -177,8 +177,8 @@ public class GestaoCondominioController implements ActionListener {
             pagar();
         } else if (e.getSource() == tela.getjButtonProcessar()) {
             processar();
-        } else if (e.getSource() == tela.getjButtonAtivarDesativar()) {
-            ativarDesativar();
+        } else if (e.getSource() == tela.getjButtonProtestar()) {
+            protestar();
         }
     }
 
@@ -204,8 +204,7 @@ public class GestaoCondominioController implements ActionListener {
         tela.getjButtonPagar().setEnabled(livre && c != null
                 && (Condominio.ATIVO.equals(c.getStatus()) || Condominio.PROCESSADO.equals(c.getStatus())));
         tela.getjButtonProcessar().setEnabled(livre && c != null && Condominio.ATIVO.equals(c.getStatus()));
-        tela.getjButtonAtivarDesativar().setEnabled(livre && c != null && !Condominio.PAGO.equals(c.getStatus()));
-        tela.getjButtonAtivarDesativar().setText(c != null && Condominio.INATIVO.equals(c.getStatus()) ? "Ativar" : "Desativar");
+        tela.getjButtonProtestar().setEnabled(livre && c != null && Condominio.PAGO.equals(c.getStatus()));
     }
 
     private void editar() {
@@ -323,14 +322,13 @@ public class GestaoCondominioController implements ActionListener {
         executarAcao(() -> service.processar(c.getId()), "Condomínio processado.");
     }
 
-    private void ativarDesativar() {
+    private void protestar() {
         Condominio c = exigirSelecionado();
         if (c == null) return;
-        boolean ativar = Condominio.INATIVO.equals(c.getStatus());
-        int opcao = JOptionPane.showConfirmDialog(tela, ativar ? "Ativar este condomínio?" : "Desativar este condomínio?",
-                ativar ? "Ativar" : "Desativar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int opcao = JOptionPane.showConfirmDialog(tela, "Marcar este condomínio como Protestado?",
+                "Protestar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (opcao != JOptionPane.YES_OPTION) return;
-        executarAcao(() -> service.alternarAtivo(c.getId()), ativar ? "Condomínio ativado." : "Condomínio desativado.");
+        executarAcao(() -> service.protestar(c.getId()), "Condomínio protestado.");
     }
 
     /** Executa uma ação de status/pagamento fora da EDT e recarrega a grade. */
@@ -581,7 +579,8 @@ public class GestaoCondominioController implements ActionListener {
             String prop = uc == null || uc.getProprietario() == null || uc.getProprietario().getNomeFantasia() == null
                     ? "" : uc.getProprietario().getNomeFantasia();
             String status = Condominio.descricaoStatus(c.getStatus());
-            Double pago = Condominio.PAGO.equals(c.getStatus()) ? c.getValorPago() : null;
+            Double pago = Condominio.PAGO.equals(c.getStatus()) || Condominio.PROTESTADO.equals(c.getStatus())
+                    ? c.getValorPago() : null;
             modelo.addRow(new Object[]{c.getMesReferencia(), c.getAnoReferencia(), unidade,
                 c.getDataVencimento(), c.getValorEmitido(), pago, prop, status});
             total = total.add(BigDecimal.valueOf(c.getValorEmitido()));

@@ -95,7 +95,8 @@ public class ConsultaCondominioController implements ActionListener {
                     case "I", "INATIVO", "I - INATIVO" -> "I";
                     case "R", "PROCESSADO", "R - PROCESSADO" -> "R";
                     case "P", "PAGO", "P - PAGO" -> "P";
-                    default -> throw new IllegalArgumentException("Informe Ativo, Inativo, Processado ou Pago no filtro de status.");
+                    case "T", "PROTESTADO", "T - PROTESTADO" -> Condominio.PROTESTADO;
+                    default -> throw new IllegalArgumentException("Informe Ativo, Inativo, Processado, Pago ou Protestado no filtro de status.");
                 };
             }
         } catch (NumberFormatException ex) {

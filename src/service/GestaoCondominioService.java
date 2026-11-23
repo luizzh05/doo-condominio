@@ -116,15 +116,9 @@ public class GestaoCondominioService {
         condominioDAO.update(atual);
     }
 
-    /** Alterna entre Ativo e Inativo; retorna o novo status. */
-    public String alternarAtivo(int id) {
-        Condominio atual = buscar(id);
-        if (Condominio.PAGO.equals(atual.getStatus())) {
-            throw new IllegalArgumentException("Condomínio pago não pode ser desativado.");
+    public void protestar(int id) {
+        if (!condominioDAO.registrarProtesto(id)) {
+            throw new IllegalArgumentException("Só é possível protestar um condomínio com status Pago.");
         }
-        String novo = Condominio.INATIVO.equals(atual.getStatus()) ? Condominio.ATIVO : Condominio.INATIVO;
-        atual.setStatus(novo);
-        condominioDAO.update(atual);
-        return novo;
     }
 }

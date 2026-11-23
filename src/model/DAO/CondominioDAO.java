@@ -90,6 +90,19 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
         }
     }
 
+    public boolean registrarProtesto(int id) {
+        String sql = "UPDATE condominio SET status = ? WHERE id = ? AND status = ?";
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, Condominio.PROTESTADO);
+            stmt.setInt(2, id);
+            stmt.setString(3, Condominio.PAGO);
+            return stmt.executeUpdate() == 1;
+        } catch (SQLException ex) {
+            throw new IllegalStateException("Erro ao registrar protesto", ex);
+        }
+    }
+
     @Override
     public void delete(Condominio objeto) {
         try (Connection conn = ConnectionFactory.getConnection();

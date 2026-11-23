@@ -9,6 +9,7 @@ public class Condominio {
     public static final String PAGO = "P";
     public static final String PROCESSADO = "R";
 
+    public static final String PROTESTADO = "T";
     public static String descricaoStatus(String status) {
         if (status == null) return "";
         return switch (status) {
@@ -17,6 +18,7 @@ public class Condominio {
             case PAGO -> "Pago";
             case PROCESSADO -> "Processado";
             default -> status;
+            case PROTESTADO -> "Protestado";
         };
     }
 
