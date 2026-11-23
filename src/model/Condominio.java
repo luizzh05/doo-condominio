@@ -1,5 +1,6 @@
 package model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Condominio {
@@ -8,8 +9,8 @@ public class Condominio {
     public static final String INATIVO = "I";
     public static final String PAGO = "P";
     public static final String PROCESSADO = "R";
-
     public static final String PROTESTADO = "T";
+
     public static String descricaoStatus(String status) {
         if (status == null) return "";
         return switch (status) {
@@ -17,10 +18,18 @@ public class Condominio {
             case INATIVO -> "Inativo";
             case PAGO -> "Pago";
             case PROCESSADO -> "Processado";
-            default -> status;
             case PROTESTADO -> "Protestado";
+            default -> status;
         };
     }
+
+    public record Detalhamento(BigDecimal agua, BigDecimal gas, BigDecimal rateioUnidade, BigDecimal rateioM2) {}
+
+    private Detalhamento detalhamento;
+
+    public Detalhamento getDetalhamento() { return detalhamento; }
+
+    public void setDetalhamento(Detalhamento detalhamento) { this.detalhamento = detalhamento; }
 
     private int id;
     private int mesReferencia;

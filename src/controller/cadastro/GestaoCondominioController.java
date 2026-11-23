@@ -46,6 +46,9 @@ public class GestaoCondominioController implements ActionListener {
     private final DefaultTableModel modelo;
     private final TableRowSorter<DefaultTableModel> sorter;
     private static final java.time.format.DateTimeFormatter DATA = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final String VALOR_MONETARIO = "(-?[0-9]+\\.[0-9]{2})";
+    private static final Pattern DETALHAMENTO = Pattern.compile("Gerado: Und " + VALOR_MONETARIO
+            + "; m² " + VALOR_MONETARIO + "; Água " + VALOR_MONETARIO + "; Gás " + VALOR_MONETARIO);
     private Edificio edificioSelecionado;
     private boolean ocupado;
     private List<Condominio> registros = List.of();
@@ -72,7 +75,8 @@ public class GestaoCondominioController implements ActionListener {
                 return switch (column) {
                     case 0, 1 -> Integer.class;
                     case 3 -> LocalDate.class;
-                    case 4, 5 -> Double.class;
+                    case 4 -> BigDecimal.class;
+                    case 5 -> Double.class;
                     default -> String.class;
                 };
             }
@@ -131,10 +135,23 @@ public class GestaoCondominioController implements ActionListener {
             public void changedUpdate(DocumentEvent e) { aplicarFiltro(); }
         });
         tela.getjComboBoxStatus().addActionListener(this);
-        LocalDate hoje = LocalDate.now();
-        tela.getjTextFieldMes().setText(Integer.toString(hoje.getMonthValue()));
-        tela.getjTextFieldAno().setText(Integer.toString(hoje.getYear()));
+        tela.getjComboBoxEdificio().addActionListener(e -> atualizarAcoes());
+        tela.aoSelecionarConta(e -> atualizarGrade());
+        YearMonth competencia = YearMonth.now().minusMonths(1);
+        tela.getjTextFieldMes().setText(Integer.toString(competencia.getMonthValue()));
+        tela.getjTextFieldAno().setText(Integer.toString(competencia.getYear()));
+        DocumentListener periodo = new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) { atualizarCompetencia(); }
+            @Override
+            public void removeUpdate(DocumentEvent e) { atualizarCompetencia(); }
+            @Override
+            public void changedUpdate(DocumentEvent e) { atualizarCompetencia(); }
+        };
+        tela.getjTextFieldMes().getDocument().addDocumentListener(periodo);
+        tela.getjTextFieldAno().getDocument().addDocumentListener(periodo);
         definirEdificio(null);
+        atualizarCompetencia();
         registrarAtalho(KeyStroke.getKeyStroke("F5"), "pesquisar", tela.getjButtonPesquisar());
         registrarAtalho(KeyStroke.getKeyStroke("F8"), "gerar", tela.getjButtonGerar());
         registrarAtalho(KeyStroke.getKeyStroke("ESCAPE"), "fechar", tela.getjButtonFechar());
@@ -162,7 +179,11 @@ public class GestaoCondominioController implements ActionListener {
             consulta.setLocationRelativeTo(tela);
             consulta.setVisible(true);
             Edificio selecionado = controller.getRegistroSelecionado();
-            if (selecionado != null) definirEdificio(selecionado);
+            if (selecionado != null) {
+                definirEdificio(selecionado);
+                preencherTabela(List.of(), selecionado.getId(), null);
+                pesquisar();
+            }
         } else if (e.getSource() == tela.getjButtonGerar()) {
             gerar();
         } else if (e.getSource() == tela.getjButtonPesquisar()) {
@@ -200,6 +221,10 @@ public class GestaoCondominioController implements ActionListener {
     private void atualizarAcoes() {
         Condominio c = selecionado();
         boolean livre = !ocupado;
+        boolean ativo = edificioSelecionado != null && "A".equals(edificioSelecionado.getStatus());
+        tela.getjButtonGerar().setEnabled(livre && ativo && tela.getjComboBoxEdificio().getSelectedIndex() > 0);
+        tela.getjButtonGerar().setToolTipText(edificioSelecionado != null && !ativo
+                ? "Edifício inativo. Use Pesquisar para consultar cobranças existentes." : null);
         tela.getjButtonEditar().setEnabled(livre && c != null);
         tela.getjButtonPagar().setEnabled(livre && c != null
                 && (Condominio.ATIVO.equals(c.getStatus()) || Condominio.PROCESSADO.equals(c.getStatus())));
@@ -411,6 +436,20 @@ public class GestaoCondominioController implements ActionListener {
 
     private record Parametros(Edificio edificio, int mes, int ano, YearMonth referencia) {}
 
+    private void atualizarCompetencia() {
+        YearMonth referencia = null;
+        try {
+            int mes = Utils.inteiro(tela.getjTextFieldMes(), "mês", 1, 12);
+            int ano = Utils.inteiro(tela.getjTextFieldAno(), "ano", 2000, 2100);
+            referencia = GestaoCondominioService.referenciaDe(mes, ano);
+        } catch (IllegalArgumentException ex) {
+            // O período pode ficar incompleto durante a digitação.
+        }
+        if (referenciaGrade != null && !referenciaGrade.equals(referencia)) {
+            preencherTabela(List.of(), edificioGrade, null);
+        }
+    }
+
     private Parametros lerParametros() {
         try {
             Edificio edificio = tela.getjComboBoxEdificio().getSelectedIndex() > 0 ? edificioSelecionado : null;
@@ -418,7 +457,6 @@ public class GestaoCondominioController implements ActionListener {
             int mes = Utils.inteiro(tela.getjTextFieldMes(), "mês", 1, 12);
             int ano = Utils.inteiro(tela.getjTextFieldAno(), "ano", 2000, 2100);
             YearMonth ref = GestaoCondominioService.referenciaDe(mes, ano);
-            tela.getjLabelReferenciaValor().setText(String.format("%02d/%04d", ref.getMonthValue(), ref.getYear()));
             return new Parametros(edificio, mes, ano, ref);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(tela, ex.getMessage(), "Validação", JOptionPane.WARNING_MESSAGE);
@@ -567,12 +605,22 @@ public class GestaoCondominioController implements ActionListener {
     }
 
     private void preencherTabela(List<Condominio> registros, int edificioId, YearMonth referencia) {
-        NumberFormat moeda = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR"));
         this.registros = List.copyOf(registros);
         this.edificioGrade = edificioId;
         this.referenciaGrade = referencia;
+        atualizarGrade();
+    }
+
+    private void atualizarGrade() {
+        int conta = tela.contaSelecionada();
+        var tabela = tela.getjTableResultado();
+        var colunas = tabela.getColumnModel();
+        colunas.getColumn(tabela.convertColumnIndexToView(4))
+                .setHeaderValue(conta == 0 ? "Valor Emitido" : tela.nomeContaSelecionada());
+        colunas.getColumn(tabela.convertColumnIndexToView(5))
+                .setHeaderValue(conta == 0 ? "Valor Pago" : "Pago (todas as contas)");
+        tabela.getTableHeader().repaint();
         modelo.setRowCount(0);
-        BigDecimal total = BigDecimal.ZERO;
         for (Condominio c : registros) {
             var uc = c.getUnidadeCondomino();
             String unidade = uc == null || uc.getUnidade() == null ? "" : uc.getUnidade().getDescricao();
@@ -582,12 +630,35 @@ public class GestaoCondominioController implements ActionListener {
             Double pago = Condominio.PAGO.equals(c.getStatus()) || Condominio.PROTESTADO.equals(c.getStatus())
                     ? c.getValorPago() : null;
             modelo.addRow(new Object[]{c.getMesReferencia(), c.getAnoReferencia(), unidade,
-                c.getDataVencimento(), c.getValorEmitido(), pago, prop, status});
-            total = total.add(BigDecimal.valueOf(c.getValorEmitido()));
+                c.getDataVencimento(), valorConta(c, conta), pago, prop, status});
         }
-        tela.getjLabelQuantidadeValor().setText(String.valueOf(registros.size()));
-        tela.getjLabelTotalValor().setText(moeda.format(total.setScale(2, java.math.RoundingMode.HALF_UP)));
         aplicarFiltro();
+    }
+
+    private BigDecimal valorConta(Condominio condominio, int conta) {
+        if (conta == 0) return BigDecimal.valueOf(condominio.getValorEmitido());
+        Condominio.Detalhamento detalhe = condominio.getDetalhamento();
+        if (detalhe != null) {
+            return switch (conta) {
+                case 1 -> detalhe.agua();
+                case 2 -> detalhe.gas();
+                case 3 -> detalhe.rateioUnidade();
+                case 4 -> detalhe.rateioM2();
+                default -> throw new IllegalArgumentException("Conta inválida.");
+            };
+        }
+        String observacao = condominio.getObservacao();
+        if (observacao == null) return null;
+        var detalhamento = DETALHAMENTO.matcher(observacao);
+        if (!detalhamento.matches()) return null;
+        int grupo = switch (conta) {
+            case 1 -> 3; // Água
+            case 2 -> 4; // Gás
+            case 3 -> 1; // Rateio por unidade
+            case 4 -> 2; // Rateio por m²
+            default -> throw new IllegalArgumentException("Conta inválida.");
+        };
+        return new BigDecimal(detalhamento.group(grupo));
     }
 
     private void aplicarFiltro() {
@@ -597,21 +668,43 @@ public class GestaoCondominioController implements ActionListener {
         String status = String.valueOf(tela.getjComboBoxStatus().getSelectedItem());
         if (!"Todos".equals(status)) filtros.add(RowFilter.regexFilter("^" + Pattern.quote(status) + "$", 7));
         sorter.setRowFilter(filtros.isEmpty() ? null : RowFilter.andFilter(filtros));
+        atualizarResumo();
+        atualizarAcoes();
+    }
+
+    private void atualizarResumo() {
+        BigDecimal total = BigDecimal.ZERO;
+        int semDetalhamento = 0;
+        int linhas = sorter.getViewRowCount();
+        for (int i = 0; i < linhas; i++) {
+            BigDecimal valor = (BigDecimal) modelo.getValueAt(sorter.convertRowIndexToModel(i), 4);
+            if (valor == null) {
+                semDetalhamento++;
+            } else {
+                total = total.add(valor);
+            }
+        }
+        String rotulo = tela.contaSelecionada() == 0 ? "Total emitido" : "Subtotal";
+        tela.getjLabelResumoTotal().setText(semDetalhamento == 0 ? rotulo : "Subtotal parcial");
+        tela.getjLabelResumoTotal().setToolTipText(semDetalhamento == 0 ? null
+                : semDetalhamento + " registro(s) sem detalhamento da conta selecionada.");
+        tela.getjLabelQuantidadeValor().setText(String.valueOf(linhas));
+        NumberFormat moeda = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR"));
+        tela.getjLabelTotalValor().setText(linhas > 0 && semDetalhamento == linhas ? "Indisponível" : moeda.format(total));
     }
 
     private void limpar() {
         definirEdificio(null);
-        LocalDate hoje = LocalDate.now();
-        tela.getjTextFieldMes().setText(Integer.toString(hoje.getMonthValue()));
-        tela.getjTextFieldAno().setText(Integer.toString(hoje.getYear()));
+        YearMonth competencia = YearMonth.now().minusMonths(1);
+        tela.getjTextFieldMes().setText(Integer.toString(competencia.getMonthValue()));
+        tela.getjTextFieldAno().setText(Integer.toString(competencia.getYear()));
         tela.getjTextFieldFiltroUnidade().setText("");
         tela.getjComboBoxStatus().setSelectedIndex(0);
         registros = List.of();
         referenciaGrade = null;
-        modelo.setRowCount(0);
-        tela.getjLabelQuantidadeValor().setText("0");
-        tela.getjLabelTotalValor().setText(NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR")).format(java.math.BigDecimal.ZERO));
-        tela.getjLabelReferenciaValor().setText("--/----");
+        tela.selecionarTodasAsContas();
+        atualizarGrade();
+        atualizarCompetencia();
     }
 
     private void definirOcupado(boolean estado) {

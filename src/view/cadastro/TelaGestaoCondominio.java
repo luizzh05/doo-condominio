@@ -23,8 +23,40 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
     public TelaGestaoCondominio(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        configurarSeletorConta();
+        pack();
         getContentPane().setBackground(new java.awt.Color(243, 244, 246));
     }
+
+    private static final String[] CONTAS = {"Todas as contas", "Água", "Gás", "Rateio por unidade", "Rateio por m²"};
+    private final javax.swing.JToggleButton[] botoesConta = new javax.swing.JToggleButton[CONTAS.length];
+
+    private void configurarSeletorConta() {
+        var grupo = new javax.swing.ButtonGroup();
+        for (int i = 0; i < CONTAS.length; i++) {
+            var botao = new javax.swing.JToggleButton(CONTAS[i]);
+            botao.setFont(new java.awt.Font("Segoe UI", 0, 12));
+            botoesConta[i] = botao;
+            grupo.add(botao);
+            jPanelContas.add(botao);
+        }
+        botoesConta[0].setSelected(true);
+    }
+
+    public int contaSelecionada() {
+        for (int i = 0; i < botoesConta.length; i++) {
+            if (botoesConta[i].isSelected()) return i;
+        }
+        return 0;
+    }
+
+    public String nomeContaSelecionada() { return CONTAS[contaSelecionada()]; }
+
+    public void aoSelecionarConta(java.awt.event.ActionListener listener) {
+        for (var botao : botoesConta) botao.addActionListener(listener);
+    }
+
+    public void selecionarTodasAsContas() { botoesConta[0].setSelected(true); }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,13 +79,12 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
         jTextFieldMes = new javax.swing.JTextField();
         jLabelAno = new javax.swing.JLabel();
         jTextFieldAno = new javax.swing.JTextField();
-        jLabelReferencia = new javax.swing.JLabel();
-        jLabelReferenciaValor = new javax.swing.JLabel();
         jPanelResultado = new javax.swing.JPanel();
         jLabelSecaoResultado = new javax.swing.JLabel();
         jLabelUnidade = new javax.swing.JLabel();
         jTextFieldFiltroUnidade = new javax.swing.JTextField();
         jLabelStatus = new javax.swing.JLabel();
+        jPanelContas = new javax.swing.JPanel();
         jComboBoxStatus = new javax.swing.JComboBox<>();
         jScrollPaneResultado = new javax.swing.JScrollPane();
         jTableResultado = new javax.swing.JTable();
@@ -78,15 +109,15 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
         setTitle("Gestão de Condomínios");
         setResizable(false);
 
-        jPanelTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelTitulo.setBackground(new java.awt.Color(83, 0, 30));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(222, 226, 230)));
 
         jLabeltitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabeltitulo.setForeground(new java.awt.Color(33, 37, 41));
+        jLabeltitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltitulo.setText("Gestão de Condomínios");
 
         jLabelSubtitulo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabelSubtitulo.setForeground(new java.awt.Color(108, 117, 125));
+        jLabelSubtitulo.setForeground(new java.awt.Color(250, 229, 236));
         jLabelSubtitulo.setText("Gere os condomínios de um mês encerrado e confira os valores emitidos por unidade.");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
@@ -133,7 +164,7 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
 
         jLabelMes.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelMes.setForeground(new java.awt.Color(33, 37, 41));
-        jLabelMes.setText("Mês");
+        jLabelMes.setText("Mês de competência");
 
         jTextFieldMes.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldMes.setPreferredSize(new java.awt.Dimension(60, 28));
@@ -145,13 +176,6 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
         jTextFieldAno.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextFieldAno.setPreferredSize(new java.awt.Dimension(80, 28));
 
-        jLabelReferencia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabelReferencia.setForeground(new java.awt.Color(33, 37, 41));
-        jLabelReferencia.setText("Referência");
-
-        jLabelReferenciaValor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabelReferenciaValor.setForeground(new java.awt.Color(33, 37, 41));
-        jLabelReferenciaValor.setText("--/----");
 
         javax.swing.GroupLayout jPanelParametrosLayout = new javax.swing.GroupLayout(jPanelParametros);
         jPanelParametros.setLayout(jPanelParametrosLayout);
@@ -168,17 +192,13 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
                         .addGap(8, 8, 8)
                         .addComponent(jButtonSelecionarEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelParametrosLayout.createSequentialGroup()
-                        .addComponent(jLabelMes, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelMes, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(jTextFieldMes, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
                         .addComponent(jLabelAno, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(jTextFieldAno, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabelReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabelReferenciaValor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldAno, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12))
         );
         jPanelParametrosLayout.setVerticalGroup(
@@ -196,9 +216,7 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
                     .addComponent(jLabelMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelReferenciaValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
@@ -219,6 +237,9 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
         jLabelStatus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelStatus.setForeground(new java.awt.Color(33, 37, 41));
         jLabelStatus.setText("Status");
+
+        jPanelContas.setOpaque(false);
+        jPanelContas.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 8, 0));
 
         jComboBoxStatus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Ativo", "Inativo", "Processado", "Pago", "Protestado" }));
@@ -331,6 +352,7 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
                         .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelContas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPaneResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelAcoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelResumo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -347,7 +369,9 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
                     .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addComponent(jScrollPaneResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelContas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jScrollPaneResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addComponent(jPanelAcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
@@ -478,9 +502,9 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
     public JButton getjButtonPesquisar() { return jButtonPesquisar; }
     public JButton getjButtonSelecionarEdificio() { return jButtonSelecionarEdificio; }
     public JComboBox<String> getjComboBoxEdificio() { return jComboBoxEdificio; }
+    public javax.swing.JLabel getjLabelResumoTotal() { return jLabelResumoTotal; }
     public JComboBox<String> getjComboBoxStatus() { return jComboBoxStatus; }
     public JLabel getjLabelQuantidadeValor() { return jLabelQuantidadeValor; }
-    public JLabel getjLabelReferenciaValor() { return jLabelReferenciaValor; }
     public JLabel getjLabelTotalValor() { return jLabelTotalValor; }
     public JPanel getjPanelParametros() { return jPanelParametros; }
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
@@ -500,13 +524,12 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
     private javax.swing.JButton jButtonProcessar;
     private javax.swing.JButton jButtonSelecionarEdificio;
     private javax.swing.JComboBox<String> jComboBoxEdificio;
+    private javax.swing.JPanel jPanelContas;
     private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JLabel jLabelAno;
     private javax.swing.JLabel jLabelEdificio;
     private javax.swing.JLabel jLabelMes;
     private javax.swing.JLabel jLabelQuantidadeValor;
-    private javax.swing.JLabel jLabelReferencia;
-    private javax.swing.JLabel jLabelReferenciaValor;
     private javax.swing.JLabel jLabelResumoQuantidade;
     private javax.swing.JLabel jLabelResumoTotal;
     private javax.swing.JLabel jLabelRodape;

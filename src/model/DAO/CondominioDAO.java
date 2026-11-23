@@ -11,15 +11,15 @@ import model.Condominio;
 import model.UnidadeCondomino;
 
 public class CondominioDAO implements InterfaceDAO<Condominio> {
-    private static final String COLUMNS = "id, mes_referencia, ano_referencia, data_emissao, data_vencimento, data_pagamento, juros, multas, correcao, valor_emitido, valor_pago, observacao, status, unidade_condomino_id"
+    private static final String COLUMNS = "id, mes_referencia, ano_referencia, data_emissao, data_vencimento, data_pagamento, juros, multas, correcao, valor_emitido, valor_pago, observacao, status, unidade_condomino_id, valor_agua, valor_gas, valor_rateio_unidade, valor_rateio_m2"
             + ", (SELECT u.descricao FROM unidade u JOIN unidade_condomino uc ON uc.unidade_id = u.id WHERE uc.id = condominio.unidade_condomino_id) AS descricao_unidade";
 
     @Override
     public void create(Condominio objeto) {
-        String sql = "INSERT INTO condominio (mes_referencia, ano_referencia, data_emissao, data_vencimento, data_pagamento, juros, multas, correcao, valor_emitido, valor_pago, observacao, status, unidade_condomino_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO condominio (mes_referencia, ano_referencia, data_emissao, data_vencimento, data_pagamento, juros, multas, correcao, valor_emitido, valor_pago, observacao, status, unidade_condomino_id, valor_agua, valor_gas, valor_rateio_unidade, valor_rateio_m2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = ConnectionFactory.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            bind(stmt, objeto);
+            bindInsercao(stmt, objeto);
             stmt.executeUpdate();
             try (ResultSet keys = stmt.getGeneratedKeys()) {
                 if (keys.next()) objeto.setId(keys.getInt(1));
@@ -126,7 +126,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
     }
 
     public List<Condominio> listarPorEdificioReferencia(int edificioId, int mesReferencia, int anoReferencia) {
-        String sql = "SELECT c.id, c.mes_referencia, c.ano_referencia, c.data_emissao, c.data_vencimento, c.data_pagamento, c.juros, c.multas, c.correcao, c.valor_emitido, c.valor_pago, c.observacao, c.status, c.unidade_condomino_id, u.descricao AS descricao_unidade, p.nome_fantasia AS nome_proprietario"
+        String sql = "SELECT c.id, c.mes_referencia, c.ano_referencia, c.data_emissao, c.data_vencimento, c.data_pagamento, c.juros, c.multas, c.correcao, c.valor_emitido, c.valor_pago, c.observacao, c.status, c.unidade_condomino_id, c.valor_agua, c.valor_gas, c.valor_rateio_unidade, c.valor_rateio_m2, u.descricao AS descricao_unidade, p.nome_fantasia AS nome_proprietario"
                 + " FROM condominio c JOIN unidade_condomino uc ON uc.id = c.unidade_condomino_id JOIN unidade u ON u.id = uc.unidade_id JOIN proprietario p ON p.id = uc.proprietario_id"
                 + " WHERE u.edificio_id = ? AND c.mes_referencia = ? AND c.ano_referencia = ? ORDER BY u.descricao, c.id";
         List<Condominio> itens = new ArrayList<>();
@@ -154,7 +154,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
         if (condominios == null || condominios.isEmpty()) {
             throw new IllegalArgumentException("Nenhum condomínio para gerar.");
         }
-        String sql = "INSERT INTO condominio (mes_referencia, ano_referencia, data_emissao, data_vencimento, data_pagamento, juros, multas, correcao, valor_emitido, valor_pago, observacao, status, unidade_condomino_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO condominio (mes_referencia, ano_referencia, data_emissao, data_vencimento, data_pagamento, juros, multas, correcao, valor_emitido, valor_pago, observacao, status, unidade_condomino_id, valor_agua, valor_gas, valor_rateio_unidade, valor_rateio_m2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String mensagemDuplicado = String.format("Já existem condomínios gerados para este edifício em %02d/%04d. Geração bloqueada.", mesReferencia, anoReferencia);
         try (Connection conn = ConnectionFactory.getConnection()) {
             try {
@@ -165,7 +165,7 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
                 }
                 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                     for (Condominio condominio : condominios) {
-                        bind(stmt, condominio);
+                        bindInsercao(stmt, condominio);
                         stmt.addBatch();
                     }
                     stmt.executeBatch();
@@ -244,6 +244,15 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
         }
     }
 
+    private static void bindInsercao(PreparedStatement stmt, Condominio objeto) throws SQLException {
+        bind(stmt, objeto);
+        Condominio.Detalhamento detalhe = objeto.getDetalhamento();
+        stmt.setBigDecimal(14, detalhe == null ? null : detalhe.agua());
+        stmt.setBigDecimal(15, detalhe == null ? null : detalhe.gas());
+        stmt.setBigDecimal(16, detalhe == null ? null : detalhe.rateioUnidade());
+        stmt.setBigDecimal(17, detalhe == null ? null : detalhe.rateioM2());
+    }
+
     private static void bind(PreparedStatement stmt, Condominio objeto) throws SQLException {
         stmt.setInt(1, objeto.getMesReferencia());
         stmt.setInt(2, objeto.getAnoReferencia());
@@ -275,6 +284,13 @@ public class CondominioDAO implements InterfaceDAO<Condominio> {
         objeto.setValorEmitido(rs.getDouble("valor_emitido"));
         objeto.setValorPago(rs.getDouble("valor_pago"));
         objeto.setObservacao(rs.getString("observacao"));
+        var agua = rs.getBigDecimal("valor_agua");
+        var gas = rs.getBigDecimal("valor_gas");
+        var unidade = rs.getBigDecimal("valor_rateio_unidade");
+        var area = rs.getBigDecimal("valor_rateio_m2");
+        if (agua != null && gas != null && unidade != null && area != null) {
+            objeto.setDetalhamento(new Condominio.Detalhamento(agua, gas, unidade, area));
+        }
         objeto.setStatus(rs.getString("status"));
         int unidadeCondominoId = rs.getInt("unidade_condomino_id");
         if (!rs.wasNull()) {

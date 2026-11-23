@@ -26,7 +26,7 @@ public class GestaoCondominioService {
         if (mesSelecionado < 1 || mesSelecionado > 12 || anoSelecionado < 2000 || anoSelecionado > 2100) {
             throw new IllegalArgumentException("Informe mês entre 1 e 12 e ano entre 2000 e 2100.");
         }
-        return YearMonth.of(anoSelecionado, mesSelecionado).minusMonths(1);
+        return YearMonth.of(anoSelecionado, mesSelecionado);
     }
 
     public PreviaGeracaoCondominio calcular(Edificio edificio, int mesSelecionado, int anoSelecionado) {

@@ -177,9 +177,8 @@ public final class CalculadoraCondominio {
             c.setValorPago(0);
             c.setStatus("A");
             c.setValorEmitido(valor.doubleValue());
-            String obs = String.format("Gerado: Und %s; m² %s; Água %s; Gás %s",
-                    und.toPlainString(), m2.toPlainString(), agua.toPlainString(), gas.toPlainString());
-            c.setObservacao(obs.length() > 100 ? obs.substring(0, 100) : obs);
+            c.setDetalhamento(new Condominio.Detalhamento(agua, gas, und, m2));
+            c.setObservacao("Gerado automaticamente.");
             c.setUnidadeCondomino(uc);
             resultado.add(c);
         }
