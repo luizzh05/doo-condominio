@@ -24,8 +24,37 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         configurarSeletorConta();
+        configurarGrade();
         pack();
         getContentPane().setBackground(new java.awt.Color(243, 244, 246));
+    }
+
+    private static final java.awt.Color VINHO = new java.awt.Color(83, 0, 30);
+    private static final java.awt.Color ROSA_CLARO = new java.awt.Color(249, 240, 244);
+    private final JLabel mensagemGrade = new JLabel("", javax.swing.SwingConstants.CENTER);
+
+    private void configurarGrade() {
+        jLabelSecaoParametros.setForeground(VINHO);
+        jLabelSecaoResultado.setForeground(VINHO);
+        jPanelResumo.setBackground(ROSA_CLARO);
+        jLabelTotalValor.setForeground(VINHO);
+        jTableResultado.setRowHeight(30);
+        jTableResultado.setShowVerticalLines(false);
+        jTableResultado.setGridColor(new java.awt.Color(232, 226, 230));
+        jTableResultado.setSelectionBackground(ROSA_CLARO);
+        jTableResultado.setSelectionForeground(VINHO);
+        jTableResultado.getTableHeader().setFont(new java.awt.Font("Segoe UI", 1, 12));
+        jScrollPaneResultado.getViewport().setBackground(java.awt.Color.WHITE);
+        mensagemGrade.setFont(new java.awt.Font("Segoe UI", 0, 13));
+        mensagemGrade.setForeground(new java.awt.Color(87, 81, 85));
+    }
+
+    public void mostrarMensagemGrade(String mensagem) {
+        mensagemGrade.setText(mensagem);
+        var conteudo = mensagem == null ? jTableResultado : mensagemGrade;
+        if (jScrollPaneResultado.getViewport().getView() != conteudo) {
+            jScrollPaneResultado.setViewportView(conteudo);
+        }
     }
 
     private static final String[] CONTAS = {"Todas as contas", "Água", "Gás", "Rateio por unidade", "Rateio por m²"};
@@ -36,6 +65,11 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
         for (int i = 0; i < CONTAS.length; i++) {
             var botao = new javax.swing.JToggleButton(CONTAS[i]);
             botao.setFont(new java.awt.Font("Segoe UI", 0, 12));
+            botao.setMargin(new java.awt.Insets(5, 11, 5, 11));
+            botao.addItemListener(e -> {
+                botao.setForeground(botao.isSelected() ? VINHO : new java.awt.Color(51, 45, 49));
+                botao.setFont(botao.getFont().deriveFont(botao.isSelected() ? java.awt.Font.BOLD : java.awt.Font.PLAIN));
+            });
             botoesConta[i] = botao;
             grupo.add(botao);
             jPanelContas.add(botao);
@@ -82,7 +116,7 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
         jPanelResultado = new javax.swing.JPanel();
         jLabelSecaoResultado = new javax.swing.JLabel();
         jLabelUnidade = new javax.swing.JLabel();
-        jTextFieldFiltroUnidade = new javax.swing.JTextField();
+        jComboBoxFiltroUnidade = new javax.swing.JComboBox<>();
         jLabelStatus = new javax.swing.JLabel();
         jPanelContas = new javax.swing.JPanel();
         jComboBoxStatus = new javax.swing.JComboBox<>();
@@ -231,8 +265,9 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
         jLabelUnidade.setForeground(new java.awt.Color(33, 37, 41));
         jLabelUnidade.setText("Unidade");
 
-        jTextFieldFiltroUnidade.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextFieldFiltroUnidade.setPreferredSize(new java.awt.Dimension(180, 28));
+        jComboBoxFiltroUnidade.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jComboBoxFiltroUnidade.setPreferredSize(new java.awt.Dimension(220, 28));
+        jLabelUnidade.setLabelFor(jComboBoxFiltroUnidade);
 
         jLabelStatus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelStatus.setForeground(new java.awt.Color(33, 37, 41));
@@ -347,7 +382,7 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabelUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(jTextFieldFiltroUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxFiltroUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
                         .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
@@ -365,13 +400,13 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
                 .addGroup(jPanelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelSecaoResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldFiltroUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxFiltroUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addComponent(jPanelContas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(jScrollPaneResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addComponent(jPanelAcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
@@ -510,7 +545,7 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
     public JPanel getjPanelbotoes() { return jPanelbotoes; }
     public JTable getjTableResultado() { return jTableResultado; }
     public JTextField getjTextFieldAno() { return jTextFieldAno; }
-    public JTextField getjTextFieldFiltroUnidade() { return jTextFieldFiltroUnidade; }
+    public JComboBox<String> getjComboBoxFiltroUnidade() { return jComboBoxFiltroUnidade; }
     public JTextField getjTextFieldMes() { return jTextFieldMes; }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -549,7 +584,7 @@ public class TelaGestaoCondominio extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPaneResultado;
     private javax.swing.JTable jTableResultado;
     private javax.swing.JTextField jTextFieldAno;
-    private javax.swing.JTextField jTextFieldFiltroUnidade;
+    private javax.swing.JComboBox<String> jComboBoxFiltroUnidade;
     private javax.swing.JTextField jTextFieldMes;
     // End of variables declaration//GEN-END:variables
 }

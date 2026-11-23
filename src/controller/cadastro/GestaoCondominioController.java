@@ -126,14 +126,7 @@ public class GestaoCondominioController implements ActionListener {
                 .put(KeyStroke.getKeyStroke(KeyEvent.VK_F8, 0), "none");
         sorter = new TableRowSorter<>(modelo);
         tela.getjTableResultado().setRowSorter(sorter);
-        tela.getjTextFieldFiltroUnidade().getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) { aplicarFiltro(); }
-            @Override
-            public void removeUpdate(DocumentEvent e) { aplicarFiltro(); }
-            @Override
-            public void changedUpdate(DocumentEvent e) { aplicarFiltro(); }
-        });
+        tela.getjComboBoxFiltroUnidade().addActionListener(e -> aplicarFiltro());
         tela.getjComboBoxStatus().addActionListener(this);
         tela.getjComboBoxEdificio().addActionListener(e -> atualizarAcoes());
         tela.aoSelecionarConta(e -> atualizarGrade());
@@ -152,6 +145,8 @@ public class GestaoCondominioController implements ActionListener {
         tela.getjTextFieldAno().getDocument().addDocumentListener(periodo);
         definirEdificio(null);
         atualizarCompetencia();
+        atualizarUnidades(null);
+        aplicarFiltro();
         registrarAtalho(KeyStroke.getKeyStroke("F5"), "pesquisar", tela.getjButtonPesquisar());
         registrarAtalho(KeyStroke.getKeyStroke("F8"), "gerar", tela.getjButtonGerar());
         registrarAtalho(KeyStroke.getKeyStroke("ESCAPE"), "fechar", tela.getjButtonFechar());
@@ -605,10 +600,36 @@ public class GestaoCondominioController implements ActionListener {
     }
 
     private void preencherTabela(List<Condominio> registros, int edificioId, YearMonth referencia) {
+        String unidadeSelecionada = this.edificioGrade == edificioId && referencia != null
+                && referencia.equals(this.referenciaGrade)
+                ? (String) tela.getjComboBoxFiltroUnidade().getSelectedItem() : null;
         this.registros = List.copyOf(registros);
         this.edificioGrade = edificioId;
         this.referenciaGrade = referencia;
+        atualizarUnidades(unidadeSelecionada);
         atualizarGrade();
+    }
+
+    private static final String TODAS_UNIDADES = "Todas as unidades";
+
+    private String nomeUnidade(Condominio condominio) {
+        var vinculo = condominio.getUnidadeCondomino();
+        if (vinculo == null || vinculo.getUnidade() == null || vinculo.getUnidade().getDescricao() == null) return "";
+        return vinculo.getUnidade().getDescricao();
+    }
+
+    private void atualizarUnidades(String unidadeSelecionada) {
+        var opcoes = new javax.swing.DefaultComboBoxModel<String>();
+        opcoes.addElement(TODAS_UNIDADES);
+        registros.stream()
+                .map(this::nomeUnidade)
+                .filter(nome -> !nome.isBlank())
+                .distinct()
+                .sorted(java.text.Collator.getInstance(Locale.forLanguageTag("pt-BR")))
+                .forEach(opcoes::addElement);
+        if (opcoes.getIndexOf(unidadeSelecionada) > 0) opcoes.setSelectedItem(unidadeSelecionada);
+        tela.getjComboBoxFiltroUnidade().setModel(opcoes);
+        tela.getjComboBoxFiltroUnidade().setEnabled(opcoes.getSize() > 1);
     }
 
     private void atualizarGrade() {
@@ -623,7 +644,7 @@ public class GestaoCondominioController implements ActionListener {
         modelo.setRowCount(0);
         for (Condominio c : registros) {
             var uc = c.getUnidadeCondomino();
-            String unidade = uc == null || uc.getUnidade() == null ? "" : uc.getUnidade().getDescricao();
+            String unidade = nomeUnidade(c);
             String prop = uc == null || uc.getProprietario() == null || uc.getProprietario().getNomeFantasia() == null
                     ? "" : uc.getProprietario().getNomeFantasia();
             String status = Condominio.descricaoStatus(c.getStatus());
@@ -663,13 +684,27 @@ public class GestaoCondominioController implements ActionListener {
 
     private void aplicarFiltro() {
         List<RowFilter<DefaultTableModel, Integer>> filtros = new ArrayList<>();
-        String txt = tela.getjTextFieldFiltroUnidade().getText().trim();
-        if (!txt.isEmpty()) filtros.add(RowFilter.regexFilter("(?i)" + Pattern.quote(txt), 2));
+        var unidades = tela.getjComboBoxFiltroUnidade();
+        if (unidades.getSelectedIndex() > 0) {
+            filtros.add(RowFilter.regexFilter("^" + Pattern.quote((String) unidades.getSelectedItem()) + "$", 2));
+        }
         String status = String.valueOf(tela.getjComboBoxStatus().getSelectedItem());
         if (!"Todos".equals(status)) filtros.add(RowFilter.regexFilter("^" + Pattern.quote(status) + "$", 7));
         sorter.setRowFilter(filtros.isEmpty() ? null : RowFilter.andFilter(filtros));
         atualizarResumo();
         atualizarAcoes();
+        String mensagem = null;
+        if (sorter.getViewRowCount() == 0) {
+            if (!registros.isEmpty()) {
+                mensagem = "Nenhuma cobrança corresponde aos filtros.";
+            } else if (referenciaGrade != null) {
+                mensagem = "Nenhuma cobrança gerada para este edifício e competência.";
+            } else {
+                mensagem = edificioSelecionado == null ? "Selecione um edifício para consultar as cobranças."
+                        : "Use Pesquisar para carregar as cobranças da competência.";
+            }
+        }
+        tela.mostrarMensagemGrade(mensagem);
     }
 
     private void atualizarResumo() {
@@ -698,12 +733,9 @@ public class GestaoCondominioController implements ActionListener {
         YearMonth competencia = YearMonth.now().minusMonths(1);
         tela.getjTextFieldMes().setText(Integer.toString(competencia.getMonthValue()));
         tela.getjTextFieldAno().setText(Integer.toString(competencia.getYear()));
-        tela.getjTextFieldFiltroUnidade().setText("");
         tela.getjComboBoxStatus().setSelectedIndex(0);
-        registros = List.of();
-        referenciaGrade = null;
         tela.selecionarTodasAsContas();
-        atualizarGrade();
+        preencherTabela(List.of(), 0, null);
         atualizarCompetencia();
     }
 
